@@ -1,0 +1,11 @@
+body {
+    margin-top: 50px;
+}
+
+.footer {
+    border-top: 1px solid lightgrey;
+    font-size: small;
+    margin-top: 50px;
+    padding: 20px 0;
+    text-align: center;
+}

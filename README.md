@@ -1,2 +1,3 @@
-csgo-buynds
-===========
+# csgo-buynds
+
+Coming soon...
