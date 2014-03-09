@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="skg panel panel-primary">
+            <div class="panel-heading">
+                <h4>Bind Options</h4>
+            </div>
+            <div class="panel-body">
+                <form id="skgForm" name="skgForm" class="form-horizontal">
+                    <div class="form-group" ng-class="{ 'has-error': submitted && skgForm.skgKeySelect.$invalid }">
+                        <label for="skgKeySelect" class="control-label col-sm-3">Key to Bind</label>
+                        <div class="col-sm-9">
+                            <select id="skgKeySelect" name="skgKeySelect" class="form-control col-sm-8" ng-model="bindOptions.keyToBind" required>
+                                <option value="">Select a key to bind...</option>
+                                <option ng-repeat="bindableKey in bindableKeys" value="{{ bindableKey.bind }}">{{ bindableKey.name }}</option>
+                            </select>
+                            <p class="help-block" ng-show="submitted && skgForm.skgKeySelect.$invalid">* You must select a key to bind!</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="skgPrimaryWeaponSelect" class="control-label col-sm-3">Primary Weapon</label>
+                        <div class="col-sm-9">
+                            <select id="skgPrimaryWeaponSelect" name="skgPrimaryWeaponSelect" class="form-control" ng-model="bindOptions.primaryWeapon">
+                                <option value="">None</option>
+                                <option ng-repeat="primary in primaryWeapons" value="{{ primary.bind }}">{{ primary.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="skgSecondaryWeaponSelect" class="control-label col-sm-3">Secondary Weapon</label>
+                        <div class="col-sm-9">
+                            <select id="skgSecondaryWeaponSelect" name="skgSecondaryWeaponSelect" class="form-control" ng-model="bindOptions.secondaryWeapon">
+                                <option value="">None</option>
+                                <option ng-repeat="secondary in secondaryWeapons" value="{{ secondary.bind }}">{{ secondary.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Gear</label>
+                        <div class="col-sm-9">
+                            <div class="checkbox checkbox-inline">
+                                <label for="skgGearVestHelm">
+                                    <input id="skgGearVestHelm" name="skgGear" type="checkbox" checked disabled /> Vest & Helmet
+                                </label>
+                            </div>
+                            <div class="checkbox checkbox-inline">
+                                <label for="skgGearVest">
+                                    <input id="skgGearVest" name="skgGear" type="checkbox" checked disabled /> Vest
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <input id="skgSubmitBtn" name="skgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBind(bindOptions)" value="Generate Bind" />
+                            <input id="skgResetBtn" name="skgResetBtn" type="reset" class="btn btn-default" ng-click="resetBind()" value="Reset" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer" ng-show="buyBind">
+                <h4>Generated Buy Bind:</h4>
+                <pre>{{ buyBind }}</pre>
+            </div>
+        </div>
+    </div>
+</div>

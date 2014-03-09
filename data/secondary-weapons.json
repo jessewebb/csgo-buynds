@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Glock / P2000 / USP-S",
+        "bind": "glock,hkp2000"
+    },
+    {
+        "name": "P250 / CZ75-Auto",
+        "bind": "p250"
+    },
+    {
+        "name": "Desert Eagle .50 AE",
+        "bind": "deagle"
+    }
+]

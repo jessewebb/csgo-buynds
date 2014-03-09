@@ -9,3 +9,12 @@ body {
     padding: 20px 0;
     text-align: center;
 }
+
+/* Single-Key Generator Styles */
+.skg {
+    margin: 10px 0;
+}
+
+.skg .panel-footer pre {
+    background-color: white;
+}

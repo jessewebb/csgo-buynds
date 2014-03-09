@@ -1,0 +1,22 @@
+[
+    {
+        "name": "1 / End",
+        "bind": "kp_end"
+    },
+    {
+        "name": "2 / Down Arrow",
+        "bind": "kp_downarrow"
+    },
+    {
+        "name": "3 / Page Down",
+        "bind": "kp_pgdn"
+    },
+    {
+        "name": "4 / Left Arrow",
+        "bind": "kp_leftarrow"
+    },
+    {
+        "name": "5",
+        "bind": "kp_5"
+    }
+]
