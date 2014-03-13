@@ -15,6 +15,25 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$http', 'bindBuilde
         $scope.secondaryWeapons = data;
     });
 
+    $scope.gear = [
+        {
+            "name": "Kevlar Vest",
+            "bind": "vest"
+        },
+        {
+            "name": "Kevlar + Helmet",
+            "bind": "vesthelm"
+        },
+        {
+            "name": "Zeus x27",
+            "bind": "taser"
+        },
+        {
+            "name": "Defuse Kit",
+            "bind": "defuser"
+        }
+    ]
+
     $scope.buyBind = '';
     $scope.submitted = false;
 

@@ -22,7 +22,14 @@ buyndsServices.service('bindBuilder', function () {
             }
         }
 
-        bindString += 'buy vesthelm; buy vest;';
+        if (bindOptions.gear) {
+            var gearArray = bindOptions.gear.split(",");
+            for (var i = 0; i < gearArray.length; i++) {
+                bindString += 'buy ' + gearArray[i] + '; ';
+            }
+        }
+
+        bindString += 'buy incgrenade; buy molotov;';
         bindString += '"';
         return bindString;
     };

@@ -37,14 +37,9 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3">Gear</label>
                         <div class="col-sm-9">
-                            <div class="checkbox checkbox-inline">
-                                <label for="skgGearVestHelm">
-                                    <input id="skgGearVestHelm" name="skgGear" type="checkbox" checked disabled /> Vest & Helmet
-                                </label>
-                            </div>
-                            <div class="checkbox checkbox-inline">
-                                <label for="skgGearVest">
-                                    <input id="skgGearVest" name="skgGear" type="checkbox" checked disabled /> Vest
+                            <div ng-repeat="gearItem in gear" class="checkbox checkbox-inline">
+                                <label>
+                                    <input name="skgGear[]" type="checkbox" ng-model="bindOptions.gear" ng-true-value="{{ gearItem.bind }}" /> {{ gearItem.name }}
                                 </label>
                             </div>
                         </div>
