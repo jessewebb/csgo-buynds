@@ -18,5 +18,49 @@
     {
         "name": "5",
         "bind": "kp_5"
+    },
+    {
+        "name": "6 / Right Arrow",
+        "bind": "kp_rightarrow"
+    },
+    {
+        "name": "7 / Home",
+        "bind": "kp_home"
+    },
+    {
+        "name": "8 / Up Arrow",
+        "bind": "kp_uparrow"
+    },
+    {
+        "name": "9 / Page Up",
+        "bind": "kp_pgup"
+    },
+    {
+        "name": "0 / Insert",
+        "bind": "kp_ins"
+    },
+    {
+        "name": ". / Delete",
+        "bind": "kp_del"
+    },
+    {
+        "name": "/ (Slash)",
+        "bind": "kp_slash"
+    },
+    {
+        "name": "* (Multiply)",
+        "bind": "kp_multiply"
+    },
+    {
+        "name": "- (Minus)",
+        "bind": "kp_minus"
+    },
+    {
+        "name": "+ (Plus)",
+        "bind": "kp_plus"
+    },
+    {
+        "name": "Enter",
+        "bind": "kp_enter"
     }
 ]
