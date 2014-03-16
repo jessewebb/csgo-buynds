@@ -39,7 +39,11 @@
                         <div class="col-sm-9">
                             <div ng-repeat="gearItem in gear" class="checkbox checkbox-inline">
                                 <label>
-                                    <input name="skgGear[]" type="checkbox" ng-model="bindOptions.gear" ng-true-value="{{ gearItem.bind }}" /> {{ gearItem.name }}
+                                    <input name="skgGear[]"
+                                           type="checkbox"
+                                           value="{{ gearItem.bind }}"
+                                           ng-checked="bindOptions.gear.indexOf(gearItem.bind) > -1"
+                                           ng-click="toggleGearSelection(gearItem.bind)" /> {{ gearItem.name }}
                                 </label>
                             </div>
                         </div>

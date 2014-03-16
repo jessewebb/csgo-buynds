@@ -23,10 +23,9 @@ buyndsServices.service('bindBuilder', function () {
         }
 
         if (bindOptions.gear) {
-            var gearArray = bindOptions.gear.split(",");
-            for (var i = 0; i < gearArray.length; i++) {
-                bindString += 'buy ' + gearArray[i] + '; ';
-            }
+            bindOptions.gear.forEach(function (gearItem) {
+                bindString += 'buy ' + gearItem + '; ';
+            });
         }
 
         bindString += 'buy incgrenade; buy molotov;';

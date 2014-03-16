@@ -32,10 +32,26 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$http', 'bindBuilde
             "name": "Defuse Kit",
             "bind": "defuser"
         }
-    ]
+    ];
 
+    $scope.bindOptions = new BindOptions();
     $scope.buyBind = '';
     $scope.submitted = false;
+
+    // http://stackoverflow.com/a/14520103/346561
+    $scope.toggleGearSelection = function (gearBind) {
+        var idx = $scope.bindOptions.gear.indexOf(gearBind);
+
+        // is currently selected
+        if (idx > -1) {
+            $scope.bindOptions.gear.splice(idx, 1);
+        }
+
+        // is newly selected
+        else {
+            $scope.bindOptions.gear.push(gearBind);
+        }
+    };
 
     $scope.generateBind = function (bindOptions) {
         $scope.submitted = true;
