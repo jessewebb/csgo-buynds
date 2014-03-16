@@ -18,3 +18,12 @@ body {
 .skg .panel-footer pre {
     background-color: white;
 }
+
+/* Media Queries */
+@media (max-width: 767px) {
+    .checkbox-inline.checkbox-not-inline-xs,
+    .radio-inline.radio-not-inline-xs {
+        display: block;
+        margin-left: 0;
+    }
+}
