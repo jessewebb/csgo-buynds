@@ -46,6 +46,7 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$http', 'bindBuilde
     };
 
     $scope.resetBind = function () {
+        $scope.bindOptions = new BindOptions();
         $scope.buyBind = '';
         $scope.submitted = false;
     };
