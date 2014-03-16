@@ -15,8 +15,9 @@ body {
     margin: 10px 0;
 }
 
-.skg .panel-footer pre {
+.skg pre.buy-binds {
     background-color: white;
+    white-space: nowrap;
 }
 
 /* Media Queries */
