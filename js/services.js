@@ -40,7 +40,7 @@ buyndsServices.factory('dataService', ['$http', function ($http) {
     var secondaryWeaponsDataPromise;
     var gearDataPromise;
 
-    var dataService = {
+    return {
         getBindableKeysAsync: function() {
             if (!bindableKeysDataPromise) {
                 bindableKeysDataPromise = $http.get('data/bindable-keys.json').then(function (response) {
@@ -77,6 +77,4 @@ buyndsServices.factory('dataService', ['$http', function ($http) {
             return gearDataPromise;
         }
     };
-
-    return dataService;
 }]);
