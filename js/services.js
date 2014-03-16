@@ -34,17 +34,16 @@ buyndsServices.service('bindBuilder', function () {
     };
 });
 
-// http://stackoverflow.com/a/12513509/346561
 buyndsServices.factory('dataService', ['$http', function ($http) {
     var bindableKeysDataPromise;
     var primaryWeaponsDataPromise;
+    var secondaryWeaponsDataPromise;
+    var gearDataPromise;
 
     var dataService = {
         getBindableKeysAsync: function() {
             if (!bindableKeysDataPromise) {
-                // $http.get() returns a promise, which has a then function, which also returns a promise
                 bindableKeysDataPromise = $http.get('data/bindable-keys.json').then(function (response) {
-                    // The return value gets picked up by the then in the controller.
                     return response.data;
                 });
             }
@@ -58,6 +57,24 @@ buyndsServices.factory('dataService', ['$http', function ($http) {
                 });
             }
             return primaryWeaponsDataPromise;
+        },
+
+        getSecondaryWeaponsAsync: function() {
+            if (!secondaryWeaponsDataPromise) {
+                secondaryWeaponsDataPromise = $http.get('data/secondary-weapons.json').then(function (response) {
+                    return response.data;
+                });
+            }
+            return secondaryWeaponsDataPromise;
+        },
+
+        getGearAsync: function() {
+            if (!gearDataPromise) {
+                gearDataPromise = $http.get('data/gear.json').then(function (response) {
+                    return response.data;
+                });
+            }
+            return gearDataPromise;
         }
     };
 

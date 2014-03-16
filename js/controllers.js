@@ -10,12 +10,10 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$http', 'bindBuilde
     dataService.getPrimaryWeaponsAsync().then(function(data) {
         $scope.primaryWeapons = data;
     });
-
-    $http.get('data/secondary-weapons.json').success(function (data) {
+    dataService.getSecondaryWeaponsAsync().then(function(data) {
         $scope.secondaryWeapons = data;
     });
-
-    $http.get('data/gear.json').success(function (data) {
+    dataService.getGearAsync().then(function(data) {
         $scope.gear = data;
     });
 
@@ -23,17 +21,11 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$http', 'bindBuilde
     $scope.buyBind = '';
     $scope.submitted = false;
 
-    // http://stackoverflow.com/a/14520103/346561
     $scope.toggleGearSelection = function (gearBind) {
         var idx = $scope.bindOptions.gear.indexOf(gearBind);
-
-        // is currently selected
         if (idx > -1) {
             $scope.bindOptions.gear.splice(idx, 1);
-        }
-
-        // is newly selected
-        else {
+        } else {
             $scope.bindOptions.gear.push(gearBind);
         }
     };
