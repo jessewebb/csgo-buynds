@@ -16,6 +16,9 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$http', 'bindBuilde
     dataService.getGearAsync().then(function(data) {
         $scope.gear = data;
     });
+    dataService.getGrenadesAsync().then(function(data) {
+        $scope.grenades = data;
+    });
 
     $scope.bindOptions = new BindOptions();
     $scope.buyBind = '';
@@ -27,6 +30,15 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$http', 'bindBuilde
             $scope.bindOptions.gear.splice(idx, 1);
         } else {
             $scope.bindOptions.gear.push(gearBind);
+        }
+    };
+
+    $scope.toggleGrenadeSelection = function (grenadeBind) {
+        var idx = $scope.bindOptions.grenades.indexOf(grenadeBind);
+        if (idx > -1) {
+            $scope.bindOptions.grenades.splice(idx, 1);
+        } else {
+            $scope.bindOptions.grenades.push(grenadeBind);
         }
     };
 

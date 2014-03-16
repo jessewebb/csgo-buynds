@@ -5,4 +5,5 @@ function BindOptions() {
     this.primaryWeapon = "";
     this.secondaryWeapon = "";
     this.gear = [];
+    this.grenades = [];
 }

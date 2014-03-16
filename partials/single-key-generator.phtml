@@ -48,6 +48,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Grenades</label>
+                        <div class="col-sm-9">
+                            <div ng-repeat="grenade in grenades" class="checkbox checkbox-inline checkbox-not-inline-xs">
+                                <label>
+                                    <input name="skgGrenades[]"
+                                           type="checkbox"
+                                           value="{{ grenade.bind }}"
+                                           ng-checked="bindOptions.grenades.indexOf(grenade.bind) > -1"
+                                           ng-click="toggleGrenadeSelection(grenade.bind)" /> {{ grenade.name }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">

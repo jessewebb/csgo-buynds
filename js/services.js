@@ -28,8 +28,16 @@ buyndsServices.service('bindBuilder', function () {
             });
         }
 
-        bindString += 'buy incgrenade; buy molotov;';
-        bindString += '"';
+        if (bindOptions.grenades) {
+            bindOptions.grenades.forEach(function (grenade) {
+                var grenadeArray = grenade.split(",");
+                grenadeArray.forEach(function (nade) {
+                    bindString += 'buy ' + nade + '; ';
+                });
+            });
+        }
+
+        bindString = bindString.trim() + '"';
         return bindString;
     };
 });
@@ -39,6 +47,7 @@ buyndsServices.factory('dataService', ['$http', function ($http) {
     var primaryWeaponsDataPromise;
     var secondaryWeaponsDataPromise;
     var gearDataPromise;
+    var grenadesDataPromise;
 
     return {
         getBindableKeysAsync: function() {
@@ -75,6 +84,15 @@ buyndsServices.factory('dataService', ['$http', function ($http) {
                 });
             }
             return gearDataPromise;
+        },
+
+        getGrenadesAsync: function() {
+            if (!grenadesDataPromise) {
+                grenadesDataPromise = $http.get('data/grenades.json').then(function (response) {
+                    return response.data;
+                });
+            }
+            return grenadesDataPromise;
         }
     };
 }]);
