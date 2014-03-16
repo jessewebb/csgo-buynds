@@ -2,12 +2,12 @@
 
 var buyndsControllers = angular.module('buyndsControllers', []);
 
-buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$http', 'bindBuilder', function ($scope, $http, bindBuilder) {
-    $http.get('data/bindable-keys.json').success(function (data) {
+buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$http', 'bindBuilder', 'dataService', function ($scope, $http, bindBuilder, dataService) {
+
+    dataService.getBindableKeysAsync().then(function(data) {
         $scope.bindableKeys = data;
     });
-
-    $http.get('data/primary-weapons.json').success(function (data) {
+    dataService.getPrimaryWeaponsAsync().then(function(data) {
         $scope.primaryWeapons = data;
     });
 
