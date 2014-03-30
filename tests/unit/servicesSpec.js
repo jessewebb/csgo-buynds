@@ -133,5 +133,27 @@ describe('buyndsServices', function() {
                 expect(bindableKeys).toEqual(expectedBindableKeys);
             });
         });
+
+        describe('getPrimaryWeaponsAsync()', function() {
+            var expectedPrimaryKeys = [
+                { "name": "SG 553 / AUG", "bind": "sg556,aug" },
+                { "name": "AWP", "bind": "awp" },
+                { "name": "G3SG1 / SCAR-20", "bind": "g3sg1,scar20" }
+            ];
+
+            beforeEach(function() {
+                $httpBackend.expectGET('data/primary-weapons.json').respond(expectedPrimaryKeys);
+            });
+
+            it('should return a promise for data', function() {
+                var primaryWeapons;
+                dataService.getPrimaryWeaponsAsync().then(function(data) {
+                    primaryWeapons = data;
+                });
+                expect(primaryWeapons).toBeUndefined();
+                $httpBackend.flush();
+                expect(primaryWeapons).toEqual(expectedPrimaryKeys);
+            });
+        });
     });
 });
