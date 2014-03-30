@@ -20,7 +20,7 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', 'bindBuilder', 'data
         $scope.grenades = data;
     });
 
-    $scope.bindOptions = new BindOptions();
+    $scope.bindOptions = new buynds.BindOptions();
     $scope.buyBind = '';
     $scope.submitted = false;
 
@@ -50,7 +50,7 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', 'bindBuilder', 'data
     };
 
     $scope.resetBind = function () {
-        $scope.bindOptions = new BindOptions();
+        $scope.bindOptions = new buynds.BindOptions();
         $scope.buyBind = '';
         $scope.submitted = false;
     };
