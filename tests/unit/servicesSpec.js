@@ -134,12 +134,12 @@ describe('buyndsServices', function() {
 
         describe('getPrimaryWeaponsAsync()', function() {
             it('should request primary weapons data and return promise', function() {
-                var expectedPrimaryKeys = [
+                var expectedPrimaryWeapons = [
                     { "name": "SG 553 / AUG", "bind": "sg556,aug" },
                     { "name": "AWP", "bind": "awp" },
                     { "name": "G3SG1 / SCAR-20", "bind": "g3sg1,scar20" }
                 ];
-                $httpBackend.expectGET('data/primary-weapons.json').respond(expectedPrimaryKeys);
+                $httpBackend.expectGET('data/primary-weapons.json').respond(expectedPrimaryWeapons);
 
                 var primaryWeapons;
                 dataService.getPrimaryWeaponsAsync().then(function(data) {
@@ -148,7 +148,26 @@ describe('buyndsServices', function() {
 
                 expect(primaryWeapons).toBeUndefined();
                 $httpBackend.flush();
-                expect(primaryWeapons).toEqual(expectedPrimaryKeys);
+                expect(primaryWeapons).toEqual(expectedPrimaryWeapons);
+            });
+        });
+
+        describe('getSecondaryWeaponsAsync()', function() {
+            it('should request secondary weapons data and return promise', function() {
+                var expectedSecondaryWeapons = [
+                    { "name": "Glock-18 / P2000 / USP-S", "bind": "glock,hkp2000" },
+                    { "name": "Dual Berettas", "bind": "elite" }
+                ];
+                $httpBackend.expectGET('data/secondary-weapons.json').respond(expectedSecondaryWeapons);
+
+                var secondaryWeapons;
+                dataService.getSecondaryWeaponsAsync().then(function(data) {
+                    secondaryWeapons = data;
+                });
+
+                expect(secondaryWeapons).toBeUndefined();
+                $httpBackend.flush();
+                expect(secondaryWeapons).toEqual(expectedSecondaryWeapons);
             });
         });
     });
