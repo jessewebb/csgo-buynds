@@ -114,20 +114,18 @@ describe('buyndsServices', function() {
         }));
 
         describe('getBindableKeysAsync()', function() {
-            var expectedBindableKeys = [
-                { "name": "+ (Plus)", "bind": "kp_plus" },
-                { "name": "Enter", "bind": "kp_enter" }
-            ];
-
-            beforeEach(function() {
+            it('should request bindable keys data and return promise', function() {
+                var expectedBindableKeys = [
+                    { "name": "+ (Plus)", "bind": "kp_plus" },
+                    { "name": "Enter", "bind": "kp_enter" }
+                ];
                 $httpBackend.expectGET('data/bindable-keys.json').respond(expectedBindableKeys);
-            });
 
-            it('should return a promise for data', function() {
                 var bindableKeys;
                 dataService.getBindableKeysAsync().then(function(data) {
                     bindableKeys = data;
                 });
+
                 expect(bindableKeys).toBeUndefined();
                 $httpBackend.flush();
                 expect(bindableKeys).toEqual(expectedBindableKeys);
@@ -135,21 +133,19 @@ describe('buyndsServices', function() {
         });
 
         describe('getPrimaryWeaponsAsync()', function() {
-            var expectedPrimaryKeys = [
-                { "name": "SG 553 / AUG", "bind": "sg556,aug" },
-                { "name": "AWP", "bind": "awp" },
-                { "name": "G3SG1 / SCAR-20", "bind": "g3sg1,scar20" }
-            ];
-
-            beforeEach(function() {
+            it('should request primary weapons data and return promise', function() {
+                var expectedPrimaryKeys = [
+                    { "name": "SG 553 / AUG", "bind": "sg556,aug" },
+                    { "name": "AWP", "bind": "awp" },
+                    { "name": "G3SG1 / SCAR-20", "bind": "g3sg1,scar20" }
+                ];
                 $httpBackend.expectGET('data/primary-weapons.json').respond(expectedPrimaryKeys);
-            });
 
-            it('should return a promise for data', function() {
                 var primaryWeapons;
                 dataService.getPrimaryWeaponsAsync().then(function(data) {
                     primaryWeapons = data;
                 });
+
                 expect(primaryWeapons).toBeUndefined();
                 $httpBackend.flush();
                 expect(primaryWeapons).toEqual(expectedPrimaryKeys);
