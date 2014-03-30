@@ -69,6 +69,27 @@ describe('buyndsServices', function() {
                 var result = bindBuilder.build(bindOptions);
                 expect(result).toEqual(expectedBind);
             });
+
+            it('should bind single grenade', function() {
+                bindOptions.grenades = ['decoy'];
+                var expectedBind = defaultKeyBind + '"buy decoy;"';
+                var result = bindBuilder.build(bindOptions);
+                expect(result).toEqual(expectedBind);
+            });
+
+            it('should bind single comma-separated grenade', function() {
+                bindOptions.grenades = ['molotov,incgrenade'];
+                var expectedBind = defaultKeyBind + '"buy molotov; buy incgrenade;"';
+                var result = bindBuilder.build(bindOptions);
+                expect(result).toEqual(expectedBind);
+            });
+
+            it('should bind list of grenades', function() {
+                bindOptions.grenades = ['smokegrenade', 'hegrenade', 'flashbang'];
+                var expectedBind = defaultKeyBind + '"buy smokegrenade; buy hegrenade; buy flashbang;"';
+                var result = bindBuilder.build(bindOptions);
+                expect(result).toEqual(expectedBind);
+            });
         });
     });
 });
