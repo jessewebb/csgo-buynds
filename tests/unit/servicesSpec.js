@@ -189,5 +189,24 @@ describe('buyndsServices', function() {
                 expect(gear).toEqual(expectedGear);
             });
         });
+
+        describe('getGrenadesAsync()', function() {
+            it('should request grenades data and return promise', function() {
+                var expectedGrenades = [
+                    { "name": "Molotov / Incendiary", "bind": "molotov,incgrenade" },
+                    { "name": "Decoy", "bind": "decoy" }
+                ];
+                $httpBackend.expectGET('data/grenades.json').respond(expectedGrenades);
+
+                var grenades;
+                dataService.getGrenadesAsync().then(function(data) {
+                    grenades = data;
+                });
+
+                expect(grenades).toBeUndefined();
+                $httpBackend.flush();
+                expect(grenades).toEqual(expectedGrenades);
+            });
+        });
     });
 });
