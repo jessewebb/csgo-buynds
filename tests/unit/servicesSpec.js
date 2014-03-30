@@ -55,6 +55,20 @@ describe('buyndsServices', function() {
                 var result = bindBuilder.build(bindOptions);
                 expect(result).toEqual(expectedBind);
             });
+
+            it('should bind single gear item', function() {
+                bindOptions.gear = ['vest'];
+                var expectedBind = defaultKeyBind + '"buy vest;"';
+                var result = bindBuilder.build(bindOptions);
+                expect(result).toEqual(expectedBind);
+            });
+
+            it('should bind list of gear items', function() {
+                bindOptions.gear = ['vesthelm', 'defuser'];
+                var expectedBind = defaultKeyBind + '"buy vesthelm; buy defuser;"';
+                var result = bindBuilder.build(bindOptions);
+                expect(result).toEqual(expectedBind);
+            });
         });
     });
 });
