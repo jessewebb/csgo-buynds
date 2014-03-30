@@ -41,6 +41,20 @@ describe('buyndsServices', function() {
                 var result = bindBuilder.build(bindOptions);
                 expect(result).toEqual(expectedBind);
             });
+
+            it('should bind single secondary weapon', function() {
+                bindOptions.secondaryWeapon = 'p250';
+                var expectedBind = defaultKeyBind + '"buy p250;"';
+                var result = bindBuilder.build(bindOptions);
+                expect(result).toEqual(expectedBind);
+            });
+
+            it('should bind comma-separated secondary weapon', function() {
+                bindOptions.secondaryWeapon = 'glock,hkp2000';
+                var expectedBind = defaultKeyBind + '"buy glock; buy hkp2000;"';
+                var result = bindBuilder.build(bindOptions);
+                expect(result).toEqual(expectedBind);
+            });
         });
     });
 });
