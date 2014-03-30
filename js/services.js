@@ -6,17 +6,19 @@ buyndsServices.value('version', '0.3');
 
 buyndsServices.service('bindBuilder', function () {
     this.build = function (bindOptions) {
+        if (!bindOptions.keyToBind) throw new Error('bindOptions.keyToBind is required')
+
         var bindString = 'bind "' + bindOptions.keyToBind + '" "';
 
         if (bindOptions.primaryWeapon) {
-            var primaryWeaponsArray = bindOptions.primaryWeapon.split(",");
+            var primaryWeaponsArray = bindOptions.primaryWeapon.split(',');
             primaryWeaponsArray.forEach(function (weapon) {
                 bindString += 'buy ' + weapon + '; ';
             });
         }
 
         if (bindOptions.secondaryWeapon) {
-            var secondaryWeaponsArray = bindOptions.secondaryWeapon.split(",");
+            var secondaryWeaponsArray = bindOptions.secondaryWeapon.split(',');
             for (var i = 0; i < secondaryWeaponsArray.length; i++) {
                 bindString += 'buy ' + secondaryWeaponsArray[i] + '; ';
             }
@@ -30,7 +32,7 @@ buyndsServices.service('bindBuilder', function () {
 
         if (bindOptions.grenades) {
             bindOptions.grenades.forEach(function (grenade) {
-                var grenadeArray = grenade.split(",");
+                var grenadeArray = grenade.split(',');
                 grenadeArray.forEach(function (nade) {
                     bindString += 'buy ' + nade + '; ';
                 });

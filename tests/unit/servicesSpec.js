@@ -1,6 +1,6 @@
 'use strict';
 
-describe('buynds services', function() {
+describe('buyndsServices', function() {
     beforeEach(module('buyndsServices'));
 
     describe('bindBuilder', function() {
@@ -13,18 +13,34 @@ describe('buynds services', function() {
             defaultKeyBind = 'bind "kp_5" ';
         }));
 
-        it('should bind single primary weapon', inject(function(bindBuilder) {
-            bindOptions.primaryWeapon = 'awp';
-            var expectedBind = defaultKeyBind + '"buy awp;"';
-            var result = bindBuilder.build(bindOptions);
-            expect(result).toEqual(expectedBind);
-        }));
+        describe('build(bindOptions)', function() {
 
-        it('should bind comma-separated primary weapon', inject(function(bindBuilder) {
-            bindOptions.primaryWeapon = 'ak47,m4a1';
-            var expectedBind = defaultKeyBind + '"buy ak47; buy m4a1;"';
-            var result = bindBuilder.build(bindOptions);
-            expect(result).toEqual(expectedBind);
-        }));
+            it('should throw Error when keyToBind is not set', function() {
+                bindOptions.keyToBind = '';
+                expect(function() { bindBuilder.build(bindOptions); }).
+                    toThrowError("bindOptions.keyToBind is required")
+            });
+
+            it('should bind any key string', function() {
+                bindOptions.keyToBind = 'kp_slash';
+                var expectedBind = 'bind "kp_slash" ""';
+                var result = bindBuilder.build(bindOptions);
+                expect(result).toEqual(expectedBind);
+            });
+
+            it('should bind single primary weapon', function() {
+                bindOptions.primaryWeapon = 'awp';
+                var expectedBind = defaultKeyBind + '"buy awp;"';
+                var result = bindBuilder.build(bindOptions);
+                expect(result).toEqual(expectedBind);
+            });
+
+            it('should bind comma-separated primary weapon', function() {
+                bindOptions.primaryWeapon = 'ak47,m4a1';
+                var expectedBind = defaultKeyBind + '"buy ak47; buy m4a1;"';
+                var result = bindBuilder.build(bindOptions);
+                expect(result).toEqual(expectedBind);
+            });
+        });
     });
 });
