@@ -2,7 +2,7 @@
 
 var buyndsControllers = angular.module('buyndsControllers', []);
 
-buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$http', 'bindBuilder', 'dataService', function ($scope, $http, bindBuilder, dataService) {
+buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', 'bindBuilder', 'dataService', function ($scope, bindBuilder, dataService) {
 
     dataService.getBindableKeysAsync().then(function(data) {
         $scope.bindableKeys = data;
