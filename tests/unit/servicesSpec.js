@@ -18,7 +18,7 @@ describe('buyndsServices', function() {
             it('should throw Error when keyToBind is not set', function() {
                 bindOptions.keyToBind = '';
                 expect(function() { bindBuilder.build(bindOptions); }).
-                    toThrowError("bindOptions.keyToBind is required")
+                    toThrowError("bindOptions.keyToBind is required");
             });
 
             it('should bind any key string', function() {
@@ -101,6 +101,36 @@ describe('buyndsServices', function() {
                     'buy defuser; buy hegrenade; buy molotov; buy incgrenade;"';
                 var result = bindBuilder.build(bindOptions);
                 expect(result).toEqual(expectedBind);
+            });
+        });
+    });
+
+    describe('dataService', function() {
+        var dataService, $httpBackend;
+
+        beforeEach(inject(function(_dataService_, _$httpBackend_) {
+            dataService = _dataService_;
+            $httpBackend = _$httpBackend_;
+        }));
+
+        describe('getBindableKeysAsync()', function() {
+            var expectedBindableKeys = [
+                { "name": "+ (Plus)", "bind": "kp_plus" },
+                { "name": "Enter", "bind": "kp_enter" }
+            ];
+
+            beforeEach(function() {
+                $httpBackend.expectGET('data/bindable-keys.json').respond(expectedBindableKeys);
+            });
+
+            it('should return a promise for data', function() {
+                var bindableKeys;
+                dataService.getBindableKeysAsync().then(function(data) {
+                    bindableKeys = data;
+                });
+                expect(bindableKeys).toBeUndefined();
+                $httpBackend.flush();
+                expect(bindableKeys).toEqual(expectedBindableKeys);
             });
         });
     });
