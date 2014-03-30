@@ -170,5 +170,24 @@ describe('buyndsServices', function() {
                 expect(secondaryWeapons).toEqual(expectedSecondaryWeapons);
             });
         });
+
+        describe('getGearAsync()', function() {
+            it('should request gear data and return promise', function() {
+                var expectedGear = [
+                    { "name": "Kevlar Vest", "bind": "vest" },
+                    { "name": "Kevlar + Helmet", "bind": "vesthelm" }
+                ];
+                $httpBackend.expectGET('data/gear.json').respond(expectedGear);
+
+                var gear;
+                dataService.getGearAsync().then(function(data) {
+                    gear = data;
+                });
+
+                expect(gear).toBeUndefined();
+                $httpBackend.flush();
+                expect(gear).toEqual(expectedGear);
+            });
+        });
     });
 });
