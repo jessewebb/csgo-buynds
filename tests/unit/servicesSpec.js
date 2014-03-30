@@ -13,10 +13,14 @@ describe('services', function() {
 
         describe('getBindableKeysAsync()', function() {
             it('should request bindable keys data and return promise', function() {
-                var expectedBindableKeys = [
-                    { "name": "Bindable Key 1", "bind": "bk_1" },
-                    { "name": "Bindable Key 2", "bind": "bk_2" }
-                ];
+                var expectedBindableKeys = { "keyGroups": [
+                    { "name": "Bindable Key Group 1",
+                        "keys": [
+                            { "name": "Bindable Key 1", "bind": "bk_1" },
+                            { "name": "Bindable Key 2", "bind": "bk_2" }
+                        ]
+                    }
+                ]};
                 $httpBackend.expectGET('data/bindable-keys.json').respond(expectedBindableKeys);
 
                 var bindableKeys;
