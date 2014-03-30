@@ -32,6 +32,22 @@ describe('services', function() {
 
         describe('getPrimaryWeaponsAsync()', function() {
             it('should request primary weapons data and return promise', function() {
+                var foo = { "weaponGroups": [
+                        { "name": "Primary Weapon Group #1",
+                            "weapons": [
+                                { "name": "Primary Weapon 1", "bind": "pw1,pw1alt" },
+                                { "name": "Primary Weapon 2", "bind": "pw2" },
+                                { "name": "Primary Weapon 3", "bind": "pweap3,pw3b" }
+                            ]
+                        },
+                        { "name": "Primary Weapon Group Two",
+                            "weapons": [
+                                { "name": "Primary Weapon 4", "bind": "pw4,pweap4" },
+                                { "name": "Primary Weapon 5", "bind": "pweap5,pweap5b" }
+                            ]
+                        }
+                    ]
+                };
                 var expectedPrimaryWeapons = [
                     { "name": "Primary Weapon 1", "bind": "pw1,pw1alt" },
                     { "name": "Primary Weapon 2", "bind": "pw2" },
