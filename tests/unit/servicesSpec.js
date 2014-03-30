@@ -90,6 +90,18 @@ describe('buyndsServices', function() {
                 var result = bindBuilder.build(bindOptions);
                 expect(result).toEqual(expectedBind);
             });
+
+            it('should bind items in the expected order', function() {
+                // order: primary, secondary, gear, grenades
+                bindOptions.primaryWeapon = 'sawedoff,mag7';
+                bindOptions.secondaryWeapon = 'deagle';
+                bindOptions.gear = ['vesthelm', 'vest', 'defuser'];
+                bindOptions.grenades = ['hegrenade', 'molotov,incgrenade'];
+                var expectedBind = defaultKeyBind + '"buy sawedoff; buy mag7; buy deagle; buy vesthelm; buy vest; ' +
+                    'buy defuser; buy hegrenade; buy molotov; buy incgrenade;"';
+                var result = bindBuilder.build(bindOptions);
+                expect(result).toEqual(expectedBind);
+            });
         });
     });
 });
