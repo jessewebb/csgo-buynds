@@ -1,22 +1,29 @@
-[
-    {
-        "name": "Glock-18 / P2000 / USP-S",
-        "bind": "glock,hkp2000"
-    },
-    {
-        "name": "Dual Berettas",
-        "bind": "elite"
-    },
-    {
-        "name": "P250 / CZ75-Auto",
-        "bind": "p250"
-    },
-    {
-        "name": "Tec-9 / Five-SeveN",
-        "bind": "tec9,fiveseven"
-    },
-    {
-        "name": "Desert Eagle",
-        "bind": "deagle"
-    }
-]
+{
+    "weaponGroups": [
+        {
+            "name": "Pistols",
+            "weapons": [
+                {
+                    "name": "Glock-18 / P2000 / USP-S",
+                    "bind": "glock,hkp2000"
+                },
+                {
+                    "name": "Dual Berettas",
+                    "bind": "elite"
+                },
+                {
+                    "name": "P250 / CZ75-Auto",
+                    "bind": "p250"
+                },
+                {
+                    "name": "Tec-9 / Five-SeveN",
+                    "bind": "tec9,fiveseven"
+                },
+                {
+                    "name": "Desert Eagle",
+                    "bind": "deagle"
+                }
+            ]
+        }
+    ]
+}

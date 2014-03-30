@@ -32,7 +32,9 @@
                         <div class="col-sm-9">
                             <select id="skgSecondaryWeaponSelect" name="skgSecondaryWeaponSelect" class="form-control" ng-model="bindOptions.secondaryWeapon">
                                 <option value="">None</option>
-                                <option ng-repeat="secondary in secondaryWeapons" value="{{ secondary.bind }}">{{ secondary.name }}</option>
+                                <optgroup ng-repeat="weaponGroup in secondaryWeapons.weaponGroups" label="{{ weaponGroup.name }}">
+                                    <option ng-repeat="secondary in weaponGroup.weapons" value="{{ secondary.bind }}">{{ secondary.name }}</option>
+                                </optgroup>
                             </select>
                         </div>
                     </div>
