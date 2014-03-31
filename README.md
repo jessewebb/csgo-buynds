@@ -6,7 +6,7 @@ This code is available under [the MIT License](https://github.com/jessewebb/csgo
 
 _Disclaimer:_ This project is currently in **ALPHA** stages of development.
 
-`Version: 0.3`
+`Version: 0.4`
 
 ## About csgo-buynds
 

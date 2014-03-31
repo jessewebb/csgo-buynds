@@ -2,7 +2,7 @@
 
 var buyndsServices = angular.module('buyndsServices', []);
 
-buyndsServices.value('version', '0.3');
+buyndsServices.value('version', '0.4');
 
 buyndsServices.factory('bindBuilder', function () {
     return new buynds.BindBuilder();
