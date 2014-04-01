@@ -1,6 +1,90 @@
 <div class="row">
     <div class="col-sm-12">
-        <h3>Multi-Key Generator</h3>
-        <p>Coming soon...</p>
+        <div class="mkg panel panel-primary">
+            <div class="panel-heading">
+                <h4>Multi-Key Generator</h4>
+            </div>
+            <div class="panel-body">
+                <form id="mkgForm" name="mkgForm" class="form-horizontal">
+                    <fieldset>
+                        <legend>Bind Options</legend>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2 hidden-xs">Numeric Keypad</label>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button" disabled>Num<br/>Lock</button>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">/</button>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">*</button>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">-</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">7<br/>Home</button>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">8<br/><span class="glyphicon glyphicon-arrow-up"></span></button>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">9<br/>Pg Up</button>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key tall" type="button">+</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">4<br/><span class="glyphicon glyphicon-arrow-left"></span></button>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">5</button>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">6<br/><span class="glyphicon glyphicon-arrow-right"></span></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">1<br/>End</button>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">2<br/><span class="glyphicon glyphicon-arrow-down"></span></button>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">3<br/>Pg Dn</button>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key tall" type="button">Enter</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-4 col-xs-6">
+                                <button class="btn btn-default key" type="button">0<br/>Insert</button>
+                            </div>
+                            <div class="col-sm-2 col-xs-3">
+                                <button class="btn btn-default key" type="button">.<br/>Delete</button>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" />
+                            <input id="mkgResetBtn" name="mkgResetBtn" type="reset" class="btn btn-default" ng-click="resetBinds()" value="Reset" />
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="panel-footer" ng-show="buyBinds">
+                <h4>Generated Buy Binds:</h4>
+                <pre class="buy-binds">{{ buyBinds }}</pre>
+            </div>
+        </div>
     </div>
 </div>

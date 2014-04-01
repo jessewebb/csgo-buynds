@@ -57,4 +57,13 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', 'bindBuilder', 'data
 }]);
 
 buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', function ($scope) {
+    $scope.buyBinds = '';
+
+    $scope.generateBinds = function () {
+        $scope.buyBinds = 'bind "kp_5" "buy ak47; buy m4a1; buy deagle; buy vesthelm;"';
+    };
+
+    $scope.resetBinds = function () {
+        $scope.buyBinds = '';
+    };
 }]);

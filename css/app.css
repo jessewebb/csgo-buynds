@@ -20,7 +20,39 @@ body {
     white-space: nowrap;
 }
 
+/* Multi-Key Generator Styles */
+.mkg {
+    margin: 10px 0;
+}
+
+.mkg button.key {
+    font-weight: bold;
+    height: 60px;
+    width: 100%;
+}
+
+.mkg button.key.tall {
+    position: absolute;
+    height: 135px;
+}
+
+.mkg pre.buy-binds {
+    background-color: white;
+    white-space: nowrap;
+}
+
 /* Media Queries */
+@media (min-width: 992px) {
+    .mkg button.key {
+        font-size: large;
+        height: 100px;
+    }
+
+    .mkg button.key.tall {
+        height: 215px;
+    }
+}
+
 @media (max-width: 767px) {
     .checkbox-inline.checkbox-not-inline-xs,
     .radio-inline.radio-not-inline-xs {
