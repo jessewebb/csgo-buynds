@@ -2,72 +2,75 @@
     <div class="col-sm-12">
         <div class="skg panel panel-primary">
             <div class="panel-heading">
-                <h4>Bind Options</h4>
+                <h4>Single-Key Generator</h4>
             </div>
             <div class="panel-body">
                 <form id="skgForm" name="skgForm" class="form-horizontal">
-                    <div class="form-group" ng-class="{ 'has-error': submitted && skgForm.skgKeySelect.$invalid }">
-                        <label for="skgKeySelect" class="control-label col-sm-3">Key to Bind</label>
-                        <div class="col-sm-9">
-                            <select id="skgKeySelect" name="skgKeySelect" class="form-control col-sm-8" ng-model="bindOptions.keyToBind" required>
-                                <option value="">Select a key to bind...</option>
-                                <optgroup ng-repeat="keyGroup in bindableKeys.keyGroups" label="{{ keyGroup.name }}">
-                                    <option ng-repeat="bindableKey in keyGroup.keys" value="{{ bindableKey.bind }}">{{ bindableKey.name }}</option>
-                                </optgroup>
-                            </select>
-                            <p class="help-block" ng-show="submitted && skgForm.skgKeySelect.$invalid">* You must select a key to bind!</p>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="skgPrimaryWeaponSelect" class="control-label col-sm-3">Primary Weapon</label>
-                        <div class="col-sm-9">
-                            <select id="skgPrimaryWeaponSelect" name="skgPrimaryWeaponSelect" class="form-control" ng-model="bindOptions.primaryWeapon">
-                                <option value="">None</option>
-                                <optgroup ng-repeat="weaponGroup in primaryWeapons.weaponGroups" label="{{ weaponGroup.name }}">
-                                    <option ng-repeat="primary in weaponGroup.weapons" value="{{ primary.bind }}">{{ primary.name }}</option>
-                                </optgroup>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="skgSecondaryWeaponSelect" class="control-label col-sm-3">Secondary Weapon</label>
-                        <div class="col-sm-9">
-                            <select id="skgSecondaryWeaponSelect" name="skgSecondaryWeaponSelect" class="form-control" ng-model="bindOptions.secondaryWeapon">
-                                <option value="">None</option>
-                                <optgroup ng-repeat="weaponGroup in secondaryWeapons.weaponGroups" label="{{ weaponGroup.name }}">
-                                    <option ng-repeat="secondary in weaponGroup.weapons" value="{{ secondary.bind }}">{{ secondary.name }}</option>
-                                </optgroup>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3">Gear</label>
-                        <div class="col-sm-9">
-                            <div ng-repeat="gearItem in gear" class="checkbox checkbox-inline checkbox-not-inline-xs">
-                                <label>
-                                    <input name="skgGear[]"
-                                           type="checkbox"
-                                           value="{{ gearItem.bind }}"
-                                           ng-checked="bindOptions.gear.indexOf(gearItem.bind) > -1"
-                                           ng-click="toggleGearSelection(gearItem.bind)" /> {{ gearItem.name }}
-                                </label>
+                    <fieldset>
+                        <legend>Bind Options</legend>
+                        <div class="form-group" ng-class="{ 'has-error': submitted && skgForm.skgKeySelect.$invalid }">
+                            <label for="skgKeySelect" class="control-label col-sm-3">Key to Bind</label>
+                            <div class="col-sm-9">
+                                <select id="skgKeySelect" name="skgKeySelect" class="form-control" ng-model="bindOptions.keyToBind" required>
+                                    <option value="">Select a key to bind...</option>
+                                    <optgroup ng-repeat="keyGroup in bindableKeys.keyGroups" label="{{ keyGroup.name }}">
+                                        <option ng-repeat="bindableKey in keyGroup.keys" value="{{ bindableKey.bind }}">{{ bindableKey.name }}</option>
+                                    </optgroup>
+                                </select>
+                                <p class="help-block" ng-show="submitted && skgForm.skgKeySelect.$invalid">* You must select a key to bind!</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3">Grenades</label>
-                        <div class="col-sm-9">
-                            <div ng-repeat="grenade in grenades" class="checkbox checkbox-inline checkbox-not-inline-xs">
-                                <label>
-                                    <input name="skgGrenades[]"
-                                           type="checkbox"
-                                           value="{{ grenade.bind }}"
-                                           ng-checked="bindOptions.grenades.indexOf(grenade.bind) > -1"
-                                           ng-click="toggleGrenadeSelection(grenade.bind)" /> {{ grenade.name }}
-                                </label>
+                        <div class="form-group">
+                            <label for="skgPrimaryWeaponSelect" class="control-label col-sm-3">Primary Weapon</label>
+                            <div class="col-sm-9">
+                                <select id="skgPrimaryWeaponSelect" name="skgPrimaryWeaponSelect" class="form-control" ng-model="bindOptions.primaryWeapon">
+                                    <option value="">None</option>
+                                    <optgroup ng-repeat="weaponGroup in primaryWeapons.weaponGroups" label="{{ weaponGroup.name }}">
+                                        <option ng-repeat="primary in weaponGroup.weapons" value="{{ primary.bind }}">{{ primary.name }}</option>
+                                    </optgroup>
+                                </select>
                             </div>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="skgSecondaryWeaponSelect" class="control-label col-sm-3">Secondary Weapon</label>
+                            <div class="col-sm-9">
+                                <select id="skgSecondaryWeaponSelect" name="skgSecondaryWeaponSelect" class="form-control" ng-model="bindOptions.secondaryWeapon">
+                                    <option value="">None</option>
+                                    <optgroup ng-repeat="weaponGroup in secondaryWeapons.weaponGroups" label="{{ weaponGroup.name }}">
+                                        <option ng-repeat="secondary in weaponGroup.weapons" value="{{ secondary.bind }}">{{ secondary.name }}</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Gear</label>
+                            <div class="col-sm-9">
+                                <div ng-repeat="gearItem in gear" class="checkbox checkbox-inline checkbox-not-inline-xs">
+                                    <label>
+                                        <input name="skgGear[]"
+                                               type="checkbox"
+                                               value="{{ gearItem.bind }}"
+                                               ng-checked="bindOptions.gear.indexOf(gearItem.bind) > -1"
+                                               ng-click="toggleGearSelection(gearItem.bind)" /> {{ gearItem.name }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Grenades</label>
+                            <div class="col-sm-9">
+                                <div ng-repeat="grenade in grenades" class="checkbox checkbox-inline checkbox-not-inline-xs">
+                                    <label>
+                                        <input name="skgGrenades[]"
+                                               type="checkbox"
+                                               value="{{ grenade.bind }}"
+                                               ng-checked="bindOptions.grenades.indexOf(grenade.bind) > -1"
+                                               ng-click="toggleGrenadeSelection(grenade.bind)" /> {{ grenade.name }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
 
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
