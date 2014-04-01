@@ -1,6 +1,7 @@
 'use strict';
 
 (function( buynds, $, undefined ) {
+
     buynds.BindOptions = function() {
         this.keyToBind = '';
         this.primaryWeapon = '';
@@ -48,4 +49,5 @@
             return bindString;
         };
     };
+
 }( window.buynds = window.buynds || {}, jQuery ));
