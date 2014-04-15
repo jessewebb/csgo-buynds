@@ -29,30 +29,30 @@ body {
     width: 100%;
 }
 
-.mkg .keypad .key-row {
-    width: 100%
-}
-
-.mkg .keypad .key-row .key-cell {
-    padding: 2px;
-    width: 25%;
-}
-
-.mkg .keypad .key-row .key-cell button.key {
-    font-size: medium;
-    font-weight: bold;
+.mkg .keypad .key {
+    display: inline-block;
+    float: right;
     height: 60px;
-    width: 100%;
+    margin: 2px;
+    width: calc(25% - 4px);
 }
 
-.mkg .keypad .key-row .key-cell button.key.tall-key {
+.mkg .keypad .key.tall-key {
     height: 124px;
 }
 
-.mkg .keypad .key-row .key-cell button.key.wide-key {
+.mkg .keypad .key.wide-key {
+    width: calc(50% - 4px);
 }
 
-.mkg .keypad .key-row .key-cell button .key-alt-fn {
+.mkg .keypad .key button {
+    font-size: medium;
+    font-weight: bold;
+    height: 100%;
+    width: 100%;
+}
+
+.mkg .keypad .key button .key-alt-fn {
     font-size: small;
     font-weight: normal;
 }
@@ -64,20 +64,25 @@ body {
 
 /* Media Queries */
 @media (min-width: 992px) {
-    .mkg .keypad .key-row .key-cell {
-        padding: 3px;
-    }
-
-    .mkg .keypad .key-row .key-cell button.key {
-        font-size: large;
+    .mkg .keypad .key {
         height: 80px;
+        margin: 3px;
+        width: calc(25% - 6px);
     }
 
-    .mkg .keypad .key-row .key-cell button.key.tall-key {
+    .mkg .keypad .key.tall-key {
         height: 166px;
     }
 
-    .mkg .keypad .key-row .key-cell button.key .key-alt-fn {
+    .mkg .keypad .key.wide-key {
+        width: calc(50% - 6px);
+    }
+
+    .mkg .keypad .key button {
+        font-size: large;
+    }
+
+    .mkg .keypad .key button .key-alt-fn {
         font-size: medium;
     }
 }
