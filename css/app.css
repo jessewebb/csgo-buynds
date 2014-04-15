@@ -25,15 +25,40 @@ body {
     margin: 10px 0;
 }
 
-.mkg button.key {
+.mkg .keypad {
+    display: table;
+    width: 100%;
+}
+
+.mkg .keypad .key-row {
+    display: table-row;
+    width: 100%
+}
+
+.mkg .keypad .key-row .key-cell {
+    display: table-cell;
+    padding: 2px;
+    width: 25%;
+}
+
+.mkg .keypad .key-row .key-cell button.key {
+    font-size: medium;
     font-weight: bold;
     height: 60px;
     width: 100%;
 }
 
-.mkg button.key.tall {
-    position: absolute;
-    height: 135px;
+.mkg .keypad .key-row .key-cell button.key.tall-key {
+    /*height: 122px;*/
+}
+
+.mkg .keypad .key-row .key-cell button.key.wide-key {
+    /*width: 200% + 2px;*/
+}
+
+.mkg .keypad .key-row .key-cell button .key-alt-fn {
+    font-size: small;
+    font-weight: normal;
 }
 
 .mkg pre.buy-binds {
@@ -43,13 +68,18 @@ body {
 
 /* Media Queries */
 @media (min-width: 992px) {
-    .mkg button.key {
+    .mkg .keypad .key-row .key-cell button.key {
         font-size: large;
-        height: 100px;
+        height: 80px;
     }
 
-    .mkg button.key.tall {
-        height: 215px;
+    .mkg .keypad .key-row .key-cell button.key.tall-key {
+        /*height: 162px;*/
+    }
+
+    .mkg .keypad .key-row .key-cell button.key .key-alt-fn {
+        font-size: medium;
+        font-weight: normal;
     }
 }
 

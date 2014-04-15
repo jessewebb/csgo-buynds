@@ -9,71 +9,78 @@
                     <fieldset>
                         <legend>Bind Options</legend>
                         <div class="form-group">
-                            <label class="control-label col-sm-2 hidden-xs">Numeric Keypad</label>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button" disabled>Num<br/>Lock</button>
-                            </div>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">/</button>
-                            </div>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">*</button>
-                            </div>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">-</button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">7<br/>Home</button>
-                            </div>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">8<br/><span class="glyphicon glyphicon-arrow-up"></span></button>
-                            </div>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">9<br/>Pg Up</button>
-                            </div>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key tall" type="button">+</button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">4<br/><span class="glyphicon glyphicon-arrow-left"></span></button>
-                            </div>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">5</button>
-                            </div>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">6<br/><span class="glyphicon glyphicon-arrow-right"></span></button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">1<br/>End</button>
-                            </div>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">2<br/><span class="glyphicon glyphicon-arrow-down"></span></button>
-                            </div>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">3<br/>Pg Dn</button>
-                            </div>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key tall" type="button">Enter</button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-4 col-xs-6">
-                                <button class="btn btn-default key" type="button">0<br/>Insert</button>
-                            </div>
-                            <div class="col-sm-2 col-xs-3">
-                                <button class="btn btn-default key" type="button">.<br/>Delete</button>
+                            <label class="control-label col-md-4 col-sm-3 hidden-xs">Numeric Keypad</label>
+                            <div class="col-md-4 col-sm-6 col-xs-12">
+                                <div class="keypad">
+                                    <div class="key-row">
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button" disabled>Num<br/>Lock</button>
+                                        </div>
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">/</button>
+                                        </div>
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">*</button>
+                                        </div>
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">-</button>
+                                        </div>
+                                    </div>
+                                    <div class="key-row">
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">7<br/><span class="key-alt-fn">Home</span></button>
+                                        </div>
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">8<br/><span class="glyphicon glyphicon-arrow-up key-alt-fn"></span></button>
+                                        </div>
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">9<br/><span class="key-alt-fn">Pg Up</span></button>
+                                        </div>
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key tall-key" type="button">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="key-row">
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">4<br/><span class="glyphicon glyphicon-arrow-left key-alt-fn"></span></button>
+                                        </div>
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">5</button>
+                                        </div>
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">6<br/><span class="glyphicon glyphicon-arrow-right key-alt-fn"></span></button>
+                                        </div>
+                                    </div>
+                                    <div class="key-row">
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">1<br/><span class="key-alt-fn">End</span></button>
+                                        </div>
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">2<br/><span class="glyphicon glyphicon-arrow-down key-alt-fn"></span></button>
+                                        </div>
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">3<br/><span class="key-alt-fn">Pg Dn</span></button>
+                                        </div>
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key tall-key" type="button">Enter</button>
+                                        </div>
+                                    </div>
+                                    <div class="key-row">
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key wide-key" type="button">0<br/><span class="key-alt-fn">Insert</span></button>
+                                        </div>
+                                        <div class="key-cell"></div>
+                                        <div class="key-cell">
+                                            <button class="btn btn-default key" type="button">.<br/><span class="key-alt-fn">Delete</span></button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </fieldset>
 
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
+                        <div class="col-md-offset-4 col-md-8 col-sm-offset-3 col-sm-9">
                             <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" />
                             <input id="mkgResetBtn" name="mkgResetBtn" type="reset" class="btn btn-default" ng-click="resetBinds()" value="Reset" />
                         </div>
