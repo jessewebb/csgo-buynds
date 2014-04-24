@@ -13,7 +13,7 @@
                             <div class="col-md-4 col-sm-6 col-xs-12">
                                 <div class="keypad">
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">-</button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_minus')">-</button>
                                     </div>
                                     <div class="key">
                                         <button class="btn btn-default" type="button">*</button>
@@ -77,9 +77,11 @@
                 </form>
 
             </div>
-            <div class="panel-footer" ng-show="buyBinds">
+            <div class="panel-footer" ng-show="buyBinds.length">
                 <h4>Generated Buy Binds:</h4>
-                <pre class="buy-binds">{{ buyBinds }}</pre>
+                <pre class="buy-binds">
+                    <span ng-repeat="buyBind in buyBinds">{{ buyBind }}</span><br />
+                </pre>
             </div>
         </div>
     </div>

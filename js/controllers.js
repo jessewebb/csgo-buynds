@@ -56,14 +56,55 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', 'bindBuilder', 'data
     };
 }]);
 
-buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', function ($scope) {
-    $scope.buyBinds = '';
+buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilder', function ($scope, $modal, bindBuilder) {
+
+    $scope.bindOptionsList = [];
+    $scope.buyBinds = [];
+
+    $scope.openKeyBindOptionsModal = function (keyBind) {
+        var modalInstance = $modal.open({
+            templateUrl: 'partials/mkg-key-bind-options.phtml',
+            controller: 'MultiKeyGenKeyBindOptionsCtrl',
+            resolve: {
+                bindOptions: function () {
+                    var bindOptions = new buynds.BindOptions();
+                    bindOptions.keyToBind = keyBind;
+                    return bindOptions;
+                }
+            }
+        });
+
+        modalInstance.result.then(function (bindOptions) {
+            $scope.bindOptionsList.push(bindOptions);
+        });
+    };
 
     $scope.generateBinds = function () {
-        $scope.buyBinds = 'bind "kp_5" "buy ak47; buy m4a1; buy deagle; buy vesthelm;"';
+        $scope.bindOptionsList.forEach(function (bindOptions) {
+            var buyBind = bindBuilder.build(bindOptions);
+            $scope.buyBinds.push(buyBind);
+        });
     };
 
     $scope.resetBinds = function () {
-        $scope.buyBinds = '';
+        $scope.bindOptionsList = [];
+        $scope.buyBinds = [];
+    };
+}]);
+
+buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$modalInstance', 'bindOptions', 'dataService', function ($scope, $modalInstance, bindOptions, dataService) {
+
+    dataService.getPrimaryWeaponsAsync().then(function(data) {
+        $scope.primaryWeapons = data;
+    });
+
+    $scope.bindOptions = bindOptions;
+
+    $scope.save = function () {
+        $modalInstance.close($scope.bindOptions);
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
     };
 }]);
