@@ -80,7 +80,7 @@
             <div class="panel-footer" ng-show="buyBinds.length">
                 <h4>Generated Buy Binds:</h4>
                 <pre class="buy-binds">
-                    <span ng-repeat="buyBind in buyBinds">{{ buyBind }}<br /></span>
+                    <span ng-repeat="buyBind in buyBinds track by $index">{{ buyBind }}<br /></span>
                 </pre>
             </div>
         </div>
