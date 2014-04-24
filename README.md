@@ -64,6 +64,8 @@ Here is a list of which 3rd party libraries are being used:
 - [jQuery](http://jquery.com/) (version: 2.1.0)
 - [AngularJS](http://angularjs.org/) (version: 1.2.14)
 - [Bootstrap](http://getbootstrap.com/) (version: 3.1.1)
+- [AngularUI](http://angular-ui.github.io/)
+    - [UI Bootstrap](http://angular-ui.github.io/bootstrap/) (version 0.10.0)
 
 Tests are written with [Jasmine](http://jasmine.github.io/) (version: 2.0.0). [Run the tests](http://jessewebb.github.io/csgo-buynds/tests/SpecRunner.html) in your browser.
 
