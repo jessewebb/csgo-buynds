@@ -3,17 +3,66 @@
     <h4 class="modal-title">Key Bind Options</h4>
 </div>
 <div class="modal-body">
-    <div class="form-group">
-        <label for="mkgPrimaryWeaponSelect" class="control-label col-sm-4">Primary Weapon</label>
-        <div class="col-sm-8">
-            <select id="mkgPrimaryWeaponSelect" name="mkgPrimaryWeaponSelect" class="form-control" ng-model="bindOptions.primaryWeapon">
-                <option value="">None</option>
-                <optgroup ng-repeat="weaponGroup in primaryWeapons.weaponGroups" label="{{ weaponGroup.name }}">
-                    <option ng-repeat="primary in weaponGroup.weapons" value="{{ primary.bind }}">{{ primary.name }}</option>
-                </optgroup>
-            </select>
+    <form id="mkgKeyBindOptionsForm" name="mkgKeyBindOptionsForm" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-4">Key to Bind</label>
+            <div class="col-sm-8">
+                <div class="form-control" disabled>
+                    <code>{{ bindOptions.keyToBind }}</code>
+                </div>
+            </div>
         </div>
-    </div>
+        <div class="form-group">
+            <label for="mkgPrimaryWeaponSelect" class="control-label col-sm-4">Primary Weapon</label>
+            <div class="col-sm-8">
+                <select id="mkgPrimaryWeaponSelect" name="mkgPrimaryWeaponSelect" class="form-control" ng-model="bindOptions.primaryWeapon">
+                    <option value="">None</option>
+                    <optgroup ng-repeat="weaponGroup in primaryWeapons.weaponGroups" label="{{ weaponGroup.name }}">
+                        <option ng-repeat="primary in weaponGroup.weapons" value="{{ primary.bind }}">{{ primary.name }}</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="mkgSecondaryWeaponSelect" class="control-label col-sm-4">Secondary Weapon</label>
+            <div class="col-sm-8">
+                <select id="mkgSecondaryWeaponSelect" name="mkgSecondaryWeaponSelect" class="form-control" ng-model="bindOptions.secondaryWeapon">
+                    <option value="">None</option>
+                    <optgroup ng-repeat="weaponGroup in secondaryWeapons.weaponGroups" label="{{ weaponGroup.name }}">
+                        <option ng-repeat="secondary in weaponGroup.weapons" value="{{ secondary.bind }}">{{ secondary.name }}</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Gear</label>
+            <div class="col-sm-8">
+                <div ng-repeat="gearItem in gear" class="checkbox">
+                    <label>
+                        <input name="mkgGear[]"
+                               type="checkbox"
+                               value="{{ gearItem.bind }}"
+                               ng-checked="bindOptions.gear.indexOf(gearItem.bind) > -1"
+                               ng-click="toggleGearSelection(gearItem.bind)" /> {{ gearItem.name }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4">Grenades</label>
+            <div class="col-sm-8">
+                <div ng-repeat="grenade in grenades" class="checkbox">
+                    <label>
+                        <input name="mkgGrenades[]"
+                               type="checkbox"
+                               value="{{ grenade.bind }}"
+                               ng-checked="bindOptions.grenades.indexOf(grenade.bind) > -1"
+                               ng-click="toggleGrenadeSelection(grenade.bind)" /> {{ grenade.name }}
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-info" ng-click="save()">Save</button>

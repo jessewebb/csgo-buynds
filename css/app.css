@@ -62,6 +62,10 @@ body {
     white-space: nowrap;
 }
 
+#mkgKeyBindOptionsForm .form-group:last-child {
+    margin-bottom: 0;
+}
+
 /* Media Queries */
 @media (min-width: 992px) {
     .mkg .keypad .key {
