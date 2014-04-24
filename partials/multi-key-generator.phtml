@@ -16,52 +16,52 @@
                                         <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_minus')">-</button>
                                     </div>
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">*</button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_multiply')">*</button>
                                     </div>
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">/</button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_slash')">/</button>
                                     </div>
                                     <div class="key">
                                         <button class="btn btn-default" type="button" disabled>Num<br/>Lock</button>
                                     </div>
                                     <div class="key tall-key">
-                                        <button class="btn btn-default" type="button">+</button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_plus')">+</button>
                                     </div>
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">9<br/><span class="key-alt-fn">Pg Up</span></button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_pgup')">9<br/><span class="key-alt-fn">Pg Up</span></button>
                                     </div>
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">8<br/><span class="glyphicon glyphicon-arrow-up key-alt-fn"></span></button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_uparrow')">8<br/><span class="glyphicon glyphicon-arrow-up key-alt-fn"></span></button>
                                     </div>
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">7<br/><span class="key-alt-fn">Home</span></button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_home')">7<br/><span class="key-alt-fn">Home</span></button>
                                     </div>
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">6<br/><span class="glyphicon glyphicon-arrow-right key-alt-fn"></span></button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_rightarrow')">6<br/><span class="glyphicon glyphicon-arrow-right key-alt-fn"></span></button>
                                     </div>
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">5</button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_5')">5</button>
                                     </div>
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">4<br/><span class="glyphicon glyphicon-arrow-left key-alt-fn"></span></button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_leftarrow')">4<br/><span class="glyphicon glyphicon-arrow-left key-alt-fn"></span></button>
                                     </div>
                                     <div class="key tall-key">
-                                        <button class="btn btn-default" type="button">Enter</button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_enter')">Enter</button>
                                     </div>
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">3<br/><span class="key-alt-fn">Pg Dn</span></button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_pgdn')">3<br/><span class="key-alt-fn">Pg Dn</span></button>
                                     </div>
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">2<br/><span class="glyphicon glyphicon-arrow-down key-alt-fn"></span></button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_downarrow')">2<br/><span class="glyphicon glyphicon-arrow-down key-alt-fn"></span></button>
                                     </div>
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">1<br/><span class="key-alt-fn">End</span></button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_end')">1<br/><span class="key-alt-fn">End</span></button>
                                     </div>
                                     <div class="key">
-                                        <button class="btn btn-default" type="button">.<br/><span class="key-alt-fn">Delete</span></button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_del')">.<br/><span class="key-alt-fn">Delete</span></button>
                                     </div>
                                     <div class="key wide-key">
-                                        <button class="btn btn-default" type="button">0<br/><span class="key-alt-fn">Insert</span></button>
+                                        <button class="btn btn-default" type="button" ng-click="openKeyBindOptionsModal('kp_ins')">0<br/><span class="key-alt-fn">Insert</span></button>
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
             <div class="panel-footer" ng-show="buyBinds.length">
                 <h4>Generated Buy Binds:</h4>
                 <pre class="buy-binds">
-                    <span ng-repeat="buyBind in buyBinds">{{ buyBind }}</span><br />
+                    <span ng-repeat="buyBind in buyBinds">{{ buyBind }}<br /></span>
                 </pre>
             </div>
         </div>
