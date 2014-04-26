@@ -58,7 +58,7 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', 'bindBuilder', 'data
 
 buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilder', function ($scope, $modal, bindBuilder) {
 
-    $scope.bindOptionsList = [];
+    $scope.bindOptionsMap = {};
     $scope.buyBinds = [];
 
     $scope.openKeyBindOptionsModal = function (keyBind) {
@@ -67,28 +67,34 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilde
             controller: 'MultiKeyGenKeyBindOptionsCtrl',
             resolve: {
                 bindOptions: function () {
-                    var bindOptions = new buynds.BindOptions();
-                    bindOptions.keyToBind = keyBind;
+                    var bindOptions;
+                    if (keyBind in $scope.bindOptionsMap) {
+                        bindOptions = $scope.bindOptionsMap[keyBind];
+                    } else {
+                        bindOptions = new buynds.BindOptions();
+                        bindOptions.keyToBind = keyBind;
+                    }
                     return bindOptions;
                 }
             }
         });
 
         modalInstance.result.then(function (bindOptions) {
-            $scope.bindOptionsList.push(bindOptions);
+            $scope.bindOptionsMap[bindOptions.keyToBind] = bindOptions;
         });
     };
 
     $scope.generateBinds = function () {
         $scope.buyBinds = [];
-        $scope.bindOptionsList.forEach(function (bindOptions) {
+        for (var keyBind in $scope.bindOptionsMap) {
+            var bindOptions = $scope.bindOptionsMap[keyBind];
             var buyBind = bindBuilder.build(bindOptions);
             $scope.buyBinds.push(buyBind);
-        });
+        }
     };
 
     $scope.resetBinds = function () {
-        $scope.bindOptionsList = [];
+        $scope.bindOptionsMap = {};
         $scope.buyBinds = [];
     };
 }]);

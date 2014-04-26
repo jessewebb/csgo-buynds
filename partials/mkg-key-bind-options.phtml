@@ -18,7 +18,9 @@
                 <select id="mkgPrimaryWeaponSelect" name="mkgPrimaryWeaponSelect" class="form-control" ng-model="bindOptions.primaryWeapon">
                     <option value="">None</option>
                     <optgroup ng-repeat="weaponGroup in primaryWeapons.weaponGroups" label="{{ weaponGroup.name }}">
-                        <option ng-repeat="primary in weaponGroup.weapons" value="{{ primary.bind }}">{{ primary.name }}</option>
+                        <option ng-repeat="primary in weaponGroup.weapons"
+                                value="{{ primary.bind }}"
+                                ng-selected="bindOptions.primaryWeapon == primary.bind">{{ primary.name }}</option>
                     </optgroup>
                 </select>
             </div>
@@ -29,7 +31,9 @@
                 <select id="mkgSecondaryWeaponSelect" name="mkgSecondaryWeaponSelect" class="form-control" ng-model="bindOptions.secondaryWeapon">
                     <option value="">None</option>
                     <optgroup ng-repeat="weaponGroup in secondaryWeapons.weaponGroups" label="{{ weaponGroup.name }}">
-                        <option ng-repeat="secondary in weaponGroup.weapons" value="{{ secondary.bind }}">{{ secondary.name }}</option>
+                        <option ng-repeat="secondary in weaponGroup.weapons"
+                                value="{{ secondary.bind }}"
+                                ng-selected="bindOptions.secondaryWeapon == secondary.bind">{{ secondary.name }}</option>
                     </optgroup>
                 </select>
             </div>
