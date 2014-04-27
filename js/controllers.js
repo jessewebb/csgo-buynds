@@ -83,8 +83,12 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilde
             }
         });
 
-        modalInstance.result.then(function (bindOptions) {
-            $scope.bindOptionsMap[bindOptions.keyToBind] = bindOptions;
+        modalInstance.result.then(function (result) {
+            if (result instanceof buynds.BindOptions) {
+                $scope.bindOptionsMap[result.keyToBind] = result;
+            } else if (result.hasOwnProperty('clear')) {
+                delete $scope.bindOptionsMap[result.clear]
+            }
         });
     };
 
@@ -144,5 +148,9 @@ buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$modal
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
+    };
+
+    $scope.clear = function () {
+        $modalInstance.close({ 'clear': $scope.bindOptions.keyToBind });
     };
 }]);
