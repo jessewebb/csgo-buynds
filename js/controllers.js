@@ -61,6 +61,10 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilde
     $scope.bindOptionsMap = {};
     $scope.buyBinds = [];
 
+    $scope.hasKeyBindOptionsSaved = function (keyBind) {
+        return keyBind in $scope.bindOptionsMap;
+    };
+
     $scope.openKeyBindOptionsModal = function (keyBind) {
         var modalInstance = $modal.open({
             templateUrl: 'partials/mkg-key-bind-options.phtml',
