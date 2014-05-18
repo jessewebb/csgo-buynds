@@ -66,6 +66,8 @@ Here is a list of which 3rd party libraries are being used:
 - [Bootstrap](http://getbootstrap.com/) (version: 3.1.1)
 - [AngularUI](http://angular-ui.github.io/)
     - [UI Bootstrap](http://angular-ui.github.io/bootstrap/) (version 0.10.0)
+- [ngClip](https://github.com/asafdav/ng-clip) (version: 0.1.3)
+- [ZeroClipboard](http://zeroclipboard.org/) (version: 1.3.5)
 
 Tests are written with [Jasmine](http://jasmine.github.io/) (version: 2.0.0). [Run the tests](http://jessewebb.github.io/csgo-buynds/tests/SpecRunner.html) in your browser.
 

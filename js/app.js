@@ -3,11 +3,16 @@
 var buyndsApp = angular.module('buyndsApp', [
     'ngRoute',
     'ui.bootstrap',
+    'ngClipboard',
     'buyndsControllers',
     'buyndsDirectives',
     'buyndsFilters',
     'buyndsServices'
 ]);
+
+buyndsApp.config(['ngClipProvider', function(ngClipProvider) {
+    ngClipProvider.setPath("vendor/zeroclipboard-1.3.5/ZeroClipboard.swf");
+}]);
 
 buyndsApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {

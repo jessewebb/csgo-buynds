@@ -105,6 +105,14 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilde
         $scope.bindOptionsMap = {};
         $scope.buyBinds = [];
     };
+
+    $scope.getBuyBindsForCopy = function() {
+        var buyBindsForCopy = '';
+        for (var i = 0 ; i < $scope.buyBinds.length; i++) {
+            buyBindsForCopy = buyBindsForCopy + $scope.buyBinds[i] + '\n';
+        }
+        return buyBindsForCopy.trim();
+    };
 }]);
 
 buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$modalInstance', 'bindOptions', 'dataService', function ($scope, $modalInstance, bindOptions, dataService) {

@@ -1,6 +1,6 @@
 /* SITE */
 Standards: HTML5, CSS3, JavaScript (ECMA-262, edition 5)
-Components: jQuery, AngularJS, Bootstrap, AngularUI
+Components: jQuery, AngularJS, Bootstrap, AngularUI, ngClip, ZeroClipboard
 Software: JetBrains WebStorm, GitHub Pages
 
 /* TEAM */
