@@ -10,6 +10,31 @@ body {
     text-align: center;
 }
 
+/* Fix inline checkbox/radio alignment issue (http://stackoverflow.com/a/16842140/346561) */
+.form-group .checkbox-inline.checkbox-inline-no-indent,
+.form-group .checkbox-inline.checkbox-inline-no-indent+.checkbox-inline.checkbox-inline-no-indent,
+.form-group .radio-inline.radio-inline-no-indent,
+.form-group .radio-inline.radio-inline-no-indent+.radio-inline.radio-inline-no-indent {
+    margin-left: 0;
+    margin-right: 10px;
+}
+.form-group .checkbox-inline.checkbox-inline-no-indent:last-child,
+.form-group .radio-inline.radio-inline-no-indent:last-child {
+    margin-left: 0;
+}
+
+/* Allow secondary (inline) checkboxes/radios to placed with '*-inline' containers */
+.form-group .checkbox-inline .checkbox-inline-inline,
+.form-group .radio-inline .radio-inline-inline {
+    display: inline;
+    float: none;
+    margin: 0;
+    /* Fix vertical alignment (http://stackoverflow.com/a/719545/346561) */
+    vertical-align: middle;
+    position: relative;
+    bottom: 1px;
+}
+
 /* Single-Key Generator Styles */
 .skg {
     margin: 10px 0;
@@ -92,8 +117,8 @@ body {
 }
 
 @media (max-width: 767px) {
-    .checkbox-inline.checkbox-not-inline-xs,
-    .radio-inline.radio-not-inline-xs {
+    .form-group .checkbox-inline.checkbox-not-inline-xs,
+    .form-group .radio-inline.radio-not-inline-xs {
         display: block;
         margin-left: 0;
     }

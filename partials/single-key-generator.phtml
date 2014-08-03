@@ -65,13 +65,24 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3">Grenades</label>
                             <div class="col-sm-9">
-                                <div ng-repeat="grenade in grenades" class="checkbox checkbox-inline checkbox-not-inline-xs">
+                                <div ng-repeat="grenade in grenades" class="checkbox checkbox-inline checkbox-inline-no-indent checkbox-not-inline-xs">
                                     <label>
                                         <input name="skgGrenades[]"
                                                type="checkbox"
                                                value="{{ grenade.bind }}"
                                                ng-checked="bindOptions.grenades.indexOf(grenade.bind) > -1"
-                                               ng-click="toggleGrenadeSelection(grenade.bind)" /> {{ grenade.name }}
+                                               ng-click="toggleGrenadeSelection(grenade.bind)"
+                                               ng-disabled="allowExtraGrenade(grenade.bind) && hasExtraGrenadeSelection(grenade.bind)" />
+                                        {{ grenade.name }}
+                                    </label>
+                                    <label ng-show="allowExtraGrenade(grenade.bind)">
+                                        ( <input name="skgExtraFlash"
+                                                type="checkbox"
+                                                class="checkbox-inline-inline"
+                                                value="{{ grenade.bind }}"
+                                                ng-checked="hasExtraGrenadeSelection(grenade.bind)"
+                                                ng-click="toggleExtraGrenadeSelection(grenade.bind)" />
+                                        <span class="checkbox-inline-inline-label">&times; 2</span> )
                                     </label>
                                 </div>
                             </div>
