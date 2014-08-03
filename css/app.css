@@ -23,9 +23,11 @@ body {
     margin-left: 0;
 }
 
-/* Allow secondary (inline) checkboxes/radios to placed with '*-inline' containers */
-.form-group .checkbox-inline .checkbox-inline-inline,
-.form-group .radio-inline .radio-inline-inline {
+/* Allow extra checkboxes/radios to placed with checkbox/radio containers */
+.form-group .checkbox .checkbox-extra,
+.form-group .checkbox-inline .checkbox-extra,
+.form-group .radio .radio-extra,
+.form-group .radio-inline .radio-extra {
     display: inline;
     float: none;
     margin: 0;

@@ -61,7 +61,18 @@
                                type="checkbox"
                                value="{{ grenade.bind }}"
                                ng-checked="bindOptions.grenades.indexOf(grenade.bind) > -1"
-                               ng-click="toggleGrenadeSelection(grenade.bind)" /> {{ grenade.name }}
+                               ng-click="toggleGrenadeSelection(grenade.bind)"
+                               ng-disabled="allowExtraGrenade(grenade.bind) && hasExtraGrenadeSelection(grenade.bind)" />
+                        {{ grenade.name }}
+                    </label>
+                    <label ng-show="allowExtraGrenade(grenade.bind)">
+                        ( <input name="mkgExtraFlash"
+                                 type="checkbox"
+                                 class="checkbox-extra"
+                                 value="{{ grenade.bind }}"
+                                 ng-checked="hasExtraGrenadeSelection(grenade.bind)"
+                                 ng-click="toggleExtraGrenadeSelection(grenade.bind)" />
+                        <span class="checkbox-inline-inline-label">&times; 2</span> )
                     </label>
                 </div>
             </div>
