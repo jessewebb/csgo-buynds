@@ -61,6 +61,7 @@ body {
     float: right;
     height: 60px;
     margin: 2px;
+    width: 23.5%; /* Fallback for browsers without support for calc() */
     width: calc(25% - 4px);
 }
 
@@ -69,6 +70,7 @@ body {
 }
 
 .mkg .keypad .key.wide-key {
+    width: 48%; /* Fallback for browsers without support for calc() */
     width: calc(50% - 4px);
 }
 
@@ -98,6 +100,7 @@ body {
     .mkg .keypad .key {
         height: 80px;
         margin: 3px;
+        width: 23%; /* Fallback for browsers without support for calc() */
         width: calc(25% - 6px);
     }
 
@@ -106,6 +109,7 @@ body {
     }
 
     .mkg .keypad .key.wide-key {
+        width: 48%; /* Fallback for browsers without support for calc() */
         width: calc(50% - 6px);
     }
 
