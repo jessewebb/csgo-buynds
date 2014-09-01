@@ -116,9 +116,11 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilde
     $scope.generateBinds = function () {
         $scope.buyBinds = [];
         for (var keyBind in $scope.bindOptionsMap) {
-            var bindOptions = $scope.bindOptionsMap[keyBind];
-            var buyBind = bindBuilder.build(bindOptions);
-            $scope.buyBinds.push(buyBind);
+            if ($scope.bindOptionsMap.hasOwnProperty(keyBind)) {
+                var bindOptions = $scope.bindOptionsMap[keyBind];
+                var buyBind = bindBuilder.build(bindOptions);
+                $scope.buyBinds.push(buyBind);
+            }
         }
     };
 
