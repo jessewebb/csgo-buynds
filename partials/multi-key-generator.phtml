@@ -118,8 +118,8 @@
 
                     <div class="form-group">
                         <div class="col-lg-offset-4 col-lg-8 col-sm-offset-3 col-sm-9">
-                            <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" />
-                            <input id="mkgResetBtn" name="mkgResetBtn" type="reset" class="btn btn-default" ng-click="resetBinds()" value="Reset" />
+                            <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" ng-disabled="!hasAnyBindOptions()" />
+                            <input id="mkgResetBtn" name="mkgResetBtn" type="reset" class="btn btn-default" ng-click="resetBinds()" value="Reset" ng-disabled="!hasAnyBindOptions()" />
                         </div>
                     </div>
                 </form>

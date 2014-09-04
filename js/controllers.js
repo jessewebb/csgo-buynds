@@ -82,6 +82,10 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilde
     $scope.bindOptionsMap = {};
     $scope.buyBinds = [];
 
+    $scope.hasAnyBindOptions = function () {
+        return !jQuery.isEmptyObject($scope.bindOptionsMap);
+    };
+
     $scope.hasKeyBindOptions = function (keyBind) {
         return keyBind in $scope.bindOptionsMap;
     };
