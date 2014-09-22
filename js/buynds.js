@@ -8,6 +8,16 @@
         this.secondaryWeapon = '';
         this.gear = [];
         this.grenades = [];
+
+        this.clone = function() {
+            var clone = new buynds.BindOptions();
+            clone.keyToBind = this.keyToBind;
+            clone.primaryWeapon = this.primaryWeapon;
+            clone.secondaryWeapon = this.secondaryWeapon;
+            clone.gear = this.gear.slice();
+            clone.grenades = this.grenades.slice();
+            return clone;
+        };
     };
 
     buynds.BindBuilder = function() {

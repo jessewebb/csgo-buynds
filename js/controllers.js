@@ -98,7 +98,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilde
                 bindOptions: function () {
                     var bindOptions;
                     if (keyBind in $scope.bindOptionsMap) {
-                        bindOptions = $scope.bindOptionsMap[keyBind];
+                        bindOptions = $scope.bindOptionsMap[keyBind].clone();
                     } else {
                         bindOptions = new buynds.BindOptions();
                         bindOptions.keyToBind = keyBind;
@@ -110,7 +110,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilde
 
         modalInstance.result.then(function (result) {
             if (result instanceof buynds.BindOptions) {
-                $scope.bindOptionsMap[result.keyToBind] = result;
+                $scope.bindOptionsMap[result.keyToBind] = result.clone();
             } else if (result.hasOwnProperty('clear')) {
                 delete $scope.bindOptionsMap[result.clear]
             }
