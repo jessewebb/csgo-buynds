@@ -119,13 +119,13 @@
                     <div class="form-group">
                         <div class="col-lg-offset-4 col-lg-8 col-sm-offset-3 col-sm-9">
                             <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" ng-disabled="!hasAnyBindOptions()" />
-                            <input id="mkgResetBtn" name="mkgResetBtn" type="reset" class="btn btn-default" ng-click="resetBinds()" value="Reset" ng-disabled="!hasAnyBindOptions()" />
+                            <input id="mkgResetBtn" name="mkgResetBtn" type="reset" class="btn btn-default" ng-click="resetBinds()" value="Reset" ng-disabled="!hasAnyBindOptions() && !hasGeneratedBuyBinds()" />
                         </div>
                     </div>
                 </form>
 
             </div>
-            <div class="panel-footer" ng-show="buyBinds.length">
+            <div class="panel-footer" ng-show="hasGeneratedBuyBinds()">
                 <button type="button" class="btn btn-info pull-right hidden-xs" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-paperclip"></span></button>
                 <h4>Generated Buy Binds:</h4>
                 <pre class="buy-binds">
