@@ -70,6 +70,51 @@
             ]
         },
         {
+            "name": "Navigation Keys",
+            "keys": [
+                {
+                    "name": "Insert",
+                    "bind": "ins"
+                },
+                {
+                    "name": "Delete",
+                    "bind": "del"
+                },
+                {
+                    "name": "Home",
+                    "bind": "home"
+                },
+                {
+                    "name": "End",
+                    "bind": "end"
+                },
+                {
+                    "name": "Page Up",
+                    "bind": "pgup"
+                },
+                {
+                    "name": "Page Down",
+                    "bind": "pgdn"
+                },
+                {
+                    "name": "Up Arrow",
+                    "bind": "uparrow"
+                },
+                {
+                    "name": "Left Arrow",
+                    "bind": "leftarrow"
+                },
+                {
+                    "name": "Down Arrow",
+                    "bind": "downarrow"
+                },
+                {
+                    "name": "Right Arrow",
+                    "bind": "rightarrow"
+                }
+            ]
+        },
+        {
             "name": "Function Keys",
             "keys": [
                 {
