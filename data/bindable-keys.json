@@ -68,6 +68,59 @@
                     "bind": "kp_enter"
                 }
             ]
+        },
+        {
+            "name": "Functions Keys",
+            "keys": [
+                {
+                    "name": "F1",
+                    "bind": "f1"
+                },
+                {
+                    "name": "F2",
+                    "bind": "f2"
+                },
+                {
+                    "name": "F3",
+                    "bind": "f3"
+                },
+                {
+                    "name": "F4",
+                    "bind": "f4"
+                },
+                {
+                    "name": "F5",
+                    "bind": "f5"
+                },
+                {
+                    "name": "F6",
+                    "bind": "f6"
+                },
+                {
+                    "name": "F7",
+                    "bind": "f7"
+                },
+                {
+                    "name": "F8",
+                    "bind": "f8"
+                },
+                {
+                    "name": "F9",
+                    "bind": "f9"
+                },
+                {
+                    "name": "F10",
+                    "bind": "f10"
+                },
+                {
+                    "name": "F11",
+                    "bind": "f11"
+                },
+                {
+                    "name": "F12",
+                    "bind": "f12"
+                }
+            ]
         }
     ]
 }
