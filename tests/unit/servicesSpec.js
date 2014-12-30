@@ -4,11 +4,12 @@ describe('services', function() {
     beforeEach(module('buyndsServices'));
 
     describe('dataService', function() {
-        var dataService, $httpBackend;
+        var dataService, $httpBackend, version;
 
-        beforeEach(inject(function(_dataService_, _$httpBackend_) {
+        beforeEach(inject(function(_dataService_, _$httpBackend_, _version_) {
             dataService = _dataService_;
             $httpBackend = _$httpBackend_;
+            version = _version_;
         }));
 
         afterEach(function() {
@@ -26,7 +27,10 @@ describe('services', function() {
                         ]
                     }
                 ]};
-                $httpBackend.expectGET('data/bindable-keys.json').respond(expectedBindableKeys);
+                var bindableKeysUrl = 'data/bindable-keys.json';
+                var versionUrlParam = 'v=' + version;
+                var expectedUrl = bindableKeysUrl + '?' + versionUrlParam;
+                $httpBackend.expectGET(expectedUrl).respond(expectedBindableKeys);
 
                 var bindableKeys;
                 dataService.getBindableKeysAsync().then(function(data) {
@@ -56,7 +60,10 @@ describe('services', function() {
                         ]
                     }
                 ]};
-                $httpBackend.expectGET('data/primary-weapons.json').respond(expectedPrimaryWeapons);
+                var primaryWeaponsUrl = 'data/primary-weapons.json';
+                var versionUrlParam = 'v=' + version;
+                var expectedUrl = primaryWeaponsUrl + '?' + versionUrlParam;
+                $httpBackend.expectGET(expectedUrl).respond(expectedPrimaryWeapons);
 
                 var primaryWeapons;
                 dataService.getPrimaryWeaponsAsync().then(function(data) {
@@ -79,7 +86,10 @@ describe('services', function() {
                         ]
                     }
                 ]};
-                $httpBackend.expectGET('data/secondary-weapons.json').respond(expectedSecondaryWeapons);
+                var secondaryWeaponsUrl = 'data/secondary-weapons.json';
+                var versionUrlParam = 'v=' + version;
+                var expectedUrl = secondaryWeaponsUrl + '?' + versionUrlParam;
+                $httpBackend.expectGET(expectedUrl).respond(expectedSecondaryWeapons);
 
                 var secondaryWeapons;
                 dataService.getSecondaryWeaponsAsync().then(function(data) {
@@ -98,7 +108,10 @@ describe('services', function() {
                     { "name": "Gear 1", "bind": "gear" },
                     { "name": "Gear Item 2", "bind": "gear2" }
                 ];
-                $httpBackend.expectGET('data/gear.json').respond(expectedGear);
+                var gearUrl = 'data/gear.json';
+                var versionUrlParam = 'v=' + version;
+                var expectedUrl = gearUrl + '?' + versionUrlParam;
+                $httpBackend.expectGET(expectedUrl).respond(expectedGear);
 
                 var gear;
                 dataService.getGearAsync().then(function(data) {
@@ -117,7 +130,10 @@ describe('services', function() {
                     { "name": "Grenade #1", "bind": "nade1" },
                     { "name": "Grenade 2", "bind": "grenade2" }
                 ];
-                $httpBackend.expectGET('data/grenades.json').respond(expectedGrenades);
+                var grenadesUrl = 'data/grenades.json';
+                var versionUrlParam = 'v=' + version;
+                var expectedUrl = grenadesUrl + '?' + versionUrlParam;
+                $httpBackend.expectGET(expectedUrl).respond(expectedGrenades);
 
                 var grenades;
                 dataService.getGrenadesAsync().then(function(data) {

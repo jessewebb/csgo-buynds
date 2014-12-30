@@ -8,17 +8,20 @@ buyndsServices.factory('bindBuilder', function () {
     return new buynds.BindBuilder();
 });
 
-buyndsServices.factory('dataService', ['$http', function ($http) {
+buyndsServices.factory('dataService', ['$http', 'version', function ($http, version) {
     var bindableKeysDataPromise;
     var primaryWeaponsDataPromise;
     var secondaryWeaponsDataPromise;
     var gearDataPromise;
     var grenadesDataPromise;
 
+    var versionUrlParam = 'v=' + version;
+
     return {
         getBindableKeysAsync: function() {
             if (!bindableKeysDataPromise) {
-                bindableKeysDataPromise = $http.get('data/bindable-keys.json').then(function (response) {
+                var url = 'data/bindable-keys.json?' + versionUrlParam;
+                bindableKeysDataPromise = $http.get(url).then(function (response) {
                     return response.data;
                 });
             }
@@ -27,7 +30,8 @@ buyndsServices.factory('dataService', ['$http', function ($http) {
 
         getPrimaryWeaponsAsync: function() {
             if (!primaryWeaponsDataPromise) {
-                primaryWeaponsDataPromise = $http.get('data/primary-weapons.json').then(function (response) {
+                var url = 'data/primary-weapons.json?' + versionUrlParam;
+                primaryWeaponsDataPromise = $http.get(url).then(function (response) {
                     return response.data;
                 });
             }
@@ -36,7 +40,8 @@ buyndsServices.factory('dataService', ['$http', function ($http) {
 
         getSecondaryWeaponsAsync: function() {
             if (!secondaryWeaponsDataPromise) {
-                secondaryWeaponsDataPromise = $http.get('data/secondary-weapons.json').then(function (response) {
+                var url = 'data/secondary-weapons.json?' + versionUrlParam;
+                secondaryWeaponsDataPromise = $http.get(url).then(function (response) {
                     return response.data;
                 });
             }
@@ -45,7 +50,8 @@ buyndsServices.factory('dataService', ['$http', function ($http) {
 
         getGearAsync: function() {
             if (!gearDataPromise) {
-                gearDataPromise = $http.get('data/gear.json').then(function (response) {
+                var url = 'data/gear.json?' + versionUrlParam;
+                gearDataPromise = $http.get(url).then(function (response) {
                     return response.data;
                 });
             }
@@ -54,7 +60,8 @@ buyndsServices.factory('dataService', ['$http', function ($http) {
 
         getGrenadesAsync: function() {
             if (!grenadesDataPromise) {
-                grenadesDataPromise = $http.get('data/grenades.json').then(function (response) {
+                var url = 'data/grenades.json?' + versionUrlParam;
+                grenadesDataPromise = $http.get(url).then(function (response) {
                     return response.data;
                 });
             }
