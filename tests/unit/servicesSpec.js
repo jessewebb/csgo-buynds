@@ -11,6 +11,11 @@ describe('services', function() {
             $httpBackend = _$httpBackend_;
         }));
 
+        afterEach(function() {
+            $httpBackend.verifyNoOutstandingExpectation();
+            $httpBackend.verifyNoOutstandingRequest();
+        });
+
         describe('getBindableKeysAsync()', function() {
             it('should request bindable keys data and return promise', function() {
                 var expectedBindableKeys = { "keyGroups": [
