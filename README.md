@@ -16,7 +16,7 @@ _Disclaimer:_ This project is currently in **ALPHA** stages of development.
 
 Buy binds, also known as buy scripts, are commands for the _Counter-Strike_ PC games that allow quick, 1-button purchasing of weapons and equipment.
 
-Visit the [CSGO-Buynds website](http://jessewebb.github.io/csgo-buynds/) and try out the online Buy Binds Generator!
+Visit the [CSGO-Buynds website](http://csgobuynds.com) and try out the online Buy Binds Generator!
 
 ### _Why?_
 
@@ -35,7 +35,7 @@ Along with allowing you to configure multiple key binds at once, there are other
 
 ### _Who?_
 
-The [CSGO-Buynds Buy Binds Generator](http://jessewebb.github.io/csgo-buynds/buy-binds-generator.html) was made for all of the CS:GO PC players out there who don't want to use the clunky radial menu for purchasing their weapons and equipment.
+The [CSGO-Buynds Buy Binds Generator](http://csgobuynds.com/buy-binds-generator.html) was made for all of the CS:GO PC players out there who don't want to use the clunky radial menu for purchasing their weapons and equipment.
 The online tool is simple enough for anybody to use yet powerful enough to build highly customized binds.
 Everyone from noobs to Pros will enjoy being able to create easily-accessible loadouts.
 Don't get caught fumbling in the CS:GO buy menu. Never be the last player out of spawn again!
@@ -69,6 +69,6 @@ Here is a list of which 3rd party libraries are being used:
 - [ngClip](https://github.com/asafdav/ng-clip) (version: 0.1.3)
 - [ZeroClipboard](http://zeroclipboard.org/) (version: 1.3.5)
 
-Tests are written with [Jasmine](http://jasmine.github.io/) (version: 2.0.0). [Run the tests](http://jessewebb.github.io/csgo-buynds/tests/SpecRunner.html) in your browser.
+Tests are written with [Jasmine](http://jasmine.github.io/) (version: 2.0.0). [Run the tests](http://csgobuynds.com/tests/SpecRunner.html) in your browser.
 
 Jesse's preferred JavaScript IDE is [JetBrain's WebStorm](http://www.jetbrains.com/webstorm/).
