@@ -18,13 +18,11 @@ buyndsApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {
         controller: 'MultiKeyGenCtrl',
         templateUrl: 'partials/multi-key-generator.phtml',
-        page: '#/multi-key-generator.html',
         title: 'Multi-Key Generator'
     });
     $routeProvider.when('/skg', {
         controller: 'SingleKeyGenCtrl',
         templateUrl: 'partials/single-key-generator.phtml',
-        page: '#/single-key-generator.html',
         title: 'Single-Key Generator'
     });
     $routeProvider.otherwise({redirectTo: '/'});
@@ -33,6 +31,6 @@ buyndsApp.config(['$routeProvider', function ($routeProvider) {
 buyndsApp.run(['$rootScope', '$route', '$window', function ($rootScope, $route, $window) {
     $rootScope.$on("$routeChangeSuccess", function(){
         $rootScope.title = $route.current.title;
-        $window.ga('send', 'pageview', { page: $route.current.page });
+        $window.ga('send', 'screenview', { 'screenName': $route.current.title });
     });
 }]);

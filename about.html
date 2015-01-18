@@ -29,12 +29,12 @@
 
     <!-- csgobuynds.com Redirection -->
     <script>
-        var oldUrl = 'jessewebb.github.io/csgo-buynds';
-        var newUrl = 'csgobuynds.com';
+        var oldUrlBase = 'jessewebb.github.io/csgo-buynds';
+        var newUrlBase = 'csgobuynds.com';
         var currentUrl = window.location.href;
-        if (currentUrl.indexOf(oldUrl) >= 0) {
+        if (currentUrl.indexOf(oldUrlBase) >= 0) {
             ga('send', 'event', 'redirect', 'csgobuynds.com', {'page': '/about.html', 'nonInteraction': true, 'useBeacon': true});
-            window.location = currentUrl.replace(oldUrl, newUrl);
+            window.location = currentUrl.replace(oldUrlBase, newUrlBase);
         }
     </script>
 </head>
@@ -164,7 +164,7 @@
     </div>
 
     <div class="footer">
-        <span><small>Copyright &copy; 2014 <a id="footerCopyrightGweebzTwitterLink" href="https://twitter.com/gweebz">Jesse 'Gweebz' Webb</a></small></span>
+        <span><small>Copyright &copy; 2014-2015 <a id="footerCopyrightGweebzTwitterLink" href="https://twitter.com/gweebz">Jesse 'Gweebz' Webb</a></small></span>
     </div>
 </div>
 
