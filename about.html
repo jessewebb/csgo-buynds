@@ -25,6 +25,17 @@
         ga('require', 'displayfeatures');
         ga('send', 'pageview');
     </script>
+
+    <!-- csgobuynds.com Redirection -->
+    <script>
+        var oldUrl = 'jessewebb.github.io/csgo-buynds';
+        var newUrl = 'csgobuynds.com';
+        var currentUrl = window.location.href;
+        if (currentUrl.indexOf(oldUrl) >= 0) {
+            ga('send', 'event', 'redirect', 'csgobuynds.com', {'page': '/about.html', 'nonInteraction': true, 'useBeacon': true});
+            window.location = currentUrl.replace(oldUrl, newUrl);
+        }
+    </script>
 </head>
 
 <body>
