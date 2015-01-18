@@ -2,7 +2,7 @@
 
 var buyndsControllers = angular.module('buyndsControllers', []);
 
-buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', 'bindBuilder', 'dataService', function ($scope, bindBuilder, dataService) {
+buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window', 'bindBuilder', 'dataService', function ($scope, $route, $window, bindBuilder, dataService) {
 
     dataService.getBindableKeysAsync().then(function(data) {
         $scope.bindableKeys = data;
@@ -64,6 +64,7 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', 'bindBuilder', 'data
     };
 
     $scope.generateBind = function (bindOptions) {
+        $window.ga('send', 'event', 'button', 'click', 'generate', { page: $route.current.page });
         $scope.submitted = true;
         if ($scope.skgForm.$valid) {
             $scope.buyBind = bindBuilder.build(bindOptions);
@@ -71,13 +72,14 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', 'bindBuilder', 'data
     };
 
     $scope.resetBind = function () {
+        $window.ga('send', 'event', 'button', 'click', 'reset', { page: $route.current.page });
         $scope.bindOptions = new buynds.BindOptions();
         $scope.buyBind = '';
         $scope.submitted = false;
     };
 }]);
 
-buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilder', function ($scope, $modal, bindBuilder) {
+buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '$window', 'bindBuilder', function ($scope, $modal, $route, $window, bindBuilder) {
 
     $scope.bindOptionsMap = {};
     $scope.buyBinds = [];
@@ -92,7 +94,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilde
 
     $scope.hasGeneratedBuyBinds = function() {
         return $scope.buyBinds.length > 0;
-    }
+    };
 
     $scope.openKeyBindOptionsModal = function (keyBind) {
         var modalInstance = $modal.open({
@@ -122,6 +124,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilde
     };
 
     $scope.generateBinds = function () {
+        $window.ga('send', 'event', 'button', 'click', 'generate', { page: $route.current.page });
         $scope.buyBinds = [];
         for (var keyBind in $scope.bindOptionsMap) {
             if ($scope.bindOptionsMap.hasOwnProperty(keyBind)) {
@@ -133,6 +136,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', 'bindBuilde
     };
 
     $scope.resetBinds = function () {
+        $window.ga('send', 'event', 'button', 'click', 'reset', { page: $route.current.page });
         $scope.bindOptionsMap = {};
         $scope.buyBinds = [];
     };
