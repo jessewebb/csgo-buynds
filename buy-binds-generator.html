@@ -50,16 +50,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="http://csgobuynds.com">CSGO-Buynds</a>
+            <a id="navSiteLink" class="navbar-brand" href="http://csgobuynds.com">CSGO-Buynds</a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                <li class="active"><a href="buy-binds-generator.html"><span class="glyphicon glyphicon-cog"></span> Generator</a></li>
-                <li><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
+                <li><a id="navHomeLink" href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li class="active"><a id="navGeneratorLink" href="buy-binds-generator.html"><span class="glyphicon glyphicon-cog"></span> Generator</a></li>
+                <li><a id="navAboutLink" href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
             </ul>
             <div class="navbar-right">
-                <a class="btn btn-success navbar-btn" href="https://github.com/jessewebb/csgo-buynds" target="_blank">
+                <a id="navCsgoBuyndsGitHubLinkButton" class="btn btn-success navbar-btn" href="https://github.com/jessewebb/csgo-buynds" target="_blank">
                     View on GitHub <span class="glyphicon glyphicon-heart"></span>
                 </a>
             </div>
@@ -75,8 +75,8 @@
     <div class="row">
         <div class="col-sm-12">
             <ul class="nav nav-pills">
-                <li active-class="active"><a href="#/">Multi-Key Generator</a></li>
-                <li active-class="active"><a href="#/skg">Single-Key Generator</a></li>
+                <li active-class="active"><a id="generatorMultiKeyGenLink" href="#/">Multi-Key Generator</a></li>
+                <li active-class="active"><a id="generatorSingleKeyGenLink" href="#/skg">Single-Key Generator</a></li>
             </ul>
 
             <div ng-view></div>
@@ -87,7 +87,7 @@
     </div>
 
     <div class="footer">
-        <span><small>Copyright &copy; 2014 <a href="https://twitter.com/gweebz">Jesse 'Gweebz' Webb</a></small></span>
+        <span><small>Copyright &copy; 2014 <a id="footerCopyrightGweebzTwitterLink" href="https://twitter.com/gweebz">Jesse 'Gweebz' Webb</a></small></span>
     </div>
 </div>
 
