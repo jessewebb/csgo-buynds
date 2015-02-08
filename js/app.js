@@ -30,7 +30,9 @@ buyndsApp.config(['$routeProvider', function ($routeProvider) {
 
 buyndsApp.run(['$rootScope', '$route', '$window', function ($rootScope, $route, $window) {
     $rootScope.$on("$routeChangeSuccess", function(){
-        $rootScope.title = $route.current.title;
-        $window.ga('send', 'screenview', { 'screenName': $route.current.title });
+        if ($route.current.title != null) {
+            $rootScope.title = $route.current.title;
+            $window.ga('send', 'screenview', { 'screenName': $route.current.title });
+        }
     });
 }]);
