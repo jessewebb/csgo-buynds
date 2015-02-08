@@ -11,7 +11,7 @@ var buyndsApp = angular.module('buyndsApp', [
 ]);
 
 buyndsApp.config(['ngClipProvider', function(ngClipProvider) {
-    ngClipProvider.setPath("vendor/zeroclipboard-1.3.5/ZeroClipboard.swf");
+    ngClipProvider.setPath("vendor/zeroclipboard-2.2.0/ZeroClipboard.swf");
 }]);
 
 buyndsApp.config(['$routeProvider', function ($routeProvider) {
