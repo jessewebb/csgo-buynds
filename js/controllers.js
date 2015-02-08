@@ -68,6 +68,7 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
         $scope.submitted = true;
         if ($scope.skgForm.$valid) {
             $scope.buyBind = bindBuilder.build(bindOptions);
+            $window.ga('send', 'event', 'bind builder', 'build', 'key bind', 1, { page: $route.current.page });
         }
     };
 
@@ -125,14 +126,17 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
 
     $scope.generateBinds = function () {
         $window.ga('send', 'event', 'button', 'click', 'generate', { page: $route.current.page });
+        var numBindsGenerated = 0;
         $scope.buyBinds = [];
         for (var keyBind in $scope.bindOptionsMap) {
             if ($scope.bindOptionsMap.hasOwnProperty(keyBind)) {
                 var bindOptions = $scope.bindOptionsMap[keyBind];
                 var buyBind = bindBuilder.build(bindOptions);
                 $scope.buyBinds.push(buyBind);
+                numBindsGenerated++;
             }
         }
+        $window.ga('send', 'event', 'bind builder', 'build', 'key bind', numBindsGenerated, { page: $route.current.page });
     };
 
     $scope.resetBinds = function () {
