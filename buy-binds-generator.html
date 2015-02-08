@@ -64,7 +64,7 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a id="navHomeLink" href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                <li class="active"><a id="navGeneratorLink" href="buy-binds-generator.html"><span class="glyphicon glyphicon-cog"></span> Generator</a></li>
+                <li class="active"><a id="navGeneratorLink" ng-href="{{$root.href}}" ng-click="reloadPage()"><span class="glyphicon glyphicon-cog"></span> Generator</a></li>
                 <li><a id="navAboutLink" href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
             </ul>
             <div class="navbar-right">

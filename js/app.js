@@ -31,8 +31,12 @@ buyndsApp.config(['$routeProvider', function ($routeProvider) {
 buyndsApp.run(['$rootScope', '$route', '$window', function ($rootScope, $route, $window) {
     $rootScope.$on("$routeChangeSuccess", function(){
         if ($route.current.title != null) {
+            $rootScope.href = $window.location.href;
             $rootScope.title = $route.current.title;
             $window.ga('send', 'screenview', { 'screenName': $route.current.title });
         }
     });
+    $rootScope.reloadPage = function () {
+        $window.location.reload();
+    };
 }]);
