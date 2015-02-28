@@ -23,7 +23,7 @@ buyndsApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/skg', {
         controller: 'SingleKeyGenCtrl',
         templateUrl: 'partials/single-key-generator.phtml',
-        title: 'Single-Key Generator'
+        title: 'Single Key Generator'
     });
     $routeProvider.otherwise({redirectTo: '/'});
 }]);
