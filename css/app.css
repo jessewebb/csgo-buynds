@@ -104,6 +104,12 @@ body {
     margin-bottom: 0;
 }
 
+/* Fix for 'Modal backdrop broken with bootstrap 3.3.1' (https://github.com/angular-ui/bootstrap/issues/2970) */
+.modal-backdrop {
+    bottom: 0;
+    position: fixed;
+}
+
 /* Media Queries */
 @media (min-width: 992px) {
     .mkg .keypad .key {
