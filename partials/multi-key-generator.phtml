@@ -126,12 +126,12 @@
 
             </div>
             <div class="panel-footer" ng-show="hasGeneratedBuyBinds()">
-                <button type="button" class="btn btn-info pull-right hidden-xs" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-paperclip"></span></button>
+                <button type="button" class="btn btn-info pull-right hidden-xs" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
                 <h4>Generated Buy Binds:</h4>
                 <pre class="buy-binds">
                     <span ng-repeat="buyBind in buyBinds track by $index">{{ buyBind }}<br /></span>
                 </pre>
-                <button type="button" class="btn btn-info visible-xs" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-paperclip"></span></button>
+                <button type="button" class="btn btn-info visible-xs" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
             </div>
         </div>
     </div>
