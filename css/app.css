@@ -51,6 +51,10 @@ body {
     margin: 10px 0;
 }
 
+.skg .btn.input-group-addon.btn-info {
+    color: #ffffff;
+}
+
 .skg pre.buy-binds {
     background-color: white;
     white-space: nowrap;
