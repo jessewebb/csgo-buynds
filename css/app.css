@@ -2,6 +2,13 @@ body {
     margin-top: 50px;
 }
 
+#githubIconImg {
+    display: inline-block;
+    height: 16px;
+    vertical-align: text-bottom;
+    width: 16px;
+}
+
 .footer {
     border-top: 1px solid lightgrey;
     font-size: small;
