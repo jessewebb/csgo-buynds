@@ -5,67 +5,83 @@
             "keys": [
                 {
                     "name": "1 / End",
-                    "bind": "kp_end"
+                    "bind": "kp_end",
+                    "code": 97
                 },
                 {
                     "name": "2 / Down Arrow",
-                    "bind": "kp_downarrow"
+                    "bind": "kp_downarrow",
+                    "code": 98
                 },
                 {
                     "name": "3 / Page Down",
-                    "bind": "kp_pgdn"
+                    "bind": "kp_pgdn",
+                    "code": 99
                 },
                 {
                     "name": "4 / Left Arrow",
-                    "bind": "kp_leftarrow"
+                    "bind": "kp_leftarrow",
+                    "code": 100
                 },
                 {
                     "name": "5",
-                    "bind": "kp_5"
+                    "bind": "kp_5",
+                    "code": 101
                 },
                 {
                     "name": "6 / Right Arrow",
-                    "bind": "kp_rightarrow"
+                    "bind": "kp_rightarrow",
+                    "code": 102
                 },
                 {
                     "name": "7 / Home",
-                    "bind": "kp_home"
+                    "bind": "kp_home",
+                    "code": 103
                 },
                 {
                     "name": "8 / Up Arrow",
-                    "bind": "kp_uparrow"
+                    "bind": "kp_uparrow",
+                    "code": 104
                 },
                 {
                     "name": "9 / Page Up",
-                    "bind": "kp_pgup"
+                    "bind": "kp_pgup",
+                    "code": 105
                 },
                 {
                     "name": "0 / Insert",
-                    "bind": "kp_ins"
+                    "bind": "kp_ins",
+                    "code": 96
                 },
                 {
                     "name": ". / Delete",
-                    "bind": "kp_del"
+                    "bind": "kp_del",
+                    "code": 110
                 },
                 {
                     "name": "/ (Slash)",
-                    "bind": "kp_slash"
+                    "bind": "kp_slash",
+                    "code": 111
                 },
                 {
                     "name": "* (Multiply)",
-                    "bind": "kp_multiply"
+                    "bind": "kp_multiply",
+                    "code": 106
                 },
                 {
                     "name": "- (Minus)",
-                    "bind": "kp_minus"
+                    "bind": "kp_minus",
+                    "code": 109
                 },
                 {
                     "name": "+ (Plus)",
-                    "bind": "kp_plus"
+                    "bind": "kp_plus",
+                    "code": 107
                 },
                 {
                     "name": "Enter",
-                    "bind": "kp_enter"
+                    "bind": "kp_enter",
+                    "code": null
                 }
             ]
         },
@@ -74,43 +90,53 @@
             "keys": [
                 {
                     "name": "Insert",
-                    "bind": "ins"
+                    "bind": "ins",
+                    "code": 45
                 },
                 {
                     "name": "Delete",
-                    "bind": "del"
+                    "bind": "del",
+                    "code": 46
                 },
                 {
                     "name": "Home",
-                    "bind": "home"
+                    "bind": "home",
+                    "code": 36
                 },
                 {
                     "name": "End",
-                    "bind": "end"
+                    "bind": "end",
+                    "code": 35
                 },
                 {
                     "name": "Page Up",
-                    "bind": "pgup"
+                    "bind": "pgup",
+                    "code": 33
                 },
                 {
                     "name": "Page Down",
-                    "bind": "pgdn"
+                    "bind": "pgdn",
+                    "code": 34
                 },
                 {
                     "name": "Up Arrow",
-                    "bind": "uparrow"
+                    "bind": "uparrow",
+                    "code": 38
                 },
                 {
                     "name": "Left Arrow",
-                    "bind": "leftarrow"
+                    "bind": "leftarrow",
+                    "code": 37
                 },
                 {
                     "name": "Down Arrow",
-                    "bind": "downarrow"
+                    "bind": "downarrow",
+                    "code": 40
                 },
                 {
                     "name": "Right Arrow",
-                    "bind": "rightarrow"
+                    "bind": "rightarrow",
+                    "code": 39
                 }
             ]
         },
@@ -119,51 +145,63 @@
             "keys": [
                 {
                     "name": "F1",
-                    "bind": "f1"
+                    "bind": "f1",
+                    "code": 112
                 },
                 {
                     "name": "F2",
-                    "bind": "f2"
+                    "bind": "f2",
+                    "code": 112
                 },
                 {
                     "name": "F3",
-                    "bind": "f3"
+                    "bind": "f3",
+                    "code": 112
                 },
                 {
                     "name": "F4",
-                    "bind": "f4"
+                    "bind": "f4",
+                    "code": 112
                 },
                 {
                     "name": "F5",
-                    "bind": "f5"
+                    "bind": "f5",
+                    "code": 112
                 },
                 {
                     "name": "F6",
-                    "bind": "f6"
+                    "bind": "f6",
+                    "code": 112
                 },
                 {
                     "name": "F7",
-                    "bind": "f7"
+                    "bind": "f7",
+                    "code": 112
                 },
                 {
                     "name": "F8",
-                    "bind": "f8"
+                    "bind": "f8",
+                    "code": 112
                 },
                 {
                     "name": "F9",
-                    "bind": "f9"
+                    "bind": "f9",
+                    "code": 112
                 },
                 {
                     "name": "F10",
-                    "bind": "f10"
+                    "bind": "f10",
+                    "code": 112
                 },
                 {
                     "name": "F11",
-                    "bind": "f11"
+                    "bind": "f11",
+                    "code": 112
                 },
                 {
                     "name": "F12",
-                    "bind": "f12"
+                    "bind": "f12",
+                    "code": 112
                 }
             ]
         }

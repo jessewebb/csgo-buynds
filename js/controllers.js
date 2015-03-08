@@ -22,7 +22,51 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
 
     $scope.bindOptions = new buynds.BindOptions();
     $scope.buyBind = '';
+    $scope.keyRecognitionActivated = false;
     $scope.submitted = false;
+
+    var setupPointerLock = function (elem) {
+        elem.requestPointerLock = elem.requestPointerLock ||
+            elem.mozRequestPointerLock || elem.webkitRequestPointerLock;
+        elem.requestPointerLock();
+    };
+
+    var disablePointerLock = function (document) {
+        document.exitPointerLock = document.exitPointerLock ||
+            document.mozExitPointerLock || document.webkitExitPointerLock;
+        document.exitPointerLock();
+    };
+
+    var findBindableKeyByCode = function (keyCode) {
+        for (var i = 0; i < $scope.bindableKeys.keyGroups.length; i++) {
+            var keyGroup = $scope.bindableKeys.keyGroups[i];
+            for (var j = 0; j < keyGroup.keys.length; j++) {
+                var key = keyGroup.keys[j];
+                if (key.code == keyCode) return key;
+            }
+        }
+    };
+
+    $scope.activateKeyRecognition = function ($event) {
+        setupPointerLock($event.currentTarget);
+        jQuery($window.document).keydown($scope.registerKeyPress);
+        $scope.keyRecognitionActivated = true;
+    };
+
+    $scope.registerKeyPress = function (keyEvent) {
+        jQuery($window.document).unbind('keydown');
+        disablePointerLock($window.document);
+        var keyCode = keyEvent.which;
+        var bindableKey = findBindableKeyByCode(keyEvent.which);
+        if (bindableKey == null) {
+            alert('Unrecognized Key! (keyCode = ' + keyCode + ')');
+        } else {
+            $scope.bindOptions.keyToBind = bindableKey.bind;
+        }
+        $scope.keyRecognitionActivated = false;
+        keyEvent.preventDefault();
+        $scope.$apply(); // force refresh because this function executes asynchronously outside AngularJS scope
+    };
 
     $scope.toggleGearSelection = function (gearBind) {
         var idx = $scope.bindOptions.gear.indexOf(gearBind);
