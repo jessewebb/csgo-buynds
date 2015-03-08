@@ -151,57 +151,57 @@
                 {
                     "name": "F2",
                     "bind": "f2",
-                    "code": 112
+                    "code": 113
                 },
                 {
                     "name": "F3",
                     "bind": "f3",
-                    "code": 112
+                    "code": 114
                 },
                 {
                     "name": "F4",
                     "bind": "f4",
-                    "code": 112
+                    "code": 115
                 },
                 {
                     "name": "F5",
                     "bind": "f5",
-                    "code": 112
+                    "code": 116
                 },
                 {
                     "name": "F6",
                     "bind": "f6",
-                    "code": 112
+                    "code": 117
                 },
                 {
                     "name": "F7",
                     "bind": "f7",
-                    "code": 112
+                    "code": 118
                 },
                 {
                     "name": "F8",
                     "bind": "f8",
-                    "code": 112
+                    "code": 119
                 },
                 {
                     "name": "F9",
                     "bind": "f9",
-                    "code": 112
+                    "code": 120
                 },
                 {
                     "name": "F10",
                     "bind": "f10",
-                    "code": 112
+                    "code": 121
                 },
                 {
                     "name": "F11",
                     "bind": "f11",
-                    "code": 112
+                    "code": 122
                 },
                 {
                     "name": "F12",
                     "bind": "f12",
-                    "code": 112
+                    "code": 123
                 }
             ]
         }
