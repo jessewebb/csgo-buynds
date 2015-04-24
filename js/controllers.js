@@ -42,9 +42,12 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
             var keyGroup = $scope.bindableKeys.keyGroups[i];
             for (var j = 0; j < keyGroup.keys.length; j++) {
                 var key = keyGroup.keys[j];
-                if (key.code == keyCode) return key;
+                if (key.code == keyCode) {
+                    return key;
+                }
             }
         }
+        return null;
     };
 
     $scope.activateKeyRecognition = function ($event) {
