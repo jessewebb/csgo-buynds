@@ -494,16 +494,6 @@
                     "code": null
                 },
                 {
-                    "name": "Windows Key",
-                    "bind": null,
-                    "code": 91
-                },
-                {
-                    "name": "Menu",
-                    "bind": null,
-                    "code": 93
-                },
-                {
                     "name": "` (Backtick) / ~ (Tilde)",
                     "bind": null,
                     "code": 192
