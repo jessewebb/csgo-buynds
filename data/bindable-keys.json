@@ -492,11 +492,6 @@
                     "name": "Alt Right",
                     "bind": "ralt",
                     "code": null
-                },
-                {
-                    "name": "` (Backtick) / ~ (Tilde)",
-                    "bind": null,
-                    "code": 192
                 }
             ]
         }
