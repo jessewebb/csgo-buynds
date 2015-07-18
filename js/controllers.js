@@ -25,16 +25,61 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
     $scope.keyRecognitionActivated = false;
     $scope.submitted = false;
 
+    var onPointerLockChange = function () {
+        console.log('Executing onPointerLockChange');
+        if($window.document.pointerLockElement ||
+            $window.document.mozPointerLockElement ||
+            $window.document.webkitPointerLockElement) {
+            // The pointer lock status is now locked
+        } else {
+            // The pointer lock status is now unlocked
+            if ($scope.keyRecognitionActivated) {
+                jQuery($window.document).unbind('keydown');
+                disablePointerLock();
+                $scope.keyRecognitionActivated = false;
+                $scope.$apply(); // force refresh because this function executes asynchronously outside AngularJS scope
+            }
+        }
+    };
+
+    var onPointerLockError = function () {
+        $window.console.error('Pointer lock failed');
+        jQuery($window.document).unbind('keydown');
+        disablePointerLock();
+        $scope.keyRecognitionActivated = false;
+        $scope.$apply(); // force refresh because this function executes asynchronously outside AngularJS scope
+    };
+
     var setupPointerLock = function (elem) {
         elem.requestPointerLock = elem.requestPointerLock ||
             elem.mozRequestPointerLock || elem.webkitRequestPointerLock;
         elem.requestPointerLock();
+
+        $window.document.addEventListener('pointerlockchange', onPointerLockChange);
+        $window.document.addEventListener('mozpointerlockchange', onPointerLockChange);
+        $window.document.addEventListener('webkitpointerlockchange', onPointerLockChange);
+
+        $window.document.addEventListener('pointerlockerror', onPointerLockError);
+        $window.document.addEventListener('mozpointerlockerror', onPointerLockError);
+        $window.document.addEventListener('webkitpointerlockerror', onPointerLockError);
     };
 
-    var disablePointerLock = function (document) {
-        document.exitPointerLock = document.exitPointerLock ||
-            document.mozExitPointerLock || document.webkitExitPointerLock;
-        document.exitPointerLock();
+    var disablePointerLock = function () {
+        $window.document.removeEventListener('pointerlockchange', onPointerLockChange);
+        $window.document.removeEventListener('mozpointerlockchange', onPointerLockChange);
+        $window.document.removeEventListener('webkitpointerlockchange', onPointerLockChange);
+
+        $window.document.removeEventListener('pointerlockerror', onPointerLockError);
+        $window.document.removeEventListener('mozpointerlockerror', onPointerLockError);
+        $window.document.removeEventListener('webkitpointerlockerror', onPointerLockError);
+
+        if($window.document.pointerLockElement ||
+            $window.document.mozPointerLockElement ||
+            $window.document.webkitPointerLockElement) {
+            $window.document.exitPointerLock = $window.document.exitPointerLock ||
+                $window.document.mozExitPointerLock || $window.document.webkitExitPointerLock;
+            $window.document.exitPointerLock();
+        }
     };
 
     var findBindableKeyByCode = function (keyCode) {
@@ -50,23 +95,23 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
         return null;
     };
 
-    $scope.activateKeyRecognition = function ($event) {
-        setupPointerLock($event.currentTarget);
-        jQuery($window.document).keydown($scope.registerKeyPress);
+    $scope.activateKeyRecognition = function (event) {
         $scope.keyRecognitionActivated = true;
+        setupPointerLock(event.currentTarget);
+        jQuery($window.document).keydown($scope.registerKeyPress);
     };
 
     $scope.registerKeyPress = function (keyEvent) {
+        $scope.keyRecognitionActivated = false;
         jQuery($window.document).unbind('keydown');
-        disablePointerLock($window.document);
+        disablePointerLock();
         var keyCode = keyEvent.which;
         var bindableKey = findBindableKeyByCode(keyEvent.which);
         if (bindableKey == null) {
-            alert('Unrecognized Key! (keyCode = ' + keyCode + ')');
+            $window.alert('Unrecognized Key! (keyCode = ' + keyCode + ')');
         } else {
             $scope.bindOptions.keyToBind = bindableKey.bind;
         }
-        $scope.keyRecognitionActivated = false;
         keyEvent.preventDefault();
         $scope.$apply(); // force refresh because this function executes asynchronously outside AngularJS scope
     };
