@@ -24,11 +24,8 @@
                         <div class="form-group" ng-class="{ 'has-error': submitted && skgForm.skgKeySelect.$invalid }">
                             <div class="col-sm-offset-3 col-sm-9">
                                 <div class="input-group">
-                                    <div class="btn input-group-addon"
-                                         ng-click="activateKeyRecognition($event)"
-                                         ng-class="{ 'btn-default': !keyRecognitionActivated, 'btn-info': keyRecognitionActivated }">
-                                        Press Any Key <span class="glyphicon glyphicon-edit"></span>
-                                    </div>
+                                    <div class="btn input-group-addon" press-any-key-button on-key-press="setKeyToBindByCode"
+                                         inactive-class="btn-default" active-class="btn-info">Press Any Key <span class="glyphicon glyphicon-edit"></span></div>
                                     <div class="form-control" disabled><code ng-show="bindOptions.keyToBind">{{ bindOptions.keyToBind }}</code></div>
                                     <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="submitted && skgForm.skgKeySelect.$invalid"></span>
                                 </div>
