@@ -1,0 +1,14 @@
+# Travis CI configuration
+# http://docs.travis-ci.com/user/customizing-the-build/
+# http://docs.travis-ci.com/user/travis-lint
+
+language: node_js
+node_js:
+  - "0.10"
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+install:
+  - "npm install"
+script:
+  - "npm test"

@@ -1,0 +1,17 @@
+{
+    "name" : "csgo-buynds",
+    "version" : "0.7.0",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/jessewebb/csgo-buynds.git"
+    },
+    "license" : "MIT",
+    "devDependencies" : {
+        "karma" : "0.13",
+        "karma-jasmine" : "0.2",
+        "karma-firefox-launcher" : "0.1"
+    },
+    "scripts" : {
+        "test" : "karma start --single-run --browsers Firefox"
+    }
+}
