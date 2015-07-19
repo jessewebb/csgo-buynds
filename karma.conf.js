@@ -15,7 +15,8 @@ module.exports = function (config) {
         ],
         logLevel: config.LOG_INFO,
         autoWatch: false,
-        browsers: ['Chrome', 'Firefox'],
-        singleRun: false
+        browsers: ['Firefox'],
+        singleRun: true,
+        reporters: ['dots']
     })
 };

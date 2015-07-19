@@ -7,11 +7,12 @@
     },
     "license" : "MIT",
     "devDependencies" : {
+        "jasmine-core" : "2.2.0",
         "karma" : "0.13",
         "karma-jasmine" : "0.2",
         "karma-firefox-launcher" : "0.1"
     },
     "scripts" : {
-        "test" : "karma start --single-run --browsers Firefox"
+        "test" : "karma start"
     }
 }
