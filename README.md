@@ -8,6 +8,8 @@ _Disclaimer:_ This project is currently in **ALPHA** stages of development.
 
 `Version: 0.7`
 
+[![Build Status](https://travis-ci.org/jessewebb/csgo-buynds.svg?branch=dev)](https://travis-ci.org/jessewebb/csgo-buynds)
+
 ## About csgo-buynds
 
 ### _What?_

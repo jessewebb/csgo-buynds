@@ -85,8 +85,8 @@
             <p>Buy binds, also known as buy scripts, are commands for the <em>Counter-Strike</em> PC games that allow
                 quick, 1-button purchasing of weapons and equipment.</p>
 
-            <p>Check out the <a id="aboutCsgoBuyndsGitHubLink" href="https://github.com/jessewebb/csgo-buynds">csgo-buynds repo on GitHub</a> to see
-                the code!</p>
+            <p>Check out the <a id="aboutCsgoBuyndsGitHubLink" href="https://github.com/jessewebb/csgo-buynds">csgo-buynds repo on GitHub</a>
+                to see the code!</p>
 
             <h3><em>Why?</em></h3>
 
@@ -127,8 +127,11 @@
 
             <h2 id="development-info">Development Information</h2>
 
-            <p>This project uses <a id="aboutGitHubPagesLink" href="http://pages.github.com/">GitHub Pages</a> to host the website. It
-                <a id="aboutNoJekyllGitHubPagesLink" href="https://github.com/blog/572-bypassing-jekyll-on-github-pages">does not use Jekyll</a>.</p>
+            <p>The <strong>csgo-buynds</strong> project uses <a id="aboutGitLink" href="https://git-scm.com/">Git</a> for version control.
+                The repository is hosted by <a id="aboutGitHubLink" href="https://github.com/">GitHub</a>.</p>
+
+            <p>The website is hosted on <a id="aboutGitHubPagesLink" href="http://pages.github.com/">GitHub Pages</a>.
+                It <a id="aboutNoJekyllGitHubPagesLink" href="https://github.com/blog/572-bypassing-jekyll-on-github-pages">does not use Jekyll</a>.</p>
 
             <p>The main branch, <a id="aboutCsgoBuyndsGitHubPagesBranchLink" href="https://github.com/jessewebb/csgo-buynds/tree/gh-pages">
                 <code>gh-pages</code></a>, is where stable releases are deployed to.</p>
@@ -138,18 +141,16 @@
 
             <p><a id="aboutCsgoBuyndsGitHubPullRequestsLink" href="https://github.com/jessewebb/csgo-buynds/pulls">Pull requests</a> are welcomed!</p>
 
-            <p>This project is a simple, static website built with pure HTML5, CSS3, and JavaScript. There is nothing to
-                compile.</p>
+            <p>The code is pure HTML5, CSS3, and JavaScript. There is nothing to compile.</p>
 
             <p>Here is a list of which 3rd party libraries are being used:</p>
-
             <ul>
                 <li><a id="aboutJqueryLink" href="http://jquery.com/">jQuery</a> (version: 2.1.3)</li>
                 <li><a id="aboutAngularJsLink" href="http://angularjs.org/">AngularJS</a> (version: 1.3.12)</li>
                 <li><a id="aboutBootstrapLink" href="http://getbootstrap.com/">Bootstrap</a> (version: 3.3.2)</li>
                 <li>
                     <a id="aboutAngularUiLink" href="http://angular-ui.github.io/">AngularUI</a>
-                    <ul class="task-list">
+                    <ul>
                         <li><a id="aboutAngularUiBootstrapLink" href="http://angular-ui.github.io/bootstrap/">UI Bootstrap</a> (version 0.12.0)</li>
                     </ul>
                 </li>
@@ -157,9 +158,21 @@
                 <li><a id="aboutZeroClipboardLink" href="http://zeroclipboard.org/">ZeroClipboard</a> (version: 2.2.0)</li>
             </ul>
 
-            <p>
-                Tests are written with <a id="aboutJasmineLink" href="http://jasmine.github.io/">Jasmine</a> (version: 2.2.0).
-                <a id="aboutRunTestsLink" href="http://csgobuynds.com/tests/SpecRunner.html">Run the tests</a> in your browser.
+            <p>Tests are written with <a id="aboutJasmineLink" href="http://jasmine.github.io/">Jasmine</a> (version: 2.2.0).</p>
+            <ul>
+                <li>You can <a id="aboutRunTestsLink" href="tests/SpecRunner.html">run the tests in your browser.</a></li>
+                <li>
+                    Or you can run them from the command line with <a id="aboutNodeJsLink" href="https://nodejs.org/">Node.js</a>
+                    and <a id="aboutNpmLink" href="https://www.npmjs.com/">npm</a>.
+                    <pre>npm install&NewLine;npm test</pre>
+                    (The project is configured to use <a id="aboutKarmaLink" href="http://karma-runner.github.io/">Karma</a> (version: 0.13) to run the tests.)
+                </li>
+            </ul>
+
+            <p>Continuous integration is performed with <a id="aboutTravisCiLink" href="https://travis-ci.org/">Travis CI.</a>
+                <a href="https://travis-ci.org/jessewebb/csgo-buynds">
+                    <img src="https://travis-ci.org/jessewebb/csgo-buynds.svg?branch=dev" title="Travis CI Build Status">
+                </a>
             </p>
 
             <p>Jesse's preferred JavaScript IDE is <a id="aboutJetbrainsWebStormLink" href="http://www.jetbrains.com/webstorm/">JetBrain's WebStorm</a>.
