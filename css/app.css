@@ -9,6 +9,12 @@ body {
     width: 16px;
 }
 
+.social-button {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: text-top;
+}
+
 .footer {
     border-top: 1px solid lightgrey;
     font-size: small;
