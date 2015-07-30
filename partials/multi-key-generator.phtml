@@ -159,6 +159,40 @@
                                                 ng-click="openKeyBindOptionsModal('del')">Delete</button>
                                     </div>
                                 </div>
+                                <div class="keypad">
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('uparrow'), 'btn-info': hasKeyBindOptions('uparrow') }"
+                                                ng-click="openKeyBindOptionsModal('uparrow')"><span class="glyphicon glyphicon-arrow-up"></span></button>
+                                    </div>
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('rightarrow'), 'btn-info': hasKeyBindOptions('rightarrow') }"
+                                                ng-click="openKeyBindOptionsModal('rightarrow')"><span class="glyphicon glyphicon-arrow-right"></span></button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('downarrow'), 'btn-info': hasKeyBindOptions('downarrow') }"
+                                                ng-click="openKeyBindOptionsModal('downarrow')"><span class="glyphicon glyphicon-arrow-down"></span></button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('leftarrow'), 'btn-info': hasKeyBindOptions('leftarrow') }"
+                                                ng-click="openKeyBindOptionsModal('leftarrow')"><span class="glyphicon glyphicon-arrow-left"></span></button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </fieldset>
