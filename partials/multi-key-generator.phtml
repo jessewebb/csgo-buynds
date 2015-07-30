@@ -114,6 +114,53 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-sm-3 col-xs-12">Navigation Keys</label>
+                            <div class="col-lg-4 col-sm-6 col-xs-12">
+                                <div class="keypad">
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('pgup'), 'btn-info': hasKeyBindOptions('pgup') }"
+                                                ng-click="openKeyBindOptionsModal('pgup')">Page<br/>Up</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('home'), 'btn-info': hasKeyBindOptions('home') }"
+                                                ng-click="openKeyBindOptionsModal('home')">Home</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('ins'), 'btn-info': hasKeyBindOptions('ins') }"
+                                                ng-click="openKeyBindOptionsModal('ins')">Insert</button>
+                                    </div>
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('pgdn'), 'btn-info': hasKeyBindOptions('pgdn') }"
+                                                ng-click="openKeyBindOptionsModal('pgdn')">Page<br/>Down</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('end'), 'btn-info': hasKeyBindOptions('end') }"
+                                                ng-click="openKeyBindOptionsModal('end')">End</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('del'), 'btn-info': hasKeyBindOptions('del') }"
+                                                ng-click="openKeyBindOptionsModal('del')">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </fieldset>
 
                     <div class="form-group">
