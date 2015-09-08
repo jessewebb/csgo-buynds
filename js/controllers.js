@@ -108,6 +108,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
     $scope.buyBinds = [];
     $scope.showNumpadKeypad = true;
     $scope.showNavKeysKeypad = false;
+    $scope.showFuncKeysKeypad = false;
 
     $scope.hasAnyBindOptions = function () {
         return !jQuery.isEmptyObject($scope.bindOptionsMap);

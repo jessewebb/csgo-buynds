@@ -211,9 +211,100 @@
                                 <div class="clearfix"></div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-sm-3 col-xs-12">
+                                Function Keys
+                                <button class="btn btn-sm btn-default" ng-click="showFuncKeysKeypad = !showFuncKeysKeypad">
+                                    <span class="glyphicon"
+                                          ng-class="{ 'glyphicon-collapse-up': showFuncKeysKeypad, 'glyphicon-collapse-down': !showFuncKeysKeypad }"></span>
+                                </button>
+                            </label>
+                            <div class="col-lg-4 col-sm-6 col-xs-12" collapse="!showFuncKeysKeypad">
+                                <div class="keypad">
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('f4'), 'btn-info': hasKeyBindOptions('f4') }"
+                                                ng-click="openKeyBindOptionsModal('f4')">F4</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('f3'), 'btn-info': hasKeyBindOptions('f3') }"
+                                                ng-click="openKeyBindOptionsModal('f3')">F3</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('f2'), 'btn-info': hasKeyBindOptions('f2') }"
+                                                ng-click="openKeyBindOptionsModal('f2')">F2</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('f1'), 'btn-info': hasKeyBindOptions('f1') }"
+                                                ng-click="openKeyBindOptionsModal('f1')">F1</button>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <br />
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('f8'), 'btn-info': hasKeyBindOptions('f8') }"
+                                                ng-click="openKeyBindOptionsModal('f8')">F8</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('f7'), 'btn-info': hasKeyBindOptions('f7') }"
+                                                ng-click="openKeyBindOptionsModal('f7')">F7</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('f6'), 'btn-info': hasKeyBindOptions('f6') }"
+                                                ng-click="openKeyBindOptionsModal('f6')">F6</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('f5'), 'btn-info': hasKeyBindOptions('f5') }"
+                                                ng-click="openKeyBindOptionsModal('f5')">F5</button>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <br />
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('f12'), 'btn-info': hasKeyBindOptions('f12') }"
+                                                ng-click="openKeyBindOptionsModal('f12')">F12</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('f11'), 'btn-info': hasKeyBindOptions('f11') }"
+                                                ng-click="openKeyBindOptionsModal('f11')">F11</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('f10'), 'btn-info': hasKeyBindOptions('f10') }"
+                                                ng-click="openKeyBindOptionsModal('f10')">F10</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('f9'), 'btn-info': hasKeyBindOptions('f9') }"
+                                                ng-click="openKeyBindOptionsModal('f9')">F9</button>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
                     </fieldset>
 
                     <div class="form-group">
+                        <hr />
                         <div class="col-lg-offset-4 col-lg-8 col-sm-offset-3 col-sm-9">
                             <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" ng-disabled="!hasAnyBindOptions()" />
                             <input id="mkgResetBtn" name="mkgResetBtn" type="reset" class="btn btn-default" ng-click="resetBinds()" value="Reset" ng-disabled="!hasAnyBindOptions() && !hasGeneratedBuyBinds()" />
