@@ -1,5 +1,7 @@
 'use strict';
 
+// csgo-buynds buynds module tests
+
 describe('buynds', function() {
 
     describe('BindBuilder', function() {

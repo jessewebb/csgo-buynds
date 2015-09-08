@@ -1,5 +1,7 @@
 'use strict';
 
+// csgo-buynds services module tests
+
 describe('services', function() {
     beforeEach(module('buyndsServices'));
 
