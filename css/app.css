@@ -1,3 +1,7 @@
+/*
+ * csgo-buynds web-app stylesheet
+ */
+
 body {
     margin-top: 50px;
 }
@@ -45,7 +49,7 @@ body {
     padding-left: 0;
 }
 
-/* Allow extra checkboxes/radios to placed with checkbox/radio containers */
+/* Allow extra checkboxes/radios to be placed within checkbox/radio containers */
 .form-group .checkbox .checkbox-extra,
 .form-group .checkbox-inline .checkbox-extra,
 .form-group .radio .radio-extra,
