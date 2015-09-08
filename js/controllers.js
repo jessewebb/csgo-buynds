@@ -102,7 +102,11 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
     };
 }]);
 
-buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '$window', 'bindBuilder', function ($scope, $modal, $route, $window, bindBuilder) {
+buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '$window', 'bindBuilder', 'dataService', function ($scope, $modal, $route, $window, bindBuilder, dataService) {
+
+    dataService.getBindableKeysAsync().then(function(data) {
+        $scope.bindableKeys = data;
+    });
 
     $scope.bindOptionsMap = {};
     $scope.buyBinds = [];
@@ -116,6 +120,33 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
 
     $scope.hasKeyBindOptions = function (keyBind) {
         return keyBind in $scope.bindOptionsMap;
+    };
+
+    var hasKeyGroupKeypadKeyBindOptions = function (keyGroupName) {
+        for (var i = 0; i < $scope.bindableKeys.keyGroups.length; i++) {
+            var keyGroup = $scope.bindableKeys.keyGroups[i];
+            if (keyGroup.name == keyGroupName) {
+                for (var j = 0; j < keyGroup.keys.length; j++) {
+                    var key = keyGroup.keys[j];
+                    if (key.bind in $scope.bindOptionsMap) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    };
+
+    $scope.hasNumpadKeypadKeyBindOptions = function () {
+        return hasKeyGroupKeypadKeyBindOptions('Numeric Keypad');
+    };
+
+    $scope.hasNavKeysKeypadKeyBindOptions = function () {
+        return hasKeyGroupKeypadKeyBindOptions('Navigation Keys');
+    };
+
+    $scope.hasFuncKeysKeypadKeyBindOptions = function () {
+        return hasKeyGroupKeypadKeyBindOptions('Function Keys');
     };
 
     $scope.hasGeneratedBuyBinds = function() {

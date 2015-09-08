@@ -11,7 +11,8 @@
                         <div class="form-group">
                             <label class="control-label col-lg-4 col-sm-3 col-xs-12">
                                 Numeric Keypad
-                                <button class="btn btn-sm btn-default" ng-click="showNumpadKeypad = !showNumpadKeypad">
+                                <button class="btn btn-sm btn-default" ng-click="showNumpadKeypad = !showNumpadKeypad"
+                                        ng-class="{ 'btn-default': !hasNumpadKeypadKeyBindOptions(), 'btn-info': hasNumpadKeypadKeyBindOptions() }">
                                     <span class="glyphicon"
                                           ng-class="{ 'glyphicon-collapse-up': showNumpadKeypad, 'glyphicon-collapse-down': !showNumpadKeypad }"></span>
                                 </button>
@@ -124,7 +125,8 @@
                         <div class="form-group">
                             <label class="control-label col-lg-4 col-sm-3 col-xs-12">
                                 Navigation Keys
-                                <button class="btn btn-sm btn-default" ng-click="showNavKeysKeypad = !showNavKeysKeypad">
+                                <button class="btn btn-sm btn-default" ng-click="showNavKeysKeypad = !showNavKeysKeypad"
+                                        ng-class="{ 'btn-default': !hasNavKeysKeypadKeyBindOptions(), 'btn-info': hasNavKeysKeypadKeyBindOptions() }">
                                     <span class="glyphicon"
                                           ng-class="{ 'glyphicon-collapse-up': showNavKeysKeypad, 'glyphicon-collapse-down': !showNavKeysKeypad }"></span>
                                 </button>
@@ -214,7 +216,8 @@
                         <div class="form-group">
                             <label class="control-label col-lg-4 col-sm-3 col-xs-12">
                                 Function Keys
-                                <button class="btn btn-sm btn-default" ng-click="showFuncKeysKeypad = !showFuncKeysKeypad">
+                                <button class="btn btn-sm btn-default" ng-click="showFuncKeysKeypad = !showFuncKeysKeypad"
+                                        ng-class="{ 'btn-default': !hasFuncKeysKeypadKeyBindOptions(), 'btn-info': hasFuncKeysKeypadKeyBindOptions() }">
                                     <span class="glyphicon"
                                           ng-class="{ 'glyphicon-collapse-up': showFuncKeysKeypad, 'glyphicon-collapse-down': !showFuncKeysKeypad }"></span>
                                 </button>
