@@ -1,5 +1,7 @@
 'use strict';
 
+// csgo-buynds web-app initialization & configuration
+
 var buyndsApp = angular.module('buyndsApp', [
     'ngRoute',
     'ui.bootstrap',

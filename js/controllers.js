@@ -1,5 +1,7 @@
 'use strict';
 
+// csgo-buynds angular controllers
+
 var buyndsControllers = angular.module('buyndsControllers', []);
 
 buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window', 'bindBuilder', 'dataService', function ($scope, $route, $window, bindBuilder, dataService) {

@@ -1,5 +1,7 @@
 'use strict';
 
+// csgo-buynds buy binds builder
+
 (function( buynds, $, undefined ) {
 
     buynds.BindOptions = function() {

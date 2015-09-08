@@ -1,5 +1,7 @@
 'use strict';
 
+// csgo-buynds angular directives
+
 var buyndsDirectives = angular.module('buyndsDirectives', []);
 
 buyndsDirectives.directive('appVersion', ['version', function (version) {

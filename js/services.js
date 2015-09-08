@@ -1,5 +1,7 @@
 'use strict';
 
+// csgo-buynds angular services
+
 var buyndsServices = angular.module('buyndsServices', []);
 
 buyndsServices.value('version', '0.8.0-dev');
