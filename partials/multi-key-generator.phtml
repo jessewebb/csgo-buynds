@@ -9,8 +9,14 @@
                     <fieldset>
                         <legend>Bind Options</legend>
                         <div class="form-group">
-                            <label class="control-label col-lg-4 col-sm-3 col-xs-12">Numeric Keypad</label>
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-lg-4 col-sm-3 col-xs-12">
+                                Numeric Keypad
+                                <button class="btn btn-sm btn-default" ng-click="showNumpadKeypad = !showNumpadKeypad">
+                                    <span class="glyphicon"
+                                          ng-class="{ 'glyphicon-collapse-up': showNumpadKeypad, 'glyphicon-collapse-down': !showNumpadKeypad }"></span>
+                                </button>
+                            </label>
+                            <div class="col-lg-4 col-sm-6 col-xs-12" collapse="!showNumpadKeypad">
                                 <div class="keypad">
                                     <div class="key">
                                         <button type="button"
@@ -111,12 +117,19 @@
                                                 ng-class="{ 'btn-default': !hasKeyBindOptions('kp_ins'), 'btn-info': hasKeyBindOptions('kp_ins') }"
                                                 ng-click="openKeyBindOptionsModal('kp_ins')">0<br/><span class="key-alt-fn">Insert</span></button>
                                     </div>
+                                    <div class="clearfix"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-lg-4 col-sm-3 col-xs-12">Navigation Keys</label>
-                            <div class="col-lg-4 col-sm-6 col-xs-12">
+                            <label class="control-label col-lg-4 col-sm-3 col-xs-12">
+                                Navigation Keys
+                                <button class="btn btn-sm btn-default" ng-click="showNavKeysKeypad = !showNavKeysKeypad">
+                                    <span class="glyphicon"
+                                          ng-class="{ 'glyphicon-collapse-up': showNavKeysKeypad, 'glyphicon-collapse-down': !showNavKeysKeypad }"></span>
+                                </button>
+                            </label>
+                            <div class="col-lg-4 col-sm-6 col-xs-12" collapse="!showNavKeysKeypad">
                                 <div class="keypad">
                                     <div class="key-spacer">
                                     </div>
@@ -159,6 +172,8 @@
                                                 ng-click="openKeyBindOptionsModal('del')">Delete</button>
                                     </div>
                                 </div>
+                                <div class="clearfix"></div>
+                                <br />
                                 <div class="keypad">
                                     <div class="key-spacer">
                                     </div>
@@ -193,6 +208,7 @@
                                                 ng-click="openKeyBindOptionsModal('leftarrow')"><span class="glyphicon glyphicon-arrow-left"></span></button>
                                     </div>
                                 </div>
+                                <div class="clearfix"></div>
                             </div>
                         </div>
                     </fieldset>
