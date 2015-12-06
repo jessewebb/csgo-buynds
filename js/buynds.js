@@ -57,7 +57,7 @@
                 });
             }
 
-            bindString = bindString.trim() + '";';
+            bindString = bindString.trim() + '"';
             return bindString;
         };
     };
