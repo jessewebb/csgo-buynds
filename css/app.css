@@ -132,6 +132,11 @@ body {
     position: fixed;
 }
 
+/* Google AdSense */
+.banner-ad {
+    margin-bottom: 20px;
+}
+
 /* Media Queries */
 @media (min-width: 992px) {
     .mkg .keypad .key,
