@@ -9,9 +9,11 @@
     <meta name="keywords" content="Counter-Strike,CSGO,CS:GO,buy,bind,binds,purchase,weapon,script,scripts,generator,Gweebz">
     <link href="humans.txt" rel="author" type="text/plain" />
 
+    <link href="images/buynds-favicon_64x64.png" rel="shortcut icon" />
+
     <!-- Styles -->
-    <link href="vendor/bootstrap-3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="vendor/bootstrap-3.1.1/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/bootstrap-3.3.2/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
     <link href="css/app.css" rel="stylesheet" type="text/css">
 
     <!-- Google Analytics -->
@@ -58,7 +60,7 @@
             </ul>
             <div class="navbar-right">
                 <a id="navCsgoBuyndsGitHubLinkButton" class="btn btn-success navbar-btn" href="https://github.com/jessewebb/csgo-buynds" target="_blank">
-                    View on GitHub <span class="glyphicon glyphicon-heart"></span>
+                    View on GitHub <img id="githubIconImg" src="images/GitHub-Mark-Light-64px.png" alt="GitHub Octocat mark" />
                 </a>
             </div>
         </div>
@@ -71,7 +73,25 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-md-12">
+            <div class="banner-ad">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- About -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-3919049525026738"
+                     data-ad-slot="6877881200"
+                     data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <h2 id="general-info">General Information</h2>
+
             <h3><em>What?</em></h3>
 
             <p><strong><em>CSGO-Buynds</em></strong> is an open-source web-app for generating buy binds for <em>
@@ -81,8 +101,8 @@
             <p>Buy binds, also known as buy scripts, are commands for the <em>Counter-Strike</em> PC games that allow
                 quick, 1-button purchasing of weapons and equipment.</p>
 
-            <p>Check out the <a id="aboutCsgoBuyndsGitHubLink" href="https://github.com/jessewebb/csgo-buynds">csgo-buynds repo on GitHub</a> to see
-                the code!</p>
+            <p>Check out the <a id="aboutCsgoBuyndsGitHubLink" href="https://github.com/jessewebb/csgo-buynds">csgo-buynds repo on GitHub</a>
+                to see the code!</p>
 
             <h3><em>Why?</em></h3>
 
@@ -121,10 +141,13 @@
                 <li><a id="aboutGweebzTvTwitchTvLink" href="http://www.twitch.tv/GweebzTV">GweebzTV on Twitch.TV</a></li>
             </ul>
 
-            <h2>Dev Info</h2>
+            <h2 id="development-info">Development Information</h2>
 
-            <p>This project uses <a id="aboutGitHubPagesLink" href="http://pages.github.com/">GitHub Pages</a> to host the website. It
-                <a id="aboutNoJekyllGitHubPagesLink" href="https://github.com/blog/572-bypassing-jekyll-on-github-pages">does not use Jekyll</a>.</p>
+            <p>The <strong>csgo-buynds</strong> project uses <a id="aboutGitLink" href="https://git-scm.com/">Git</a> for version control.
+                The repository is hosted by <a id="aboutGitHubLink" href="https://github.com/">GitHub</a>.</p>
+
+            <p>The website is hosted on <a id="aboutGitHubPagesLink" href="http://pages.github.com/">GitHub Pages</a>.
+                It <a id="aboutNoJekyllGitHubPagesLink" href="https://github.com/blog/572-bypassing-jekyll-on-github-pages">does not use Jekyll</a>.</p>
 
             <p>The main branch, <a id="aboutCsgoBuyndsGitHubPagesBranchLink" href="https://github.com/jessewebb/csgo-buynds/tree/gh-pages">
                 <code>gh-pages</code></a>, is where stable releases are deployed to.</p>
@@ -134,32 +157,101 @@
 
             <p><a id="aboutCsgoBuyndsGitHubPullRequestsLink" href="https://github.com/jessewebb/csgo-buynds/pulls">Pull requests</a> are welcomed!</p>
 
-            <p>This project is a simple, static website built with pure HTML5, CSS3, and JavaScript. There is nothing to
-                compile.</p>
+            <p>The code is pure HTML5, CSS3, and JavaScript. There is nothing to compile.</p>
 
             <p>Here is a list of which 3rd party libraries are being used:</p>
-
             <ul>
-                <li><a id="aboutJqueryLink" href="http://jquery.com/">jQuery</a> (version: 2.1.0)</li>
-                <li><a id="aboutAngularJsLink" href="http://angularjs.org/">AngularJS</a> (version: 1.2.14)</li>
-                <li><a id="aboutBootstrapLink" href="http://getbootstrap.com/">Bootstrap</a> (version: 3.1.1)</li>
+                <li><a id="aboutJqueryLink" href="http://jquery.com/">jQuery</a> (version: 2.1.3)</li>
+                <li><a id="aboutAngularJsLink" href="http://angularjs.org/">AngularJS</a> (version: 1.3.12)</li>
+                <li><a id="aboutBootstrapLink" href="http://getbootstrap.com/">Bootstrap</a> (version: 3.3.2)</li>
                 <li>
                     <a id="aboutAngularUiLink" href="http://angular-ui.github.io/">AngularUI</a>
-                    <ul class="task-list">
-                        <li><a id="aboutAngularUiBootstrapLink" href="http://angular-ui.github.io/bootstrap/">UI Bootstrap</a> (version 0.10.0)</li>
+                    <ul>
+                        <li><a id="aboutAngularUiBootstrapLink" href="http://angular-ui.github.io/bootstrap/">UI Bootstrap</a> (version 0.12.0)</li>
                     </ul>
                 </li>
-                <li><a id="aboutNgClipLink" href="https://github.com/asafdav/ng-clip">ngClip</a> (version: 0.1.3)</li>
-                <li><a id="aboutZeroClipboardLink" href="http://zeroclipboard.org/">ZeroClipboard</a> (version: 1.3.5)</li>
+                <li><a id="aboutNgClipLink" href="https://github.com/asafdav/ng-clip">ngClip</a> (version: 0.2.6)</li>
+                <li><a id="aboutZeroClipboardLink" href="http://zeroclipboard.org/">ZeroClipboard</a> (version: 2.2.0)</li>
             </ul>
 
-            <p>
-                Tests are written with <a id="aboutJasmineLink" href="http://jasmine.github.io/">Jasmine</a> (version: 2.0.0).
-                <a id="aboutRunTestsLink" href="http://csgobuynds.com/tests/SpecRunner.html">Run the tests</a> in your browser.
+            <p>Tests are written with <a id="aboutJasmineLink" href="http://jasmine.github.io/">Jasmine</a> (version: 2.2.0).</p>
+            <ul>
+                <li>You can <a id="aboutRunTestsLink" href="tests/SpecRunner.html">run the tests in your browser.</a></li>
+                <li>
+                    Or you can run them from the command line with <a id="aboutNodeJsLink" href="https://nodejs.org/">Node.js</a>
+                    and <a id="aboutNpmLink" href="https://www.npmjs.com/">npm</a>.
+                    <pre>npm install&NewLine;npm test</pre>
+                    (The project is configured to use <a id="aboutKarmaLink" href="http://karma-runner.github.io/">Karma</a> (version: 0.13) to run the tests.)
+                </li>
+            </ul>
+
+            <p>Continuous integration is performed with <a id="aboutTravisCiLink" href="https://travis-ci.org/">Travis CI.</a>
+                <a href="https://travis-ci.org/jessewebb/csgo-buynds">
+                    <img src="https://travis-ci.org/jessewebb/csgo-buynds.svg?branch=dev" title="Travis CI Build Status">
+                </a>
             </p>
 
             <p>Jesse's preferred JavaScript IDE is <a id="aboutJetbrainsWebStormLink" href="http://www.jetbrains.com/webstorm/">JetBrain's WebStorm</a>.
             </p>
+        </div>
+        <div class="col-md-4">
+            <h2 id="release-notes">Release Notes</h2>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">v0.8.0 (BETA) <em class="pull-right"><small><a href="https://github.com/jessewebb/csgo-buynds/pull/10" target="_blank" title="Release version 0.8.0">Released: 2015-12-07</a></small></em></h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li>New key-recognition control on Single Key Generator (<a href="https://github.com/jessewebb/csgo-buynds/issues/2" target="_blank" title="Better key prompt for single-key generator">feature request #2</a>)</li>
+                        <li>Added Navigation Keys and Function Keys to Multi-Key Generator</li>
+                        <li>New collapsible key sections on Multi-Key Generator</li>
+                        <li>Zeus x27 bind changed to "Taser" (<a href="https://github.com/jessewebb/csgo-buynds/issues/6" target="_blank" title="Zeus buy command no longer works">bug #6</a>, thanks <a href="https://github.com/mike-u" target="_blank">mike-u</a> for PR!)</li>
+                        <li>Added Twitter and Facebook social features</li>
+                        <li>Updated versions of all 3rd party libraries</li>
+                        <li>Added (more) Google Analytics and Google AdSense</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">v0.7 (ALPHA) <em class="pull-right"><small>Released: 2014-09-22</small></em></h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li>CZ75-Auto is now a replacement for Tec-9 / Five-SeveN, not the P250</li>
+                        <li>Allow two Flashbang grenades to be selected</li>
+                        <li>Multi-Key Generator is now the default tab</li>
+                        <li>Single Key Generator now has Function & Nav Keys as options</li>
+                        <li>Fixed a bug where the MKG 'Cancel' button wasn't discarding changes</li>
+                        <li>Other minor CSS / UI bug fixes & improvements</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">v0.6 (ALPHA) <em class="pull-right"><small>Released: 2014-06-15</small></em></h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li>Add "Copy to Clipboard" button to generated buy binds</li>
+                        <li>Allow "Key Bind Options" to be modified & cleared after saving</li>
+                        <li>Highlight keys in Multi-Key Generator with saved bind options</li>
+                        <li>Update "Home" & "About" pages' content</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">v0.5 (ALPHA) <em class="pull-right"><small>Released: 2014-04-24</small></em></h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li>Add Multi-Key Generator (MKG)</li>
+                        <li>Add full set of CS:GO weapons & equipment</li>
+                        <li>Improve responsive & mobile layouts</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -169,8 +261,8 @@
 </div>
 
 <!-- Scripts -->
-<script src="vendor/jquery-2.1.0/jquery.min.js" type="text/javascript"></script>
-<script src="vendor/bootstrap-3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="vendor/jquery-2.1.3/jquery.min.js" type="text/javascript"></script>
+<script src="vendor/bootstrap-3.3.2/js/bootstrap.min.js" type="text/javascript"></script>
 
 </body>
 </html>

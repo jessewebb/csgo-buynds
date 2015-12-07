@@ -4,9 +4,11 @@ Copyright © 2014-2015 Jesse Webb
 
 This code is available under [the MIT License](https://github.com/jessewebb/csgo-buynds/blob/gh-pages/LICENSE).
 
-_Disclaimer:_ This project is currently in **ALPHA** stages of development.
+_Disclaimer:_ This project is currently in **BETA** stages of development.
 
-`Version: 0.7`
+`Version: 0.8.0`
+
+[![Build Status](https://travis-ci.org/jessewebb/csgo-buynds.svg?branch=dev)](https://travis-ci.org/jessewebb/csgo-buynds)
 
 ## About csgo-buynds
 
@@ -61,14 +63,14 @@ This project is a simple, static website built with pure HTML5, CSS3, and JavaSc
 
 Here is a list of which 3rd party libraries are being used:
 
-- [jQuery](http://jquery.com/) (version: 2.1.0)
-- [AngularJS](http://angularjs.org/) (version: 1.2.14)
-- [Bootstrap](http://getbootstrap.com/) (version: 3.1.1)
+- [jQuery](http://jquery.com/) (version: 2.1.3)
+- [AngularJS](http://angularjs.org/) (version: 1.3.12)
+- [Bootstrap](http://getbootstrap.com/) (version: 3.3.2)
 - [AngularUI](http://angular-ui.github.io/)
-    - [UI Bootstrap](http://angular-ui.github.io/bootstrap/) (version 0.10.0)
-- [ngClip](https://github.com/asafdav/ng-clip) (version: 0.1.3)
-- [ZeroClipboard](http://zeroclipboard.org/) (version: 1.3.5)
+    - [UI Bootstrap](http://angular-ui.github.io/bootstrap/) (version 0.12.0)
+- [ngClip](https://github.com/asafdav/ng-clip) (version: 0.2.6)
+- [ZeroClipboard](http://zeroclipboard.org/) (version: 2.2.0)
 
-Tests are written with [Jasmine](http://jasmine.github.io/) (version: 2.0.0). [Run the tests](http://csgobuynds.com/tests/SpecRunner.html) in your browser.
+Tests are written with [Jasmine](http://jasmine.github.io/) (version: 2.2.0). [Run the tests](http://csgobuynds.com/tests/SpecRunner.html) in your browser.
 
 Jesse's preferred JavaScript IDE is [JetBrain's WebStorm](http://www.jetbrains.com/webstorm/).

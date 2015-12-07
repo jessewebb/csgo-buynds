@@ -1,0 +1,17 @@
+# Travis CI configuration
+# http://docs.travis-ci.com/user/customizing-the-build/
+# http://docs.travis-ci.com/user/travis-lint
+# http://docs.travis-ci.com/user/languages/javascript-with-nodejs/
+# http://docs.travis-ci.com/user/gui-and-headless-browsers/
+# http://karma-runner.github.io/0.13/plus/travis.html
+
+language: node_js
+node_js:
+  - "0.10"
+before_install:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+install:
+  - "npm install"
+script:
+  - "npm test"

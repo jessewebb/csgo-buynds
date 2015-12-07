@@ -1,18 +1,18 @@
 [
-    {
-        "name": "Kevlar Vest",
-        "bind": "vest"
-    },
-    {
-        "name": "Kevlar + Helmet",
-        "bind": "vesthelm"
-    },
-    {
-        "name": "Zeus x27",
-        "bind": "taser"
-    },
-    {
-        "name": "Defuse Kit",
-        "bind": "defuser"
-    }
+  {
+    "name": "Kevlar Vest",
+    "bind": "vest"
+  },
+  {
+    "name": "Kevlar + Helmet",
+    "bind": "vesthelm"
+  },
+  {
+    "name": "Zeus x27",
+    "bind": "Taser"
+  },
+  {
+    "name": "Defuse Kit",
+    "bind": "defuser"
+  }
 ]

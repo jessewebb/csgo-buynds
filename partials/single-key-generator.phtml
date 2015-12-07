@@ -2,7 +2,7 @@
     <div class="col-sm-12">
         <div class="skg panel panel-primary">
             <div class="panel-heading">
-                <h4>Single-Key Generator</h4>
+                <h4>Single Key Generator</h4>
             </div>
             <div class="panel-body">
                 <form id="skgForm" name="skgForm" class="form-horizontal">
@@ -19,6 +19,16 @@
                                                 ng-selected="bindOptions.keyToBind == bindableKey.bind">{{ bindableKey.name }}</option>
                                     </optgroup>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error': submitted && skgForm.skgKeySelect.$invalid }">
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <div class="input-group">
+                                    <div class="btn input-group-addon" press-any-key-button on-key-press="setKeyToBindByCode"
+                                         inactive-class="btn-default" active-class="btn-info">Press Any Key <span class="glyphicon glyphicon-edit"></span></div>
+                                    <div class="form-control" disabled><code ng-show="bindOptions.keyToBind">{{ bindOptions.keyToBind }}</code></div>
+                                    <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="submitted && skgForm.skgKeySelect.$invalid"></span>
+                                </div>
                                 <p class="help-block" ng-show="submitted && skgForm.skgKeySelect.$invalid">* You must select a key to bind!</p>
                             </div>
                         </div>
@@ -51,7 +61,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3">Gear</label>
                             <div class="col-sm-9">
-                                <div ng-repeat="gearItem in gear" class="checkbox checkbox-inline checkbox-not-inline-xs">
+                                <div ng-repeat="gearItem in gear" class="checkbox checkbox-inline checkbox-inline-no-indent checkbox-not-inline-xs">
                                     <label>
                                         <input name="skgGear[]"
                                                type="checkbox"
@@ -98,10 +108,10 @@
                 </form>
             </div>
             <div class="panel-footer" ng-show="buyBind">
-                <button type="button" class="btn btn-info pull-right hidden-xs" clip-copy="buyBind">Copy to Clipboard <span class="glyphicon glyphicon-paperclip"></span></button>
+                <button type="button" class="btn btn-info pull-right hidden-xs" clip-copy="buyBind">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
                 <h4>Generated Buy Bind:</h4>
                 <pre class="buy-binds">{{ buyBind }}</pre>
-                <button type="button" class="btn btn-info visible-xs" clip-copy="buyBind">Copy to Clipboard <span class="glyphicon glyphicon-paperclip"></span></button>
+                <button type="button" class="btn btn-info visible-xs" clip-copy="buyBind">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
             </div>
         </div>
     </div>

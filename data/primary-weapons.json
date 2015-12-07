@@ -1,83 +1,83 @@
 {
-    "weaponGroups": [
+  "weaponGroups": [
+    {
+      "name": "Rifles",
+      "weapons": [
         {
-            "name": "Rifles",
-            "weapons": [
-                {
-                    "name": "Galil AR / FAMAS",
-                    "bind": "galilar,famas"
-                },
-                {
-                    "name": "AK-47 / M4A4 / M4A1-S",
-                    "bind": "ak47,m4a1"
-                },
-                {
-                    "name": "SSG 08",
-                    "bind": "ssg08"
-                },
-                {
-                    "name": "SG 553 / AUG",
-                    "bind": "sg556,aug"
-                },
-                {
-                    "name": "AWP",
-                    "bind": "awp"
-                },
-                {
-                    "name": "G3SG1 / SCAR-20",
-                    "bind": "g3sg1,scar20"
-                }
-            ]
+          "name": "Galil AR / FAMAS",
+          "bind": "galilar,famas"
         },
         {
-            "name": "SMGs",
-            "weapons": [
-                {
-                    "name": "MAC-10 / MP9",
-                    "bind": "mac10,mp9"
-                },
-                {
-                    "name": "MP7",
-                    "bind": "mp7"
-                },
-                {
-                    "name": "UMP-45",
-                    "bind": "ump45"
-                },
-                {
-                    "name": "P90",
-                    "bind": "p90"
-                },
-                {
-                    "name": "PP-Bizon",
-                    "bind": "bizon"
-                }
-            ]
+          "name": "AK-47 / M4A4 / M4A1-S",
+          "bind": "ak47,m4a1"
         },
         {
-            "name": "Heavy",
-            "weapons": [
-                {
-                    "name": "Nova",
-                    "bind": "nova"
-                },
-                {
-                    "name": "XM1014",
-                    "bind": "xm1014"
-                },
-                {
-                    "name": "Sawed-Off / MAG-7",
-                    "bind": "sawedoff,mag7"
-                },
-                {
-                    "name": "M249",
-                    "bind": "m249"
-                },
-                {
-                    "name": "Negev",
-                    "bind": "negev"
-                }
-            ]
+          "name": "SSG 08",
+          "bind": "ssg08"
+        },
+        {
+          "name": "SG 553 / AUG",
+          "bind": "sg556,aug"
+        },
+        {
+          "name": "AWP",
+          "bind": "awp"
+        },
+        {
+          "name": "G3SG1 / SCAR-20",
+          "bind": "g3sg1,scar20"
         }
-    ]
+      ]
+    },
+    {
+      "name": "SMGs",
+      "weapons": [
+        {
+          "name": "MAC-10 / MP9",
+          "bind": "mac10,mp9"
+        },
+        {
+          "name": "MP7",
+          "bind": "mp7"
+        },
+        {
+          "name": "UMP-45",
+          "bind": "ump45"
+        },
+        {
+          "name": "P90",
+          "bind": "p90"
+        },
+        {
+          "name": "PP-Bizon",
+          "bind": "bizon"
+        }
+      ]
+    },
+    {
+      "name": "Heavy",
+      "weapons": [
+        {
+          "name": "Nova",
+          "bind": "nova"
+        },
+        {
+          "name": "XM1014",
+          "bind": "xm1014"
+        },
+        {
+          "name": "Sawed-Off / MAG-7",
+          "bind": "sawedoff,mag7"
+        },
+        {
+          "name": "M249",
+          "bind": "m249"
+        },
+        {
+          "name": "Negev",
+          "bind": "negev"
+        }
+      ]
+    }
+  ]
 }

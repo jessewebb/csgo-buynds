@@ -1,5 +1,22 @@
+/*
+ * csgo-buynds web-app stylesheet
+ */
+
 body {
     margin-top: 50px;
+}
+
+#githubIconImg {
+    display: inline-block;
+    height: 16px;
+    vertical-align: text-bottom;
+    width: 16px;
+}
+
+.social-button {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: text-top;
 }
 
 .footer {
@@ -17,13 +34,22 @@ body {
 .form-group .radio-inline.radio-inline-no-indent+.radio-inline.radio-inline-no-indent {
     margin-left: 0;
     margin-right: 10px;
+    padding-left: 0;
 }
 .form-group .checkbox-inline.checkbox-inline-no-indent:last-child,
 .form-group .radio-inline.radio-inline-no-indent:last-child {
     margin-left: 0;
 }
 
-/* Allow extra checkboxes/radios to placed with checkbox/radio containers */
+/* Fix inline labels alignment issue */
+.form-group .checkbox label:nth-child(n+2),
+.form-group .radio label:nth-child(n+2),
+.form-group .checkbox-inline.checkbox-inline-no-indent label:nth-child(n+2),
+.form-group .radio-inline.radio-inline-no-indent label:nth-child(n+2) {
+    padding-left: 0;
+}
+
+/* Allow extra checkboxes/radios to be placed within checkbox/radio containers */
 .form-group .checkbox .checkbox-extra,
 .form-group .checkbox-inline .checkbox-extra,
 .form-group .radio .radio-extra,
@@ -37,9 +63,13 @@ body {
     bottom: 1px;
 }
 
-/* Single-Key Generator Styles */
+/* Single Key Generator Styles */
 .skg {
     margin: 10px 0;
+}
+
+.skg .btn.input-group-addon.btn-info {
+    color: #ffffff;
 }
 
 .skg pre.buy-binds {
@@ -56,7 +86,8 @@ body {
     width: 100%;
 }
 
-.mkg .keypad .key {
+.mkg .keypad .key,
+.mkg .keypad .key-spacer {
     display: inline-block;
     float: right;
     height: 60px;
@@ -95,9 +126,21 @@ body {
     margin-bottom: 0;
 }
 
+/* Fix for 'Modal backdrop broken with bootstrap 3.3.1' (https://github.com/angular-ui/bootstrap/issues/2970) */
+.modal-backdrop {
+    bottom: 0;
+    position: fixed;
+}
+
+/* Google AdSense */
+.banner-ad {
+    margin-bottom: 20px;
+}
+
 /* Media Queries */
 @media (min-width: 992px) {
-    .mkg .keypad .key {
+    .mkg .keypad .key,
+    .mkg .keypad .key-spacer {
         height: 80px;
         margin: 3px;
         width: 23%; /* Fallback for browsers without support for calc() */
