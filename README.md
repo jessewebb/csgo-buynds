@@ -4,9 +4,9 @@ Copyright © 2014-2015 Jesse Webb
 
 This code is available under [the MIT License](https://github.com/jessewebb/csgo-buynds/blob/gh-pages/LICENSE).
 
-_Disclaimer:_ This project is currently in **ALPHA** stages of development.
+_Disclaimer:_ This project is currently in **BETA** stages of development.
 
-`Version: 0.8.0-dev`
+`Version: 0.8`
 
 [![Build Status](https://travis-ci.org/jessewebb/csgo-buynds.svg?branch=dev)](https://travis-ci.org/jessewebb/csgo-buynds)
 
