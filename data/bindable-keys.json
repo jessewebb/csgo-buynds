@@ -1,499 +1,499 @@
 {
-    "keyGroups": [
+  "keyGroups": [
+    {
+      "name": "Numeric Keypad",
+      "keys": [
         {
-            "name": "Numeric Keypad",
-            "keys": [
-                {
-                    "name": "1 / End",
-                    "bind": "kp_end",
-                    "code": 97
-                },
-                {
-                    "name": "2 / Down Arrow",
-                    "bind": "kp_downarrow",
-                    "code": 98
-                },
-                {
-                    "name": "3 / Page Down",
-                    "bind": "kp_pgdn",
-                    "code": 99
-                },
-                {
-                    "name": "4 / Left Arrow",
-                    "bind": "kp_leftarrow",
-                    "code": 100
-                },
-                {
-                    "name": "5",
-                    "bind": "kp_5",
-                    "code": 101
-                },
-                {
-                    "name": "6 / Right Arrow",
-                    "bind": "kp_rightarrow",
-                    "code": 102
-                },
-                {
-                    "name": "7 / Home",
-                    "bind": "kp_home",
-                    "code": 103
-                },
-                {
-                    "name": "8 / Up Arrow",
-                    "bind": "kp_uparrow",
-                    "code": 104
-                },
-                {
-                    "name": "9 / Page Up",
-                    "bind": "kp_pgup",
-                    "code": 105
-                },
-                {
-                    "name": "0 / Insert",
-                    "bind": "kp_ins",
-                    "code": 96
-                },
-                {
-                    "name": ". / Delete",
-                    "bind": "kp_del",
-                    "code": 110
-                },
-                {
-                    "name": "/ (Slash)",
-                    "bind": "kp_slash",
-                    "code": 111
-                },
-                {
-                    "name": "* (Multiply)",
-                    "bind": "kp_multiply",
-                    "code": 106
-                },
-                {
-                    "name": "- (Minus)",
-                    "bind": "kp_minus",
-                    "code": 109
-                },
-                {
-                    "name": "+ (Plus)",
-                    "bind": "kp_plus",
-                    "code": 107
-                },
-                {
-                    "name": "Enter",
-                    "bind": "kp_enter",
-                    "code": null
-                }
-            ]
+          "name": "1 / End",
+          "bind": "kp_end",
+          "code": 97
         },
         {
-            "name": "Navigation Keys",
-            "keys": [
-                {
-                    "name": "Insert",
-                    "bind": "ins",
-                    "code": 45
-                },
-                {
-                    "name": "Delete",
-                    "bind": "del",
-                    "code": 46
-                },
-                {
-                    "name": "Home",
-                    "bind": "home",
-                    "code": 36
-                },
-                {
-                    "name": "End",
-                    "bind": "end",
-                    "code": 35
-                },
-                {
-                    "name": "Page Up",
-                    "bind": "pgup",
-                    "code": 33
-                },
-                {
-                    "name": "Page Down",
-                    "bind": "pgdn",
-                    "code": 34
-                },
-                {
-                    "name": "Up Arrow",
-                    "bind": "uparrow",
-                    "code": 38
-                },
-                {
-                    "name": "Left Arrow",
-                    "bind": "leftarrow",
-                    "code": 37
-                },
-                {
-                    "name": "Down Arrow",
-                    "bind": "downarrow",
-                    "code": 40
-                },
-                {
-                    "name": "Right Arrow",
-                    "bind": "rightarrow",
-                    "code": 39
-                }
-            ]
+          "name": "2 / Down Arrow",
+          "bind": "kp_downarrow",
+          "code": 98
         },
         {
-            "name": "Function Keys",
-            "keys": [
-                {
-                    "name": "F1",
-                    "bind": "f1",
-                    "code": 112
-                },
-                {
-                    "name": "F2",
-                    "bind": "f2",
-                    "code": 113
-                },
-                {
-                    "name": "F3",
-                    "bind": "f3",
-                    "code": 114
-                },
-                {
-                    "name": "F4",
-                    "bind": "f4",
-                    "code": 115
-                },
-                {
-                    "name": "F5",
-                    "bind": "f5",
-                    "code": 116
-                },
-                {
-                    "name": "F6",
-                    "bind": "f6",
-                    "code": 117
-                },
-                {
-                    "name": "F7",
-                    "bind": "f7",
-                    "code": 118
-                },
-                {
-                    "name": "F8",
-                    "bind": "f8",
-                    "code": 119
-                },
-                {
-                    "name": "F9",
-                    "bind": "f9",
-                    "code": 120
-                },
-                {
-                    "name": "F10",
-                    "bind": "f10",
-                    "code": 121
-                },
-                {
-                    "name": "F11",
-                    "bind": "f11",
-                    "code": 122
-                },
-                {
-                    "name": "F12",
-                    "bind": "f12",
-                    "code": 123
-                }
-            ]
+          "name": "3 / Page Down",
+          "bind": "kp_pgdn",
+          "code": 99
         },
         {
-            "name": "Standard Keys",
-            "keys": [
-                {
-                    "name": "1 / ! (Exclamation Mark)",
-                    "bind": "1",
-                    "code": 49
-                },
-                {
-                    "name": "2 / @ (At Sign)",
-                    "bind": "2",
-                    "code": 50
-                },
-                {
-                    "name": "3 / # (Number Sign)",
-                    "bind": "3",
-                    "code": 51
-                },
-                {
-                    "name": "4 / $ (Dollar Sign)",
-                    "bind": "4",
-                    "code": 52
-                },
-                {
-                    "name": "5 / % (Percent Sign)",
-                    "bind": "5",
-                    "code": 53
-                },
-                {
-                    "name": "6 / ^ (Caret)",
-                    "bind": "6",
-                    "code": 54
-                },
-                {
-                    "name": "7 / & (Ampersand)",
-                    "bind": "7",
-                    "code": 55
-                },
-                {
-                    "name": "8 / * (Asterisk)",
-                    "bind": "8",
-                    "code": 56
-                },
-                {
-                    "name": "9 / ( (Parenthesis Left)",
-                    "bind": "9",
-                    "code": 57
-                },
-                {
-                    "name": "0 / ) (Parenthesis Right)",
-                    "bind": "0",
-                    "code": 48
-                },
-                {
-                    "name": "A",
-                    "bind": "a",
-                    "code": 65
-                },
-                {
-                    "name": "B",
-                    "bind": "b",
-                    "code": 66
-                },
-                {
-                    "name": "C",
-                    "bind": "c",
-                    "code": 67
-                },
-                {
-                    "name": "D",
-                    "bind": "d",
-                    "code": 68
-                },
-                {
-                    "name": "E",
-                    "bind": "e",
-                    "code": 69
-                },
-                {
-                    "name": "F",
-                    "bind": "f",
-                    "code": 70
-                },
-                {
-                    "name": "G",
-                    "bind": "g",
-                    "code": 71
-                },
-                {
-                    "name": "H",
-                    "bind": "h",
-                    "code": 72
-                },
-                {
-                    "name": "I",
-                    "bind": "i",
-                    "code": 73
-                },
-                {
-                    "name": "J",
-                    "bind": "j",
-                    "code": 74
-                },
-                {
-                    "name": "K",
-                    "bind": "k",
-                    "code": 75
-                },
-                {
-                    "name": "L",
-                    "bind": "l",
-                    "code": 76
-                },
-                {
-                    "name": "M",
-                    "bind": "m",
-                    "code": 77
-                },
-                {
-                    "name": "N",
-                    "bind": "n",
-                    "code": 78
-                },
-                {
-                    "name": "O",
-                    "bind": "o",
-                    "code": 79
-                },
-                {
-                    "name": "P",
-                    "bind": "p",
-                    "code": 80
-                },
-                {
-                    "name": "Q",
-                    "bind": "q",
-                    "code": 81
-                },
-                {
-                    "name": "R",
-                    "bind": "r",
-                    "code": 82
-                },
-                {
-                    "name": "S",
-                    "bind": "s",
-                    "code": 83
-                },
-                {
-                    "name": "T",
-                    "bind": "t",
-                    "code": 84
-                },
-                {
-                    "name": "U",
-                    "bind": "u",
-                    "code": 85
-                },
-                {
-                    "name": "V",
-                    "bind": "v",
-                    "code": 86
-                },
-                {
-                    "name": "W",
-                    "bind": "w",
-                    "code": 87
-                },
-                {
-                    "name": "X",
-                    "bind": "x",
-                    "code": 88
-                },
-                {
-                    "name": "Y",
-                    "bind": "y",
-                    "code": 89
-                },
-                {
-                    "name": "Z",
-                    "bind": "z",
-                    "code": 90
-                },
-                {
-                    "name": "Space Bar",
-                    "bind": "space",
-                    "code": 32
-                },
-                {
-                    "name": "- (Hyphen) / _ (Underscore)",
-                    "bind": "-",
-                    "code": 173
-                },
-                {
-                    "name": "= (Equals Sign) / + (Plus Sign)",
-                    "bind": "=",
-                    "code": 61
-                },
-                {
-                    "name": "[ (Bracket Left) / { (Brace Left)",
-                    "bind": "[",
-                    "code": 219
-                },
-                {
-                    "name": "] (Bracket Right) / } (Brace Right)",
-                    "bind": "]",
-                    "code": 221
-                },
-                {
-                    "name": "\\ (Backslash) / | (Pipe)",
-                    "bind": "\\",
-                    "code": 220
-                },
-                {
-                    "name": "; (Semicolon) / : (Colon)",
-                    "bind": "semicolon",
-                    "code": 59
-                },
-                {
-                    "name": "' (Apostraphe) / \" (Quotation Marks)",
-                    "bind": "'",
-                    "code": 222
-                },
-                {
-                    "name": ", (Comma) / < (Pointy Bracket Left)",
-                    "bind": ",",
-                    "code": 188
-                },
-                {
-                    "name": ". (Period) / > (Pointy Bracket Right)",
-                    "bind": ".",
-                    "code": 190
-                },
-                {
-                    "name": "/ (Slash) / ? (Question Mark)",
-                    "bind": "/",
-                    "code": 191
-                },
-                {
-                    "name": "Backspace",
-                    "bind": "backspace",
-                    "code": 8
-                },
-                {
-                    "name": "Tab",
-                    "bind": "tab",
-                    "code": 9
-                },
-                {
-                    "name": "Enter",
-                    "bind": "enter",
-                    "code": 13
-                },
-                {
-                    "name": "Caps Lock",
-                    "bind": "capslock",
-                    "code": 20
-                },
-                {
-                    "name": "Shift Left",
-                    "bind": "shift",
-                    "code": 16
-                },
-                {
-                    "name": "Shift Right",
-                    "bind": "rshift",
-                    "code": null
-                },
-                {
-                    "name": "Control Left",
-                    "bind": "ctrl",
-                    "code": 17
-                },
-                {
-                    "name": "Control Right",
-                    "bind": "rctrl",
-                    "code": null
-                },
-                {
-                    "name": "Alt Left",
-                    "bind": "alt",
-                    "code": 18
-                },
-                {
-                    "name": "Alt Right",
-                    "bind": "ralt",
-                    "code": null
-                }
-            ]
+          "name": "4 / Left Arrow",
+          "bind": "kp_leftarrow",
+          "code": 100
+        },
+        {
+          "name": "5",
+          "bind": "kp_5",
+          "code": 101
+        },
+        {
+          "name": "6 / Right Arrow",
+          "bind": "kp_rightarrow",
+          "code": 102
+        },
+        {
+          "name": "7 / Home",
+          "bind": "kp_home",
+          "code": 103
+        },
+        {
+          "name": "8 / Up Arrow",
+          "bind": "kp_uparrow",
+          "code": 104
+        },
+        {
+          "name": "9 / Page Up",
+          "bind": "kp_pgup",
+          "code": 105
+        },
+        {
+          "name": "0 / Insert",
+          "bind": "kp_ins",
+          "code": 96
+        },
+        {
+          "name": ". / Delete",
+          "bind": "kp_del",
+          "code": 110
+        },
+        {
+          "name": "/ (Slash)",
+          "bind": "kp_slash",
+          "code": 111
+        },
+        {
+          "name": "* (Multiply)",
+          "bind": "kp_multiply",
+          "code": 106
+        },
+        {
+          "name": "- (Minus)",
+          "bind": "kp_minus",
+          "code": 109
+        },
+        {
+          "name": "+ (Plus)",
+          "bind": "kp_plus",
+          "code": 107
+        },
+        {
+          "name": "Enter",
+          "bind": "kp_enter",
+          "code": null
         }
-    ]
+      ]
+    },
+    {
+      "name": "Navigation Keys",
+      "keys": [
+        {
+          "name": "Insert",
+          "bind": "ins",
+          "code": 45
+        },
+        {
+          "name": "Delete",
+          "bind": "del",
+          "code": 46
+        },
+        {
+          "name": "Home",
+          "bind": "home",
+          "code": 36
+        },
+        {
+          "name": "End",
+          "bind": "end",
+          "code": 35
+        },
+        {
+          "name": "Page Up",
+          "bind": "pgup",
+          "code": 33
+        },
+        {
+          "name": "Page Down",
+          "bind": "pgdn",
+          "code": 34
+        },
+        {
+          "name": "Up Arrow",
+          "bind": "uparrow",
+          "code": 38
+        },
+        {
+          "name": "Left Arrow",
+          "bind": "leftarrow",
+          "code": 37
+        },
+        {
+          "name": "Down Arrow",
+          "bind": "downarrow",
+          "code": 40
+        },
+        {
+          "name": "Right Arrow",
+          "bind": "rightarrow",
+          "code": 39
+        }
+      ]
+    },
+    {
+      "name": "Function Keys",
+      "keys": [
+        {
+          "name": "F1",
+          "bind": "f1",
+          "code": 112
+        },
+        {
+          "name": "F2",
+          "bind": "f2",
+          "code": 113
+        },
+        {
+          "name": "F3",
+          "bind": "f3",
+          "code": 114
+        },
+        {
+          "name": "F4",
+          "bind": "f4",
+          "code": 115
+        },
+        {
+          "name": "F5",
+          "bind": "f5",
+          "code": 116
+        },
+        {
+          "name": "F6",
+          "bind": "f6",
+          "code": 117
+        },
+        {
+          "name": "F7",
+          "bind": "f7",
+          "code": 118
+        },
+        {
+          "name": "F8",
+          "bind": "f8",
+          "code": 119
+        },
+        {
+          "name": "F9",
+          "bind": "f9",
+          "code": 120
+        },
+        {
+          "name": "F10",
+          "bind": "f10",
+          "code": 121
+        },
+        {
+          "name": "F11",
+          "bind": "f11",
+          "code": 122
+        },
+        {
+          "name": "F12",
+          "bind": "f12",
+          "code": 123
+        }
+      ]
+    },
+    {
+      "name": "Standard Keys",
+      "keys": [
+        {
+          "name": "1 / ! (Exclamation Mark)",
+          "bind": "1",
+          "code": 49
+        },
+        {
+          "name": "2 / @ (At Sign)",
+          "bind": "2",
+          "code": 50
+        },
+        {
+          "name": "3 / # (Number Sign)",
+          "bind": "3",
+          "code": 51
+        },
+        {
+          "name": "4 / $ (Dollar Sign)",
+          "bind": "4",
+          "code": 52
+        },
+        {
+          "name": "5 / % (Percent Sign)",
+          "bind": "5",
+          "code": 53
+        },
+        {
+          "name": "6 / ^ (Caret)",
+          "bind": "6",
+          "code": 54
+        },
+        {
+          "name": "7 / & (Ampersand)",
+          "bind": "7",
+          "code": 55
+        },
+        {
+          "name": "8 / * (Asterisk)",
+          "bind": "8",
+          "code": 56
+        },
+        {
+          "name": "9 / ( (Parenthesis Left)",
+          "bind": "9",
+          "code": 57
+        },
+        {
+          "name": "0 / ) (Parenthesis Right)",
+          "bind": "0",
+          "code": 48
+        },
+        {
+          "name": "A",
+          "bind": "a",
+          "code": 65
+        },
+        {
+          "name": "B",
+          "bind": "b",
+          "code": 66
+        },
+        {
+          "name": "C",
+          "bind": "c",
+          "code": 67
+        },
+        {
+          "name": "D",
+          "bind": "d",
+          "code": 68
+        },
+        {
+          "name": "E",
+          "bind": "e",
+          "code": 69
+        },
+        {
+          "name": "F",
+          "bind": "f",
+          "code": 70
+        },
+        {
+          "name": "G",
+          "bind": "g",
+          "code": 71
+        },
+        {
+          "name": "H",
+          "bind": "h",
+          "code": 72
+        },
+        {
+          "name": "I",
+          "bind": "i",
+          "code": 73
+        },
+        {
+          "name": "J",
+          "bind": "j",
+          "code": 74
+        },
+        {
+          "name": "K",
+          "bind": "k",
+          "code": 75
+        },
+        {
+          "name": "L",
+          "bind": "l",
+          "code": 76
+        },
+        {
+          "name": "M",
+          "bind": "m",
+          "code": 77
+        },
+        {
+          "name": "N",
+          "bind": "n",
+          "code": 78
+        },
+        {
+          "name": "O",
+          "bind": "o",
+          "code": 79
+        },
+        {
+          "name": "P",
+          "bind": "p",
+          "code": 80
+        },
+        {
+          "name": "Q",
+          "bind": "q",
+          "code": 81
+        },
+        {
+          "name": "R",
+          "bind": "r",
+          "code": 82
+        },
+        {
+          "name": "S",
+          "bind": "s",
+          "code": 83
+        },
+        {
+          "name": "T",
+          "bind": "t",
+          "code": 84
+        },
+        {
+          "name": "U",
+          "bind": "u",
+          "code": 85
+        },
+        {
+          "name": "V",
+          "bind": "v",
+          "code": 86
+        },
+        {
+          "name": "W",
+          "bind": "w",
+          "code": 87
+        },
+        {
+          "name": "X",
+          "bind": "x",
+          "code": 88
+        },
+        {
+          "name": "Y",
+          "bind": "y",
+          "code": 89
+        },
+        {
+          "name": "Z",
+          "bind": "z",
+          "code": 90
+        },
+        {
+          "name": "Space Bar",
+          "bind": "space",
+          "code": 32
+        },
+        {
+          "name": "- (Hyphen) / _ (Underscore)",
+          "bind": "-",
+          "code": 173
+        },
+        {
+          "name": "= (Equals Sign) / + (Plus Sign)",
+          "bind": "=",
+          "code": 61
+        },
+        {
+          "name": "[ (Bracket Left) / { (Brace Left)",
+          "bind": "[",
+          "code": 219
+        },
+        {
+          "name": "] (Bracket Right) / } (Brace Right)",
+          "bind": "]",
+          "code": 221
+        },
+        {
+          "name": "\\ (Backslash) / | (Pipe)",
+          "bind": "\\",
+          "code": 220
+        },
+        {
+          "name": "; (Semicolon) / : (Colon)",
+          "bind": "semicolon",
+          "code": 59
+        },
+        {
+          "name": "' (Apostraphe) / \" (Quotation Marks)",
+          "bind": "'",
+          "code": 222
+        },
+        {
+          "name": ", (Comma) / < (Pointy Bracket Left)",
+          "bind": ",",
+          "code": 188
+        },
+        {
+          "name": ". (Period) / > (Pointy Bracket Right)",
+          "bind": ".",
+          "code": 190
+        },
+        {
+          "name": "/ (Slash) / ? (Question Mark)",
+          "bind": "/",
+          "code": 191
+        },
+        {
+          "name": "Backspace",
+          "bind": "backspace",
+          "code": 8
+        },
+        {
+          "name": "Tab",
+          "bind": "tab",
+          "code": 9
+        },
+        {
+          "name": "Enter",
+          "bind": "enter",
+          "code": 13
+        },
+        {
+          "name": "Caps Lock",
+          "bind": "capslock",
+          "code": 20
+        },
+        {
+          "name": "Shift Left",
+          "bind": "shift",
+          "code": 16
+        },
+        {
+          "name": "Shift Right",
+          "bind": "rshift",
+          "code": null
+        },
+        {
+          "name": "Control Left",
+          "bind": "ctrl",
+          "code": 17
+        },
+        {
+          "name": "Control Right",
+          "bind": "rctrl",
+          "code": null
+        },
+        {
+          "name": "Alt Left",
+          "bind": "alt",
+          "code": 18
+        },
+        {
+          "name": "Alt Right",
+          "bind": "ralt",
+          "code": null
+        }
+      ]
+    }
+  ]
 }

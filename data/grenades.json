@@ -1,22 +1,22 @@
 [
-    {
-        "name": "Molotov / Incendiary",
-        "bind": "molotov,incgrenade"
-    },
-    {
-        "name": "Decoy",
-        "bind": "decoy"
-    },
-    {
-        "name": "Flashbang",
-        "bind": "flashbang"
-    },
-    {
-        "name": "High Explosive",
-        "bind": "hegrenade"
-    },
-    {
-        "name": "Smoke",
-        "bind": "smokegrenade"
-    }
+  {
+    "name": "Molotov / Incendiary",
+    "bind": "molotov,incgrenade"
+  },
+  {
+    "name": "Decoy",
+    "bind": "decoy"
+  },
+  {
+    "name": "Flashbang",
+    "bind": "flashbang"
+  },
+  {
+    "name": "High Explosive",
+    "bind": "hegrenade"
+  },
+  {
+    "name": "Smoke",
+    "bind": "smokegrenade"
+  }
 ]
