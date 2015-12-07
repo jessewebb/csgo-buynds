@@ -6,7 +6,7 @@ This code is available under [the MIT License](https://github.com/jessewebb/csgo
 
 _Disclaimer:_ This project is currently in **BETA** stages of development.
 
-`Version: 0.8.0`
+`Version: 0.9.0-dev`
 
 [![Build Status](https://travis-ci.org/jessewebb/csgo-buynds.svg?branch=dev)](https://travis-ci.org/jessewebb/csgo-buynds)
 
