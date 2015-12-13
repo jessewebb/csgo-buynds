@@ -62,7 +62,30 @@
         };
     };
 
-    buynds.BindLoader = function() {
+    buynds.BindLoader = function(primaryWeapons, secondaryWeapons, gear, grenades) {
+        this.primaryWeapons = primaryWeapons;
+        this.secondaryWeapons = secondaryWeapons;
+        this.gear = gear;
+        this.grenades = grenades;
+
+        var self = this;
+
+        var isBindForPrimaryWeapon = function (bind) {
+            for (var i = 0; i < self.primaryWeapons['weaponGroups'].length; i++) {
+                var weaponGroup = self.primaryWeapons['weaponGroups'][i];
+                for (var j = 0; j < weaponGroup['weapons'].length; j++) {
+                    var weapon = weaponGroup['weapons'][j];
+                    var weaponBinds = weapon["bind"].split(',');
+                    for (var k = 0; k < weaponBinds.length; k++) {
+                        if (bind == weaponBinds[k]) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        };
+
         this.load = function (bindString) {
             if (!bindString) throw new Error('bindString is required');
 
@@ -83,9 +106,16 @@
                 bindString = bindString.substring(1, bindString.length - 1);
                 var buyCommands = bindString.split(';');
                 for (var i = 0; i < buyCommands.length; i++) {
-                    var buyCommand = buyCommands[i];
+                    var buyCommand = buyCommands[i].trim();
                     if (buyCommand.startsWith('buy ')) {
-                        bindOptions.primaryWeapon = buyCommand.substring(4);
+                        var equipmentToBuy = buyCommand.substring(4);
+                        if (isBindForPrimaryWeapon(equipmentToBuy)) {
+                            if (bindOptions.primaryWeapon) {
+                                bindOptions.primaryWeapon += ',' + equipmentToBuy;
+                            } else {
+                                bindOptions.primaryWeapon = equipmentToBuy;
+                            }
+                        }
                     }
                 }
             }

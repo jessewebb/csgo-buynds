@@ -7,9 +7,9 @@
     },
     "license" : "MIT",
     "devDependencies" : {
-        "jasmine-core" : "2.2.0",
+        "jasmine-core" : "2.2",
         "karma" : "0.13",
-        "karma-jasmine" : "0.2",
+        "karma-jasmine" : "0.3",
         "karma-firefox-launcher" : "0.1"
     },
     "scripts" : {

@@ -11,8 +11,18 @@ module.exports = function (config) {
             'vendor/angular-1.3.12/angular.min.js',
             'vendor/angular-1.3.12/angular-mocks.js',
             'js/*.js',
-            'tests/specs/*.spec.js'
+            'tests/specs/*.spec.js',
+            // fixtures
+            {
+                pattern: 'data/*.json',
+                watched: false,
+                served: true,
+                included: false
+            }
         ],
+        proxies: {
+            "/data/": "/base/data/"
+        },
         logLevel: config.LOG_INFO,
         autoWatch: false,
         browsers: ['Firefox'],
