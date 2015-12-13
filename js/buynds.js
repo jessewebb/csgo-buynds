@@ -62,4 +62,23 @@
         };
     };
 
+    buynds.BindLoader = function() {
+        this.load = function (bindString) {
+            if (!bindString) throw new Error('bindString is required');
+
+            if (bindString.startsWith('bind ')) {
+                bindString = bindString.substring(5)
+            }
+
+            var keyToBind = '';
+            if (bindString.startsWith('"')) {
+                keyToBind = bindString.substring(1, bindString.indexOf('"', 1))
+            }
+
+            var bindOptions = new buynds.BindOptions();
+            bindOptions.keyToBind = keyToBind;
+            return bindOptions;
+        };
+    };
+
 }( window.buynds = window.buynds || {}, jQuery ));
