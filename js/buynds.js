@@ -66,17 +66,30 @@
         this.load = function (bindString) {
             if (!bindString) throw new Error('bindString is required');
 
+            var bindOptions = new buynds.BindOptions();
+
             if (bindString.startsWith('bind ')) {
                 bindString = bindString.substring(5)
             }
 
-            var keyToBind = '';
             if (bindString.startsWith('"')) {
-                keyToBind = bindString.substring(1, bindString.indexOf('"', 1))
+                bindOptions.keyToBind = bindString.substring(1, bindString.indexOf('"', 1));
+            } else {
+                bindOptions.keyToBind = bindString.substring(0, bindString.indexOf(' '));
+            }
+            bindString = bindString.substring(bindString.indexOf(' ') + 1);
+
+            if (bindString.startsWith('"') && bindString.endsWith('"')) {
+                bindString = bindString.substring(1, bindString.length - 1);
+                var buyCommands = bindString.split(';');
+                for (var i = 0; i < buyCommands.length; i++) {
+                    var buyCommand = buyCommands[i];
+                    if (buyCommand.startsWith('buy ')) {
+                        bindOptions.primaryWeapon = buyCommand.substring(4);
+                    }
+                }
             }
 
-            var bindOptions = new buynds.BindOptions();
-            bindOptions.keyToBind = keyToBind;
             return bindOptions;
         };
     };

@@ -139,6 +139,23 @@ describe('buynds', function() {
                 var result = bindLoader.load(bindString);
                 expect(result).toEqual(expectedBindOptions);
             });
+
+            it('should load bind options for key bind without double quotes', function() {
+                bindString = 'bind kp_enter ""';
+                var expectedBindOptions = new buynds.BindOptions();
+                expectedBindOptions.keyToBind = 'kp_enter';
+                var result = bindLoader.load(bindString);
+                expect(result).toEqual(expectedBindOptions);
+            });
+
+            it('should load bind options for single primary weapon', function() {
+                bindString = 'bind "kp_5" "buy awp;"';
+                var expectedBindOptions = new buynds.BindOptions();
+                expectedBindOptions.keyToBind = 'kp_5';
+                expectedBindOptions.primaryWeapon = 'awp';
+                var result = bindLoader.load(bindString);
+                expect(result).toEqual(expectedBindOptions);
+            });
         });
     });
 });
