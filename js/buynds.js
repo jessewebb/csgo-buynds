@@ -112,6 +112,19 @@
             return false;
         };
 
+        var isBindForGrenade = function (bind) {
+            for (var i = 0; i < self.grenades.length; i++) {
+                var grenade = self.grenades[i];
+                var grenadeBinds = grenade['bind'].split(',');
+                for (var j = 0; j < grenadeBinds.length; j++) {
+                    if (bind == grenadeBinds[j]) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        };
+
         this.load = function (bindString) {
             if (!bindString) throw new Error('bindString is required');
 
@@ -151,6 +164,17 @@
                         }
                         if (isBindForGearItem(equipmentToBuy)) {
                             bindOptions.gear.push(equipmentToBuy)
+                        }
+                        if (isBindForGrenade(equipmentToBuy)) {
+                            if (equipmentToBuy == 'incgrenade') {
+                                var lastGrenade = bindOptions.grenades.pop();
+                                if (lastGrenade == 'molotov') {
+                                    equipmentToBuy = lastGrenade + ',' + equipmentToBuy;
+                                } else {
+                                    bindOptions.push(lastGrenade);
+                                }
+                            }
+                            bindOptions.grenades.push(equipmentToBuy);
                         }
                     }
                 }

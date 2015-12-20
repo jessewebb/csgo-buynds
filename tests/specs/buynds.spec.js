@@ -221,6 +221,27 @@ describe('buynds', function() {
                 var result = bindLoader.load(bindString);
                 expect(result).toEqual(expectedBindOptions);
             });
+
+            it('should load bind options for single grenade', function() {
+                bindString = defaultKeyBind + '"buy hegrenade;"';
+                expectedBindOptions.grenades = ['hegrenade'];
+                var result = bindLoader.load(bindString);
+                expect(result).toEqual(expectedBindOptions);
+            });
+
+            it('should load bind options for multiple grenades', function() {
+                bindString = defaultKeyBind + '"buy smokegrenade; buy flashbang;"';
+                expectedBindOptions.grenades = ['smokegrenade', 'flashbang'];
+                var result = bindLoader.load(bindString);
+                expect(result).toEqual(expectedBindOptions);
+            });
+
+            it('should load bind options for multiple grenades combining "molotov,incgrenade"', function() {
+                bindString = defaultKeyBind + '"buy flashbang; buy molotov; buy incgrenade; buy flashbang;"';
+                expectedBindOptions.grenades = ['flashbang', 'molotov,incgrenade', 'flashbang'];
+                var result = bindLoader.load(bindString);
+                expect(result).toEqual(expectedBindOptions);
+            });
         });
     });
 });
