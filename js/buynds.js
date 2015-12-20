@@ -86,6 +86,22 @@
             return false;
         };
 
+        var isBindForSecondaryWeapon = function (bind) {
+            for (var i = 0; i < self.secondaryWeapons['weaponGroups'].length; i++) {
+                var weaponGroup = self.secondaryWeapons['weaponGroups'][i];
+                for (var j = 0; j < weaponGroup['weapons'].length; j++) {
+                    var weapon = weaponGroup['weapons'][j];
+                    var weaponBinds = weapon["bind"].split(',');
+                    for (var k = 0; k < weaponBinds.length; k++) {
+                        if (bind == weaponBinds[k]) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        };
+
         this.load = function (bindString) {
             if (!bindString) throw new Error('bindString is required');
 
@@ -114,6 +130,13 @@
                                 bindOptions.primaryWeapon += ',' + equipmentToBuy;
                             } else {
                                 bindOptions.primaryWeapon = equipmentToBuy;
+                            }
+                        }
+                        if (isBindForSecondaryWeapon(equipmentToBuy)) {
+                            if (bindOptions.secondaryWeapon) {
+                                bindOptions.secondaryWeapon += ',' + equipmentToBuy;
+                            } else {
+                                bindOptions.secondaryWeapon = equipmentToBuy;
                             }
                         }
                     }

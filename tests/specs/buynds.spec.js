@@ -195,6 +195,24 @@ describe('buynds', function() {
                 var result = bindLoader.load(bindString);
                 expect(result).toEqual(expectedBindOptions);
             });
+
+            it('should load bind options for single secondary weapon', function() {
+                bindString = 'bind "kp_ins" "buy deagle;"';
+                var expectedBindOptions = new buynds.BindOptions();
+                expectedBindOptions.keyToBind = 'kp_ins';
+                expectedBindOptions.secondaryWeapon = 'deagle';
+                var result = bindLoader.load(bindString);
+                expect(result).toEqual(expectedBindOptions);
+            });
+
+            it('should load bind options for multiple secondary weapons', function() {
+                bindString = 'bind "kp_ins" "buy tec9; buy fiveseven;"';
+                var expectedBindOptions = new buynds.BindOptions();
+                expectedBindOptions.keyToBind = 'kp_ins';
+                expectedBindOptions.secondaryWeapon = 'tec9,fiveseven';
+                var result = bindLoader.load(bindString);
+                expect(result).toEqual(expectedBindOptions);
+            });
         });
     });
 });
