@@ -207,6 +207,20 @@ describe('buynds', function() {
                 var result = bindLoader.load(bindString);
                 expect(result).toEqual(expectedBindOptions);
             });
+
+            it('should load bind options for single gear item', function() {
+                bindString = defaultKeyBind + '"buy defuser;"';
+                expectedBindOptions.gear = ['defuser'];
+                var result = bindLoader.load(bindString);
+                expect(result).toEqual(expectedBindOptions);
+            });
+
+            it('should load bind options for multiple gear items', function() {
+                bindString = defaultKeyBind + '"buy vest; buy vesthelm;"';
+                expectedBindOptions.gear = ['vest', 'vesthelm'];
+                var result = bindLoader.load(bindString);
+                expect(result).toEqual(expectedBindOptions);
+            });
         });
     });
 });

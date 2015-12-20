@@ -75,7 +75,7 @@
                 var weaponGroup = self.primaryWeapons['weaponGroups'][i];
                 for (var j = 0; j < weaponGroup['weapons'].length; j++) {
                     var weapon = weaponGroup['weapons'][j];
-                    var weaponBinds = weapon["bind"].split(',');
+                    var weaponBinds = weapon['bind'].split(',');
                     for (var k = 0; k < weaponBinds.length; k++) {
                         if (bind == weaponBinds[k]) {
                             return true;
@@ -91,12 +91,22 @@
                 var weaponGroup = self.secondaryWeapons['weaponGroups'][i];
                 for (var j = 0; j < weaponGroup['weapons'].length; j++) {
                     var weapon = weaponGroup['weapons'][j];
-                    var weaponBinds = weapon["bind"].split(',');
+                    var weaponBinds = weapon['bind'].split(',');
                     for (var k = 0; k < weaponBinds.length; k++) {
                         if (bind == weaponBinds[k]) {
                             return true;
                         }
                     }
+                }
+            }
+            return false;
+        };
+
+        var isBindForGearItem = function (bind) {
+            for (var i = 0; i < self.gear.length; i++) {
+                var gearItem = self.gear[i];
+                if (bind == gearItem['bind']) {
+                    return true;
                 }
             }
             return false;
@@ -138,6 +148,9 @@
                             } else {
                                 bindOptions.secondaryWeapon = equipmentToBuy;
                             }
+                        }
+                        if (isBindForGearItem(equipmentToBuy)) {
+                            bindOptions.gear.push(equipmentToBuy)
                         }
                     }
                 }
