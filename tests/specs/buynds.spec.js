@@ -139,7 +139,7 @@ describe('buynds', function() {
                 });
             });
 
-            var bindLoader, bindString;
+            var bindLoader, bindString, defaultKeyBind, expectedBindOptions;
 
             var bindOptionsEqualityTester = function(first, second) {
                 if (first instanceof buynds.BindOptions && second instanceof buynds.BindOptions) {
@@ -154,6 +154,10 @@ describe('buynds', function() {
             beforeEach(function() {
                 bindLoader = new buynds.BindLoader(primaryWeapons, secondaryWeapons, gear, grenades);
                 jasmine.addCustomEqualityTester(bindOptionsEqualityTester);
+
+                defaultKeyBind = 'bind "kp_ins" ';
+                expectedBindOptions = new buynds.BindOptions();
+                expectedBindOptions.keyToBind = 'kp_ins';
             });
 
             it('should throw Error when keyToBind is empty string', function() {
@@ -164,7 +168,6 @@ describe('buynds', function() {
 
             it('should load bind options for key bind with empty action', function() {
                 bindString = 'bind "kp_enter" ""';
-                var expectedBindOptions = new buynds.BindOptions();
                 expectedBindOptions.keyToBind = 'kp_enter';
                 var result = bindLoader.load(bindString);
                 expect(result).toEqual(expectedBindOptions);
@@ -172,43 +175,34 @@ describe('buynds', function() {
 
             it('should load bind options for key bind without double quotes', function() {
                 bindString = 'bind kp_enter ""';
-                var expectedBindOptions = new buynds.BindOptions();
                 expectedBindOptions.keyToBind = 'kp_enter';
                 var result = bindLoader.load(bindString);
                 expect(result).toEqual(expectedBindOptions);
             });
 
             it('should load bind options for single primary weapon', function() {
-                bindString = 'bind "kp_ins" "buy ssg08;"';
-                var expectedBindOptions = new buynds.BindOptions();
-                expectedBindOptions.keyToBind = 'kp_ins';
+                bindString = defaultKeyBind + '"buy ssg08;"';
                 expectedBindOptions.primaryWeapon = 'ssg08';
                 var result = bindLoader.load(bindString);
                 expect(result).toEqual(expectedBindOptions);
             });
 
             it('should load bind options for multiple primary weapons', function() {
-                bindString = 'bind "kp_ins" "buy galilar; buy famas;"';
-                var expectedBindOptions = new buynds.BindOptions();
-                expectedBindOptions.keyToBind = 'kp_ins';
+                bindString = defaultKeyBind + '"buy galilar; buy famas;"';
                 expectedBindOptions.primaryWeapon = 'galilar,famas';
                 var result = bindLoader.load(bindString);
                 expect(result).toEqual(expectedBindOptions);
             });
 
             it('should load bind options for single secondary weapon', function() {
-                bindString = 'bind "kp_ins" "buy deagle;"';
-                var expectedBindOptions = new buynds.BindOptions();
-                expectedBindOptions.keyToBind = 'kp_ins';
+                bindString = defaultKeyBind + '"buy deagle;"';
                 expectedBindOptions.secondaryWeapon = 'deagle';
                 var result = bindLoader.load(bindString);
                 expect(result).toEqual(expectedBindOptions);
             });
 
             it('should load bind options for multiple secondary weapons', function() {
-                bindString = 'bind "kp_ins" "buy tec9; buy fiveseven;"';
-                var expectedBindOptions = new buynds.BindOptions();
-                expectedBindOptions.keyToBind = 'kp_ins';
+                bindString = defaultKeyBind + '"buy tec9; buy fiveseven;"';
                 expectedBindOptions.secondaryWeapon = 'tec9,fiveseven';
                 var result = bindLoader.load(bindString);
                 expect(result).toEqual(expectedBindOptions);
