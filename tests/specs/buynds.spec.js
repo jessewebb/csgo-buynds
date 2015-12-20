@@ -97,9 +97,9 @@ describe('buynds', function() {
                 bindOptions.primaryWeapon = 'sawedoff,mag7';
                 bindOptions.secondaryWeapon = 'deagle';
                 bindOptions.gear = ['vesthelm', 'vest', 'defuser'];
-                bindOptions.grenades = ['hegrenade', 'molotov,incgrenade'];
+                bindOptions.grenades = ['flashbang', 'hegrenade', 'molotov,incgrenade', 'flashbang'];
                 var expectedBind = defaultKeyBind + '"buy sawedoff; buy mag7; buy deagle; buy vesthelm; buy vest; ' +
-                    'buy defuser; buy hegrenade; buy molotov; buy incgrenade;"';
+                    'buy defuser; buy flashbang; buy hegrenade; buy molotov; buy incgrenade; buy flashbang;"';
                 var result = bindBuilder.build(bindOptions);
                 expect(result).toEqual(expectedBind);
             });
