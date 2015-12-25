@@ -8,3 +8,8 @@ Developer: Jesse Webb (a.k.a Gweebz)
 Site: https://github.com/jessewebb
 Twitter: @gweebz
 Location: Saskatoon, Canada
+
+Developer: Benjamin Pinkert
+Site: https://savantdigital.net
+Twitter: @WebsiteSavants
+Location: Greenwich, CT

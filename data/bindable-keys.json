@@ -494,6 +494,46 @@
           "code": null
         }
       ]
+    },
+    {
+      "name": "Mouse Buttons",
+      "keys": [
+        {
+          "name": "Left Mouse",
+          "bind": "mouse1",
+          "code": 223
+        },
+        {
+          "name": "Right Mouse",
+          "bind": "mouse2",
+          "code": 224
+        }
+        {
+          "name": "Middle Mouse",
+          "bind": "mouse3",
+          "code": 225
+        }
+        {
+          "name": "Side Mouse 1",
+          "bind": "mouse4",
+          "code": 226
+        }
+        {
+          "name": "Side Mouse 2",
+          "bind": "mouse5",
+          "code": 227
+        }
+        {
+          "name": "Mouse Wheel Down",
+          "bind": "mwheeldown",
+          "code": 228
+        }
+        {
+          "name": "Mouse Wheel Up",
+          "bind": "mwheelup",
+          "code": 229
+        }
+      ]
     }
   ]
 }
