@@ -190,5 +190,32 @@ describe('controllers', function() {
                 expect(scope.allowExtraGrenade('smokegrenade')).toEqual(false);
             });
         });
+
+        describe('hasExtraGrenadeSelection(grenadeBind)', function () {
+
+            beforeEach(function() {
+                controller = createController();
+            });
+
+            it('should return true when the grenade bind is bound twice', function() {
+                scope.bindOptions.grenades = ['flashbang', 'flashbang'];
+                expect(scope.hasExtraGrenadeSelection('flashbang')).toEqual(true);
+            });
+
+            it('should return true when the grenade bind is bound twice along with other grenades', function() {
+                scope.bindOptions.grenades = ['smokegrenade', 'flashbang', 'hegrenade', 'flashbang'];
+                expect(scope.hasExtraGrenadeSelection('flashbang')).toEqual(true);
+            });
+
+            it('should return false when the grenade bind is not bound', function() {
+                scope.bindOptions.grenades = ['decoy'];
+                expect(scope.hasExtraGrenadeSelection('flashbang')).toEqual(false);
+            });
+
+            it('should return false when the grenade bind is only bound once', function() {
+                scope.bindOptions.grenades = ['flashbang', 'molotov,incgrenade', 'smokegrenade'];
+                expect(scope.hasExtraGrenadeSelection('flashbang')).toEqual(false);
+            });
+        });
     });
 });
