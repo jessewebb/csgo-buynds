@@ -163,5 +163,32 @@ describe('controllers', function() {
                 expect(scope.bindOptions.grenades).toEqual(['hegrenade', 'flashbang']);
             });
         });
+
+        describe('allowExtraGrenade(grenadeBind)', function () {
+
+            beforeEach(function() {
+                controller = createController();
+            });
+
+            it('should return true for Flashbang grenade', function() {
+                expect(scope.allowExtraGrenade('flashbang')).toEqual(true);
+            });
+
+            it('should return false for Molotov/Incendiary grenade', function() {
+                expect(scope.allowExtraGrenade('molotov,incgrenade')).toEqual(false);
+            });
+
+            it('should return false for Decoy grenade', function() {
+                expect(scope.allowExtraGrenade('decoy')).toEqual(false);
+            });
+
+            it('should return false for High Explosive grenade', function() {
+                expect(scope.allowExtraGrenade('hegrenade')).toEqual(false);
+            });
+
+            it('should return false for Smoke grenade', function() {
+                expect(scope.allowExtraGrenade('smokegrenade')).toEqual(false);
+            });
+        });
     });
 });
