@@ -10,6 +10,6 @@ Twitter: @gweebz
 Location: Saskatoon, Canada
 
 Developer: Benjamin Pinkert
-Site: https://savantdigital.net
+Site: https://github.com/bpinkert
 Twitter: @WebsiteSavants
 Location: Greenwich, CT
