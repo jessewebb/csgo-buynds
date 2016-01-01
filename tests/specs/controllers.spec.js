@@ -103,5 +103,35 @@ describe('controllers', function() {
                 expect(window.alert).toHaveBeenCalledWith(expectedErrorMessage);
             });
         });
+
+        describe('toggleGearSelection(gearBind)', function () {
+
+            beforeEach(function() {
+                controller = createController();
+            });
+
+            it('should add the gear bind to the bind options when the gear is not currently bound', function() {
+                scope.toggleGearSelection('vest');
+                expect(scope.bindOptions.gear).toEqual(['vest']);
+            });
+
+            it('should add the gear bind to the bind options even when other gear is already bound', function() {
+                scope.bindOptions.gear = ['vesthelm', 'vest'];
+                scope.toggleGearSelection('defuser');
+                expect(scope.bindOptions.gear).toEqual(['vesthelm', 'vest', 'defuser']);
+            });
+
+            it('should remove the gear bind from the bind options when the gear is currently bound', function() {
+                scope.bindOptions.gear = ['vesthelm'];
+                scope.toggleGearSelection('vesthelm');
+                expect(scope.bindOptions.gear).toEqual([]);
+            });
+
+            it('should remove the gear bind from the bind options even when other gear is also bound', function() {
+                scope.bindOptions.gear = ['vesthelm', 'vest', 'Taser', 'defuser'];
+                scope.toggleGearSelection('Taser');
+                expect(scope.bindOptions.gear).toEqual(['vesthelm', 'vest', 'defuser']);
+            });
+        });
     });
 });
