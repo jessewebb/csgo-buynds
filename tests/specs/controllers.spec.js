@@ -217,5 +217,47 @@ describe('controllers', function() {
                 expect(scope.hasExtraGrenadeSelection('flashbang')).toEqual(false);
             });
         });
+
+        describe('toggleExtraGrenadeSelection(grenadeBind)', function () {
+
+            beforeEach(function() {
+                controller = createController();
+            });
+
+            it('should add the grenade bind to the bind options twice when the grenade is not currently bound', function() {
+                scope.toggleExtraGrenadeSelection('flashbang');
+                expect(scope.bindOptions.grenades).toEqual(['flashbang', 'flashbang']);
+            });
+
+            it('should add the grenade bind to the bind options twice even when other grenades are already bound', function() {
+                scope.bindOptions.grenades = ['smokegrenade', 'molotov,incgrenade'];
+                scope.toggleExtraGrenadeSelection('flashbang');
+                expect(scope.bindOptions.grenades).toEqual(['smokegrenade', 'molotov,incgrenade', 'flashbang', 'flashbang']);
+            });
+
+            it('should add the grenade bind to the bind options once when the grenade bind is currently bound once', function() {
+                scope.bindOptions.grenades = ['flashbang'];
+                scope.toggleExtraGrenadeSelection('flashbang');
+                expect(scope.bindOptions.grenades).toEqual(['flashbang', 'flashbang']);
+            });
+
+            it('should add the grenade bind to the bind options once even when other grenades are already bound', function() {
+                scope.bindOptions.grenades = ['flashbang', 'decoy', 'hegrenade'];
+                scope.toggleExtraGrenadeSelection('flashbang');
+                expect(scope.bindOptions.grenades).toEqual(['flashbang', 'decoy', 'hegrenade', 'flashbang']);
+            });
+
+            it('should remove the grenade bind from the bind options once when the grenade is currently bound twice', function() {
+                scope.bindOptions.grenades = ['flashbang', 'flashbang'];
+                scope.toggleExtraGrenadeSelection('flashbang');
+                expect(scope.bindOptions.grenades).toEqual(['flashbang']);
+            });
+
+            it('should remove the grenade bind from the bind options once even when other grenades are also bound', function() {
+                scope.bindOptions.grenades = ['hegrenade', 'flashbang', 'molotov,incgrenade', 'flashbang'];
+                scope.toggleExtraGrenadeSelection('flashbang');
+                expect(scope.bindOptions.grenades).toEqual(['hegrenade', 'flashbang', 'molotov,incgrenade']);
+            });
+        });
     });
 });
