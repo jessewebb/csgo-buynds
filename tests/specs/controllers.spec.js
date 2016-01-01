@@ -133,5 +133,35 @@ describe('controllers', function() {
                 expect(scope.bindOptions.gear).toEqual(['vesthelm', 'vest', 'defuser']);
             });
         });
+
+        describe('toggleGrenadeSelection(grenadeBind)', function () {
+
+            beforeEach(function() {
+                controller = createController();
+            });
+
+            it('should add the grenade bind to the bind options when the grenade is not currently bound', function() {
+                scope.toggleGrenadeSelection('hegrenade');
+                expect(scope.bindOptions.grenades).toEqual(['hegrenade']);
+            });
+
+            it('should add the grenade bind to the bind options even when other grenades are already bound', function() {
+                scope.bindOptions.grenades = ['flashbang'];
+                scope.toggleGrenadeSelection('decoy');
+                expect(scope.bindOptions.grenades).toEqual(['flashbang', 'decoy']);
+            });
+
+            it('should remove the grenade bind from the bind options when the grenade is currently bound', function() {
+                scope.bindOptions.grenades = ['smokegrenade'];
+                scope.toggleGrenadeSelection('smokegrenade');
+                expect(scope.bindOptions.grenades).toEqual([]);
+            });
+
+            it('should remove the grenade bind from the bind options even when other grenades are also bound', function() {
+                scope.bindOptions.grenades = ['molotov,incgrenade', 'hegrenade', 'flashbang'];
+                scope.toggleGrenadeSelection('molotov,incgrenade');
+                expect(scope.bindOptions.grenades).toEqual(['hegrenade', 'flashbang']);
+            });
+        });
     });
 });
