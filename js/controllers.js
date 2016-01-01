@@ -152,7 +152,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         return hasKeyGroupKeypadKeyBindOptions('Function Keys');
     };
 
-    $scope.hasFuncKeysKeypadKeyBindOptions = function () {
+    $scope.hasMouseButtonsKeyBindOptions = function () {
         return hasKeyGroupKeypadKeyBindOptions('Mouse Buttons');
     };
 
