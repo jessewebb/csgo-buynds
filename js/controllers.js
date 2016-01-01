@@ -115,6 +115,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
     $scope.showNumpadKeypad = true;
     $scope.showNavKeysKeypad = false;
     $scope.showFuncKeysKeypad = false;
+    $scope.showMouseButtons = false;
 
     $scope.hasAnyBindOptions = function () {
         return !jQuery.isEmptyObject($scope.bindOptionsMap);
@@ -149,6 +150,10 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
 
     $scope.hasFuncKeysKeypadKeyBindOptions = function () {
         return hasKeyGroupKeypadKeyBindOptions('Function Keys');
+    };
+
+    $scope.hasFuncKeysKeypadKeyBindOptions = function () {
+        return hasKeyGroupKeypadKeyBindOptions('Mouse Buttons');
     };
 
     $scope.hasGeneratedBuyBinds = function() {
