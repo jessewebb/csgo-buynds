@@ -170,23 +170,23 @@ describe('controllers', function() {
                 controller = createController();
             });
 
-            it('should return true for Flashbang grenade', function() {
+            it('should return true for the Flashbang grenade bind', function() {
                 expect(scope.allowExtraGrenade('flashbang')).toEqual(true);
             });
 
-            it('should return false for Molotov/Incendiary grenade', function() {
+            it('should return false for the Molotov / Incendiary grenade bind', function() {
                 expect(scope.allowExtraGrenade('molotov,incgrenade')).toEqual(false);
             });
 
-            it('should return false for Decoy grenade', function() {
+            it('should return false for the Decoy grenade bind', function() {
                 expect(scope.allowExtraGrenade('decoy')).toEqual(false);
             });
 
-            it('should return false for High Explosive grenade', function() {
+            it('should return false for the High Explosive grenade bind', function() {
                 expect(scope.allowExtraGrenade('hegrenade')).toEqual(false);
             });
 
-            it('should return false for Smoke grenade', function() {
+            it('should return false for the Smoke grenade bind', function() {
                 expect(scope.allowExtraGrenade('smokegrenade')).toEqual(false);
             });
         });
