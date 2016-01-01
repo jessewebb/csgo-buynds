@@ -304,6 +304,76 @@
                                 <div class="clearfix"></div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-sm-3 col-xs-12">
+                                Mouse Buttons
+                                <button class="btn btn-sm btn-default" ng-click="showMouseButtons = !showMouseButtons"
+                                        ng-class="{ 'btn-default': !hasMouseButtonsBindOptions(), 'btn-info': hasMouseButtonsBindOptions() }">
+                                    <span class="glyphicon"
+                                          ng-class="{ 'glyphicon-collapse-up': showMouseButtons, 'glyphicon-collapse-down': !showMouseButtons }"></span>
+                                </button>
+                            </label>
+                            <div class="col-lg-4 col-sm-6 col-xs-12" collapse="!showMouseButtons">
+                                <div class="keypad">
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mouse2'), 'btn-info': hasKeyBindOptions('mouse2') }"
+                                                ng-click="openKeyBindOptionsModal('mouse2')">Right</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mouse3'), 'btn-info': hasKeyBindOptions('mouse3') }"
+                                                ng-click="openKeyBindOptionsModal('mouse3')">Middle</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mouse1'), 'btn-info': hasKeyBindOptions('mouse1') }"
+                                                ng-click="openKeyBindOptionsModal('mouse1')">Left</button>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <br />
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mouse5'), 'btn-info': hasKeyBindOptions('mouse5') }"
+                                                ng-click="openKeyBindOptionsModal('mouse5')">Side 2</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mouse4'), 'btn-info': hasKeyBindOptions('mouse4') }"
+                                                ng-click="openKeyBindOptionsModal('mouse4')">Side 1</button>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <br />
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mwheeldown'), 'btn-info': hasKeyBindOptions('mwheeldown') }"
+                                                ng-click="openKeyBindOptionsModal('mwheeldown')">Wheel <br/>Down</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mwheelup'), 'btn-info': hasKeyBindOptions('mwheelup') }"
+                                                ng-click="openKeyBindOptionsModal('mwheelup')">Wheel <br/>Up</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </fieldset>
 
                     <div class="form-group">
