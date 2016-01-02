@@ -75,9 +75,7 @@ describe('controllers', function() {
                     ]
                 };
                 getBindableKeysHandler.respond(bindableKeys);
-                window = {
-                    alert: function(message) {}
-                };
+                window.alert = function(message) {};
                 controller = createController();
             });
 
@@ -257,6 +255,63 @@ describe('controllers', function() {
                 scope.bindOptions.grenades = ['hegrenade', 'flashbang', 'molotov,incgrenade', 'flashbang'];
                 scope.toggleExtraGrenadeSelection('flashbang');
                 expect(scope.bindOptions.grenades).toEqual(['hegrenade', 'flashbang', 'molotov,incgrenade']);
+            });
+        });
+
+        describe('generateBind()', function () {
+
+            beforeEach(function() {
+                window.ga = function() {};
+                route.current = { page : '/buy-binds-generator.html' };
+                scope.skgForm = { $valid: true };
+                bindBuilder.build = function() { return 'test bind'; };
+                controller = createController();
+            });
+
+            it('should mark the form as submitted', function() {
+                scope.generateBind();
+                expect(scope.submitted).toEqual(true);
+            });
+
+            it('should build the bind from the bind options', function() {
+                spyOn(bindBuilder, 'build');
+                scope.generateBind();
+                expect(bindBuilder.build).toHaveBeenCalledWith(scope.bindOptions);
+            });
+
+            it('should update the buy bind when the form is valid', function() {
+                scope.generateBind();
+                expect(scope.buyBind).toEqual('test bind');
+            });
+
+            it('should update the buy bind to be the bind that was built', function() {
+                bindBuilder.build = function() { return 'the built bind'; };
+                scope.generateBind();
+                expect(scope.buyBind).toEqual('the built bind');
+            });
+
+            it('should not build or update the buy bind when the form is invalid', function() {
+                spyOn(bindBuilder, 'build');
+                scope.skgForm = { $valid: false };
+                scope.generateBind();
+                expect(bindBuilder.build).not.toHaveBeenCalled();
+                expect(scope.buyBind).toEqual('');
+            });
+
+            it('should track the button click event analytics data', function() {
+                spyOn(window, 'ga');
+                scope.generateBind();
+                expect(window.ga).toHaveBeenCalledWith(
+                    'send', 'event', 'button', 'click', 'generate',
+                    { page: '/buy-binds-generator.html' });
+            });
+
+            it('should track the bind build event analytics data when the form is valid', function() {
+                spyOn(window, 'ga');
+                scope.generateBind();
+                expect(window.ga).toHaveBeenCalledWith(
+                    'send', 'event', 'bind builder', 'build', 'key bind', 1,
+                    { page: '/buy-binds-generator.html' });
             });
         });
     });

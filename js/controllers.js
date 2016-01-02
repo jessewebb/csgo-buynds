@@ -87,11 +87,11 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
         }
     };
 
-    $scope.generateBind = function (bindOptions) {
+    $scope.generateBind = function () {
         $window.ga('send', 'event', 'button', 'click', 'generate', { page: $route.current.page });
         $scope.submitted = true;
         if ($scope.skgForm.$valid) {
-            $scope.buyBind = bindBuilder.build(bindOptions);
+            $scope.buyBind = bindBuilder.build($scope.bindOptions);
             $window.ga('send', 'event', 'bind builder', 'build', 'key bind', 1, { page: $route.current.page });
         }
     };
