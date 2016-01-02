@@ -126,6 +126,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
     };
 
     var hasKeyGroupKeypadKeyBindOptions = function (keyGroupName) {
+        if ($scope.bindableKeys === undefined) return false;
         for (var i = 0; i < $scope.bindableKeys.keyGroups.length; i++) {
             var keyGroup = $scope.bindableKeys.keyGroups[i];
             if (keyGroup.name == keyGroupName) {
