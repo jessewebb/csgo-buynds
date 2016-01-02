@@ -314,5 +314,46 @@ describe('controllers', function() {
                     { page: '/buy-binds-generator.html' });
             });
         });
+
+        describe('resetBind()', function () {
+
+            beforeEach(function() {
+                window.ga = function() {};
+                route.current = { page : '/buy-binds-generator.html' };
+                controller = createController();
+            });
+
+            it('should re-initialize the bind options', function() {
+                scope.bindOptions.keyToBind = 'ktb';
+                scope.bindOptions.primaryWeapon = 'pw';
+                scope.bindOptions.secondaryWeapon = 'sw';
+                scope.bindOptions.gear = ['gear'];
+                scope.bindOptions.grenades = ['nades'];
+                scope.resetBind();
+                expect(scope.bindOptions.keyToBind).toEqual('');
+                expect(scope.bindOptions.primaryWeapon).toEqual('');
+                expect(scope.bindOptions.secondaryWeapon).toEqual('');
+                expect(scope.bindOptions.gear).toEqual([]);
+                expect(scope.bindOptions.grenades).toEqual([]);
+            });
+
+            it('should set the buy bind to empty string', function() {
+                scope.resetBind();
+                expect(scope.buyBind).toEqual('');
+            });
+
+            it('should mark the form as not submitted', function() {
+                scope.resetBind();
+                expect(scope.submitted).toEqual(false);
+            });
+
+            it('should track the button click event analytics data', function() {
+                spyOn(window, 'ga');
+                scope.resetBind();
+                expect(window.ga).toHaveBeenCalledWith(
+                    'send', 'event', 'button', 'click', 'reset',
+                    { page: '/buy-binds-generator.html' });
+            });
+        });
     });
 });
