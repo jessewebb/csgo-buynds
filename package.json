@@ -1,18 +1,56 @@
 {
   "name": "csgo-buynds",
   "version": "0.9.0-dev",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jessewebb/csgo-buynds.git"
+  "description": "Open-source HTML & JavaScript web-app for generating CS:GO buy binds",
+  "keywords": ["CSGO", "Buynds", "Counter-Strike", "CS:GO", "buy", "binds", "generator", "AngularJS", "Bootstrap"],
+  "homepage": "https://github.com/jessewebb/csgo-buynds",
+  "bugs": {
+    "url" : "https://github.com/jessewebb/csgo-buynds/issues"
   },
   "license": "MIT",
+  "author": {
+    "name" : "Jesse Webb",
+    "url" : "https://github.com/jessewebb"
+  },
+  "contributors": [
+    {
+      "name" : "Jesse Webb",
+      "url" : "https://github.com/jessewebb"
+    },
+    {
+      "name" : "Benjamin Pinkert",
+      "url" : "https://github.com/bpinkert"
+    }
+  ],
+  "files": [
+    "css",
+    "data",
+    "images",
+    "js",
+    "partials",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
+  "main": "js/buynds.js",
   "devDependencies": {
+    "http-server": "0.8",
     "jasmine-core": "2.2",
+    "jshint": "2.8",
     "karma": "0.13",
     "karma-jasmine": "0.3",
     "karma-firefox-launcher": "0.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jessewebb/csgo-buynds.git"
+  },
   "scripts": {
+    "prelint": "npm install",
+    "lint": "jshint js",
+    "prestart": "npm install",
+    "start": "http-server -a 127.0.0.1 -p 8080 -c-1 .",
+    "pretest": "npm install",
     "test": "karma start"
   }
 }

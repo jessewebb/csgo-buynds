@@ -2,7 +2,7 @@
 
 // csgo-buynds buy binds builder
 
-(function( buynds, $, undefined ) {
+window.buynds = (function(buynds) {
 
     buynds.BindOptions = function() {
         this.keyToBind = '';
@@ -184,4 +184,6 @@
         };
     };
 
-}( window.buynds = window.buynds || {}, jQuery ));
+    return buynds;
+
+})(window.buynds || {});
