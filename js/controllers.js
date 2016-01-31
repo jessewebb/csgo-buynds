@@ -104,7 +104,14 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
     };
 }]);
 
-buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '$window', 'bindBuilder', 'dataService', function ($scope, $modal, $route, $window, bindBuilder, dataService) {
+buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '$window', 'bindBuilder', 'bindLoaderAsync', 'dataService', function ($scope, $modal, $route, $window, bindBuilder, bindLoaderAsync, dataService) {
+
+    var bindLoader;
+    bindLoaderAsync.then(function(resolvedBindLoader) {
+        bindLoader = resolvedBindLoader;
+    });
+
+    var MY_BUYNDS = 'My Buynds';
 
     dataService.getBindableKeysAsync().then(function(data) {
         $scope.bindableKeys = data;
@@ -161,6 +168,10 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         return $scope.buyBinds.length > 0;
     };
 
+    $scope.hasSavedBuyBinds = function () {
+        return $window.localStorage.getItem(MY_BUYNDS);
+    };
+
     $scope.openKeyBindOptionsModal = function (keyBind) {
         var modalInstance = $modal.open({
             templateUrl: 'partials/mkg-key-bind-options.phtml',
@@ -209,12 +220,35 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         $scope.buyBinds = [];
     };
 
-    $scope.getBuyBindsForCopy = function() {
+    $scope.saveBinds = function () {
+        var nameToSaveBindsAs = MY_BUYNDS;
+        var buyBindsToSave = $scope.getBuyBindsForSave();
+        $window.localStorage.setItem(nameToSaveBindsAs, buyBindsToSave);
+    };
+
+    $scope.loadBinds = function () {
+        var savedBinds = $window.localStorage.getItem(MY_BUYNDS);
+        if (savedBinds) {
+            $scope.bindOptionsMap = {};
+            var bindStrings = savedBinds.split('\n');
+            for (var i = 0 ; i < bindStrings.length; i++) {
+                var bindOptions = bindLoader.load(bindStrings[i]);
+                $scope.bindOptionsMap[bindOptions.keyToBind] = bindOptions;
+            }
+            $scope.buyBinds = bindStrings
+        }
+    };
+
+    $scope.getBuyBindsForCopy = function () {
         var buyBindsForCopy = '';
         for (var i = 0 ; i < $scope.buyBinds.length; i++) {
             buyBindsForCopy = buyBindsForCopy + $scope.buyBinds[i] + '\n';
         }
         return buyBindsForCopy.trim();
+    };
+
+    $scope.getBuyBindsForSave = function () {
+        return $scope.getBuyBindsForCopy();
     };
 }]);
 

@@ -10,6 +10,24 @@ buyndsServices.factory('bindBuilder', function () {
     return new buynds.BindBuilder();
 });
 
+buyndsServices.factory('bindLoaderAsync', ['$q', 'dataService', function ($q, dataService) {
+    var bindLoaderAsync = $q.defer();
+    var dataPromises = [];
+    dataPromises.push(dataService.getPrimaryWeaponsAsync());
+    dataPromises.push(dataService.getSecondaryWeaponsAsync());
+    dataPromises.push(dataService.getGearAsync());
+    dataPromises.push(dataService.getGrenadesAsync());
+    $q.all(dataPromises).then(function(values) {
+        var primaryWeapons = values[0];
+        var secondaryWeapons = values[1];
+        var gear = values[2];
+        var grenades = values[3];
+        var bindLoader = new buynds.BindLoader(primaryWeapons, secondaryWeapons, gear, grenades);
+        bindLoaderAsync.resolve(bindLoader)
+    });
+    return bindLoaderAsync.promise;
+}]);
+
 buyndsServices.factory('dataService', ['$http', 'version', function ($http, version) {
     var bindableKeysDataPromise;
     var primaryWeaponsDataPromise;

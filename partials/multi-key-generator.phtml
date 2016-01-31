@@ -381,6 +381,7 @@
                         <div class="col-lg-offset-4 col-lg-8 col-sm-offset-3 col-sm-9">
                             <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" ng-disabled="!hasAnyBindOptions()" />
                             <input id="mkgResetBtn" name="mkgResetBtn" type="reset" class="btn btn-default" ng-click="resetBinds()" value="Reset" ng-disabled="!hasAnyBindOptions() && !hasGeneratedBuyBinds()" />
+                            <input id="mkgLoadBtn" name="mkgLoadBtn" type="button" class="btn btn-success" ng-click="loadBinds()" value="Load Binds" ng-disabled="!hasSavedBuyBinds()" />
                         </div>
                     </div>
                 </form>
@@ -392,7 +393,9 @@
                 <pre class="buy-binds">
                     <span ng-repeat="buyBind in buyBinds track by $index">{{ buyBind }}<br /></span>
                 </pre>
+                <button type="button" class="btn btn-success pull-right" ng-click="saveBinds()">Save Binds <span class="glyphicon glyphicon-floppy-disk"></span></button>
                 <button type="button" class="btn btn-info visible-xs" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
+                <div class="clearfix"></div>
             </div>
         </div>
     </div>
