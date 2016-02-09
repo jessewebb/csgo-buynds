@@ -241,16 +241,22 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         }
     };
 
-    $scope.getBuyBindsForCopy = function () {
-        var buyBindsForCopy = $scope.generatedBuyBindsComment + '\n';
+    var getBuyBindsWithNewlines = function () {
+        var buyBindsForCopy = '';
         for (var i = 0 ; i < $scope.buyBinds.length; i++) {
             buyBindsForCopy = buyBindsForCopy + $scope.buyBinds[i] + '\n';
         }
         return buyBindsForCopy.trim();
     };
 
+    $scope.getBuyBindsForCopy = function () {
+        var buyBindsForCopy = $scope.generatedBuyBindsComment + '\n';
+        buyBindsForCopy = buyBindsForCopy + getBuyBindsWithNewlines() + '\n';
+        return buyBindsForCopy;
+    };
+
     $scope.getBuyBindsForSave = function () {
-        return $scope.getBuyBindsForCopy();
+        return getBuyBindsWithNewlines();
     };
 }]);
 
