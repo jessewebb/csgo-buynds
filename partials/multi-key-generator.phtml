@@ -391,6 +391,7 @@
                 <button type="button" class="btn btn-info pull-right hidden-xs" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
                 <h4>Generated Buy Binds:</h4>
                 <pre class="buy-binds">
+                    <span>{{ generatedBuyBindsComment }}<br /></span>
                     <span ng-repeat="buyBind in buyBinds track by $index">{{ buyBind }}<br /></span>
                 </pre>
                 <button type="button" class="btn btn-success pull-right" ng-click="saveBinds()">Save Binds <span class="glyphicon glyphicon-floppy-disk"></span></button>
