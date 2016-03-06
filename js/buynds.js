@@ -184,4 +184,56 @@
         };
     };
 
+    buynds.BindRecord = function(id, name, bindString) {
+        this.id = id;
+        this.name = name;
+        this.bindString = bindString;
+    };
+
+    buynds.BindRepository = function(bindStorage) {
+        this.bindStorage = bindStorage;
+
+        var RECORD_KEY_PREFIX = 'bind_id:';
+
+        var self = this;
+
+        var buildKey = function(id) {
+            return RECORD_KEY_PREFIX + id
+        };
+
+        this.all = function () {
+            var bindRecords = [];
+            for (var i = 0; i < self.bindStorage.length; i++) {
+                var key = self.bindStorage.key(i);
+                if (key.startsWith(RECORD_KEY_PREFIX)) {
+                    var bindRecordJson = self.bindStorage.getItem(key);
+                    var bindRecord = JSON.parse(bindRecordJson);
+                    bindRecords.push(bindRecord);
+                }
+            }
+            return bindRecords;
+        };
+
+        this.get = function (id) {
+            var key = buildKey(id);
+            var bindRecordJson = self.bindStorage.getItem(key);
+            return JSON.parse(bindRecordJson);
+        };
+
+        this.save = function (id, bindRecord) {
+            var key = buildKey(id);
+            var bindRecordJson = JSON.stringify(bindRecord);
+            self.bindStorage.setItem(key, bindRecordJson);
+        };
+
+        this.delete = function (id) {
+            var key = buildKey(id);
+            self.bindStorage.removeItem(key);
+        };
+
+        this.empty = function () {
+            self.bindStorage.clear();
+        };
+    };
+
 }( window.buynds = window.buynds || {}, jQuery ));

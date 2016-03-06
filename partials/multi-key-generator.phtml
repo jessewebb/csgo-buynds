@@ -2,7 +2,35 @@
     <div class="col-sm-12">
         <div class="mkg panel panel-primary">
             <div class="panel-heading">
+                <form class="form-inline pull-right hidden-sm hidden-xs">
+                    <div class="form-group">
+                        <label for="mkgBuyBindsLoadBindsSelectBig"><small>Saved Binds:</small></label>
+                        <select id="mkgBuyBindsLoadBindsSelectBig" name="mkgBuyBindsLoadBindsSelectBig" class="form-control"
+                                ng-model="buyBindsLoadBindId" required>
+                            <option value="">Select Binds To Load</option>
+                            <option ng-repeat="savedBind in buyBindsSavedBinds"
+                                    value="{{ savedBind.id }}"
+                                    ng-selected="buyBindsLoadBindId == savedBind.id">{{ savedBind.id }} - {{ savedBind.name }}</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-info" ng-click="loadBinds()" ng-disabled="buyBindsLoadBindId == ''">Load Binds <span class="glyphicon glyphicon-download-alt"></span></button>
+                    <button type="button" class="btn btn-warning" ng-click="clearBinds()" ng-disabled="!hasSavedBuyBinds()">Clear Saved Binds <span class="glyphicon glyphicon-trash"></span></button>
+                </form>
                 <h4>Multi-Key Generator</h4>
+                <form class="form-inline hidden-md hidden-lg">
+                    <div class="form-group">
+                        <label for="mkgBuyBindsLoadBindsSelectSmall"><small>Saved Binds:</small></label>
+                        <select id="mkgBuyBindsLoadBindsSelectSmall" name="mkgBuyBindsLoadBindsSelectSmall" class="form-control"
+                                ng-model="buyBindsLoadBindId" required>
+                            <option value="">Select Binds To Load</option>
+                            <option ng-repeat="savedBind in buyBindsSavedBinds"
+                                    value="{{ savedBind.id }}"
+                                    ng-selected="buyBindsLoadBindId == savedBind.id">{{ savedBind.id }} - {{ savedBind.name }}</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-info" ng-click="loadBinds()" ng-disabled="buyBindsLoadBindId == ''">Load Binds <span class="glyphicon glyphicon-download-alt"></span></button>
+                    <button type="button" class="btn btn-warning" ng-click="clearBinds()" ng-disabled="!hasSavedBuyBinds()">Clear Saved Binds <span class="glyphicon glyphicon-trash"></span></button>
+                </form>
             </div>
             <div class="panel-body">
                 <form id="mkgForm" name="mkgForm" class="form-horizontal">
@@ -381,7 +409,6 @@
                         <div class="col-lg-offset-4 col-lg-8 col-sm-offset-3 col-sm-9">
                             <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" ng-disabled="!hasAnyBindOptions()" />
                             <input id="mkgResetBtn" name="mkgResetBtn" type="reset" class="btn btn-default" ng-click="resetBinds()" value="Reset" ng-disabled="!hasAnyBindOptions() && !hasGeneratedBuyBinds()" />
-                            <input id="mkgLoadBtn" name="mkgLoadBtn" type="button" class="btn btn-success" ng-click="loadBinds()" value="Load Binds" ng-disabled="!hasSavedBuyBinds()" />
                         </div>
                     </div>
                 </form>
@@ -394,7 +421,23 @@
                     <span>{{ generatedBuyBindsComment }}<br /></span>
                     <span ng-repeat="buyBind in buyBinds track by $index">{{ buyBind }}<br /></span>
                 </pre>
-                <button type="button" class="btn btn-success pull-right" ng-click="saveBinds()">Save Binds <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                <form class="form-inline pull-right">
+                    <div class="form-group">
+                        <label for="mkgBuyBindsSaveAsNameTxtBox"><small>Save As:</small></label>
+                        <input id="mkgBuyBindsSaveAsNameTxtBox" name="mkgBuyBindsSaveAsNameTxtBox" type="text"
+                               ng-model="buyBindsSaveAsName" class="form-control" placeholder="My Custom Buynds">
+                    </div>
+                    <div class="form-group">
+                        <label for="mkgBuyBindsSaveInSlotSelect"><small>In Slot:</small></label>
+                        <select id="mkgBuyBindsSaveInSlotSelect" name="mkgBuyBindsSaveInSlotSelect" class="form-control"
+                                ng-model="buyBindsSaveInSlot" required>
+                            <option ng-repeat="saveSlot in buyBindsSaveSlots"
+                                    value="{{ saveSlot }}"
+                                    ng-selected="buyBindsSaveInSlot == saveSlot">{{ saveSlot }}</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success" ng-click="saveBinds()">Save <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                </form>
                 <button type="button" class="btn btn-info visible-xs" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
                 <div class="clearfix"></div>
             </div>

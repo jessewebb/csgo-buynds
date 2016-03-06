@@ -28,6 +28,11 @@ buyndsServices.factory('bindLoaderAsync', ['$q', 'dataService', function ($q, da
     return bindLoaderAsync.promise;
 }]);
 
+buyndsServices.factory('bindRepository', ['$window', function ($window) {
+    var bindStorage = $window.localStorage;
+    return new buynds.BindRepository(bindStorage);
+}]);
+
 buyndsServices.factory('dataService', ['$http', 'version', function ($http, version) {
     var bindableKeysDataPromise;
     var primaryWeaponsDataPromise;
