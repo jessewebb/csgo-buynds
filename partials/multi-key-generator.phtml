@@ -2,7 +2,7 @@
     <div class="col-sm-12">
         <div class="mkg panel panel-primary">
             <div class="panel-heading">
-                <form class="form-inline pull-right hidden-sm hidden-xs">
+                <form id="mkgLoadBindsForm" name="mkgLoadBindsForm" class="form-inline pull-right hidden-sm hidden-xs">
                     <div class="form-group">
                         <label for="mkgBuyBindsLoadBindsSelectBig"><small>Saved Binds:</small></label>
                         <select id="mkgBuyBindsLoadBindsSelectBig" name="mkgBuyBindsLoadBindsSelectBig" class="form-control"
@@ -421,14 +421,17 @@
                     <span>{{ generatedBuyBindsComment }}<br /></span>
                     <span ng-repeat="buyBind in buyBinds track by $index">{{ buyBind }}<br /></span>
                 </pre>
-                <form class="form-inline pull-right">
-                    <div class="form-group">
-                        <label for="mkgBuyBindsSaveAsNameTxtBox"><small>Save As:</small></label>
+                <form id="mkgSaveBindsForm" name="mkgSaveBindsForm" class="form-inline pull-right">
+                    <div class="form-group has-feedback" ng-class="{ 'has-error': submitted && mkgSaveBindsForm.mkgBuyBindsSaveAsNameTxtBox.$invalid }">
+                        <label class="control-label" for="mkgBuyBindsSaveAsNameTxtBox"><small>Save As:</small></label>
                         <input id="mkgBuyBindsSaveAsNameTxtBox" name="mkgBuyBindsSaveAsNameTxtBox" type="text"
-                               ng-model="buyBindsSaveAsName" class="form-control" placeholder="My Custom Buynds">
+                               ng-model="buyBindsSaveAsName" class="form-control" placeholder="My Custom Buynds"
+                               ng-pattern="/^[a-zA-Z0-9 !@#$%\^&*)(+=._-]+$/" ng-maxlength="25" maxlength="25" required
+                               ng-class="{ 'has-error': submitted && mkgSaveBindsForm.mkgBuyBindsSaveAsNameTxtBox.$invalid }">
+                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
                     </div>
                     <div class="form-group">
-                        <label for="mkgBuyBindsSaveInSlotSelect"><small>In Slot:</small></label>
+                        <label class="control-label" for="mkgBuyBindsSaveInSlotSelect"><small>In Slot:</small></label>
                         <select id="mkgBuyBindsSaveInSlotSelect" name="mkgBuyBindsSaveInSlotSelect" class="form-control"
                                 ng-model="buyBindsSaveInSlot" required>
                             <option ng-repeat="saveSlot in buyBindsSaveSlots"
@@ -437,6 +440,11 @@
                         </select>
                     </div>
                     <button type="submit" class="btn btn-success" ng-click="saveBinds()">Save <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                    <div ng-class="{ 'has-error': submitted && mkgSaveBindsForm.mkgBuyBindsSaveAsNameTxtBox.$invalid }">
+                        <p class="help-block" ng-show="submitted && mkgSaveBindsForm.mkgBuyBindsSaveAsNameTxtBox.$invalid">
+                            <span class="glyphicon glyphicon-remove"></span> Invalid bind name!
+                        </p>
+                    </div>
                 </form>
                 <button type="button" class="btn btn-info visible-xs" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
                 <div class="clearfix"></div>

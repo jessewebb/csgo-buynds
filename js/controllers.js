@@ -121,6 +121,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
     $scope.showNavKeysKeypad = false;
     $scope.showFuncKeysKeypad = false;
     $scope.showMouseButtons = false;
+    $scope.submitted = false;
 
     // slots are used as IDs and limit the number of saved binds
     $scope.buyBindsSaveSlots = ['1', '2', '3'];
@@ -239,35 +240,41 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         $scope.buyBindsLoadBindId = '';
         $scope.buyBindsSaveAsName = '';
         $scope.buyBindsSaveInSlot = $scope.buyBindsSaveSlots[0];
+        $scope.submitted = false;
     };
 
     $scope.saveBinds = function () {
         $window.ga('send', 'event', 'button', 'click', 'save', { page: $route.current.page });
-        var bindId = $scope.buyBindsSaveInSlot;
-        var bindName = $scope.buyBindsSaveAsName;
-        var buyBindsString = $scope.getBuyBindsForSave();
-        var bindRecord = new buynds.BindRecord(bindId, bindName, buyBindsString);
-        bindRepository.save(bindId, bindRecord);
-        $scope.buyBindsSavedBinds = getSavedBinds();
-        $scope.buyBindsLoadBindId = bindId;
+        $scope.submitted = true;
+        if ($scope.mkgSaveBindsForm.$valid) {
+            var bindId = $scope.buyBindsSaveInSlot;
+            var bindName = $scope.buyBindsSaveAsName;
+            var buyBindsString = $scope.getBuyBindsForSave();
+            var bindRecord = new buynds.BindRecord(bindId, bindName, buyBindsString);
+            bindRepository.save(bindId, bindRecord);
+            $scope.buyBindsSavedBinds = getSavedBinds();
+            $scope.buyBindsLoadBindId = bindId;
+        }
     };
 
     $scope.loadBinds = function () {
         $window.ga('send', 'event', 'button', 'click', 'load', { page: $route.current.page });
-        var bindId = $scope.buyBindsLoadBindId;
-        var bindRecord = bindRepository.get(bindId);
-        var savedBinds = bindRecord.bindString;
-        if (savedBinds) {
-            $scope.bindOptionsMap = {};
-            var bindStrings = savedBinds.split('\n');
-            for (var i = 0 ; i < bindStrings.length; i++) {
-                var bindOptions = bindLoader.load(bindStrings[i]);
-                $scope.bindOptionsMap[bindOptions.keyToBind] = bindOptions;
+        if ($scope.mkgLoadBindsForm.$valid) {
+            var bindId = $scope.buyBindsLoadBindId;
+            var bindRecord = bindRepository.get(bindId);
+            var savedBinds = bindRecord.bindString;
+            if (savedBinds) {
+                $scope.bindOptionsMap = {};
+                var bindStrings = savedBinds.split('\n');
+                for (var i = 0; i < bindStrings.length; i++) {
+                    var bindOptions = bindLoader.load(bindStrings[i]);
+                    $scope.bindOptionsMap[bindOptions.keyToBind] = bindOptions;
+                }
+                $scope.buyBinds = bindStrings
             }
-            $scope.buyBinds = bindStrings
+            $scope.buyBindsSaveAsName = bindRecord.name;
+            $scope.buyBindsSaveInSlot = $scope.buyBindsSaveSlots.indexOf(bindId) > 0 ? bindId : $scope.buyBindsSaveSlots[0];
         }
-        $scope.buyBindsSaveAsName = bindRecord.name;
-        $scope.buyBindsSaveInSlot = $scope.buyBindsSaveSlots.indexOf(bindId) > 0 ? bindId : $scope.buyBindsSaveSlots[0];
     };
 
     $scope.clearBinds = function () {
@@ -275,8 +282,6 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         bindRepository.empty();
         $scope.buyBindsSavedBinds = getSavedBinds();
         $scope.buyBindsLoadBindId = '';
-        $scope.buyBindsSaveAsName = '';
-        $scope.buyBindsSaveInSlot = $scope.buyBindsSaveSlots[0];
     };
 
     var getBuyBindsWithNewlines = function () {
