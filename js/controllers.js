@@ -6,18 +6,23 @@ var buyndsControllers = angular.module('buyndsControllers', []);
 
 buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window', 'bindBuilder', 'dataService', function ($scope, $route, $window, bindBuilder, dataService) {
 
+    $scope.bindableKeys = {keyGroups: []};
     dataService.getBindableKeysAsync().then(function(data) {
         $scope.bindableKeys = data;
     });
+    $scope.primaryWeapons = {weaponGroups: []};
     dataService.getPrimaryWeaponsAsync().then(function(data) {
         $scope.primaryWeapons = data;
     });
+    $scope.secondaryWeapons = {weaponGroups: []};
     dataService.getSecondaryWeaponsAsync().then(function(data) {
         $scope.secondaryWeapons = data;
     });
+    $scope.gear = [];
     dataService.getGearAsync().then(function(data) {
         $scope.gear = data;
     });
+    $scope.grenades = [];
     dataService.getGrenadesAsync().then(function(data) {
         $scope.grenades = data;
     });
@@ -111,6 +116,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         bindLoader = resolvedBindLoader;
     });
 
+    $scope.bindableKeys = {keyGroups: []};
     dataService.getBindableKeysAsync().then(function(data) {
         $scope.bindableKeys = data;
     });
@@ -151,7 +157,6 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
     };
 
     var hasKeyGroupKeypadKeyBindOptions = function (keyGroupName) {
-        if ($scope.bindableKeys === undefined) return false;
         for (var i = 0; i < $scope.bindableKeys.keyGroups.length; i++) {
             var keyGroup = $scope.bindableKeys.keyGroups[i];
             if (keyGroup.name == keyGroupName) {
@@ -306,15 +311,19 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
 
 buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$modalInstance', 'bindOptions', 'dataService', function ($scope, $modalInstance, bindOptions, dataService) {
 
+    $scope.primaryWeapons = {weaponGroups: []};
     dataService.getPrimaryWeaponsAsync().then(function(data) {
         $scope.primaryWeapons = data;
     });
+    $scope.secondaryWeapons = {weaponGroups: []};
     dataService.getSecondaryWeaponsAsync().then(function(data) {
         $scope.secondaryWeapons = data;
     });
+    $scope.gear = [];
     dataService.getGearAsync().then(function(data) {
         $scope.gear = data;
     });
+    $scope.grenades = [];
     dataService.getGrenadesAsync().then(function(data) {
         $scope.grenades = data;
     });
