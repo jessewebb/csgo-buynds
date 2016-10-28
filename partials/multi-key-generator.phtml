@@ -428,7 +428,8 @@
                                ng-model="buyBindsSaveAsName" class="form-control" placeholder="My Custom Buynds"
                                ng-pattern="/^[a-zA-Z0-9 !@#$%\^&*)(+=._-]+$/" ng-maxlength="25" maxlength="25" required
                                ng-class="{ 'has-error': submitted && mkgSaveBindsForm.mkgBuyBindsSaveAsNameTxtBox.$invalid }">
-                        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+                        <span class="glyphicon glyphicon-remove form-control-feedback"
+                              ng-if="submitted && mkgSaveBindsForm.mkgBuyBindsSaveAsNameTxtBox.$invalid"></span>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="mkgBuyBindsSaveInSlotSelect"><small>In Slot:</small></label>
