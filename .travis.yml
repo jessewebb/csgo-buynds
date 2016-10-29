@@ -1,10 +1,8 @@
 # Travis CI configuration
-# http://docs.travis-ci.com/user/customizing-the-build/
-# http://docs.travis-ci.com/user/travis-lint
-# http://docs.travis-ci.com/user/languages/javascript-with-nodejs/
-# http://docs.travis-ci.com/user/gui-and-headless-browsers/
-# http://karma-runner.github.io/0.13/plus/travis.html
-# https://docs.travis-ci.com/user/customizing-the-build/#Whitelisting-or-blacklisting-branches
+# https://docs.travis-ci.com/user/customizing-the-build/
+# https://docs.travis-ci.com/user/customizing-the-build/#Building-Specific-Branches
+# https://docs.travis-ci.com/user/languages/javascript-with-nodejs/
+# https://docs.travis-ci.com/user/travis-lint
 
 branches:
   only:
@@ -12,10 +10,7 @@ branches:
     - gh-pages
 language: node_js
 node_js:
-  - "0.10"
-before_install:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
+  - "4"
 install:
   - "npm install"
 script:

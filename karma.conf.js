@@ -1,7 +1,7 @@
 'use strict';
 
 // Karma configuration
-// http://karma-runner.github.io/0.13/config/configuration-file.html
+// https://karma-runner.github.io/1.0/config/configuration-file.html
 
 module.exports = function (config) {
     config.set({
@@ -24,9 +24,7 @@ module.exports = function (config) {
             "/data/": "/base/data/"
         },
         logLevel: config.LOG_INFO,
-        autoWatch: false,
-        browsers: ['Firefox'],
-        singleRun: true,
+        browsers: ['Chrome', 'Firefox', 'PhantomJS'],
         reporters: ['dots']
     })
 };
