@@ -71,6 +71,13 @@ Here is a list of which 3rd party libraries are being used:
 - [ngClip](https://github.com/asafdav/ng-clip) (version: 0.2.6)
 - [ZeroClipboard](http://zeroclipboard.org/) (version: 2.2.0)
 
-Tests are written with [Jasmine](http://jasmine.github.io/) (version: 2.2.0). [Run the tests](http://csgobuynds.com/tests/SpecRunner.html) in your browser.
+Tests are written with [Jasmine](http://jasmine.github.io/) (version: 2.5.2).
+- You can[run the tests in your browser.](http://csgobuynds.com/tests/SpecRunner.html)
+- Or you can run them from the command line with [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/).  
+  ```
+  npm install
+  npm test
+  ```  
+  (The project is configured to use [Karma](http://karma-runner.github.io/) (version: 1.3.0) to run the tests.)
 
 Jesse's preferred JavaScript IDE is [JetBrain's WebStorm](http://www.jetbrains.com/webstorm/).
