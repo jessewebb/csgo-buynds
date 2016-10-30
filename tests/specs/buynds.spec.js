@@ -2,7 +2,115 @@
 
 // csgo-buynds buynds module tests
 
+var bindOptionsEqualityTester = function(first, second) {
+    if (first instanceof buynds.BindOptions && second instanceof buynds.BindOptions) {
+        return first.keyToBind == second.keyToBind &&
+            first.primaryWeapon == second.primaryWeapon &&
+            first.secondaryWeapon == second.secondaryWeapon &&
+            angular.equals(first.gear, second.gear) &&
+            angular.equals(first.grenades, second.grenades);
+    }
+};
+
 describe('buynds', function() {
+
+    describe('BindOptions', function() {
+
+        describe('clone()', function () {
+            var bindOptions;
+
+            beforeEach(function () {
+                jasmine.addCustomEqualityTester(bindOptionsEqualityTester);
+                bindOptions = new buynds.BindOptions();
+            });
+
+            it('should return copy of default/empty BindOptions instance', function () {
+                var result = bindOptions.clone();
+                expect(result).toEqual(bindOptions);
+                expect(result.keyToBind).toEqual('');
+                expect(result.primaryWeapon).toEqual('');
+                expect(result.secondaryWeapon).toEqual('');
+                expect(result.gear).toEqual([]);
+                expect(result.grenades).toEqual([]);
+            });
+
+            it('should return copy of BindOptions instance with keyToBind', function () {
+                bindOptions.keyToBind = 'kp_multiply';
+                var result = bindOptions.clone();
+                expect(result).toEqual(bindOptions);
+                expect(result.keyToBind).toEqual('kp_multiply');
+            });
+
+            it('should return copy of BindOptions instance with primaryWeapon', function () {
+                bindOptions.primaryWeapon = 'ak47,m4a1';
+                var result = bindOptions.clone();
+                expect(result).toEqual(bindOptions);
+                expect(result.primaryWeapon).toEqual('ak47,m4a1');
+            });
+
+            it('should return copy of BindOptions instance with secondaryWeapon', function () {
+                bindOptions.secondaryWeapon = 'deagle';
+                var result = bindOptions.clone();
+                expect(result).toEqual(bindOptions);
+                expect(result.secondaryWeapon).toEqual('deagle');
+            });
+
+            it('should return copy of BindOptions instance with gear', function () {
+                bindOptions.gear = ['vesthelm', 'defuser'];
+                var result = bindOptions.clone();
+                expect(result).toEqual(bindOptions);
+                expect(result.gear).toEqual(['vesthelm', 'defuser']);
+            });
+
+            it('should return copy of BindOptions instance with grenades', function () {
+                bindOptions.grenades = ['molotov,incgrenade', 'flashbang', 'smokegrenade'];
+                var result = bindOptions.clone();
+                expect(result).toEqual(bindOptions);
+                expect(result.grenades).toEqual(['molotov,incgrenade', 'flashbang', 'smokegrenade']);
+            });
+
+            it('should return copy of default/empty BindOptions instance', function () {
+                bindOptions.keyToBind = 'kp_enter';
+                bindOptions.primaryWeapon = 'ssg08';
+                bindOptions.secondaryWeapon = 'tec9,fiveseven';
+                bindOptions.gear = ['vest'];
+                bindOptions.grenades = ['hegrenade', 'decoy'];
+                var result = bindOptions.clone();
+                expect(result).toEqual(bindOptions);
+                expect(result.keyToBind).toEqual('kp_enter');
+                expect(result.primaryWeapon).toEqual('ssg08');
+                expect(result.secondaryWeapon).toEqual('tec9,fiveseven');
+                expect(result.gear).toEqual(['vest']);
+                expect(result.grenades).toEqual(['hegrenade', 'decoy']);
+            });
+
+            it('should return copy of BindOptions instance that can be mutated independently', function () {
+                bindOptions.keyToBind = 'kp_end';
+                bindOptions.primaryWeapon = 'awp';
+                bindOptions.secondaryWeapon = 'p250';
+                bindOptions.gear = ['vest'];
+                bindOptions.grenades = ['flashbang', 'hegrenade'];
+                var result = bindOptions.clone();
+                expect(result).toEqual(bindOptions);
+                result.keyToBind = 'kp_uparrow';
+                result.primaryWeapon = 'g3sg1,scar20';
+                result.secondaryWeapon = 'elite';
+                result.gear.push('Taser');
+                result.grenades.splice(1, 1);
+                expect(result).not.toEqual(bindOptions);
+                expect(result.keyToBind).toEqual('kp_uparrow');
+                expect(result.primaryWeapon).toEqual('g3sg1,scar20');
+                expect(result.secondaryWeapon).toEqual('elite');
+                expect(result.gear).toEqual(['vest', 'Taser']);
+                expect(result.grenades).toEqual(['flashbang']);
+                expect(bindOptions.keyToBind).toEqual('kp_end');
+                expect(bindOptions.primaryWeapon).toEqual('awp');
+                expect(bindOptions.secondaryWeapon).toEqual('p250');
+                expect(bindOptions.gear).toEqual(['vest']);
+                expect(bindOptions.grenades).toEqual(['flashbang', 'hegrenade']);
+            });
+        });
+    });
 
     describe('BindBuilder', function() {
 
@@ -140,16 +248,6 @@ describe('buynds', function() {
             });
 
             var bindLoader, bindString, defaultKeyBind, expectedBindOptions;
-
-            var bindOptionsEqualityTester = function(first, second) {
-                if (first instanceof buynds.BindOptions && second instanceof buynds.BindOptions) {
-                    return first.keyToBind == second.keyToBind &&
-                            first.primaryWeapon == second.primaryWeapon &&
-                            first.secondaryWeapon == second.secondaryWeapon &&
-                            angular.equals(first.gear, second.gear) &&
-                            angular.equals(first.grenades, second.grenades);
-                }
-            };
 
             beforeEach(function() {
                 bindLoader = new buynds.BindLoader(primaryWeapons, secondaryWeapons, gear, grenades);
