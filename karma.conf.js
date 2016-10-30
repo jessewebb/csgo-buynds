@@ -25,6 +25,9 @@ module.exports = function (config) {
         },
         logLevel: config.LOG_INFO,
         browsers: ['Chrome', 'Firefox', 'PhantomJS'],
-        reporters: ['dots']
+        reporters: ['dots', 'coverage'],
+        preprocessors: {
+            'js/*.js': ['coverage']
+        }
     })
 };
