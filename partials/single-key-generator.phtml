@@ -29,7 +29,7 @@
                                     <div class="form-control" disabled><code ng-show="bindOptions.keyToBind">{{ bindOptions.keyToBind }}</code></div>
                                     <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="submitted && skgForm.skgKeySelect.$invalid"></span>
                                 </div>
-                                <p class="help-block" ng-show="submitted && skgForm.skgKeySelect.$invalid">* You must select a key to bind!</p>
+                                <p class="help-block" ng-show="submitted && skgForm.skgKeySelect.$invalid"><span class="glyphicon glyphicon-remove"></span> You must select a key to bind!</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -108,10 +108,14 @@
                 </form>
             </div>
             <div class="panel-footer" ng-show="buyBind">
-                <button type="button" class="btn btn-info pull-right hidden-xs" clip-copy="buyBind">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
+                <form class="form-inline pull-right hidden-xs">
+                    <button type="button" class="btn btn-info" clip-copy="getBuyBindForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
+                </form>
                 <h4>Generated Buy Bind:</h4>
                 <pre class="buy-binds">{{ buyBind }}</pre>
-                <button type="button" class="btn btn-info visible-xs" clip-copy="buyBind">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
+                <form class="form-inline visible-xs">
+                    <button type="button" class="btn btn-info" clip-copy="getBuyBindForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
+                </form>
             </div>
         </div>
     </div>

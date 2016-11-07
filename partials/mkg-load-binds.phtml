@@ -1,0 +1,25 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()">&times;</button>
+    <h4 class="modal-title">Load Binds</h4>
+</div>
+<div class="modal-body">
+    <form id="mkgLoadBindsForm" name="mkgLoadBindsForm" class="form-horizontal">
+        <div class="form-group">
+            <label for="mkgBuyBindsLoadBindsSelectBig" class="control-label col-sm-4">Saved Binds:</label>
+            <div class="col-sm-8">
+                <select id="mkgBuyBindsLoadBindsSelectBig" name="mkgBuyBindsLoadBindsSelectBig" class="form-control"
+                        ng-model="buyBindsLoadBindId" required>
+                    <option value="">Select Binds To Load</option>
+                    <option ng-repeat="savedBind in buyBindsSavedBinds"
+                            value="{{ savedBind.id }}"
+                            ng-selected="buyBindsLoadBindId == savedBind.id">{{ savedBind.id }} - {{ savedBind.name }}</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-info" ng-click="load()" ng-disabled="buyBindsLoadBindId == ''">Load Binds <span class="glyphicon glyphicon-download-alt"></span></button>
+    <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+    <button type="button" class="btn btn-danger" ng-click="clear()" ng-disabled="!hasSavedBuyBinds()">Clear Saved Binds <span class="glyphicon glyphicon-trash"></span></button>
+</div>
