@@ -391,7 +391,7 @@ buyndsControllers.controller('MultiKeyGenLoadBindsCtrl', ['$scope', '$modalInsta
         $window.ga('send', 'event', 'button', 'click', 'clear', { page: $route.current.page });
         bindRepository.empty();
         $window.ga('send', 'event', 'bind repo', 'delete all', { page: $route.current.page });
-        $modalInstance.dismiss('clear');
+        $scope.buyBindsSavedBinds = getSavedBinds();
     };
 
     $scope.cancel = function () {
