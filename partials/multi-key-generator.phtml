@@ -2,13 +2,13 @@
     <div class="col-sm-12">
         <div class="mkg panel panel-primary">
             <div class="panel-heading">
-                <form class="form-inline pull-right hidden-xs">
+                <div class="pull-right hidden-xs">
                     <button type="button" class="btn btn-info" ng-click="openLoadBindsModal()">Load Binds <span class="glyphicon glyphicon-download-alt"></span></button>
-                </form>
+                </div>
                 <h4>Multi-Key Generator</h4>
-                <form class="form-inline visible-xs">
+                <div class="visible-xs">
                     <button type="button" class="btn btn-info" ng-click="openLoadBindsModal()">Load Binds <span class="glyphicon glyphicon-download-alt"></span></button>
-                </form>
+                </div>
             </div>
             <div class="panel-body">
                 <form id="mkgForm" name="mkgForm" class="form-horizontal">
@@ -393,19 +393,19 @@
 
             </div>
             <div class="panel-footer" ng-show="hasGeneratedBuyBinds()">
-                <form class="form-inline pull-right hidden-xs">
+                <div class="pull-right hidden-xs">
                     <button type="button" class="btn btn-info" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
                     <button type="button" class="btn btn-success" ng-click="openSaveBindsModal(getBuyBindsForSave())">Save Binds <span class="glyphicon glyphicon-floppy-disk"></span></button>
-                </form>
+                </div>
                 <h4>Generated Buy Binds:</h4>
                 <pre class="buy-binds">
                     <span>{{ generatedBuyBindsComment }}<br /></span>
                     <span ng-repeat="buyBind in buyBinds track by $index">{{ buyBind }}<br /></span>
                 </pre>
-                <form class="form-inline visible-xs">
+                <div class="visible-xs">
                     <button type="button" class="btn btn-info" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
                     <button type="button" class="btn btn-success" ng-click="openSaveBindsModal(getBuyBindsForSave())">Save Binds <span class="glyphicon glyphicon-floppy-disk"></span></button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
