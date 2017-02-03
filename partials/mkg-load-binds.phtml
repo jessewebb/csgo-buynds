@@ -8,7 +8,8 @@
             <label for="mkgBuyBindsLoadBindsSelectBig" class="control-label col-sm-4">Saved Binds:</label>
             <div class="col-sm-8">
                 <select id="mkgBuyBindsLoadBindsSelectBig" name="mkgBuyBindsLoadBindsSelectBig" class="form-control"
-                        ng-model="buyBindsLoadBindId" ng-attr-size="{{ buyBindsSavedBinds.length }}" required style="overflow:hidden;">
+                        ng-model="buyBindsLoadBindId" required>
+                    <option value="">Select Binds To Load</option>
                     <option ng-repeat="savedBind in buyBindsSavedBinds"
                             value="{{ savedBind.id }}"
                             ng-selected="buyBindsLoadBindId == savedBind.id">{{ savedBind.id }} - {{ savedBind.name }}</option>

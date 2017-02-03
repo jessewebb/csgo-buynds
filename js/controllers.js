@@ -373,7 +373,6 @@ buyndsControllers.controller('MultiKeyGenLoadBindsCtrl', ['$scope', '$modalInsta
             return a.id - b.id;
         });
         $scope.buyBindsSavedBinds = savedBinds;
-        $scope.buyBindsLoadBindId = $scope.hasSavedBuyBinds() ? savedBinds[0].id : '';
     };
     $scope.getSavedBinds();
 
@@ -392,6 +391,7 @@ buyndsControllers.controller('MultiKeyGenLoadBindsCtrl', ['$scope', '$modalInsta
         bindRepository.empty();
         $window.ga('send', 'event', 'bind repo', 'delete all', { page: $route.current.page });
         $scope.getSavedBinds();
+        $scope.buyBindsLoadBindId = '';
     };
 
     $scope.cancel = function () {
