@@ -4,9 +4,9 @@
 
 var bindOptionsEqualityTester = function(first, second) {
     if (first instanceof buynds.BindOptions && second instanceof buynds.BindOptions) {
-        return first.keyToBind == second.keyToBind &&
-            first.primaryWeapon == second.primaryWeapon &&
-            first.secondaryWeapon == second.secondaryWeapon &&
+        return first.keyToBind === second.keyToBind &&
+            first.primaryWeapon === second.primaryWeapon &&
+            first.secondaryWeapon === second.secondaryWeapon &&
             angular.equals(first.gear, second.gear) &&
             angular.equals(first.grenades, second.grenades);
     }

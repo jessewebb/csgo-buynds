@@ -36,7 +36,7 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
             var keyGroup = $scope.bindableKeys.keyGroups[i];
             for (var j = 0; j < keyGroup.keys.length; j++) {
                 var key = keyGroup.keys[j];
-                if (key.code == keyCode) {
+                if (key.code === keyCode) {
                     return key;
                 }
             }
@@ -46,7 +46,7 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
 
     $scope.setKeyToBindByCode = function (keyCode) {
         var bindableKey = findBindableKeyByCode(keyCode);
-        if (bindableKey == null) {
+        if (bindableKey === null) {
             $window.alert('Unrecognized Key! (keyCode = ' + keyCode + ')');
         } else {
             $scope.bindOptions.keyToBind = bindableKey.bind;
@@ -72,20 +72,20 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
     };
 
     $scope.allowExtraGrenade = function (grenadeBind) {
-        return grenadeBind == 'flashbang';
+        return grenadeBind === 'flashbang';
     };
 
     $scope.hasExtraGrenadeSelection = function (grenadeBind) {
-        var grenadeCount = $.grep($scope.bindOptions.grenades, function (g) { return g == grenadeBind }).length;
+        var grenadeCount = $.grep($scope.bindOptions.grenades, function (g) { return g === grenadeBind }).length;
         return grenadeCount > 1;
     };
 
     $scope.toggleExtraGrenadeSelection = function (grenadeBind) {
-        var grenadeCount = $.grep($scope.bindOptions.grenades, function (g) { return g == grenadeBind }).length;
-        if (grenadeCount == 2) {
+        var grenadeCount = $.grep($scope.bindOptions.grenades, function (g) { return g === grenadeBind }).length;
+        if (grenadeCount === 2) {
             var idx = $scope.bindOptions.grenades.lastIndexOf(grenadeBind);
             $scope.bindOptions.grenades.splice(idx, 1);
-        } else if (grenadeCount == 1) {
+        } else if (grenadeCount === 1) {
             $scope.bindOptions.grenades.push(grenadeBind);
         } else {
             $scope.bindOptions.grenades.push(grenadeBind, grenadeBind);
@@ -146,7 +146,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
     var hasKeyGroupKeypadKeyBindOptions = function (keyGroupName) {
         for (var i = 0; i < $scope.bindableKeys.keyGroups.length; i++) {
             var keyGroup = $scope.bindableKeys.keyGroups[i];
-            if (keyGroup.name == keyGroupName) {
+            if (keyGroup.name === keyGroupName) {
                 for (var j = 0; j < keyGroup.keys.length; j++) {
                     var key = keyGroup.keys[j];
                     if (key.bind in $scope.bindOptionsMap) {
@@ -322,20 +322,20 @@ buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$modal
     };
 
     $scope.allowExtraGrenade = function (grenadeBind) {
-        return grenadeBind == 'flashbang';
+        return grenadeBind === 'flashbang';
     };
 
     $scope.hasExtraGrenadeSelection = function (grenadeBind) {
-        var grenadeCount = $.grep($scope.bindOptions.grenades, function (g) { return g == grenadeBind }).length;
+        var grenadeCount = $.grep($scope.bindOptions.grenades, function (g) { return g === grenadeBind }).length;
         return grenadeCount > 1;
     };
 
     $scope.toggleExtraGrenadeSelection = function (grenadeBind) {
-        var grenadeCount = $.grep($scope.bindOptions.grenades, function (g) { return g == grenadeBind }).length;
-        if (grenadeCount == 2) {
+        var grenadeCount = $.grep($scope.bindOptions.grenades, function (g) { return g === grenadeBind }).length;
+        if (grenadeCount === 2) {
             var idx = $scope.bindOptions.grenades.lastIndexOf(grenadeBind);
             $scope.bindOptions.grenades.splice(idx, 1);
-        } else if (grenadeCount == 1) {
+        } else if (grenadeCount === 1) {
             $scope.bindOptions.grenades.push(grenadeBind);
         } else {
             $scope.bindOptions.grenades.push(grenadeBind, grenadeBind);

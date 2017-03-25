@@ -2,7 +2,7 @@
 
 // csgo-buynds buy binds builder
 
-(function( buynds, $, undefined ) {
+(function(buynds) {
 
     if (!String.prototype.startsWith) {
         String.prototype.startsWith = function(searchString, position){
@@ -96,7 +96,7 @@
                     var weapon = weaponGroup['weapons'][j];
                     var weaponBinds = weapon['bind'].split(',');
                     for (var k = 0; k < weaponBinds.length; k++) {
-                        if (bind == weaponBinds[k]) {
+                        if (bind === weaponBinds[k]) {
                             return true;
                         }
                     }
@@ -112,7 +112,7 @@
                     var weapon = weaponGroup['weapons'][j];
                     var weaponBinds = weapon['bind'].split(',');
                     for (var k = 0; k < weaponBinds.length; k++) {
-                        if (bind == weaponBinds[k]) {
+                        if (bind === weaponBinds[k]) {
                             return true;
                         }
                     }
@@ -124,7 +124,7 @@
         var isBindForGearItem = function (bind) {
             for (var i = 0; i < self.gear.length; i++) {
                 var gearItem = self.gear[i];
-                if (bind == gearItem['bind']) {
+                if (bind === gearItem['bind']) {
                     return true;
                 }
             }
@@ -136,7 +136,7 @@
                 var grenade = self.grenades[i];
                 var grenadeBinds = grenade['bind'].split(',');
                 for (var j = 0; j < grenadeBinds.length; j++) {
-                    if (bind == grenadeBinds[j]) {
+                    if (bind === grenadeBinds[j]) {
                         return true;
                     }
                 }
@@ -185,9 +185,9 @@
                             bindOptions.gear.push(equipmentToBuy)
                         }
                         if (isBindForGrenade(equipmentToBuy)) {
-                            if (equipmentToBuy == 'incgrenade') {
+                            if (equipmentToBuy === 'incgrenade') {
                                 var lastGrenade = bindOptions.grenades.pop();
-                                if (lastGrenade == 'molotov') {
+                                if (lastGrenade === 'molotov') {
                                     equipmentToBuy = lastGrenade + ',' + equipmentToBuy;
                                 } else {
                                     bindOptions.push(lastGrenade);
@@ -255,4 +255,4 @@
         };
     };
 
-}( window.buynds = window.buynds || {}, jQuery ));
+}(window.buynds = window.buynds || {}));
