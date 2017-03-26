@@ -11,7 +11,7 @@
                         <div class="form-group" ng-class="{ 'has-error': submitted && skgForm.skgKeySelect.$invalid }">
                             <label for="skgKeySelect" class="control-label col-sm-3">Key to Bind</label>
                             <div class="col-sm-9">
-                                <ui-select id="skgKeySelect" name="skgKeySelect" theme="bootstrap" ng-model="bindOptions.keyToBind">
+                                <ui-select id="skgKeySelect" name="skgKeySelect" theme="bootstrap" ng-model="bindOptions.keyToBind" ng-required="true">
                                     <ui-select-match placeholder="Select a key to bind...">{{$select.selected.name}}</ui-select-match>
                                     <ui-select-choices repeat="key.bind as key in (bindableKeys | filter: $select.search) track by key.bind"
                                                        group-by="'keyGroup'">
