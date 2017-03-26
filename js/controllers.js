@@ -447,9 +447,28 @@ buyndsControllers.controller('MultiKeyGenSaveBindsCtrl', ['$scope', '$modalInsta
     // slots are used as IDs and limit the number of saved binds
     $scope.buyBindsSaveSlots = ['1', '2', '3', '4', '5'];
 
-    $scope.buyBindsSaveAsName = loadedBindsName;
-    $scope.buyBindsSaveInSlot = loadedBindsId === null ? $scope.buyBindsSaveSlots[0] : $scope.buyBindsSaveSlots[$scope.buyBindsSaveSlots.indexOf(loadedBindsId)];
+    $scope.buyBindsSavedBinds = [];
+
+    $scope.buyBindsSaveAsName = "";
+    $scope.buyBindsSaveInSlot = $scope.buyBindsSaveSlots[0];
     $scope.submitted = false;
+
+    function init() {
+        $scope.buyBindsSavedBinds = bindRepository.all();
+        $scope.buyBindsSaveAsName = loadedBindsName;
+        if (loadedBindsId !== null) {
+            $scope.buyBindsSaveInSlot = $scope.buyBindsSaveSlots[$scope.buyBindsSaveSlots.indexOf(loadedBindsId)];
+        }
+    }
+
+    $scope.slotInUse = function () {
+        for (var i = 0; i < $scope.buyBindsSavedBinds.length; i++) {
+            if ($scope.buyBindsSaveInSlot === $scope.buyBindsSavedBinds[i].id) {
+                return true;
+            }
+        }
+        return false;
+    };
 
     $scope.save = function () {
         $window.ga('send', 'event', 'button', 'click', 'save', { page: $route.current.page });
@@ -467,4 +486,6 @@ buyndsControllers.controller('MultiKeyGenSaveBindsCtrl', ['$scope', '$modalInsta
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
+
+    init();
 }]);
