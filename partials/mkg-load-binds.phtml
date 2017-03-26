@@ -9,10 +9,17 @@
             <div class="col-sm-8">
                 <select id="mkgBuyBindsLoadBindsSelectBig" name="mkgBuyBindsLoadBindsSelectBig" class="form-control"
                         ng-model="buyBindsLoadBindId" required>
-                    <option value="">Select Binds To Load</option>
-                    <option ng-repeat="savedBind in buyBindsSavedBinds"
-                            value="{{ savedBind.id }}"
-                            ng-selected="buyBindsLoadBindId == savedBind.id">{{ savedBind.id }} - {{ savedBind.name }}</option>
+                    <option value="">Select Binds To Load...</option>
+                    <optgroup label="Custom" ng-if="hasSavedBuyBinds()">
+                        <option ng-repeat="savedBind in buyBindsSavedBinds"
+                                value="{{ savedBind.id }}"
+                                ng-selected="buyBindsLoadBindId == savedBind.id">{{ savedBind.id }} - {{ savedBind.name }}</option>
+                    </optgroup>
+                    <optgroup label="Presets">
+                        <option ng-repeat="preset in buyBindsBindPresets"
+                                value="{{ preset.id }}"
+                                ng-selected="buyBindsLoadBindId == preset.id">{{ preset.name }}</option>
+                    </optgroup>
                 </select>
             </div>
         </div>

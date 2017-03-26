@@ -233,11 +233,10 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         });
 
         modalInstance.result.then(function (bindRecord) {
-            var savedBinds = bindRecord.bindString;
-            if (savedBinds) {
+            if (bindRecord) {
                 var numBindsLoaded = 0;
                 $scope.bindOptionsMap = {};
-                var bindStrings = savedBinds.split('\n');
+                var bindStrings = bindRecord.bindString.split('\n');
                 for (var i = 0; i < bindStrings.length; i++) {
                     var bindOptions = bindLoader.load(bindStrings[i]);
                     $scope.bindOptionsMap[bindOptions.keyToBind] = bindOptions;
@@ -355,17 +354,20 @@ buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$modal
     };
 }]);
 
-buyndsControllers.controller('MultiKeyGenLoadBindsCtrl', ['$scope', '$modalInstance', '$route', '$window', 'bindRepository', function ($scope, $modalInstance, $route, $window, bindRepository) {
+buyndsControllers.controller('MultiKeyGenLoadBindsCtrl', ['$scope', '$modalInstance', '$route', '$window', 'bindRepository', 'dataService', function ($scope, $modalInstance, $route, $window, bindRepository, dataService) {
 
-    // slots are used as IDs and limit the number of saved binds
-    $scope.buyBindsSaveSlots = ['1', '2', '3', '4', '5'];
+    $scope.buyBindsBindPresets = [];
+    dataService.getBindPresetsAsync().then(function(data) {
+        $scope.buyBindsBindPresets = data;
+    });
+
     $scope.buyBindsSavedBinds = [];
     $scope.buyBindsLoadBindId = '';
     $scope.submitted = false;
 
-    $scope.hasSavedBuyBinds = function () {
-        return $scope.buyBindsSavedBinds.length > 0;
-    };
+    function init() {
+        $scope.getSavedBinds();
+    }
 
     $scope.getSavedBinds = function () {
         var savedBinds = bindRepository.all();
@@ -374,14 +376,28 @@ buyndsControllers.controller('MultiKeyGenLoadBindsCtrl', ['$scope', '$modalInsta
         });
         $scope.buyBindsSavedBinds = savedBinds;
     };
-    $scope.getSavedBinds();
+
+    $scope.hasSavedBuyBinds = function () {
+        return $scope.buyBindsSavedBinds.length > 0;
+    };
 
     $scope.load = function () {
         $window.ga('send', 'event', 'button', 'click', 'load', { page: $route.current.page });
         if ($scope.mkgLoadBindsForm.$valid) {
             var bindId = $scope.buyBindsLoadBindId;
-            var bindRecord = bindRepository.get(bindId);
-            $window.ga('send', 'event', 'bind repo', 'get by id', bindId, { page: $route.current.page });
+            var bindRecord;
+            if (bindId.startsWith("preset")) {
+                for (var i = 0; i < $scope.buyBindsBindPresets.length; i++) {
+                    if ($scope.buyBindsBindPresets[i].id === bindId) {
+                        bindRecord = $scope.buyBindsBindPresets[i];
+                        break;
+                    }
+                }
+                $window.ga('send', 'event', 'bind presets', 'load', bindId, { page: $route.current.page });
+            } else {
+                bindRecord = bindRepository.get(bindId);
+                $window.ga('send', 'event', 'bind repo', 'get by id', bindId, { page: $route.current.page });
+            }
             $modalInstance.close(bindRecord);
         }
     };
@@ -397,6 +413,8 @@ buyndsControllers.controller('MultiKeyGenLoadBindsCtrl', ['$scope', '$modalInsta
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
+
+    init();
 }]);
 
 buyndsControllers.controller('MultiKeyGenSaveBindsCtrl', ['$scope', '$modalInstance', '$route', '$window', 'buyBinds', 'bindRepository', function ($scope, $modalInstance, $route, $window, buyBinds, bindRepository) {

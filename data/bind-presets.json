@@ -1,0 +1,7 @@
+[
+  {
+    "id": "preset1",
+    "name": "Gweebz (creator of CSGO-Buynds)",
+    "bindString": "bind \"kp_ins\" \"buy deagle;\""
+  }
+]

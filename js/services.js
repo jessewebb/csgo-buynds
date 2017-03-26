@@ -23,7 +23,7 @@ buyndsServices.factory('bindLoaderAsync', ['$q', 'dataService', function ($q, da
         var gear = values[2];
         var grenades = values[3];
         var bindLoader = new buynds.BindLoader(primaryWeapons, secondaryWeapons, gear, grenades);
-        bindLoaderAsync.resolve(bindLoader)
+        bindLoaderAsync.resolve(bindLoader);
     });
     return bindLoaderAsync.promise;
 }]);
@@ -34,6 +34,7 @@ buyndsServices.factory('bindRepository', ['$window', function ($window) {
 }]);
 
 buyndsServices.factory('dataService', ['$http', 'version', function ($http, version) {
+    var bindPresetsDataPromise;
     var bindableKeysDataPromise;
     var primaryWeaponsDataPromise;
     var secondaryWeaponsDataPromise;
@@ -43,6 +44,16 @@ buyndsServices.factory('dataService', ['$http', 'version', function ($http, vers
     var versionUrlParam = 'v=' + version;
 
     return {
+        getBindPresetsAsync: function() {
+            if (!bindPresetsDataPromise) {
+                var url = 'data/bind-presets.json?' + versionUrlParam;
+                bindPresetsDataPromise = $http.get(url).then(function (response) {
+                    return response.data;
+                });
+            }
+            return bindPresetsDataPromise;
+        },
+
         getBindableKeysAsync: function() {
             if (!bindableKeysDataPromise) {
                 var url = 'data/bindable-keys.json?' + versionUrlParam;
