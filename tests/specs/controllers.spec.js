@@ -22,9 +22,9 @@ describe('controllers', function() {
             dataService = _dataService_;
             $httpBackend = _$httpBackend_;
 
-            getBindableKeysHandler = $httpBackend.whenGET(/data\/bindable-keys\.json.*/).respond({});
-            getPrimaryWeaponsHandler = $httpBackend.whenGET(/data\/primary-weapons\.json.*/).respond({});
-            getSecondaryWeaponsHandler = $httpBackend.whenGET(/data\/secondary-weapons\.json.*/).respond({});
+            getBindableKeysHandler = $httpBackend.whenGET(/data\/bindable-keys\.json.*/).respond({keyGroups:[]});
+            getPrimaryWeaponsHandler = $httpBackend.whenGET(/data\/primary-weapons\.json.*/).respond({weaponGroups:[]});
+            getSecondaryWeaponsHandler = $httpBackend.whenGET(/data\/secondary-weapons\.json.*/).respond({weaponGroups:[]});
             getGearHandler = $httpBackend.whenGET(/data\/gear\.json.*/).respond([]);
             getGrenadesHandler = $httpBackend.whenGET(/data\/grenades\.json.*/).respond([]);
 
