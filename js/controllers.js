@@ -346,13 +346,31 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
 
 buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$modalInstance', 'bindOptions', 'dataService', function ($scope, $modalInstance, bindOptions, dataService) {
 
-    $scope.primaryWeapons = {weaponGroups: []};
+    $scope.primaryWeapons = [];
     dataService.getPrimaryWeaponsAsync().then(function(data) {
-        $scope.primaryWeapons = data;
+        var primaryWeapons = [];
+        for (var i = 0; i < data.weaponGroups.length; i++) {
+            var weaponGroup = data.weaponGroups[i];
+            for (var j = 0; j < weaponGroup.weapons.length; j++) {
+                var weapon = weaponGroup.weapons[j];
+                weapon.weaponGroup = weaponGroup.name;
+                primaryWeapons.push(weapon);
+            }
+        }
+        $scope.primaryWeapons = primaryWeapons;
     });
-    $scope.secondaryWeapons = {weaponGroups: []};
+    $scope.secondaryWeapons = [];
     dataService.getSecondaryWeaponsAsync().then(function(data) {
-        $scope.secondaryWeapons = data;
+        var secondaryWeapons = [];
+        for (var i = 0; i < data.weaponGroups.length; i++) {
+            var weaponGroup = data.weaponGroups[i];
+            for (var j = 0; j < weaponGroup.weapons.length; j++) {
+                var weapon = weaponGroup.weapons[j];
+                weapon.weaponGroup = weaponGroup.name;
+                secondaryWeapons.push(weapon);
+            }
+        }
+        $scope.secondaryWeapons = secondaryWeapons;
     });
     $scope.gear = [];
     dataService.getGearAsync().then(function(data) {
