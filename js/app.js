@@ -5,7 +5,9 @@
 var buyndsApp = angular.module('buyndsApp', [
     'ngRoute',
     'ui.bootstrap',
+    'ui.select',
     'ngClipboard',
+    'ngSanitize',
     'buyndsControllers',
     'buyndsDirectives',
     'buyndsFilters',

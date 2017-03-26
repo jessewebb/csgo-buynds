@@ -11,14 +11,15 @@
                         <div class="form-group" ng-class="{ 'has-error': submitted && skgForm.skgKeySelect.$invalid }">
                             <label for="skgKeySelect" class="control-label col-sm-3">Key to Bind</label>
                             <div class="col-sm-9">
-                                <select id="skgKeySelect" name="skgKeySelect" class="form-control" ng-model="bindOptions.keyToBind" required>
-                                    <option value="">Select a key to bind...</option>
-                                    <optgroup ng-repeat="keyGroup in bindableKeys.keyGroups" label="{{ keyGroup.name }}">
-                                        <option ng-repeat="bindableKey in keyGroup.keys"
-                                                value="{{ bindableKey.bind }}"
-                                                ng-selected="bindOptions.keyToBind == bindableKey.bind">{{ bindableKey.name }}</option>
-                                    </optgroup>
-                                </select>
+                                <ui-select id="skgKeySelect" name="skgKeySelect" theme="bootstrap" ng-model="bindOptions.keyToBind">
+                                    <ui-select-match placeholder="Select a key to bind...">
+                                        {{$select.selected.name}}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="key.bind as key in (bindableKeys | filter: $select.search) track by key.bind"
+                                                       group-by="'keyGroup'">
+                                        <span ng-bind-html="key.name | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                </ui-select>
                             </div>
                         </div>
                         <div class="form-group" ng-class="{ 'has-error': submitted && skgForm.skgKeySelect.$invalid }">
@@ -98,7 +99,7 @@
                             </div>
                         </div>
                     </fieldset>
-
+                    <hr />
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
                             <input id="skgSubmitBtn" name="skgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBind(bindOptions)" value="Generate Bind" />

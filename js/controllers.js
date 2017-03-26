@@ -6,9 +6,18 @@ var buyndsControllers = angular.module('buyndsControllers', []);
 
 buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window', 'bindBuilder', 'dataService', function ($scope, $route, $window, bindBuilder, dataService) {
 
-    $scope.bindableKeys = {keyGroups: []};
+    $scope.bindableKeys = [];
     dataService.getBindableKeysAsync().then(function(data) {
-        $scope.bindableKeys = data;
+        var bindableKeys = [];
+        for (var i = 0; i < data.keyGroups.length; i++) {
+            var keyGroup = data.keyGroups[i];
+            for (var j = 0; j < keyGroup.keys.length; j++) {
+                var key = keyGroup.keys[j];
+                key.keyGroup = keyGroup.name;
+                bindableKeys.push(key);
+            }
+        }
+        $scope.bindableKeys = bindableKeys;
     });
     $scope.primaryWeapons = {weaponGroups: []};
     dataService.getPrimaryWeaponsAsync().then(function(data) {
@@ -32,13 +41,10 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
     $scope.submitted = false;
 
     var findBindableKeyByCode = function (keyCode) {
-        for (var i = 0; i < $scope.bindableKeys.keyGroups.length; i++) {
-            var keyGroup = $scope.bindableKeys.keyGroups[i];
-            for (var j = 0; j < keyGroup.keys.length; j++) {
-                var key = keyGroup.keys[j];
-                if (key.code === keyCode) {
-                    return key;
-                }
+        for (var i = 0; i < $scope.bindableKeys.length; i++) {
+            var key = $scope.bindableKeys[i];
+            if (key.code === keyCode) {
+                return key;
             }
         }
         return null;
