@@ -381,12 +381,19 @@
                             </div>
                         </div>
                     </fieldset>
-
+                    <hr />
                     <div class="form-group">
-                        <hr />
                         <div class="col-lg-offset-4 col-lg-8 col-sm-offset-3 col-sm-9">
-                            <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" ng-disabled="!hasAnyBindOptions()" />
+                            <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" ng-disabled="!hasAnyBindOptions() || autoGenerateBinds" />
                             <input id="mkgResetBtn" name="mkgResetBtn" type="reset" class="btn btn-default" ng-click="resetBinds()" value="Reset" ng-disabled="!hasAnyBindOptions() && !hasGeneratedBuyBinds()" />
+                        </div>
+                        <div class="col-lg-offset-4 col-lg-8 col-sm-offset-3 col-sm-9">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-checked="autoGenerateBinds" ng-click="toggleAutoGenerateBinds()">
+                                    Auto-Generate Binds
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </form>

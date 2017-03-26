@@ -132,7 +132,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
     $scope.showNavKeysKeypad = false;
     $scope.showFuncKeysKeypad = false;
     $scope.showMouseButtons = false;
-
+    $scope.autoGenerateBinds = false;
     $scope.loadedBindsId = null;
     $scope.loadedBindsName = null;
 
@@ -181,6 +181,20 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         return $scope.buyBinds.length > 0;
     };
 
+    var generateBinds = function () {
+        var numBindsGenerated = 0;
+        $scope.buyBinds = [];
+        for (var keyBind in $scope.bindOptionsMap) {
+            if ($scope.bindOptionsMap.hasOwnProperty(keyBind)) {
+                var bindOptions = $scope.bindOptionsMap[keyBind];
+                var buyBind = bindBuilder.build(bindOptions);
+                $scope.buyBinds.push(buyBind);
+                numBindsGenerated++;
+            }
+        }
+        $window.ga('send', 'event', 'bind builder', 'build', 'key bind', numBindsGenerated, { page: $route.current.page });
+    };
+
     $scope.openKeyBindOptionsModal = function (keyBind) {
         var modalInstance = $modal.open({
             templateUrl: 'partials/mkg-key-bind-options.phtml',
@@ -205,22 +219,15 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
             } else if (result.hasOwnProperty('clear')) {
                 delete $scope.bindOptionsMap[result.clear]
             }
+            if ($scope.autoGenerateBinds) {
+                generateBinds();
+            }
         });
     };
 
     $scope.generateBinds = function () {
         $window.ga('send', 'event', 'button', 'click', 'generate', { page: $route.current.page });
-        var numBindsGenerated = 0;
-        $scope.buyBinds = [];
-        for (var keyBind in $scope.bindOptionsMap) {
-            if ($scope.bindOptionsMap.hasOwnProperty(keyBind)) {
-                var bindOptions = $scope.bindOptionsMap[keyBind];
-                var buyBind = bindBuilder.build(bindOptions);
-                $scope.buyBinds.push(buyBind);
-                numBindsGenerated++;
-            }
-        }
-        $window.ga('send', 'event', 'bind builder', 'build', 'key bind', numBindsGenerated, { page: $route.current.page });
+        generateBinds();
     };
 
     $scope.resetBinds = function () {
@@ -229,6 +236,13 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         $scope.buyBinds = [];
         $scope.loadedBindsId = null;
         $scope.loadedBindsName = null;
+    };
+
+    $scope.toggleAutoGenerateBinds = function () {
+        $scope.autoGenerateBinds = !$scope.autoGenerateBinds;
+        if ($scope.autoGenerateBinds) {
+            generateBinds();
+        }
     };
 
     $scope.openLoadBindsModal = function () {
