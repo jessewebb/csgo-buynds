@@ -280,10 +280,12 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
                 if (!bindRecord.id.startsWith("preset")) {
                     $scope.loadedBindsId = bindRecord.id;
                 }
+
                 $scope.loadedBindsName = bindRecord.name;
                 if (bindRecord.id.startsWith("preset")) {
                     $scope.loadedBindsName = "Copy of " + $scope.loadedBindsName;
                 }
+
                 var numBindsLoaded = 0;
                 $scope.bindOptionsMap = {};
                 var bindStrings = bindRecord.bindString.split('\n');
@@ -294,6 +296,11 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
                 }
                 $scope.buyBinds = bindStrings;
                 $window.ga('send', 'event', 'bind loader', 'load', 'key bind', numBindsLoaded, { page: $route.current.page });
+
+                $scope.showNumpadKeypad = $scope.hasNumpadKeypadKeyBindOptions();
+                $scope.showNavKeysKeypad = $scope.hasNavKeysKeypadKeyBindOptions();
+                $scope.showFuncKeysKeypad = $scope.hasFuncKeysKeypadKeyBindOptions();
+                $scope.showMouseButtons = $scope.hasMouseButtonsKeyBindOptions();
             }
         });
     };
