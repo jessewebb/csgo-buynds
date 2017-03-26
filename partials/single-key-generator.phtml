@@ -12,9 +12,7 @@
                             <label for="skgKeySelect" class="control-label col-sm-3">Key to Bind</label>
                             <div class="col-sm-9">
                                 <ui-select id="skgKeySelect" name="skgKeySelect" theme="bootstrap" ng-model="bindOptions.keyToBind">
-                                    <ui-select-match placeholder="Select a key to bind...">
-                                        {{$select.selected.name}}
-                                    </ui-select-match>
+                                    <ui-select-match placeholder="Select a key to bind...">{{$select.selected.name}}</ui-select-match>
                                     <ui-select-choices repeat="key.bind as key in (bindableKeys | filter: $select.search) track by key.bind"
                                                        group-by="'keyGroup'">
                                         <span ng-bind-html="key.name | highlight: $select.search"></span>
@@ -36,27 +34,25 @@
                         <div class="form-group">
                             <label for="skgPrimaryWeaponSelect" class="control-label col-sm-3">Primary Weapon</label>
                             <div class="col-sm-9">
-                                <select id="skgPrimaryWeaponSelect" name="skgPrimaryWeaponSelect" class="form-control" ng-model="bindOptions.primaryWeapon">
-                                    <option value="">None</option>
-                                    <optgroup ng-repeat="weaponGroup in primaryWeapons.weaponGroups" label="{{ weaponGroup.name }}">
-                                        <option ng-repeat="primary in weaponGroup.weapons"
-                                                value="{{ primary.bind }}"
-                                                ng-selected="bindOptions.primaryWeapon == primary.bind">{{ primary.name }}</option>
-                                    </optgroup>
-                                </select>
+                                <ui-select id="skgPrimaryWeaponSelect" name="skgPrimaryWeaponSelect" theme="bootstrap" ng-model="bindOptions.primaryWeapon">
+                                    <ui-select-match placeholder="None">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="weapon.bind as weapon in (primaryWeapons | filter: $select.search) track by weapon.bind"
+                                                       group-by="'weaponGroup'">
+                                        <span ng-bind-html="weapon.name | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                </ui-select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="skgSecondaryWeaponSelect" class="control-label col-sm-3">Secondary Weapon</label>
                             <div class="col-sm-9">
-                                <select id="skgSecondaryWeaponSelect" name="skgSecondaryWeaponSelect" class="form-control" ng-model="bindOptions.secondaryWeapon">
-                                    <option value="">None</option>
-                                    <optgroup ng-repeat="weaponGroup in secondaryWeapons.weaponGroups" label="{{ weaponGroup.name }}">
-                                        <option ng-repeat="secondary in weaponGroup.weapons"
-                                                value="{{ secondary.bind }}"
-                                                ng-selected="bindOptions.secondaryWeapon == secondary.bind">{{ secondary.name }}</option>
-                                    </optgroup>
-                                </select>
+                                <ui-select id="skgSecondaryWeaponSelect" name="skgSecondaryWeaponSelect" theme="bootstrap" ng-model="bindOptions.secondaryWeapon">
+                                    <ui-select-match placeholder="None">{{$select.selected.name}}</ui-select-match>
+                                    <ui-select-choices repeat="weapon.bind as weapon in (secondaryWeapons | filter: $select.search) track by weapon.bind"
+                                                       group-by="'weaponGroup'">
+                                        <span ng-bind-html="weapon.name | highlight: $select.search"></span>
+                                    </ui-select-choices>
+                                </ui-select>
                             </div>
                         </div>
                         <div class="form-group">
