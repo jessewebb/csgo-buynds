@@ -4,13 +4,37 @@
 
 var buyndsServices = angular.module('buyndsServices', []);
 
-buyndsServices.value('version', '0.8.1');
+buyndsServices.value('version', '0.9.0');
 
 buyndsServices.factory('bindBuilder', function () {
     return new buynds.BindBuilder();
 });
 
+buyndsServices.factory('bindLoaderAsync', ['$q', 'dataService', function ($q, dataService) {
+    var bindLoaderAsync = $q.defer();
+    var dataPromises = [];
+    dataPromises.push(dataService.getPrimaryWeaponsAsync());
+    dataPromises.push(dataService.getSecondaryWeaponsAsync());
+    dataPromises.push(dataService.getGearAsync());
+    dataPromises.push(dataService.getGrenadesAsync());
+    $q.all(dataPromises).then(function(values) {
+        var primaryWeapons = values[0];
+        var secondaryWeapons = values[1];
+        var gear = values[2];
+        var grenades = values[3];
+        var bindLoader = new buynds.BindLoader(primaryWeapons, secondaryWeapons, gear, grenades);
+        bindLoaderAsync.resolve(bindLoader);
+    });
+    return bindLoaderAsync.promise;
+}]);
+
+buyndsServices.factory('bindRepository', ['$window', function ($window) {
+    var bindStorage = $window.localStorage;
+    return new buynds.BindRepository(bindStorage);
+}]);
+
 buyndsServices.factory('dataService', ['$http', 'version', function ($http, version) {
+    var bindPresetsDataPromise;
     var bindableKeysDataPromise;
     var primaryWeaponsDataPromise;
     var secondaryWeaponsDataPromise;
@@ -20,6 +44,16 @@ buyndsServices.factory('dataService', ['$http', 'version', function ($http, vers
     var versionUrlParam = 'v=' + version;
 
     return {
+        getBindPresetsAsync: function() {
+            if (!bindPresetsDataPromise) {
+                var url = 'data/bind-presets.json?' + versionUrlParam;
+                bindPresetsDataPromise = $http.get(url).then(function (response) {
+                    return response.data;
+                });
+            }
+            return bindPresetsDataPromise;
+        },
+
         getBindableKeysAsync: function() {
             if (!bindableKeysDataPromise) {
                 var url = 'data/bindable-keys.json?' + versionUrlParam;

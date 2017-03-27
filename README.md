@@ -1,12 +1,12 @@
 # csgo-buynds
 
-Copyright © 2014-2015 Jesse Webb
+Copyright © 2014-2017 Jesse Webb
 
 This code is available under [the MIT License](https://github.com/jessewebb/csgo-buynds/blob/gh-pages/LICENSE).
 
 _Disclaimer:_ This project is currently in **BETA** stages of development.
 
-`Version: 0.8.1`
+`Version: 0.9.0`
 
 [![Build Status](https://travis-ci.org/jessewebb/csgo-buynds.svg?branch=gh-pages)](https://travis-ci.org/jessewebb/csgo-buynds)
 
@@ -68,9 +68,17 @@ Here is a list of which 3rd party libraries are being used:
 - [Bootstrap](http://getbootstrap.com/) (version: 3.3.2)
 - [AngularUI](http://angular-ui.github.io/)
     - [UI Bootstrap](http://angular-ui.github.io/bootstrap/) (version 0.12.0)
+    - [UI Select](http://angular-ui.github.io/ui-select/) (version 0.19.6)
 - [ngClip](https://github.com/asafdav/ng-clip) (version: 0.2.6)
 - [ZeroClipboard](http://zeroclipboard.org/) (version: 2.2.0)
 
-Tests are written with [Jasmine](http://jasmine.github.io/) (version: 2.2.0). [Run the tests](http://csgobuynds.com/tests/SpecRunner.html) in your browser.
+Tests are written with [Jasmine](http://jasmine.github.io/) (version: 2.5.2).
+- You can[run the tests in your browser.](http://csgobuynds.com/tests/SpecRunner.html)
+- Or you can run them from the command line with [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/).  
+  ```
+  npm install
+  npm test
+  ```  
+  (The project is configured to use [Karma](http://karma-runner.github.io/) (version: 1.3.0) to run the tests.)
 
 Jesse's preferred JavaScript IDE is [JetBrain's WebStorm](http://www.jetbrains.com/webstorm/).

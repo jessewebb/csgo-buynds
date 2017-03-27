@@ -2,7 +2,13 @@
     <div class="col-sm-12">
         <div class="mkg panel panel-primary">
             <div class="panel-heading">
+                <div class="pull-right hidden-xs">
+                    <button type="button" class="btn btn-info" ng-click="openLoadBindsModal()">Load Binds <span class="glyphicon glyphicon-download-alt"></span></button>
+                </div>
                 <h4>Multi-Key Generator</h4>
+                <div class="visible-xs">
+                    <button type="button" class="btn btn-info" ng-click="openLoadBindsModal()">Load Binds <span class="glyphicon glyphicon-download-alt"></span></button>
+                </div>
             </div>
             <div class="panel-body">
                 <form id="mkgForm" name="mkgForm" class="form-horizontal">
@@ -304,25 +310,109 @@
                                 <div class="clearfix"></div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4 col-sm-3 col-xs-12">
+                                Mouse Buttons
+                                <button class="btn btn-sm btn-default" ng-click="showMouseButtons = !showMouseButtons"
+                                        ng-class="{ 'btn-default': !hasMouseButtonsKeyBindOptions(), 'btn-info': hasMouseButtonsKeyBindOptions() }">
+                                    <span class="glyphicon"
+                                          ng-class="{ 'glyphicon-collapse-up': showMouseButtons, 'glyphicon-collapse-down': !showMouseButtons }"></span>
+                                </button>
+                            </label>
+                            <div class="col-lg-4 col-sm-6 col-xs-12" collapse="!showMouseButtons">
+                                <div class="keypad">
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mouse2'), 'btn-info': hasKeyBindOptions('mouse2') }"
+                                                ng-click="openKeyBindOptionsModal('mouse2')">Right</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mouse3'), 'btn-info': hasKeyBindOptions('mouse3') }"
+                                                ng-click="openKeyBindOptionsModal('mouse3')">Middle</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mouse1'), 'btn-info': hasKeyBindOptions('mouse1') }"
+                                                ng-click="openKeyBindOptionsModal('mouse1')">Left</button>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <br />
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mouse5'), 'btn-info': hasKeyBindOptions('mouse5') }"
+                                                ng-click="openKeyBindOptionsModal('mouse5')">Side 2</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mouse4'), 'btn-info': hasKeyBindOptions('mouse4') }"
+                                                ng-click="openKeyBindOptionsModal('mouse4')">Side 1</button>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <br />
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key-spacer">
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mwheeldown'), 'btn-info': hasKeyBindOptions('mwheeldown') }"
+                                                ng-click="openKeyBindOptionsModal('mwheeldown')">Wheel <br/>Down</button>
+                                    </div>
+                                    <div class="key">
+                                        <button type="button"
+                                                class="btn"
+                                                ng-class="{ 'btn-default': !hasKeyBindOptions('mwheelup'), 'btn-info': hasKeyBindOptions('mwheelup') }"
+                                                ng-click="openKeyBindOptionsModal('mwheelup')">Wheel <br/>Up</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </fieldset>
-
+                    <hr />
                     <div class="form-group">
-                        <hr />
                         <div class="col-lg-offset-4 col-lg-8 col-sm-offset-3 col-sm-9">
-                            <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" ng-disabled="!hasAnyBindOptions()" />
+                            <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" ng-disabled="!hasAnyBindOptions() || autoGenerateBinds" />
                             <input id="mkgResetBtn" name="mkgResetBtn" type="reset" class="btn btn-default" ng-click="resetBinds()" value="Reset" ng-disabled="!hasAnyBindOptions() && !hasGeneratedBuyBinds()" />
+                        </div>
+                        <div class="col-lg-offset-4 col-lg-8 col-sm-offset-3 col-sm-9">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-checked="autoGenerateBinds" ng-click="toggleAutoGenerateBinds()">
+                                    Auto-Generate Binds
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </form>
 
             </div>
             <div class="panel-footer" ng-show="hasGeneratedBuyBinds()">
-                <button type="button" class="btn btn-info pull-right hidden-xs" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
+                <div class="pull-right hidden-xs">
+                    <button type="button" class="btn btn-info" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
+                    <button type="button" class="btn btn-success" ng-click="openSaveBindsModal(getBuyBindsForSave())">Save Binds <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                </div>
                 <h4>Generated Buy Binds:</h4>
                 <pre class="buy-binds">
+                    <span>{{ generatedBuyBindsComment }}<br /></span>
                     <span ng-repeat="buyBind in buyBinds track by $index">{{ buyBind }}<br /></span>
                 </pre>
-                <button type="button" class="btn btn-info visible-xs" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
+                <div class="visible-xs">
+                    <button type="button" class="btn btn-info" clip-copy="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
+                    <button type="button" class="btn btn-success" ng-click="openSaveBindsModal(getBuyBindsForSave())">Save Binds <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                </div>
             </div>
         </div>
     </div>

@@ -1,18 +1,23 @@
 {
-    "name" : "csgo-buynds",
-    "version" : "0.8.1",
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/jessewebb/csgo-buynds.git"
-    },
-    "license" : "MIT",
-    "devDependencies" : {
-        "jasmine-core" : "2.2.0",
-        "karma" : "0.13",
-        "karma-jasmine" : "0.2",
-        "karma-firefox-launcher" : "0.1"
-    },
-    "scripts" : {
-        "test" : "karma start"
-    }
+  "name": "csgo-buynds",
+  "version": "0.9.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jessewebb/csgo-buynds.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine-core": "2.5.2",
+    "karma": "1.3.0",
+    "karma-coverage": "1.1.1",
+    "karma-jasmine": "1.0.2",
+    "karma-chrome-launcher": "2.0.0",
+    "karma-firefox-launcher": "1.0.0",
+    "karma-phantomjs-launcher": "1.0.2",
+    "phantomjs-prebuilt": "2.1.13"
+  },
+  "scripts": {
+    "test": "karma start --single-run --no-auto-watch --browsers PhantomJS --reporters dots",
+    "coverage": "karma start --single-run --no-auto-watch --browsers PhantomJS --reporters dots,coverage"
+  }
 }
