@@ -67,14 +67,30 @@
                 });
             }
 
+            var granadeStringArray = [];
+            var count = 0;
+
+
             if (bindOptions.grenades) {
                 bindOptions.grenades.forEach(function (grenade) {
                     var grenadeArray = grenade.split(',');
                     grenadeArray.forEach(function (nade) {
-                        bindString += 'buy ' + nade + '; ';
+                        granadeStringArray[count] = 'buy ' + nade + '; ';
+                        count++;
                     });
                 });
             }
+            var grenadeString ="";
+
+            grenadeStringArray.forEach(function(buyString){
+                if(buyString.indexOf("flash") != -1){
+                    grenadeString = grenadeString + buyString;
+                }else{
+                    grenadeString = buyString + grenadeString;
+                }
+            });
+
+            bindString += grenadeString;
 
             bindString = bindString.trim() + '"';
             return bindString;
