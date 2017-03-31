@@ -167,3 +167,43 @@ body {
         margin-left: 0;
     }
 }
+
+/*                    *\
+       Switch CSS
+\*                    */
+
+.switch, .switch * {
+    -webkit-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+.switch {
+    cursor: pointer;
+    width: 40px;
+    height: 22px;
+    margin: 14px;
+    border-radius: 22px;
+    background: #FFF;
+    padding: 4px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #818181;
+    -o-border-image: initial;
+    border-image: initial;
+}
+.switch-button {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    box-shadow: #FFF 0px 0px 6px -1px inset;
+    left: 0px;
+    border-radius: 50%;
+    background: #FFF;
+}
+.switch.active {
+    background: #000;
+}
+.switch.active .switch-button {
+    box-shadow: #FFF 0px 0px 6px -1px inset;
+    left: 18px;
+    background: #000;
+}
