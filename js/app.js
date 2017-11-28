@@ -18,7 +18,9 @@ buyndsApp.config(['ngClipProvider', function(ngClipProvider) {
     ngClipProvider.setPath("vendor/zeroclipboard-2.2.0/ZeroClipboard.swf");
 }]);
 
-buyndsApp.config(['$routeProvider', function ($routeProvider) {
+buyndsApp.config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+    $locationProvider.hashPrefix('!');
+
     $routeProvider.when('/', {
         controller: 'MultiKeyGenCtrl',
         templateUrl: 'partials/multi-key-generator.phtml',
@@ -29,7 +31,7 @@ buyndsApp.config(['$routeProvider', function ($routeProvider) {
         templateUrl: 'partials/single-key-generator.phtml',
         title: 'Single Key Generator'
     });
-    $routeProvider.otherwise({redirectTo: '/'});
+    $routeProvider.otherwise('/');
 }]);
 
 buyndsApp.run(['$rootScope', '$route', '$window', function ($rootScope, $route, $window) {
