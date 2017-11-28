@@ -6,17 +6,12 @@ var buyndsApp = angular.module('buyndsApp', [
     'ngRoute',
     'ui.bootstrap',
     'ui.select',
-    'ngClipboard',
     'ngSanitize',
     'buyndsControllers',
     'buyndsDirectives',
     'buyndsFilters',
     'buyndsServices'
 ]);
-
-buyndsApp.config(['ngClipProvider', function(ngClipProvider) {
-    ngClipProvider.setPath("vendor/zeroclipboard-2.2.0/ZeroClipboard.swf");
-}]);
 
 buyndsApp.config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');

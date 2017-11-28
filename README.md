@@ -69,8 +69,7 @@ Here is a list of which 3rd party libraries are being used:
 - [AngularUI](https://angular-ui.github.io)
     - [UI Bootstrap](https://angular-ui.github.io/bootstrap) (version 2.5.0)
     - [UI Select](https://angular-ui.github.io/ui-select) (version 0.19.8)
-- [ngClip](https://github.com/asafdav/ng-clip) (version: 0.2.6)
-- [ZeroClipboard](https://zeroclipboard.github.io) (version: 2.2.0)
+- [clipboard.js](https://clipboardjs.com) (version: 1.7.1)
 
 Tests are written with [Jasmine](https://jasmine.github.io) (version: 2.5.2).
 - You can [run the tests in your browser](http://csgobuynds.com/tests/SpecRunner.html).

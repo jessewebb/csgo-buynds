@@ -27,6 +27,45 @@ buyndsDirectives.directive('activeTabClass', ['$location', function($location) {
     };
 }]);
 
+buyndsDirectives.directive('copyToClipboardButton', ['$window', function($window) {
+    return {
+        scope: {
+            copyText: '&',
+            copySuccess: '&',
+            copyError: '&'
+        },
+        restrict: 'A',
+        link: function(scope, element) {
+            var clipboard = new $window.Clipboard(element[0], {
+
+                text: function() {
+                    return scope.copyText();
+                }
+            });
+
+            clipboard.on('success', function(e) {
+                scope.$apply(function () {
+                    scope.copySuccess({
+                        e: e
+                    });
+                });
+            });
+
+            clipboard.on('error', function(e) {
+                scope.$apply(function () {
+                    scope.copyError({
+                        e: e
+                    });
+                });
+            });
+
+            element.on('$destroy', function() {
+                clipboard.destroy();
+            });
+        }
+    };
+}]);
+
 buyndsDirectives.directive('pressAnyKeyButton', ['$window', function($window) {
     return {
         scope: {
