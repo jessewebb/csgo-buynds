@@ -63,7 +63,7 @@ This project is a simple, static website built with pure HTML5, CSS3, and JavaSc
 
 Here is a list of which 3rd party libraries are being used:
 
-- [jQuery](https://jquery.com) (version: 2.1.3)
+- [jQuery](https://jquery.com) (version: 3.2.1)
 - [AngularJS](https://angularjs.org) (version: 1.3.12)
 - [Bootstrap](https://getbootstrap.com) (version: 3.3.2)
 - [AngularUI](https://angular-ui.github.io)
