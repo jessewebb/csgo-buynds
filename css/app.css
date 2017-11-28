@@ -117,6 +117,11 @@ body {
     font-weight: normal;
 }
 
+.mkg .keypad .key button .key-alt-fn.arrow {
+    font-size: medium;
+    font-weight: bold;
+}
+
 .mkg pre.buy-binds {
     background-color: white;
     white-space: nowrap;
@@ -151,6 +156,10 @@ body {
 
     .mkg .keypad .key button .key-alt-fn {
         font-size: medium;
+    }
+
+    .mkg .keypad .key button .key-alt-fn.arrow {
+        font-size: large;
     }
 }
 
