@@ -238,6 +238,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         });
 
         modalInstance.result.then(function (result) {
+            // Success
             if (result instanceof buynds.BindOptions) {
                 $scope.bindOptionsMap[result.keyToBind] = result.clone();
             } else if (result.hasOwnProperty('clear')) {
@@ -246,6 +247,8 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
             if ($scope.autoGenerateBinds) {
                 generateBinds();
             }
+        }, function () {
+            // Cancel
         });
     };
 
@@ -276,6 +279,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         });
 
         modalInstance.result.then(function (bindRecord) {
+            // Success
             if (bindRecord) {
                 if (!bindRecord.id.startsWith("preset")) {
                     $scope.loadedBindsId = bindRecord.id;
@@ -302,6 +306,8 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
                 $scope.showFuncKeysKeypad = $scope.hasFuncKeysKeypadKeyBindOptions();
                 $scope.showMouseButtons = $scope.hasMouseButtonsKeyBindOptions();
             }
+        }, function () {
+            // Cancel
         });
     };
 
@@ -324,10 +330,13 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
             resolve: args
         });
         modalInstance.result.then(function (bindRecord) {
+            // Success
             if (bindRecord) {
                 $scope.loadedBindsId = bindRecord.id;
                 $scope.loadedBindsName = bindRecord.name;
             }
+        }, function () {
+            // Cancel
         });
     };
 
