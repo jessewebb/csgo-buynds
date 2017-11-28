@@ -8,8 +8,8 @@ module.exports = function (config) {
         frameworks: ['jasmine'],
         files: [
             'vendor/jquery-3.2.1/jquery-3.2.1.min.js',
-            'vendor/angular-1.3.12/angular.min.js',
-            'vendor/angular-1.3.12/angular-mocks.js',
+            'vendor/angular-1.6.6/angular.min.js',
+            'vendor/angular-1.6.6/angular-mocks.js',
             'js/*.js',
             'tests/specs/*.spec.js',
             // fixtures
