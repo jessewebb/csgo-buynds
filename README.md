@@ -65,7 +65,7 @@ Here is a list of which 3rd party libraries are being used:
 
 - [jQuery](https://jquery.com) (version: 3.2.1)
 - [AngularJS](https://angularjs.org) (version: 1.6.6)
-- [Bootstrap](https://getbootstrap.com) (version: 3.3.2)
+- [Bootstrap](https://getbootstrap.com) (version: 3.3.7)
 - [AngularUI](https://angular-ui.github.io)
     - [UI Bootstrap](https://angular-ui.github.io/bootstrap) (version 0.12.0)
     - [UI Select](https://angular-ui.github.io/ui-select) (version 0.19.6)
