@@ -68,7 +68,7 @@ Here is a list of which 3rd party libraries are being used:
 - [Bootstrap](https://getbootstrap.com) (version: 3.3.7)
 - [AngularUI](https://angular-ui.github.io)
     - [UI Bootstrap](https://angular-ui.github.io/bootstrap) (version 2.5.0)
-    - [UI Select](https://angular-ui.github.io/ui-select) (version 0.19.6)
+    - [UI Select](https://angular-ui.github.io/ui-select) (version 0.19.8)
 - [ngClip](https://github.com/asafdav/ng-clip) (version: 0.2.6)
 - [ZeroClipboard](https://zeroclipboard.github.io) (version: 2.2.0)
 
