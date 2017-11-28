@@ -14,7 +14,7 @@ _Disclaimer:_ This project is currently in **BETA** stages of development.
 
 ### _What?_
 
-**csgo-buynds** is an open-source web-app for generating buy binds for _[Counter-Strike: Global Offensive](http://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive)_ (CS:GO).
+**csgo-buynds** is an open-source web-app for generating buy binds for _[Counter-Strike: Global Offensive](https://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive)_ (CS:GO).
 
 Buy binds, also known as buy scripts, are commands for the _Counter-Strike_ PC games that allow quick, 1-button purchasing of weapons and equipment.
 
@@ -46,12 +46,12 @@ The creator of **csgo-buynds** is Jesse Webb (a.k.a. Gweebz), a long time player
 
 - [Jesse Webb on GitHub](https://github.com/jessewebb)
 - [Jesse Webb on Twitter](https://twitter.com/gweebz)
-- [Gweebz on Steam](http://steamcommunity.com/id/gweebz)
-- [GweebzTV on Twitch.TV](http://www.twitch.tv/GweebzTV)
+- [Gweebz on Steam](https://steamcommunity.com/id/gweebz)
+- [GweebzTV on Twitch.TV](https://www.twitch.tv/GweebzTV)
 
 ## Dev Info
 
-This project uses [GitHub Pages](http://pages.github.com/) to host the website. It [does not use Jekyll](https://github.com/blog/572-bypassing-jekyll-on-github-pages).
+This project uses [GitHub Pages](https://pages.github.com) to host the website. It [does not use Jekyll](https://github.com/blog/572-bypassing-jekyll-on-github-pages).
 
 The main branch, [`gh-pages`](https://github.com/jessewebb/csgo-buynds/tree/gh-pages), is where stable releases are deployed to.
 
@@ -63,22 +63,22 @@ This project is a simple, static website built with pure HTML5, CSS3, and JavaSc
 
 Here is a list of which 3rd party libraries are being used:
 
-- [jQuery](http://jquery.com/) (version: 2.1.3)
-- [AngularJS](http://angularjs.org/) (version: 1.3.12)
-- [Bootstrap](http://getbootstrap.com/) (version: 3.3.2)
-- [AngularUI](http://angular-ui.github.io/)
-    - [UI Bootstrap](http://angular-ui.github.io/bootstrap/) (version 0.12.0)
-    - [UI Select](http://angular-ui.github.io/ui-select/) (version 0.19.6)
+- [jQuery](https://jquery.com) (version: 2.1.3)
+- [AngularJS](https://angularjs.org) (version: 1.3.12)
+- [Bootstrap](https://getbootstrap.com) (version: 3.3.2)
+- [AngularUI](https://angular-ui.github.io)
+    - [UI Bootstrap](https://angular-ui.github.io/bootstrap) (version 0.12.0)
+    - [UI Select](https://angular-ui.github.io/ui-select) (version 0.19.6)
 - [ngClip](https://github.com/asafdav/ng-clip) (version: 0.2.6)
-- [ZeroClipboard](http://zeroclipboard.org/) (version: 2.2.0)
+- [ZeroClipboard](https://zeroclipboard.github.io) (version: 2.2.0)
 
-Tests are written with [Jasmine](http://jasmine.github.io/) (version: 2.5.2).
+Tests are written with [Jasmine](https://jasmine.github.io) (version: 2.5.2).
 - You can [run the tests in your browser](http://csgobuynds.com/tests/SpecRunner.html).
-- Or you can run them from the command line with [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/).  
+- Or you can run them from the command line with [Node.js](https://nodejs.org) and [npm](https://www.npmjs.com).  
   ```
   npm install
   npm test
   ```  
-  (The project is configured to use [Karma](http://karma-runner.github.io/) (version: 1.3.0) to run the tests.)
+  (The project is configured to use [Karma](https://karma-runner.github.io) (version: 1.3.0) to run the tests.)
 
-Jesse's preferred JavaScript IDE is [JetBrain's WebStorm](http://www.jetbrains.com/webstorm/).
+Jesse's preferred JavaScript IDE is [JetBrain's WebStorm](https://www.jetbrains.com/webstorm).
