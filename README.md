@@ -73,7 +73,7 @@ Here is a list of which 3rd party libraries are being used:
 - [ZeroClipboard](http://zeroclipboard.org/) (version: 2.2.0)
 
 Tests are written with [Jasmine](http://jasmine.github.io/) (version: 2.5.2).
-- You can[run the tests in your browser.](http://csgobuynds.com/tests/SpecRunner.html)
+- You can [run the tests in your browser](http://csgobuynds.com/tests/SpecRunner.html).
 - Or you can run them from the command line with [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/).  
   ```
   npm install
