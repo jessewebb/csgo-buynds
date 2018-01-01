@@ -15,7 +15,7 @@ buyndsDirectives.directive('activeTabClass', ['$location', function($location) {
         var clazz = attrs.activeTabClass;
         var linkElement = element.children().eq(0); // assume 'a' element is first child
         var linkHref = linkElement.attr('href');
-        linkHref = linkHref.substring(1); // remove leading hash character
+        linkHref = linkHref.substring(2); // remove leading hash and bang prefix characters
         scope.location = $location;
         scope.$watch('location.path()', function(newPath) {
             if (linkHref === newPath) {
