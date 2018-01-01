@@ -6,82 +6,125 @@
         {
           "name": "1 / End",
           "bind": "kp_end",
-          "code": 97
+          "code": 97,
+          "html": "1<br/><span class=\"key-alt-fn\">End</span>",
+          "order": 12
         },
         {
           "name": "2 / Down Arrow",
           "bind": "kp_downarrow",
-          "code": 98
+          "code": 98,
+          "html": "2<br/><span class=\"key-alt-fn arrow\">↓</span>",
+          "order": 13
         },
         {
           "name": "3 / Page Down",
           "bind": "kp_pgdn",
-          "code": 99
+          "code": 99,
+          "html": "3<br/><span class=\"key-alt-fn\">Pg Dn</span>",
+          "order": 14
         },
         {
           "name": "4 / Left Arrow",
           "bind": "kp_leftarrow",
-          "code": 100
+          "code": 100,
+          "html": "4<br/><span class=\"key-alt-fn arrow\">←</span>",
+          "order": 9
         },
         {
           "name": "5",
           "bind": "kp_5",
-          "code": 101
+          "code": 101,
+          "html": "5",
+          "order": 10
         },
         {
           "name": "6 / Right Arrow",
           "bind": "kp_rightarrow",
-          "code": 102
+          "code": 102,
+          "html": "6<br/><span class=\"key-alt-fn arrow\">→</span>",
+          "order": 11
         },
         {
           "name": "7 / Home",
           "bind": "kp_home",
-          "code": 103
+          "code": 103,
+          "html": "7<br/><span class=\"key-alt-fn\">Home</span>",
+          "order": 5
         },
         {
           "name": "8 / Up Arrow",
           "bind": "kp_uparrow",
-          "code": 104
+          "code": 104,
+          "html": "8<br/><span class=\"key-alt-fn arrow\">↑</span>",
+          "order": 6
         },
         {
           "name": "9 / Page Up",
           "bind": "kp_pgup",
-          "code": 105
+          "code": 105,
+          "html": "9<br/><span class=\"key-alt-fn\">Pg Up</span>",
+          "order": 7
         },
         {
           "name": "0 / Insert",
           "bind": "kp_ins",
-          "code": 96
+          "code": 96,
+          "html": "0<br/><span class=\"key-alt-fn\">Insert</span>",
+          "css": "wide-key",
+          "order": 16
         },
         {
           "name": ". / Delete",
           "bind": "kp_del",
-          "code": 110
+          "code": 110,
+          "html": ".<br/><span class=\"key-alt-fn\">Delete</span>",
+          "order": 17
         },
         {
           "name": "/ (Slash)",
           "bind": "kp_slash",
-          "code": 111
+          "code": 111,
+          "html": "/",
+          "order": 2
         },
         {
           "name": "* (Multiply)",
           "bind": "kp_multiply",
-          "code": 106
+          "code": 106,
+          "html": "*",
+          "order": 3
         },
         {
           "name": "- (Minus)",
           "bind": "kp_minus",
-          "code": 109
+          "code": 109,
+          "html": "-",
+          "order": 4
         },
         {
           "name": "+ (Plus)",
           "bind": "kp_plus",
-          "code": 107
+          "code": 107,
+          "html": "+",
+          "css": "tall-key",
+          "order": 8
         },
         {
           "name": "Enter",
           "bind": "kp_enter",
-          "code": null
+          "code": null,
+          "html": "Enter",
+          "css": "tall-key",
+          "order": 15
+        },
+        {
+          "name": "Num Lock",
+          "bind": null,
+          "code": null,
+          "html": "Num<br/>Lock",
+          "disabled": true,
+          "order": 1
         }
       ]
     },
@@ -91,52 +134,96 @@
         {
           "name": "Insert",
           "bind": "ins",
-          "code": 45
+          "code": 45,
+          "html": "Insert",
+          "order": 1
         },
         {
           "name": "Delete",
           "bind": "del",
-          "code": 46
+          "code": 46,
+          "html": "Delete",
+          "order": 5
         },
         {
           "name": "Home",
           "bind": "home",
-          "code": 36
+          "code": 36,
+          "html": "Home",
+          "order": 2
         },
         {
           "name": "End",
           "bind": "end",
-          "code": 35
+          "code": 35,
+          "html": "End",
+          "order": 6
         },
         {
           "name": "Page Up",
           "bind": "pgup",
-          "code": 33
+          "code": 33,
+          "html": "Page<br/>Up",
+          "order": 3
         },
         {
           "name": "Page Down",
           "bind": "pgdn",
-          "code": 34
+          "code": 34,
+          "html": "Page<br/>Down",
+          "order": 7
         },
         {
           "name": "Up Arrow",
           "bind": "uparrow",
-          "code": 38
+          "code": 38,
+          "html": "<span class=\"glyphicon glyphicon-arrow-up\"></span>",
+          "order": 10
         },
         {
           "name": "Left Arrow",
           "bind": "leftarrow",
-          "code": 37
+          "code": 37,
+          "html": "<span class=\"glyphicon glyphicon-arrow-left\"></span>",
+          "order": 13
         },
         {
           "name": "Down Arrow",
           "bind": "downarrow",
-          "code": 40
+          "code": 40,
+          "html": "<span class=\"glyphicon glyphicon-arrow-down\"></span>",
+          "order": 14
         },
         {
           "name": "Right Arrow",
           "bind": "rightarrow",
-          "code": 39
+          "code": 39,
+          "html": "<span class=\"glyphicon glyphicon-arrow-right\"></span>",
+          "order": 15
+        },
+        {
+          "spacer": true,
+          "order": 4
+        },
+        {
+          "spacer": true,
+          "order": 8
+        },
+        {
+          "spacer": true,
+          "order": 9
+        },
+        {
+          "spacer": true,
+          "order": 11
+        },
+        {
+          "spacer": true,
+          "order": 12
+        },
+        {
+          "spacer": true,
+          "order": 16
         }
       ]
     },
@@ -146,62 +233,86 @@
         {
           "name": "F1",
           "bind": "f1",
-          "code": 112
+          "code": 112,
+          "html": "F1",
+          "order": 1
         },
         {
           "name": "F2",
           "bind": "f2",
-          "code": 113
+          "code": 113,
+          "html": "F2",
+          "order": 2
         },
         {
           "name": "F3",
           "bind": "f3",
-          "code": 114
+          "code": 114,
+          "html": "F3",
+          "order": 3
         },
         {
           "name": "F4",
           "bind": "f4",
-          "code": 115
+          "code": 115,
+          "html": "F4",
+          "order": 4
         },
         {
           "name": "F5",
           "bind": "f5",
-          "code": 116
+          "code": 116,
+          "html": "F5",
+          "order": 5
         },
         {
           "name": "F6",
           "bind": "f6",
-          "code": 117
+          "code": 117,
+          "html": "F6",
+          "order": 6
         },
         {
           "name": "F7",
           "bind": "f7",
-          "code": 118
+          "code": 118,
+          "html": "F7",
+          "order": 7
         },
         {
           "name": "F8",
           "bind": "f8",
-          "code": 119
+          "code": 119,
+          "html": "F8",
+          "order": 8
         },
         {
           "name": "F9",
           "bind": "f9",
-          "code": 120
+          "code": 120,
+          "html": "F9",
+          "order": 9
         },
         {
           "name": "F10",
           "bind": "f10",
-          "code": 121
+          "code": 121,
+          "html": "F10",
+          "order": 10
         },
         {
           "name": "F11",
           "bind": "f11",
-          "code": 122
+          "code": 122,
+          "html": "F11",
+          "order": 11
         },
         {
           "name": "F12",
           "bind": "f12",
-          "code": 123
+          "code": 123,
+          "html": "F12",
+          "order": 12
         }
       ]
     },
@@ -501,37 +612,57 @@
         {
           "name": "Left Mouse",
           "bind": "mouse1",
-          "code": 223
+          "code": 223,
+          "html": "Left<br/>Click",
+          "css": "main-mouse-button",
+          "order": 2
         },
         {
           "name": "Right Mouse",
           "bind": "mouse2",
-          "code": 224
+          "code": 224,
+          "html": "Right<br/>Click",
+          "css": "main-mouse-button",
+          "order": 4
         },
         {
           "name": "Middle Mouse",
           "bind": "mouse3",
-          "code": 225
+          "code": 225,
+          "html": "Middle<br/>Click",
+          "order": 6
         },
         {
           "name": "Side Mouse 1",
           "bind": "mouse4",
-          "code": 226
+          "code": 226,
+          "html": "Side 1",
+          "order": 7
         },
         {
           "name": "Side Mouse 2",
           "bind": "mouse5",
-          "code": 227
+          "code": 227,
+          "html": "Side 2",
+          "order": 5
         },
         {
           "name": "Mouse Wheel Down",
           "bind": "mwheeldown",
-          "code": 228
+          "code": 228,
+          "html": "Scroll<br/>Down",
+          "order": 9
         },
         {
           "name": "Mouse Wheel Up",
           "bind": "mwheelup",
-          "code": 229
+          "code": 229,
+          "html": "Scroll<br/>Up",
+          "order": 3
+        },
+        {
+          "spacer": true,
+          "order": 1
         }
       ]
     }

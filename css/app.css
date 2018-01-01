@@ -6,6 +6,11 @@ body {
     margin-top: 50px;
 }
 
+pre.buy-binds {
+    background-color: white;
+    white-space: nowrap;
+}
+
 #githubIconImg {
     display: inline-block;
     height: 16px;
@@ -72,11 +77,6 @@ body {
     color: #ffffff;
 }
 
-.skg pre.buy-binds {
-    background-color: white;
-    white-space: nowrap;
-}
-
 /* Multi-Key Generator Styles */
 .mkg {
     margin: 10px 0;
@@ -84,25 +84,22 @@ body {
 
 .mkg .keypad {
     width: 100%;
-}
-
-.mkg .keypad .key,
-.mkg .keypad .key-spacer {
-    display: inline-block;
-    float: right;
-    height: 60px;
-    margin: 2px;
-    width: 23.5%; /* Fallback for browsers without support for calc() */
-    width: calc(25% - 4px);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 60px;
+    grid-gap: 4px;
 }
 
 .mkg .keypad .key.tall-key {
-    height: 124px;
+    grid-row: span 2;
 }
 
 .mkg .keypad .key.wide-key {
-    width: 48%; /* Fallback for browsers without support for calc() */
-    width: calc(50% - 4px);
+    grid-column: span 2;
+}
+
+.mkg .keypad .key.main-mouse-button {
+    grid-row: span 3;
 }
 
 .mkg .keypad .key button {
@@ -110,6 +107,7 @@ body {
     font-weight: bold;
     height: 100%;
     width: 100%;
+    padding: 0;
 }
 
 .mkg .keypad .key button .key-alt-fn {
@@ -122,36 +120,20 @@ body {
     font-weight: bold;
 }
 
-.mkg pre.buy-binds {
-    background-color: white;
-    white-space: nowrap;
-}
-
 #mkgKeyBindOptionsForm .form-group:last-child {
     margin-bottom: 0;
 }
 
 /* Media Queries */
 @media (min-width: 992px) {
-    .mkg .keypad .key,
-    .mkg .keypad .key-spacer {
-        height: 80px;
-        margin: 3px;
-        width: 23%; /* Fallback for browsers without support for calc() */
-        width: calc(25% - 6px);
-    }
 
-    .mkg .keypad .key.tall-key {
-        height: 166px;
-    }
-
-    .mkg .keypad .key.wide-key {
-        width: 48%; /* Fallback for browsers without support for calc() */
-        width: calc(50% - 6px);
+    .mkg .keypad {
+        grid-auto-rows: 80px;
     }
 
     .mkg .keypad .key button {
         font-size: large;
+        padding: 4px 8px;
     }
 
     .mkg .keypad .key button .key-alt-fn {

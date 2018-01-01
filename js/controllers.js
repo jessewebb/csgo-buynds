@@ -13,8 +13,10 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
             var keyGroup = data.keyGroups[i];
             for (var j = 0; j < keyGroup.keys.length; j++) {
                 var key = keyGroup.keys[j];
-                key.keyGroup = keyGroup.name;
-                bindableKeys.push(key);
+                if (!key.spacer && !key.disabled) {
+                    key.keyGroup = keyGroup.name;
+                    bindableKeys.push(key);
+                }
             }
         }
         $scope.bindableKeys = bindableKeys;
@@ -170,16 +172,38 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
         return keyBind in $scope.bindOptionsMap;
     };
 
-    var hasKeyGroupKeypadKeyBindOptions = function (keyGroupName) {
+    var getKeyGroupKeysByName = function (keyGroupName) {
         for (var i = 0; i < $scope.bindableKeys.keyGroups.length; i++) {
             var keyGroup = $scope.bindableKeys.keyGroups[i];
             if (keyGroup.name === keyGroupName) {
-                for (var j = 0; j < keyGroup.keys.length; j++) {
-                    var key = keyGroup.keys[j];
-                    if (key.bind in $scope.bindOptionsMap) {
-                        return true;
-                    }
-                }
+                return keyGroup.keys;
+            }
+        }
+        return [];
+    };
+
+    $scope.getNumericKeypadKeys = function () {
+        return getKeyGroupKeysByName('Numeric Keypad');
+    };
+
+    $scope.getNavigationKeys = function () {
+        return getKeyGroupKeysByName('Navigation Keys');
+    };
+
+    $scope.getFunctionKeys = function () {
+        return getKeyGroupKeysByName('Function Keys');
+    };
+
+    $scope.getMouseButtonKeys = function () {
+        return getKeyGroupKeysByName('Mouse Buttons');
+    };
+
+    var hasKeyGroupKeypadKeyBindOptions = function (keyGroupName) {
+        var keys = getKeyGroupKeysByName(keyGroupName);
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            if (key.bind in $scope.bindOptionsMap) {
+                return true;
             }
         }
         return false;
