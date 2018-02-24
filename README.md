@@ -56,7 +56,6 @@ This project uses [GitHub Pages](https://pages.github.com) to host the website. 
 The main branch, [`gh-pages`](https://github.com/jessewebb/csgo-buynds/tree/gh-pages), is where stable releases are deployed to.
 
 Development should be done on the [`dev`](https://github.com/jessewebb/csgo-buynds/tree/dev) branch.
-
 [Pull requests](https://github.com/jessewebb/csgo-buynds/pulls) are welcomed!
 
 This project is a simple, static website built with pure HTML5, CSS3, and JavaScript. There is nothing to compile.
