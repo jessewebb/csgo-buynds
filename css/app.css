@@ -32,25 +32,70 @@ pre.buy-binds {
     text-align: center;
 }
 
-/* Fix inline checkbox/radio alignment issue (http://stackoverflow.com/a/16842140/346561) */
-.form-group .checkbox-inline.checkbox-inline-no-indent,
-.form-group .checkbox-inline.checkbox-inline-no-indent+.checkbox-inline.checkbox-inline-no-indent,
-.form-group .radio-inline.radio-inline-no-indent,
-.form-group .radio-inline.radio-inline-no-indent+.radio-inline.radio-inline-no-indent {
-    margin-left: 0;
-    margin-right: 10px;
-    padding-left: 0;
+.generator {
+    margin: 10px 0;
 }
-.form-group .checkbox-inline.checkbox-inline-no-indent:last-child,
-.form-group .radio-inline.radio-inline-no-indent:last-child {
-    margin-left: 0;
+
+.label-counter-terrorist {
+    background-color: #579bdd;
+}
+
+.label-terrorist {
+    background-color: #dfab32;
+}
+
+.keypad {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 60px;
+    grid-gap: 4px;
+}
+
+.keypad .key.tall-key {
+    grid-row: span 2;
+}
+
+.keypad .key.wide-key {
+    grid-column: span 2;
+}
+
+.keypad .key.main-mouse-button {
+    grid-row: span 3;
+}
+
+.keypad .key button {
+    font-size: medium;
+    font-weight: bold;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.keypad .key button .key-alt-fn {
+    font-size: small;
+    font-weight: normal;
+}
+
+.keypad .key button .key-alt-fn.arrow {
+    font-size: medium;
+    font-weight: bold;
+}
+
+/* Fix for Bootstrap bug: "Navbar hides initial content when jumping to in-page anchor" */
+/* https://github.com/twbs/bootstrap/issues/1768#issuecomment-46519033 */
+h1[id]:before,
+h2[id]:before {
+    display: block;
+    content: " ";
+    margin-top: -60px;
+    height: 60px;
+    visibility: hidden;
 }
 
 /* Fix inline labels alignment issue */
 .form-group .checkbox label:nth-of-type(n+2),
-.form-group .radio label:nth-of-type(n+2),
-.form-group .checkbox-inline.checkbox-inline-no-indent label:nth-of-type(n+2),
-.form-group .radio-inline.radio-inline-no-indent label:nth-of-type(n+2) {
+.form-group .radio label:nth-of-type(n+2) {
     padding-left: 0;
 }
 
@@ -68,96 +113,24 @@ pre.buy-binds {
     bottom: 1px;
 }
 
-/* Single Key Generator Styles */
-.skg {
-    margin: 10px 0;
-}
-
-.skg .btn.input-group-addon.btn-info {
-    color: #ffffff;
-}
-
-/* Multi-Key Generator Styles */
-.mkg {
-    margin: 10px 0;
-}
-
-.mkg .keypad {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 60px;
-    grid-gap: 4px;
-}
-
-.mkg .keypad .key.tall-key {
-    grid-row: span 2;
-}
-
-.mkg .keypad .key.wide-key {
-    grid-column: span 2;
-}
-
-.mkg .keypad .key.main-mouse-button {
-    grid-row: span 3;
-}
-
-.mkg .keypad .key button {
-    font-size: medium;
-    font-weight: bold;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-}
-
-.mkg .keypad .key button .key-alt-fn {
-    font-size: small;
-    font-weight: normal;
-}
-
-.mkg .keypad .key button .key-alt-fn.arrow {
-    font-size: medium;
-    font-weight: bold;
-}
-
-#mkgKeyBindOptionsForm .form-group:last-child {
-    margin-bottom: 0;
-}
-
-/* Generic Bind Generator Styles */
-.label-counter-terrorist {
-    background-color: #579bdd;
-}
-
-.label-terrorist {
-    background-color: #dfab32;
-}
-
 /* Media Queries */
 @media (min-width: 992px) {
 
-    .mkg .keypad {
+    .keypad {
         grid-auto-rows: 80px;
     }
 
-    .mkg .keypad .key button {
+    .keypad .key button {
         font-size: large;
         padding: 4px 8px;
     }
 
-    .mkg .keypad .key button .key-alt-fn {
+    .keypad .key button .key-alt-fn {
         font-size: medium;
     }
 
-    .mkg .keypad .key button .key-alt-fn.arrow {
+    .keypad .key button .key-alt-fn.arrow {
         font-size: large;
     }
 }
 
-@media (max-width: 767px) {
-    .form-group .checkbox-inline.checkbox-not-inline-xs,
-    .form-group .radio-inline.radio-not-inline-xs {
-        display: block;
-        margin-left: 0;
-    }
-}
