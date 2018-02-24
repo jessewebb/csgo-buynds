@@ -325,14 +325,14 @@ describe('controllers', function() {
 
             it('should re-initialize the bind options', function() {
                 scope.bindOptions.keyToBind = 'ktb';
-                scope.bindOptions.primaryWeapon = 'pw';
-                scope.bindOptions.secondaryWeapon = 'sw';
+                scope.bindOptions.primaryWeapons = ['pw'];
+                scope.bindOptions.secondaryWeapons = ['sw'];
                 scope.bindOptions.gear = ['gear'];
                 scope.bindOptions.grenades = ['nades'];
                 scope.resetBind();
                 expect(scope.bindOptions.keyToBind).toEqual('');
-                expect(scope.bindOptions.primaryWeapon).toEqual('');
-                expect(scope.bindOptions.secondaryWeapon).toEqual('');
+                expect(scope.bindOptions.primaryWeapons).toEqual([]);
+                expect(scope.bindOptions.secondaryWeapons).toEqual([]);
                 expect(scope.bindOptions.gear).toEqual([]);
                 expect(scope.bindOptions.grenades).toEqual([]);
             });
