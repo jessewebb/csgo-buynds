@@ -47,10 +47,10 @@ pre.buy-binds {
 }
 
 /* Fix inline labels alignment issue */
-.form-group .checkbox label:nth-child(n+2),
-.form-group .radio label:nth-child(n+2),
-.form-group .checkbox-inline.checkbox-inline-no-indent label:nth-child(n+2),
-.form-group .radio-inline.radio-inline-no-indent label:nth-child(n+2) {
+.form-group .checkbox label:nth-of-type(n+2),
+.form-group .radio label:nth-of-type(n+2),
+.form-group .checkbox-inline.checkbox-inline-no-indent label:nth-of-type(n+2),
+.form-group .radio-inline.radio-inline-no-indent label:nth-of-type(n+2) {
     padding-left: 0;
 }
 
@@ -122,6 +122,15 @@ pre.buy-binds {
 
 #mkgKeyBindOptionsForm .form-group:last-child {
     margin-bottom: 0;
+}
+
+/* Generic Bind Generator Styles */
+.label-counter-terrorist {
+    background-color: #579bdd;
+}
+
+.label-terrorist {
+    background-color: #dfab32;
 }
 
 /* Media Queries */

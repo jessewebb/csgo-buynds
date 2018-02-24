@@ -25,16 +25,16 @@
 
     buynds.BindOptions = function() {
         this.keyToBind = '';
-        this.primaryWeapon = '';
-        this.secondaryWeapon = '';
+        this.primaryWeapons = [];
+        this.secondaryWeapons = [];
         this.gear = [];
         this.grenades = [];
 
         this.clone = function() {
             var clone = new buynds.BindOptions();
             clone.keyToBind = this.keyToBind;
-            clone.primaryWeapon = this.primaryWeapon;
-            clone.secondaryWeapon = this.secondaryWeapon;
+            clone.primaryWeapons = this.primaryWeapons.slice();
+            clone.secondaryWeapons = this.secondaryWeapons.slice();
             clone.gear = this.gear.slice();
             clone.grenades = this.grenades.slice();
             return clone;
@@ -47,18 +47,16 @@
 
             var bindString = 'bind "' + bindOptions.keyToBind + '" "';
 
-            if (bindOptions.primaryWeapon) {
-                var primaryWeaponsArray = bindOptions.primaryWeapon.split(',');
-                primaryWeaponsArray.forEach(function (weapon) {
+            if (bindOptions.primaryWeapons) {
+                bindOptions.primaryWeapons.forEach(function (weapon) {
                     bindString += 'buy ' + weapon + '; ';
                 });
             }
 
-            if (bindOptions.secondaryWeapon) {
-                var secondaryWeaponsArray = bindOptions.secondaryWeapon.split(',');
-                for (var i = 0; i < secondaryWeaponsArray.length; i++) {
-                    bindString += 'buy ' + secondaryWeaponsArray[i] + '; ';
-                }
+            if (bindOptions.secondaryWeapons) {
+                bindOptions.secondaryWeapons.forEach(function (weapon) {
+                    bindString += 'buy ' + weapon + '; ';
+                });
             }
 
             if (bindOptions.gear) {
@@ -69,10 +67,7 @@
 
             if (bindOptions.grenades) {
                 bindOptions.grenades.forEach(function (grenade) {
-                    var grenadeArray = grenade.split(',');
-                    grenadeArray.forEach(function (nade) {
-                        bindString += 'buy ' + nade + '; ';
-                    });
+                    bindString += 'buy ' + grenade + '; ';
                 });
             }
 
@@ -94,11 +89,8 @@
                 var weaponGroup = self.primaryWeapons['weaponGroups'][i];
                 for (var j = 0; j < weaponGroup['weapons'].length; j++) {
                     var weapon = weaponGroup['weapons'][j];
-                    var weaponBinds = weapon['bind'].split(',');
-                    for (var k = 0; k < weaponBinds.length; k++) {
-                        if (bind === weaponBinds[k]) {
-                            return true;
-                        }
+                    if (bind === weapon['bind']) {
+                        return true;
                     }
                 }
             }
@@ -110,11 +102,8 @@
                 var weaponGroup = self.secondaryWeapons['weaponGroups'][i];
                 for (var j = 0; j < weaponGroup['weapons'].length; j++) {
                     var weapon = weaponGroup['weapons'][j];
-                    var weaponBinds = weapon['bind'].split(',');
-                    for (var k = 0; k < weaponBinds.length; k++) {
-                        if (bind === weaponBinds[k]) {
-                            return true;
-                        }
+                    if (bind === weapon['bind']) {
+                        return true;
                     }
                 }
             }
@@ -134,11 +123,8 @@
         var isBindForGrenade = function (bind) {
             for (var i = 0; i < self.grenades.length; i++) {
                 var grenade = self.grenades[i];
-                var grenadeBinds = grenade['bind'].split(',');
-                for (var j = 0; j < grenadeBinds.length; j++) {
-                    if (bind === grenadeBinds[j]) {
-                        return true;
-                    }
+                if (bind === grenade['bind']) {
+                    return true;
                 }
             }
             return false;
@@ -168,31 +154,15 @@
                     if (buyCommand.startsWith('buy ')) {
                         var equipmentToBuy = buyCommand.substring(4);
                         if (isBindForPrimaryWeapon(equipmentToBuy)) {
-                            if (bindOptions.primaryWeapon) {
-                                bindOptions.primaryWeapon += ',' + equipmentToBuy;
-                            } else {
-                                bindOptions.primaryWeapon = equipmentToBuy;
-                            }
+                            bindOptions.primaryWeapons.push(equipmentToBuy);
                         }
                         if (isBindForSecondaryWeapon(equipmentToBuy)) {
-                            if (bindOptions.secondaryWeapon) {
-                                bindOptions.secondaryWeapon += ',' + equipmentToBuy;
-                            } else {
-                                bindOptions.secondaryWeapon = equipmentToBuy;
-                            }
+                            bindOptions.secondaryWeapons.push(equipmentToBuy);
                         }
                         if (isBindForGearItem(equipmentToBuy)) {
                             bindOptions.gear.push(equipmentToBuy)
                         }
                         if (isBindForGrenade(equipmentToBuy)) {
-                            if (equipmentToBuy === 'incgrenade') {
-                                var lastGrenade = bindOptions.grenades.pop();
-                                if (lastGrenade === 'molotov') {
-                                    equipmentToBuy = lastGrenade + ',' + equipmentToBuy;
-                                } else {
-                                    bindOptions.push(lastGrenade);
-                                }
-                            }
                             bindOptions.grenades.push(equipmentToBuy);
                         }
                     }

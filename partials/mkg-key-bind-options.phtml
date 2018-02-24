@@ -13,25 +13,45 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="mkgPrimaryWeaponSelect" class="control-label col-sm-4">Primary Weapon</label>
+            <label for="mkgPrimaryWeaponSelect" class="control-label col-sm-4">Primary Weapons</label>
             <div class="col-sm-8">
-                <ui-select id="mkgPrimaryWeaponSelect" name="mkgPrimaryWeaponSelect" theme="bootstrap" ng-model="bindOptions.primaryWeapon">
-                    <ui-select-match placeholder="None">{{$select.selected.name}}</ui-select-match>
-                    <ui-select-choices repeat="weapon.bind as weapon in (primaryWeapons | filter: $select.search) track by weapon.bind"
+                <ui-select id="mkgPrimaryWeaponSelect" name="mkgPrimaryWeaponSelect" theme="bootstrap" ng-model="bindOptions.primaryWeapons" multiple>
+                    <ui-select-match>
+                        {{$item.name}}
+                        <span ng-show="$item.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                        <span ng-show="$item.team === 't'" class="label label-terrorist">T</span>
+                        <span class="label label-success">${{$item.price}}</span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="weapon.bind as weapon in primaryWeapons | filter: $select.search"
                                        group-by="'weaponGroup'">
-                        <span ng-bind-html="weapon.name | highlight: $select.search"></span>
+                        <div class="pull-right">
+                            <span ng-show="weapon.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                            <span ng-show="weapon.team === 't'" class="label label-terrorist">T</span>
+                            <span ng-bind-html="'$' + weapon.price" class="label label-success"></span>
+                        </div>
+                        <div ng-bind-html="weapon.name | highlight: $select.search"></div>
                     </ui-select-choices>
                 </ui-select>
             </div>
         </div>
         <div class="form-group">
-            <label for="mkgSecondaryWeaponSelect" class="control-label col-sm-4">Secondary Weapon</label>
+            <label for="mkgSecondaryWeaponSelect" class="control-label col-sm-4">Secondary Weapons</label>
             <div class="col-sm-8">
-                <ui-select id="mkgSecondaryWeaponSelect" name="mkgSecondaryWeaponSelect" theme="bootstrap" ng-model="bindOptions.secondaryWeapon">
-                    <ui-select-match placeholder="None">{{$select.selected.name}}</ui-select-match>
-                    <ui-select-choices repeat="weapon.bind as weapon in (secondaryWeapons | filter: $select.search) track by weapon.bind"
+                <ui-select id="mkgSecondaryWeaponSelect" name="mkgSecondaryWeaponSelect" theme="bootstrap" ng-model="bindOptions.secondaryWeapons" multiple>
+                    <ui-select-match>
+                        {{$item.name}}
+                        <span ng-show="$item.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                        <span ng-show="$item.team === 't'" class="label label-terrorist">T</span>
+                        <span class="label label-success">${{$item.price}}</span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="weapon.bind as weapon in secondaryWeapons | filter: $select.search"
                                        group-by="'weaponGroup'">
-                        <span ng-bind-html="weapon.name | highlight: $select.search"></span>
+                        <div class="pull-right">
+                            <span ng-show="weapon.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                            <span ng-show="weapon.team === 't'" class="label label-terrorist">T</span>
+                            <span ng-bind-html="'$' + weapon.price" class="label label-success"></span>
+                        </div>
+                        <div ng-bind-html="weapon.name | highlight: $select.search"></div>
                     </ui-select-choices>
                 </ui-select>
             </div>
@@ -40,12 +60,18 @@
             <label class="control-label col-sm-4">Gear</label>
             <div class="col-sm-8">
                 <div ng-repeat="gearItem in gear" class="checkbox">
+                    <div class="pull-right">
+                        <span ng-show="gearItem.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                        <span ng-show="gearItem.team === 't'" class="label label-terrorist">T</span>
+                        <span ng-bind-html="'$' + gearItem.price" class="label label-success"></span>
+                    </div>
                     <label>
                         <input name="mkgGear[]"
                                type="checkbox"
                                value="{{ gearItem.bind }}"
                                ng-checked="bindOptions.gear.indexOf(gearItem.bind) > -1"
-                               ng-click="toggleGearSelection(gearItem.bind)" /> {{ gearItem.name }}
+                               ng-click="toggleGearSelection(gearItem.bind)" />
+                        {{ gearItem.name }}
                     </label>
                 </div>
             </div>
@@ -54,6 +80,11 @@
             <label class="control-label col-sm-4">Grenades</label>
             <div class="col-sm-8">
                 <div ng-repeat="grenade in grenades" class="checkbox">
+                    <div class="pull-right">
+                        <span ng-show="grenade.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                        <span ng-show="grenade.team === 't'" class="label label-terrorist">T</span>
+                        <span ng-bind-html="'$' + grenade.price" class="label label-success"></span>
+                    </div>
                     <label>
                         <input name="mkgGrenades[]"
                                type="checkbox"
@@ -70,7 +101,7 @@
                                  value="{{ grenade.bind }}"
                                  ng-checked="hasExtraGrenadeSelection(grenade.bind)"
                                  ng-click="toggleExtraGrenadeSelection(grenade.bind)" />
-                        <span class="checkbox-inline-inline-label">&times; 2</span> )
+                            <span class="checkbox-inline-inline-label">&times; 2</span> )
                     </label>
                 </div>
             </div>

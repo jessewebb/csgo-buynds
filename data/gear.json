@@ -1,18 +1,27 @@
 [
   {
     "name": "Kevlar Vest",
-    "bind": "vest"
+    "bind": "vest",
+    "slot": 1,
+    "price": 650
   },
   {
     "name": "Kevlar + Helmet",
-    "bind": "vesthelm"
+    "bind": "vesthelm",
+    "slot": 2,
+    "price": 1000
   },
   {
     "name": "Zeus x27",
-    "bind": "taser 34"
+    "bind": "taser 34",
+    "slot": 3,
+    "price": 200
   },
   {
     "name": "Defuse Kit",
-    "bind": "defuser"
+    "bind": "defuser",
+    "slot": 4,
+    "price": 400,
+    "team": "ct"
   }
 ]

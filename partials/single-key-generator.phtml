@@ -10,7 +10,7 @@
                         <legend>Bind Options</legend>
                         <div class="form-group" ng-class="{ 'has-error': submitted && skgForm.skgKeySelect.$invalid }">
                             <label for="skgKeySelect" class="control-label col-sm-3">Key to Bind</label>
-                            <div class="col-sm-9">
+                            <div class="col-sm-6">
                                 <ui-select id="skgKeySelect" name="skgKeySelect" theme="bootstrap" ng-model="bindOptions.keyToBind" ng-required="true">
                                     <ui-select-match placeholder="Select a key to bind...">{{$select.selected.name}}</ui-select-match>
                                     <ui-select-choices repeat="key.bind as key in (bindableKeys | filter: $select.search) track by key.bind"
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                         <div class="form-group" ng-class="{ 'has-error': submitted && skgForm.skgKeySelect.$invalid }">
-                            <div class="col-sm-offset-3 col-sm-9">
+                            <div class="col-sm-offset-3 col-sm-6">
                                 <div class="input-group">
                                     <div class="btn input-group-addon" press-any-key-button on-key-press="setKeyToBindByCode"
                                          inactive-class="btn-default" active-class="btn-info">Press Any Key <span class="glyphicon glyphicon-edit"></span></div>
@@ -33,47 +33,78 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="skgPrimaryWeaponSelect" class="control-label col-sm-3">Primary Weapon</label>
-                            <div class="col-sm-9">
-                                <ui-select id="skgPrimaryWeaponSelect" name="skgPrimaryWeaponSelect" theme="bootstrap" ng-model="bindOptions.primaryWeapon">
-                                    <ui-select-match placeholder="None">{{$select.selected.name}}</ui-select-match>
-                                    <ui-select-choices repeat="weapon.bind as weapon in (primaryWeapons | filter: $select.search) track by weapon.bind"
+                            <label for="skgPrimaryWeaponSelect" class="control-label col-sm-3">Primary Weapons</label>
+                            <div class="col-sm-6">
+                                <ui-select id="skgPrimaryWeaponSelect" name="skgPrimaryWeaponSelect" theme="bootstrap" ng-model="bindOptions.primaryWeapons" multiple>
+                                    <ui-select-match>
+                                        {{$item.name}}
+                                        <span ng-show="$item.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                                        <span ng-show="$item.team === 't'" class="label label-terrorist">T</span>
+                                        <span class="label label-success">${{$item.price}}</span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="weapon.bind as weapon in primaryWeapons | filter: $select.search"
                                                        group-by="'weaponGroup'">
-                                        <span ng-bind-html="weapon.name | highlight: $select.search"></span>
+                                        <div class="pull-right">
+                                            <span ng-show="weapon.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                                            <span ng-show="weapon.team === 't'" class="label label-terrorist">T</span>
+                                            <span ng-bind-html="'$' + weapon.price" class="label label-success"></span>
+                                        </div>
+                                        <div ng-bind-html="weapon.name | highlight: $select.search"></div>
                                     </ui-select-choices>
                                 </ui-select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="skgSecondaryWeaponSelect" class="control-label col-sm-3">Secondary Weapon</label>
-                            <div class="col-sm-9">
-                                <ui-select id="skgSecondaryWeaponSelect" name="skgSecondaryWeaponSelect" theme="bootstrap" ng-model="bindOptions.secondaryWeapon">
-                                    <ui-select-match placeholder="None">{{$select.selected.name}}</ui-select-match>
-                                    <ui-select-choices repeat="weapon.bind as weapon in (secondaryWeapons | filter: $select.search) track by weapon.bind"
+                            <label for="skgSecondaryWeaponSelect" class="control-label col-sm-3">Secondary Weapons</label>
+                            <div class="col-sm-6">
+                                <ui-select id="skgSecondaryWeaponSelect" name="skgSecondaryWeaponSelect" theme="bootstrap" ng-model="bindOptions.secondaryWeapons" multiple>
+                                    <ui-select-match>
+                                        {{$item.name}}
+                                        <span ng-show="$item.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                                        <span ng-show="$item.team === 't'" class="label label-terrorist">T</span>
+                                        <span class="label label-success">${{$item.price}}</span>
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="weapon.bind as weapon in secondaryWeapons | filter: $select.search"
                                                        group-by="'weaponGroup'">
-                                        <span ng-bind-html="weapon.name | highlight: $select.search"></span>
+                                        <div class="pull-right">
+                                            <span ng-show="weapon.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                                            <span ng-show="weapon.team === 't'" class="label label-terrorist">T</span>
+                                            <span ng-bind-html="'$' + weapon.price" class="label label-success"></span>
+                                        </div>
+                                        <div ng-bind-html="weapon.name | highlight: $select.search"></div>
                                     </ui-select-choices>
                                 </ui-select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-3">Gear</label>
-                            <div class="col-sm-9">
-                                <div ng-repeat="gearItem in gear" class="checkbox checkbox-inline checkbox-inline-no-indent checkbox-not-inline-xs">
+                            <div class="col-sm-6">
+                                <div ng-repeat="gearItem in gear" class="checkbox">
+                                    <div class="pull-right">
+                                        <span ng-show="gearItem.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                                        <span ng-show="gearItem.team === 't'" class="label label-terrorist">T</span>
+                                        <span ng-bind-html="'$' + gearItem.price" class="label label-success"></span>
+                                    </div>
                                     <label>
                                         <input name="skgGear[]"
                                                type="checkbox"
                                                value="{{ gearItem.bind }}"
                                                ng-checked="bindOptions.gear.indexOf(gearItem.bind) > -1"
-                                               ng-click="toggleGearSelection(gearItem.bind)" /> {{ gearItem.name }}
+                                               ng-click="toggleGearSelection(gearItem.bind)" />
+                                        {{ gearItem.name }}
                                     </label>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-sm-3">Grenades</label>
-                            <div class="col-sm-9">
-                                <div ng-repeat="grenade in grenades" class="checkbox checkbox-inline checkbox-inline-no-indent checkbox-not-inline-xs">
+                            <div class="col-sm-6">
+                                <div ng-repeat="grenade in grenades" class="checkbox">
+                                    <div class="pull-right">
+                                        <span ng-show="grenade.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                                        <span ng-show="grenade.team === 't'" class="label label-terrorist">T</span>
+                                        <span ng-bind-html="'$' + grenade.price" class="label label-success"></span>
+                                    </div>
                                     <label>
                                         <input name="skgGrenades[]"
                                                type="checkbox"
@@ -90,7 +121,7 @@
                                                 value="{{ grenade.bind }}"
                                                 ng-checked="hasExtraGrenadeSelection(grenade.bind)"
                                                 ng-click="toggleExtraGrenadeSelection(grenade.bind)" />
-                                        <span class="checkbox-inline-inline-label">&times; 2</span> )
+                                            <span class="checkbox-inline-inline-label">&times; 2</span> )
                                     </label>
                                 </div>
                             </div>
@@ -98,7 +129,7 @@
                     </fieldset>
                     <hr />
                     <div class="form-group">
-                        <div class="col-sm-offset-3 col-sm-9">
+                        <div class="col-sm-offset-3 col-sm-6">
                             <input id="skgSubmitBtn" name="skgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBind(bindOptions)" value="Generate Bind" />
                             <input id="skgResetBtn" name="skgResetBtn" type="reset" class="btn btn-default" ng-click="resetBind()" value="Reset" />
                         </div>

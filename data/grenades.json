@@ -1,22 +1,40 @@
 [
   {
-    "name": "Molotov / Incendiary",
-    "bind": "molotov,incgrenade"
+    "name": "Incendiary",
+    "bind": "incgrenade",
+    "slot": 1,
+    "price": 600,
+    "team": "ct"
+  },
+  {
+    "name": "Molotov",
+    "bind": "molotov",
+    "slot": 1,
+    "price": 400,
+    "team": "t"
   },
   {
     "name": "Decoy",
-    "bind": "decoy"
+    "bind": "decoy",
+    "slot": 2,
+    "price": 50
   },
   {
     "name": "Flashbang",
-    "bind": "flashbang"
+    "bind": "flashbang",
+    "slot": 3,
+    "price": 200
   },
   {
     "name": "High Explosive",
-    "bind": "hegrenade"
+    "bind": "hegrenade",
+    "slot": 4,
+    "price": 300
   },
   {
     "name": "Smoke",
-    "bind": "smokegrenade"
+    "bind": "smokegrenade",
+    "slot": 5,
+    "price": 300
   }
 ]
