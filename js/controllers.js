@@ -285,6 +285,10 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
         $window.ga('send', 'event', 'button', 'click', 'reset', { page: $route.current.page });
         $scope.bindOptionsMap = {};
         $scope.buyBinds = [];
+        $scope.showNumpadKeypad = true;
+        $scope.showNavKeysKeypad = false;
+        $scope.showFuncKeysKeypad = false;
+        $scope.showMouseButtons = false;
         $scope.loadedBindsId = null;
         $scope.loadedBindsName = null;
     };
