@@ -130,7 +130,10 @@
                     <hr />
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-6">
-                            <input id="skgSubmitBtn" name="skgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBind(bindOptions)" value="Generate Bind" />
+                            <input id="skgSubmitBtn" name="skgSubmitBtn" type="submit" class="btn"
+                                   ng-class="{ 'btn-primary': !(submitted && skgForm.$invalid), 'btn-danger': submitted && skgForm.$invalid }"
+                                   ng-disabled="submitted && skgForm.$invalid"
+                                   ng-click="generateBind(bindOptions)" value="Generate Bind" />
                             <input id="skgResetBtn" name="skgResetBtn" type="reset" class="btn btn-default" ng-click="resetBind()" value="Reset" />
                         </div>
                     </div>
