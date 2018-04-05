@@ -4,7 +4,12 @@
 
 var buyndsControllers = angular.module('buyndsControllers', []);
 
-buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window', 'bindBuilder', 'dataService', function ($scope, $route, $window, bindBuilder, dataService) {
+buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window', 'bindBuilder', 'dataService', 'totalPriceCalculatorAsync', function ($scope, $route, $window, bindBuilder, dataService, totalPriceCalculatorAsync) {
+
+    var totalPriceCalculator = null;
+    totalPriceCalculatorAsync.then(function(resolvedTotalPriceCalculator) {
+        totalPriceCalculator = resolvedTotalPriceCalculator;
+    });
 
     $scope.bindableKeys = [];
     dataService.getBindableKeysAsync().then(function(data) {
@@ -116,6 +121,13 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
         } else {
             $scope.bindOptions.grenades.push(grenadeBind, grenadeBind);
         }
+    };
+
+    $scope.totalPrice = function () {
+        if (!totalPriceCalculator) {
+            return new buynds.BindOptionsTotalPrice(0, 0);
+        }
+        return totalPriceCalculator.calculateTotalPrice($scope.bindOptions);
     };
 
     $scope.generateBind = function () {
