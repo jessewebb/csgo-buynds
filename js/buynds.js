@@ -24,25 +24,29 @@
     }
 
     buynds.BindOptions = function() {
-        this.keyToBind = '';
-        this.primaryWeapons = [];
-        this.secondaryWeapons = [];
-        this.gear = [];
-        this.grenades = [];
+        var self = this;
 
-        this.clone = function() {
+        self.keyToBind = '';
+        self.primaryWeapons = [];
+        self.secondaryWeapons = [];
+        self.gear = [];
+        self.grenades = [];
+
+        self.clone = function() {
             var clone = new buynds.BindOptions();
-            clone.keyToBind = this.keyToBind;
-            clone.primaryWeapons = this.primaryWeapons.slice();
-            clone.secondaryWeapons = this.secondaryWeapons.slice();
-            clone.gear = this.gear.slice();
-            clone.grenades = this.grenades.slice();
+            clone.keyToBind = self.keyToBind;
+            clone.primaryWeapons = self.primaryWeapons.slice();
+            clone.secondaryWeapons = self.secondaryWeapons.slice();
+            clone.gear = self.gear.slice();
+            clone.grenades = self.grenades.slice();
             return clone;
         };
     };
 
     buynds.BindBuilder = function() {
-        this.build = function (bindOptions) {
+        var self = this;
+
+        self.build = function (bindOptions) {
             if (!bindOptions.keyToBind) throw new Error('bindOptions.keyToBind is required');
 
             var bindString = 'bind "' + bindOptions.keyToBind + '" "';
@@ -77,12 +81,12 @@
     };
 
     buynds.BindLoader = function(primaryWeapons, secondaryWeapons, gear, grenades) {
-        this.primaryWeapons = primaryWeapons;
-        this.secondaryWeapons = secondaryWeapons;
-        this.gear = gear;
-        this.grenades = grenades;
-
         var self = this;
+
+        self.primaryWeapons = primaryWeapons;
+        self.secondaryWeapons = secondaryWeapons;
+        self.gear = gear;
+        self.grenades = grenades;
 
         var isBindForPrimaryWeapon = function (bind) {
             for (var i = 0; i < self.primaryWeapons['weaponGroups'].length; i++) {
@@ -130,7 +134,7 @@
             return false;
         };
 
-        this.load = function (bindString) {
+        self.load = function (bindString) {
             if (!bindString) throw new Error('bindString is required');
 
             var bindOptions = new buynds.BindOptions();
@@ -174,23 +178,25 @@
     };
 
     buynds.BindRecord = function(id, name, bindString) {
-        this.id = id;
-        this.name = name;
-        this.bindString = bindString;
+        var self = this;
+
+        self.id = id;
+        self.name = name;
+        self.bindString = bindString;
     };
 
     buynds.BindRepository = function(bindStorage) {
-        this.bindStorage = bindStorage;
+        var self = this;
+
+        self.bindStorage = bindStorage;
 
         var RECORD_KEY_PREFIX = 'bind_id:';
-
-        var self = this;
 
         var buildKey = function(id) {
             return RECORD_KEY_PREFIX + id
         };
 
-        this.all = function () {
+        self.all = function () {
             var bindRecords = [];
             for (var i = 0; i < self.bindStorage.length; i++) {
                 var key = self.bindStorage.key(i);
@@ -203,25 +209,150 @@
             return bindRecords;
         };
 
-        this.get = function (id) {
+        self.get = function (id) {
             var key = buildKey(id);
             var bindRecordJson = self.bindStorage.getItem(key);
             return JSON.parse(bindRecordJson);
         };
 
-        this.save = function (id, bindRecord) {
+        self.save = function (id, bindRecord) {
             var key = buildKey(id);
             var bindRecordJson = JSON.stringify(bindRecord);
             self.bindStorage.setItem(key, bindRecordJson);
         };
 
-        this.delete = function (id) {
+        self.delete = function (id) {
             var key = buildKey(id);
             self.bindStorage.removeItem(key);
         };
 
-        this.empty = function () {
+        self.empty = function () {
             self.bindStorage.clear();
+        };
+    };
+
+    buynds.BuyableItem = function(name, bind, slot, price, team) {
+        var self = this;
+
+        self.name = name;
+        self.bind = bind;
+        self.slot = slot;
+        self.price = price;
+        self.team = team;
+    };
+
+    buynds.BindOptionsTotalPrice = function(ct, t) {
+        var self = this;
+
+        self.ct = ct;
+        self.t = t;
+    };
+
+    buynds.TotalPriceCalculator = function(primaryWeapons, secondaryWeapons, gear, grenades) {
+        var self = this;
+
+        self.primaryWeapons = primaryWeapons;
+        self.secondaryWeapons = secondaryWeapons;
+        self.gear = gear;
+        self.grenades = grenades;
+
+        var findWeaponByBind = function (weaponBind, weaponsData) {
+            for (var i = 0; i < weaponsData.weaponGroups.length; i++) {
+                var weaponGroup = weaponsData.weaponGroups[i];
+                for (var j = 0; j < weaponGroup.weapons.length; j++) {
+                    var weapon = weaponGroup.weapons[j];
+                    if (weapon.bind === weaponBind) {
+                        return weapon;
+                    }
+                }
+            }
+            return null;
+        };
+
+        var findPrimaryWeaponByBind = function (primaryWeaponBind) {
+            var weapon = findWeaponByBind(primaryWeaponBind, self.primaryWeapons);
+            if (!weapon) throw new Error('unknown primaryWeaponBind: ' + primaryWeaponBind);
+            return weapon;
+        };
+
+        var findSecondaryWeaponByBind = function (secondaryWeaponBind) {
+            var weapon = findWeaponByBind(secondaryWeaponBind, self.secondaryWeapons);
+            if (!weapon) throw new Error('unknown secondaryWeaponBind: ' + secondaryWeaponBind);
+            return weapon;
+        };
+
+        var findGearByBind = function (gearBind) {
+            for (var i = 0; i < self.gear.length; i++) {
+                var gear = self.gear[i];
+                if (gear.bind === gearBind) {
+                    return gear;
+                }
+            }
+            throw new Error('unknown gearBind: ' + gearBind);
+        };
+
+        var findGrenadeByBind = function (grenadeBind) {
+            for (var i = 0; i < self.grenades.length; i++) {
+                var grenade = self.grenades[i];
+                if (grenade.bind === grenadeBind) {
+                    return grenade;
+                }
+            }
+            throw new Error('unknown grenadeBind: ' + grenadeBind);
+        };
+
+        var getItemPriceForTeam = function (item, team) {
+            if (!item.hasOwnProperty('team') || item.team === team) {
+                return item.price;
+            }
+            return 0;
+        };
+
+        var ctItemPrice = function (item) {
+            return getItemPriceForTeam(item, 'ct');
+        };
+
+        var tItemPrice = function (item) {
+            return getItemPriceForTeam(item, 't');
+        };
+
+        self.calculateTotalPrice = function (bindOptions) {
+            var ct = 0;
+            var t = 0;
+
+            if (bindOptions.primaryWeapons) {
+                bindOptions.primaryWeapons.forEach(function (weaponBind) {
+                    var weapon = findPrimaryWeaponByBind(weaponBind);
+                    ct += ctItemPrice(weapon);
+                    t += tItemPrice(weapon);
+                });
+            }
+
+            if (bindOptions.secondaryWeapons) {
+                bindOptions.secondaryWeapons.forEach(function (weaponBind) {
+                    var weapon = findSecondaryWeaponByBind(weaponBind);
+                    ct += ctItemPrice(weapon);
+                    t += tItemPrice(weapon);
+                });
+            }
+
+            if (bindOptions.gear) {
+                bindOptions.gear.forEach(function (gearBind) {
+                    var gear = findGearByBind(gearBind);
+                    ct += ctItemPrice(gear);
+                    t += tItemPrice(gear);
+                });
+            }
+
+            if (bindOptions.grenades) {
+                bindOptions.grenades.forEach(function (grenadeBind) {
+                    var grenade = findGrenadeByBind(grenadeBind);
+                    ct += ctItemPrice(grenade);
+                    t += tItemPrice(grenade);
+                });
+            }
+
+            return new buynds.BindOptionsTotalPrice(ct, t);
         };
     };
 

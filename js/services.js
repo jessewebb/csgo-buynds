@@ -33,6 +33,24 @@ buyndsServices.factory('bindRepository', ['$window', function ($window) {
     return new buynds.BindRepository(bindStorage);
 }]);
 
+buyndsServices.factory('totalPriceCalculatorAsync', ['$q', 'dataService', function ($q, dataService) {
+    var bindOptionsTotalPriceCalculatorAsync = $q.defer();
+    var dataPromises = [];
+    dataPromises.push(dataService.getPrimaryWeaponsAsync());
+    dataPromises.push(dataService.getSecondaryWeaponsAsync());
+    dataPromises.push(dataService.getGearAsync());
+    dataPromises.push(dataService.getGrenadesAsync());
+    $q.all(dataPromises).then(function(values) {
+        var primaryWeapons = values[0];
+        var secondaryWeapons = values[1];
+        var gear = values[2];
+        var grenades = values[3];
+        var calculator = new buynds.TotalPriceCalculator(primaryWeapons, secondaryWeapons, gear, grenades);
+        bindOptionsTotalPriceCalculatorAsync.resolve(calculator);
+    });
+    return bindOptionsTotalPriceCalculatorAsync.promise;
+}]);
+
 buyndsServices.factory('dataService', ['$http', 'version', function ($http, version) {
     var bindPresetsDataPromise;
     var bindableKeysDataPromise;
