@@ -388,7 +388,12 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
     };
 }]);
 
-buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$uibModalInstance', 'bindOptions', 'dataService', function ($scope, $uibModalInstance, bindOptions, dataService) {
+buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$uibModalInstance', 'bindOptions', 'dataService', 'totalPriceCalculatorAsync', function ($scope, $uibModalInstance, bindOptions, dataService, totalPriceCalculatorAsync) {
+
+    var totalPriceCalculator = null;
+    totalPriceCalculatorAsync.then(function(resolvedTotalPriceCalculator) {
+        totalPriceCalculator = resolvedTotalPriceCalculator;
+    });
 
     $scope.primaryWeapons = [];
     dataService.getPrimaryWeaponsAsync().then(function(data) {
@@ -464,6 +469,13 @@ buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$uibMo
         } else {
             $scope.bindOptions.grenades.push(grenadeBind, grenadeBind);
         }
+    };
+
+    $scope.totalPrice = function () {
+        if (!totalPriceCalculator) {
+            return new buynds.BindOptionsTotalPrice(0, 0);
+        }
+        return totalPriceCalculator.calculateTotalPrice($scope.bindOptions);
     };
 
     $scope.save = function () {
