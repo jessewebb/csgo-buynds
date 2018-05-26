@@ -356,4 +356,79 @@
         };
     };
 
+    buynds.ItemImage = function(url, width, height, itemBind) {
+        var self = this;
+
+        self.url = url;
+        self.width = width;
+        self.height = height;
+        self.itemBind = itemBind;
+    };
+
+    buynds.ItemImageService = function(itemImages, primaryWeapons, secondaryWeapons, gear, grenades) {
+        var self = this;
+
+        self.itemImages = itemImages;
+
+        self.IMG_TYPE_COLOR_3D = 'renderedFullColor';
+        self.IMG_TYPE_GREY_ICON = 'silhouetteGrey';
+        self.IMG_TYPE_WHITE_ICON = 'silhouetteWhite';
+
+        var buildItemHashFromList = function (itemList) {
+            var itemHash = {};
+            for (var i = 0; i < itemList.length; i++) {
+                var item = itemList[i];
+                itemHash[item.bind] = item;
+            }
+            return itemHash;
+        };
+
+        var weaponGroupsReducer = function (accumulator, weaponGroup) {
+            return accumulator.concat(weaponGroup.weapons);
+        };
+
+        var itemHashes = {
+            'primaryWeapons': buildItemHashFromList(primaryWeapons.weaponGroups.reduce(weaponGroupsReducer, [])),
+            'secondaryWeapons': buildItemHashFromList(secondaryWeapons.weaponGroups.reduce(weaponGroupsReducer, [])),
+            'gear': buildItemHashFromList(gear),
+            'grenades': buildItemHashFromList(grenades)
+        };
+
+        self.getItemImage = function (itemBind, itemType, imageType) {
+            var item = itemHashes[itemType][itemBind];
+            var imagesForItem = self.itemImages[itemType][itemBind];
+            var image = imagesForItem[imageType];
+            if (!image) return null;
+            image.itemBind = itemBind;
+            image.itemTeam = item.team;
+            return image;
+        };
+
+        self.getItemImages = function (bindOptions, imageType) {
+            var itemImages = [];
+
+            if (bindOptions.primaryWeapons) {
+                bindOptions.primaryWeapons.forEach(function (weaponBind) {
+                    itemImages.push(self.getItemImage(weaponBind, 'primaryWeapons', imageType));
+                });
+            }
+            if (bindOptions.secondaryWeapons) {
+                bindOptions.secondaryWeapons.forEach(function (weaponBind) {
+                    itemImages.push(self.getItemImage(weaponBind, 'secondaryWeapons', imageType));
+                });
+            }
+            if (bindOptions.gear) {
+                bindOptions.gear.forEach(function (gearBind) {
+                    itemImages.push(self.getItemImage(gearBind, 'gear', imageType));
+                });
+            }
+            if (bindOptions.grenades) {
+                bindOptions.grenades.forEach(function (grenadeBind) {
+                    itemImages.push(self.getItemImage(grenadeBind, 'grenades', imageType));
+                });
+            }
+            return itemImages;
+        };
+    };
+
 }(window.buynds = window.buynds || {}));

@@ -32,7 +32,8 @@
                                                 ng-class="{ 'btn-default': !hasKeyBindOptions(key.bind), 'btn-info': hasKeyBindOptions(key.bind) }"
                                                 ng-click="openKeyBindOptionsModal(key.bind)"
                                                 ng-bind-html="key.html"
-                                                uib-tooltip="{{key.bind}}" data-tooltip-popup-delay="500"></button>
+                                                uib-tooltip-template="'keyButtonTooltipTemplate'" data-tooltip-class="key-button-tooltip"
+                                                data-tooltip-placement="auto bottom" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500"></button>
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +56,8 @@
                                                 ng-class="{ 'btn-default': !hasKeyBindOptions(key.bind), 'btn-info': hasKeyBindOptions(key.bind) }"
                                                 ng-click="openKeyBindOptionsModal(key.bind)"
                                                 ng-bind-html="key.html"
-                                                uib-tooltip="{{key.bind}}" data-tooltip-popup-delay="500"></button>
+                                                uib-tooltip-template="'keyButtonTooltipTemplate'" data-tooltip-class="key-button-tooltip"
+                                                data-tooltip-placement="auto bottom" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500"></button>
                                     </div>
                                 </div>
                                 <br />
@@ -67,7 +69,8 @@
                                                 ng-class="{ 'btn-default': !hasKeyBindOptions(key.bind), 'btn-info': hasKeyBindOptions(key.bind) }"
                                                 ng-click="openKeyBindOptionsModal(key.bind)"
                                                 ng-bind-html="key.html"
-                                                uib-tooltip="{{key.bind}}" data-tooltip-popup-delay="500"></button>
+                                                uib-tooltip-template="'keyButtonTooltipTemplate'" data-tooltip-class="key-button-tooltip"
+                                                data-tooltip-placement="auto bottom" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500"></button>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +92,8 @@
                                                 ng-class="{ 'btn-default': !hasKeyBindOptions(key.bind), 'btn-info': hasKeyBindOptions(key.bind) }"
                                                 ng-click="openKeyBindOptionsModal(key.bind)"
                                                 ng-bind-html="key.html"
-                                                uib-tooltip="{{key.bind}}" data-tooltip-popup-delay="500"></button>
+                                                uib-tooltip-template="'keyButtonTooltipTemplate'" data-tooltip-class="key-button-tooltip"
+                                                data-tooltip-placement="auto bottom" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500"></button>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +116,8 @@
                                                 ng-class="{ 'btn-default': !hasKeyBindOptions(key.bind), 'btn-info': hasKeyBindOptions(key.bind) }"
                                                 ng-click="openKeyBindOptionsModal(key.bind)"
                                                 ng-bind-html="key.html"
-                                                uib-tooltip="{{key.bind}}" data-tooltip-popup-delay="500"></button>
+                                                uib-tooltip-template="'keyButtonTooltipTemplate'" data-tooltip-class="key-button-tooltip"
+                                                data-tooltip-placement="auto bottom" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500"></button>
                                     </div>
                                 </div>
                             </div>
@@ -154,3 +159,15 @@
         </div>
     </div>
 </div>
+
+<script type="text/ng-template" id="keyButtonTooltipTemplate">
+    <div>
+        <div>{{key.bind}}</div>
+        <span ng-repeat="img in getBindOptionsItemImagesForKey(key) track by $index" class="item-icon"
+             ng-style="{ 'width': img.width,
+                         'height': img.height,
+                         '-webkit-mask-image': 'url(' + img.url + ')',
+                         'mask-image': 'url(' + img.url + ')' }"
+             ng-class="{ 'ct-item': isItemImageForSpecificTeam(img, 'ct'), 't-item': isItemImageForSpecificTeam(img, 't') }"></span>
+    </div>
+</script>

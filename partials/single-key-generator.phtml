@@ -37,10 +37,14 @@
                             <div class="col-sm-6">
                                 <ui-select id="skgPrimaryWeaponSelect" name="skgPrimaryWeaponSelect" theme="bootstrap" ng-model="bindOptions.primaryWeapons" multiple>
                                     <ui-select-match>
-                                        {{$item.name}}
-                                        <span ng-show="$item.team === 'ct'" class="label label-counter-terrorist">CT</span>
-                                        <span ng-show="$item.team === 't'" class="label label-terrorist">T</span>
-                                        <span class="label label-success">${{$item.price}}</span>
+                                        <div ng-init="item = $item; itemType = 'primaryWeapons'"
+                                             uib-tooltip-template="'itemTooltipTemplate'" data-tooltip-class="item-tooltip"
+                                             data-tooltip-placement="auto bottom" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500">
+                                            {{$item.name}}
+                                            <span ng-show="$item.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                                            <span ng-show="$item.team === 't'" class="label label-terrorist">T</span>
+                                            <span class="label label-success">${{$item.price}}</span>
+                                        </div>
                                     </ui-select-match>
                                     <ui-select-choices repeat="weapon.bind as weapon in primaryWeapons | filter: $select.search"
                                                        group-by="'weaponGroup'">
@@ -59,10 +63,14 @@
                             <div class="col-sm-6">
                                 <ui-select id="skgSecondaryWeaponSelect" name="skgSecondaryWeaponSelect" theme="bootstrap" ng-model="bindOptions.secondaryWeapons" multiple>
                                     <ui-select-match>
-                                        {{$item.name}}
-                                        <span ng-show="$item.team === 'ct'" class="label label-counter-terrorist">CT</span>
-                                        <span ng-show="$item.team === 't'" class="label label-terrorist">T</span>
-                                        <span class="label label-success">${{$item.price}}</span>
+                                        <div ng-init="item = $item; itemType = 'secondaryWeapons'"
+                                             uib-tooltip-template="'itemTooltipTemplate'" data-tooltip-class="item-tooltip"
+                                             data-tooltip-placement="auto bottom" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500">
+                                            {{$item.name}}
+                                            <span ng-show="$item.team === 'ct'" class="label label-counter-terrorist">CT</span>
+                                            <span ng-show="$item.team === 't'" class="label label-terrorist">T</span>
+                                            <span class="label label-success">${{$item.price}}</span>
+                                        </div>
                                     </ui-select-match>
                                     <ui-select-choices repeat="weapon.bind as weapon in secondaryWeapons | filter: $select.search"
                                                        group-by="'weaponGroup'">
@@ -79,7 +87,10 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3">Gear</label>
                             <div class="col-sm-6">
-                                <div ng-repeat="gearItem in gear" class="checkbox">
+                                <div ng-repeat="gearItem in gear" class="checkbox"
+                                     ng-init="item = gearItem; itemType = 'gear'"
+                                     uib-tooltip-template="'itemTooltipTemplate'" data-tooltip-class="item-tooltip"
+                                     data-tooltip-placement="auto bottom-left" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500">
                                     <div class="pull-right">
                                         <span ng-show="gearItem.team === 'ct'" class="label label-counter-terrorist">CT</span>
                                         <span ng-show="gearItem.team === 't'" class="label label-terrorist">T</span>
@@ -99,7 +110,10 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3">Grenades</label>
                             <div class="col-sm-6">
-                                <div ng-repeat="grenade in grenades" class="checkbox">
+                                <div ng-repeat="grenade in grenades" class="checkbox"
+                                     ng-init="item = grenade; itemType = 'grenades'"
+                                     uib-tooltip-template="'itemTooltipTemplate'" data-tooltip-class="item-tooltip"
+                                     data-tooltip-placement="auto bottom-left" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500">
                                     <div class="pull-right">
                                         <span ng-show="grenade.team === 'ct'" class="label label-counter-terrorist">CT</span>
                                         <span ng-show="grenade.team === 't'" class="label label-terrorist">T</span>
@@ -161,3 +175,10 @@
         </div>
     </div>
 </div>
+
+<script type="text/ng-template" id="itemTooltipTemplate">
+    <div ng-init="image = getItemTooltipImage(item, itemType)">
+        <div>{{item.bind}}</div>
+        <img ng-show="image" ng-src="{{image.url}}" width="{{image.width}}" height="{{image.height}}">
+    </div>
+</script>

@@ -82,6 +82,31 @@ pre.buy-binds {
     font-weight: bold;
 }
 
+.key-button-tooltip,
+.item-tooltip {
+    opacity: 1 !important;
+}
+
+.key-button-tooltip .tooltip-inner,
+.item-tooltip .tooltip-inner {
+    max-width: 500px;
+}
+
+.key-button-tooltip .item-icon {
+    display: inline-block;
+    background-color: white;
+
+}
+
+.key-button-tooltip .item-icon.ct-item {
+    background-color: #579bdd;
+
+}
+
+.key-button-tooltip .item-icon.t-item {
+    background-color: #dfab32;
+}
+
 /* Fix for Bootstrap bug: "Navbar hides initial content when jumping to in-page anchor" */
 /* https://github.com/twbs/bootstrap/issues/1768#issuecomment-46519033 */
 h1[id]:before,

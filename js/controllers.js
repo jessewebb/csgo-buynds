@@ -4,7 +4,12 @@
 
 var buyndsControllers = angular.module('buyndsControllers', []);
 
-buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window', 'bindBuilder', 'dataService', 'totalPriceCalculatorAsync', function ($scope, $route, $window, bindBuilder, dataService, totalPriceCalculatorAsync) {
+buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window', 'bindBuilder', 'dataService', 'itemImageServiceAsync', 'totalPriceCalculatorAsync', function ($scope, $route, $window, bindBuilder, dataService, itemImageServiceAsync, totalPriceCalculatorAsync) {
+
+    var itemImageService = null;
+    itemImageServiceAsync.then(function(resolvedItemImageService) {
+        itemImageService = resolvedItemImageService;
+    });
 
     var totalPriceCalculator = null;
     totalPriceCalculatorAsync.then(function(resolvedTotalPriceCalculator) {
@@ -84,6 +89,11 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
         }
     };
 
+    $scope.getItemTooltipImage = function (item, itemType) {
+        if (!itemImageService) return null;
+        return itemImageService.getItemImage(item.bind, itemType, itemImageService.IMG_TYPE_COLOR_3D);
+    };
+
     $scope.toggleGearSelection = function (gearBind) {
         var idx = $scope.bindOptions.gear.indexOf(gearBind);
         if (idx > -1) {
@@ -152,7 +162,7 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
     };
 }]);
 
-buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route', '$window', 'bindBuilder', 'bindLoaderAsync', 'dataService', function ($scope, $uibModal, $route, $window, bindBuilder, bindLoaderAsync, dataService) {
+buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route', '$window', 'bindBuilder', 'bindLoaderAsync', 'dataService', 'itemImageServiceAsync', function ($scope, $uibModal, $route, $window, bindBuilder, bindLoaderAsync, dataService, itemImageServiceAsync) {
 
     var bindLoader;
     bindLoaderAsync.then(function(resolvedBindLoader) {
@@ -162,6 +172,11 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
     $scope.bindableKeys = {keyGroups: []};
     dataService.getBindableKeysAsync().then(function(data) {
         $scope.bindableKeys = data;
+    });
+
+    var itemImageService = null;
+    itemImageServiceAsync.then(function(resolvedItemImageService) {
+        itemImageService = resolvedItemImageService;
     });
 
     $scope.bindOptionsMap = {};
@@ -239,6 +254,20 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
 
     $scope.hasGeneratedBuyBinds = function() {
         return $scope.buyBinds.length > 0;
+    };
+
+    $scope.getBindOptionsItemImagesForKey = function(key) {
+        if (!itemImageService) return [];
+        if (!(key.bind in $scope.bindOptionsMap)) return [];
+        var bindOptions = $scope.bindOptionsMap[key.bind];
+        return itemImageService.getItemImages(bindOptions, itemImageService.IMG_TYPE_WHITE_ICON);
+    };
+
+    $scope.isItemImageForSpecificTeam = function(image, team) {
+        if (!image.itemBind) {
+            return false;
+        }
+        return image.itemTeam === team;
     };
 
     var generateBinds = function () {
@@ -351,7 +380,6 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
         });
     };
 
-
     $scope.openSaveBindsModal = function (buyBinds) {
         var args = {
             buyBinds: function () {
@@ -400,7 +428,12 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
     };
 }]);
 
-buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$uibModalInstance', 'bindOptions', 'dataService', 'totalPriceCalculatorAsync', function ($scope, $uibModalInstance, bindOptions, dataService, totalPriceCalculatorAsync) {
+buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$uibModalInstance', 'bindOptions', 'dataService', 'itemImageServiceAsync', 'totalPriceCalculatorAsync', function ($scope, $uibModalInstance, bindOptions, dataService, itemImageServiceAsync, totalPriceCalculatorAsync) {
+
+    var itemImageService = null;
+    itemImageServiceAsync.then(function(resolvedItemImageService) {
+        itemImageService = resolvedItemImageService;
+    });
 
     var totalPriceCalculator = null;
     totalPriceCalculatorAsync.then(function(resolvedTotalPriceCalculator) {
@@ -443,6 +476,11 @@ buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$uibMo
     });
 
     $scope.bindOptions = bindOptions;
+
+    $scope.getItemTooltipImage = function (item, itemType) {
+        if (!itemImageService) return null;
+        return itemImageService.getItemImage(item.bind, itemType, itemImageService.IMG_TYPE_COLOR_3D);
+    };
 
     $scope.toggleGearSelection = function (gearBind) {
         var idx = $scope.bindOptions.gear.indexOf(gearBind);
