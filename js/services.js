@@ -4,7 +4,7 @@
 
 var buyndsServices = angular.module('buyndsServices', []);
 
-buyndsServices.value('version', '0.9.0');
+buyndsServices.value('version', '1.0.0-dev');
 
 buyndsServices.factory('bindBuilder', function () {
     return new buynds.BindBuilder();
@@ -33,6 +33,44 @@ buyndsServices.factory('bindRepository', ['$window', function ($window) {
     return new buynds.BindRepository(bindStorage);
 }]);
 
+buyndsServices.factory('totalPriceCalculatorAsync', ['$q', 'dataService', function ($q, dataService) {
+    var bindOptionsTotalPriceCalculatorAsync = $q.defer();
+    var dataPromises = [];
+    dataPromises.push(dataService.getPrimaryWeaponsAsync());
+    dataPromises.push(dataService.getSecondaryWeaponsAsync());
+    dataPromises.push(dataService.getGearAsync());
+    dataPromises.push(dataService.getGrenadesAsync());
+    $q.all(dataPromises).then(function(values) {
+        var primaryWeapons = values[0];
+        var secondaryWeapons = values[1];
+        var gear = values[2];
+        var grenades = values[3];
+        var calculator = new buynds.TotalPriceCalculator(primaryWeapons, secondaryWeapons, gear, grenades);
+        bindOptionsTotalPriceCalculatorAsync.resolve(calculator);
+    });
+    return bindOptionsTotalPriceCalculatorAsync.promise;
+}]);
+
+buyndsServices.factory('itemImageServiceAsync', ['$q', 'dataService', function ($q, dataService) {
+    var itemImageServiceAsync = $q.defer();
+    var dataPromises = [];
+    dataPromises.push(dataService.getItemImagesAsync());
+    dataPromises.push(dataService.getPrimaryWeaponsAsync());
+    dataPromises.push(dataService.getSecondaryWeaponsAsync());
+    dataPromises.push(dataService.getGearAsync());
+    dataPromises.push(dataService.getGrenadesAsync());
+    $q.all(dataPromises).then(function(values) {
+        var itemImages = values[0];
+        var primaryWeapons = values[1];
+        var secondaryWeapons = values[2];
+        var gear = values[3];
+        var grenades = values[4];
+        var itemImageService = new buynds.ItemImageService(itemImages, primaryWeapons, secondaryWeapons, gear, grenades);
+        itemImageServiceAsync.resolve(itemImageService);
+    });
+    return itemImageServiceAsync.promise;
+}]);
+
 buyndsServices.factory('dataService', ['$http', 'version', function ($http, version) {
     var bindPresetsDataPromise;
     var bindableKeysDataPromise;
@@ -40,6 +78,7 @@ buyndsServices.factory('dataService', ['$http', 'version', function ($http, vers
     var secondaryWeaponsDataPromise;
     var gearDataPromise;
     var grenadesDataPromise;
+    var itemImagesDataPromise;
 
     var versionUrlParam = 'v=' + version;
 
@@ -102,6 +141,16 @@ buyndsServices.factory('dataService', ['$http', 'version', function ($http, vers
                 });
             }
             return grenadesDataPromise;
+        },
+
+        getItemImagesAsync: function() {
+            if (!itemImagesDataPromise) {
+                var url = 'data/item-images.json?' + versionUrlParam;
+                itemImagesDataPromise = $http.get(url).then(function (response) {
+                    return response.data;
+                });
+            }
+            return itemImagesDataPromise;
         }
     };
 }]);

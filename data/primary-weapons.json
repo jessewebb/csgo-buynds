@@ -4,28 +4,72 @@
       "name": "Rifles",
       "weapons": [
         {
-          "name": "Galil AR / FAMAS",
-          "bind": "galilar,famas"
+          "name": "FAMAS",
+          "bind": "famas",
+          "slot": 1,
+          "price": 2250,
+          "team": "ct"
         },
         {
-          "name": "AK-47 / M4A4 / M4A1-S",
-          "bind": "ak47,m4a1"
+          "name": "Galil AR",
+          "bind": "galilar",
+          "slot": 1,
+          "price": 2000,
+          "team": "t"
+        },
+        {
+          "name": "M4A1-S / M4A4",
+          "bind": "m4a1",
+          "slot": 2,
+          "price": 3100,
+          "team": "ct"
+        },
+        {
+          "name": "AK-47",
+          "bind": "ak47",
+          "slot": 2,
+          "price": 2700,
+          "team": "t"
         },
         {
           "name": "SSG 08",
-          "bind": "ssg08"
+          "bind": "ssg08",
+          "slot": 3,
+          "price": 1700
         },
         {
-          "name": "SG 553 / AUG",
-          "bind": "sg556,aug"
+          "name": "AUG",
+          "bind": "aug",
+          "slot": 4,
+          "price": 3300,
+          "team": "ct"
+        },
+        {
+          "name": "SG 553",
+          "bind": "sg556",
+          "slot": 4,
+          "price": 3000,
+          "team": "t"
         },
         {
           "name": "AWP",
-          "bind": "awp"
+          "bind": "awp",
+          "slot": 5,
+          "price": 4750
         },
         {
-          "name": "G3SG1 / SCAR-20",
-          "bind": "g3sg1,scar20"
+          "name": "SCAR-20",
+          "bind": "scar20",
+          "slot": 6,
+          "price": 5000,
+          "team": "ct"
+        },
+        {
+          "name": "G3SG1",
+          "bind": "g3sg1",
+          "slot": 6,
+          "price": 5000,
+          "team": "t"
         }
       ]
     },
@@ -33,24 +77,42 @@
       "name": "SMGs",
       "weapons": [
         {
-          "name": "MAC-10 / MP9",
-          "bind": "mac10,mp9"
+          "name": "MP9",
+          "bind": "mp9",
+          "slot": 1,
+          "price": 1250,
+          "team": "ct"
+        },
+        {
+          "name": "MAC-10",
+          "bind": "mac10",
+          "slot": 1,
+          "price": 1050,
+          "team": "t"
         },
         {
           "name": "MP7",
-          "bind": "mp7"
+          "bind": "mp7",
+          "slot": 2,
+          "price": 1700
         },
         {
           "name": "UMP-45",
-          "bind": "ump45"
+          "bind": "ump45",
+          "slot": 3,
+          "price": 1200
         },
         {
           "name": "P90",
-          "bind": "p90"
+          "bind": "p90",
+          "slot": 4,
+          "price": 2350
         },
         {
           "name": "PP-Bizon",
-          "bind": "bizon"
+          "bind": "bizon",
+          "slot": 5,
+          "price": 1400
         }
       ]
     },
@@ -59,23 +121,41 @@
       "weapons": [
         {
           "name": "Nova",
-          "bind": "nova"
+          "bind": "nova",
+          "slot": 1,
+          "price": 1200
         },
         {
           "name": "XM1014",
-          "bind": "xm1014"
+          "bind": "xm1014",
+          "slot": 2,
+          "price": 2000
         },
         {
-          "name": "Sawed-Off / MAG-7",
-          "bind": "sawedoff,mag7"
+          "name": "MAG-7",
+          "bind": "mag7",
+          "slot": 3,
+          "price": 1800,
+          "team": "ct"
+        },
+        {
+          "name": "Sawed-Off",
+          "bind": "sawedoff",
+          "slot": 3,
+          "price": 1200,
+          "team": "t"
         },
         {
           "name": "M249",
-          "bind": "m249"
+          "bind": "m249",
+          "slot": 4,
+          "price": 5200
         },
         {
           "name": "Negev",
-          "bind": "negev"
+          "bind": "negev",
+          "slot": 5,
+          "price": 2000
         }
       ]
     }

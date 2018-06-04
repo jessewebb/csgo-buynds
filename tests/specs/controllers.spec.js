@@ -13,13 +13,18 @@ describe('controllers', function() {
     }));
 
     describe('SingleKeyGenCtrl', function() {
-        var scope, route, window, bindBuilder, dataService, controller, $httpBackend, createController,
+        var scope, route, window, bindBuilder, dataService, itemImageServiceAsync, totalPriceCalculatorAsync,
+            controller, $httpBackend, createController,
             getBindableKeysHandler, getPrimaryWeaponsHandler, getSecondaryWeaponsHandler, getGearHandler,
-            getGrenadesHandler;
+            getGrenadesHandler, getItemImagesHandler;
 
-        beforeEach(inject(function(_$rootScope_, _dataService_, _$httpBackend_) {
+        beforeEach(inject(function(_$rootScope_, _dataService_, _itemImageServiceAsync_, _totalPriceCalculatorAsync_,  _$httpBackend_) {
             scope = _$rootScope_.$new();
+
             dataService = _dataService_;
+            itemImageServiceAsync = _itemImageServiceAsync_;
+            totalPriceCalculatorAsync = _totalPriceCalculatorAsync_;
+
             $httpBackend = _$httpBackend_;
 
             getBindableKeysHandler = $httpBackend.whenGET(/data\/bindable-keys\.json.*/).respond({keyGroups:[]});
@@ -27,6 +32,7 @@ describe('controllers', function() {
             getSecondaryWeaponsHandler = $httpBackend.whenGET(/data\/secondary-weapons\.json.*/).respond({weaponGroups:[]});
             getGearHandler = $httpBackend.whenGET(/data\/gear\.json.*/).respond([]);
             getGrenadesHandler = $httpBackend.whenGET(/data\/grenades\.json.*/).respond([]);
+            getItemImagesHandler = $httpBackend.whenGET(/data\/item-images\.json.*/).respond({});
 
             route = {};
             window = {};
@@ -35,7 +41,9 @@ describe('controllers', function() {
             createController = function() {
                 var skgController = $controller('SingleKeyGenCtrl', {
                     $scope: scope, $route: route, $window: window,
-                    bindBuilder: bindBuilder, dataService: dataService
+                    bindBuilder: bindBuilder, dataService: dataService,
+                    itemImageServiceAsync: itemImageServiceAsync,
+                    totalPriceCalculatorAsync: totalPriceCalculatorAsync
                 });
                 $httpBackend.flush();
                 return skgController;
@@ -325,14 +333,14 @@ describe('controllers', function() {
 
             it('should re-initialize the bind options', function() {
                 scope.bindOptions.keyToBind = 'ktb';
-                scope.bindOptions.primaryWeapon = 'pw';
-                scope.bindOptions.secondaryWeapon = 'sw';
+                scope.bindOptions.primaryWeapons = ['pw'];
+                scope.bindOptions.secondaryWeapons = ['sw'];
                 scope.bindOptions.gear = ['gear'];
                 scope.bindOptions.grenades = ['nades'];
                 scope.resetBind();
                 expect(scope.bindOptions.keyToBind).toEqual('');
-                expect(scope.bindOptions.primaryWeapon).toEqual('');
-                expect(scope.bindOptions.secondaryWeapon).toEqual('');
+                expect(scope.bindOptions.primaryWeapons).toEqual([]);
+                expect(scope.bindOptions.secondaryWeapons).toEqual([]);
                 expect(scope.bindOptions.gear).toEqual([]);
                 expect(scope.bindOptions.grenades).toEqual([]);
             });

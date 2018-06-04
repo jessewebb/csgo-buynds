@@ -6,6 +6,11 @@ body {
     margin-top: 50px;
 }
 
+pre.buy-binds {
+    background-color: white;
+    white-space: nowrap;
+}
+
 #githubIconImg {
     display: inline-block;
     height: 16px;
@@ -27,25 +32,95 @@ body {
     text-align: center;
 }
 
-/* Fix inline checkbox/radio alignment issue (http://stackoverflow.com/a/16842140/346561) */
-.form-group .checkbox-inline.checkbox-inline-no-indent,
-.form-group .checkbox-inline.checkbox-inline-no-indent+.checkbox-inline.checkbox-inline-no-indent,
-.form-group .radio-inline.radio-inline-no-indent,
-.form-group .radio-inline.radio-inline-no-indent+.radio-inline.radio-inline-no-indent {
-    margin-left: 0;
-    margin-right: 10px;
-    padding-left: 0;
+.generator {
+    margin: 10px 0;
 }
-.form-group .checkbox-inline.checkbox-inline-no-indent:last-child,
-.form-group .radio-inline.radio-inline-no-indent:last-child {
-    margin-left: 0;
+
+.label-counter-terrorist {
+    background-color: #579bdd;
+}
+
+.label-terrorist {
+    background-color: #dfab32;
+}
+
+.keypad {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 60px;
+    grid-gap: 4px;
+}
+
+.keypad .key.tall-key {
+    grid-row: span 2;
+}
+
+.keypad .key.wide-key {
+    grid-column: span 2;
+}
+
+.keypad .key.main-mouse-button {
+    grid-row: span 3;
+}
+
+.keypad .key button {
+    font-size: medium;
+    font-weight: bold;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.keypad .key button .key-alt-fn {
+    font-size: small;
+    font-weight: normal;
+}
+
+.keypad .key button .key-alt-fn.arrow {
+    font-size: medium;
+    font-weight: bold;
+}
+
+.key-button-tooltip,
+.item-tooltip {
+    opacity: 1 !important;
+}
+
+.key-button-tooltip .tooltip-inner,
+.item-tooltip .tooltip-inner {
+    max-width: 500px;
+}
+
+.key-button-tooltip .item-icon {
+    display: inline-block;
+    background-color: white;
+
+}
+
+.key-button-tooltip .item-icon.ct-item {
+    background-color: #579bdd;
+
+}
+
+.key-button-tooltip .item-icon.t-item {
+    background-color: #dfab32;
+}
+
+/* Fix for Bootstrap bug: "Navbar hides initial content when jumping to in-page anchor" */
+/* https://github.com/twbs/bootstrap/issues/1768#issuecomment-46519033 */
+h1[id]:before,
+h2[id]:before {
+    display: block;
+    content: " ";
+    margin-top: -60px;
+    height: 60px;
+    visibility: hidden;
 }
 
 /* Fix inline labels alignment issue */
-.form-group .checkbox label:nth-child(n+2),
-.form-group .radio label:nth-child(n+2),
-.form-group .checkbox-inline.checkbox-inline-no-indent label:nth-child(n+2),
-.form-group .radio-inline.radio-inline-no-indent label:nth-child(n+2) {
+.form-group .checkbox label:nth-of-type(n+2),
+.form-group .radio label:nth-of-type(n+2) {
     padding-left: 0;
 }
 
@@ -63,107 +138,24 @@ body {
     bottom: 1px;
 }
 
-/* Single Key Generator Styles */
-.skg {
-    margin: 10px 0;
-}
-
-.skg .btn.input-group-addon.btn-info {
-    color: #ffffff;
-}
-
-.skg pre.buy-binds {
-    background-color: white;
-    white-space: nowrap;
-}
-
-/* Multi-Key Generator Styles */
-.mkg {
-    margin: 10px 0;
-}
-
-.mkg .keypad {
-    width: 100%;
-}
-
-.mkg .keypad .key,
-.mkg .keypad .key-spacer {
-    display: inline-block;
-    float: right;
-    height: 60px;
-    margin: 2px;
-    width: 23.5%; /* Fallback for browsers without support for calc() */
-    width: calc(25% - 4px);
-}
-
-.mkg .keypad .key.tall-key {
-    height: 124px;
-}
-
-.mkg .keypad .key.wide-key {
-    width: 48%; /* Fallback for browsers without support for calc() */
-    width: calc(50% - 4px);
-}
-
-.mkg .keypad .key button {
-    font-size: medium;
-    font-weight: bold;
-    height: 100%;
-    width: 100%;
-}
-
-.mkg .keypad .key button .key-alt-fn {
-    font-size: small;
-    font-weight: normal;
-}
-
-.mkg pre.buy-binds {
-    background-color: white;
-    white-space: nowrap;
-}
-
-#mkgKeyBindOptionsForm .form-group:last-child {
-    margin-bottom: 0;
-}
-
-/* Fix for 'Modal backdrop broken with bootstrap 3.3.1' (https://github.com/angular-ui/bootstrap/issues/2970) */
-.modal-backdrop {
-    bottom: 0;
-    position: fixed;
-}
-
 /* Media Queries */
 @media (min-width: 992px) {
-    .mkg .keypad .key,
-    .mkg .keypad .key-spacer {
-        height: 80px;
-        margin: 3px;
-        width: 23%; /* Fallback for browsers without support for calc() */
-        width: calc(25% - 6px);
+
+    .keypad {
+        grid-auto-rows: 80px;
     }
 
-    .mkg .keypad .key.tall-key {
-        height: 166px;
-    }
-
-    .mkg .keypad .key.wide-key {
-        width: 48%; /* Fallback for browsers without support for calc() */
-        width: calc(50% - 6px);
-    }
-
-    .mkg .keypad .key button {
+    .keypad .key button {
         font-size: large;
+        padding: 4px 8px;
     }
 
-    .mkg .keypad .key button .key-alt-fn {
+    .keypad .key button .key-alt-fn {
         font-size: medium;
     }
-}
 
-@media (max-width: 767px) {
-    .form-group .checkbox-inline.checkbox-not-inline-xs,
-    .form-group .radio-inline.radio-not-inline-xs {
-        display: block;
-        margin-left: 0;
+    .keypad .key button .key-alt-fn.arrow {
+        font-size: large;
     }
 }
+
