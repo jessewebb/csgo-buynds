@@ -152,8 +152,26 @@
                     <span ng-repeat="buyBind in buyBinds track by $index">{{ buyBind }}<br /></span>
                 </pre>
                 <div class="visible-xs">
-                    <button type="button" class="btn btn-info" copy-to-clipboard-button data-copy-text="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
-                    <button type="button" class="btn btn-success" ng-click="openSaveBindsModal(getBuyBindsForSave())">Save Binds <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                    <p>
+                        <button type="button" class="btn btn-info" copy-to-clipboard-button data-copy-text="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
+                        <button type="button" class="btn btn-success" ng-click="openSaveBindsModal(getBuyBindsForSave())">Save Binds <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                    </p>
+                </div>
+
+                <div>
+                    <div class="social-button">
+                        <div id="twitter-tweet">
+                            <a class="twitter-share-button" href="https://twitter.com/share" data-show-count="false"
+                               data-url="http://csgobuynds.com/" data-count-url="http://csgobuynds.com/"
+                               data-related="gweebz" data-hashtags="CSGO,Buynds"
+                               data-text="I just used CSGO-Buynds to generate some new CS:GO buy binds!">Tweet</a>
+                        </div>
+                    </div>
+                    <div class="social-button">
+                        <div id="facebook-like">
+                            <div class="fb-like" data-href="http://csgobuynds.com/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -20,8 +20,10 @@ pre.buy-binds {
 
 .social-button {
     display: inline-block;
-    margin-left: 10px;
     vertical-align: text-top;
+}
+.social-button:not(:first-child) {
+    margin-left: 10px;
 }
 
 .footer {
