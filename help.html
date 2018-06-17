@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Help | CSGO-Buynds | The Best CS:GO Buy Binds Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Jesse Webb">
+    <meta name="description" content="Web tool for generating CS:GO buy binds/scripts.">
+    <meta name="keywords" content="Counter-Strike,CSGO,CS:GO,buy,bind,binds,purchase,weapon,script,scripts,generator,Gweebz">
+    <link href="humans.txt" rel="author" type="text/plain" />
+
+    <link href="images/buynds-favicon_64x64.png" rel="shortcut icon" />
+
+    <!-- Styles -->
+    <link href="vendor/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/bootstrap-3.3.7/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-49466258-1', 'auto');
+        ga('require', 'displayfeatures'); // Advertiser Features
+        ga('require', 'linkid'); // Enhanced Link Attribution
+        ga('send', 'pageview');
+    </script>
+
+    <!-- csgobuynds.com Redirection -->
+    <script type="application/javascript">
+        const oldUrlBase = 'jessewebb.github.io/csgo-buynds';
+        const newUrlBase = 'csgobuynds.com';
+        const currentUrl = window.location.href;
+        if (currentUrl.indexOf(oldUrlBase) >= 0) {
+            ga('send', 'event', 'redirect', 'csgobuynds.com', {'page': '/help.html', 'nonInteraction': true, 'useBeacon': true});
+            window.location = currentUrl.replace(oldUrlBase, newUrlBase);
+        }
+    </script>
+</head>
+
+<body>
+<div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a id="navSiteLink" class="navbar-brand" href="http://csgobuynds.com">CSGO-Buynds</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a id="navHomeLink" href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li><a id="navGeneratorLink" href="buy-binds-generator.html"><span class="glyphicon glyphicon-cog"></span> Generator</a></li>
+                <li class="active"><a id="navHelpLink" href="help.html"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
+                <li><a id="navAboutLink" href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
+            </ul>
+            <div class="navbar-right">
+                <a id="navCsgoBuyndsGitHubLinkButton" class="btn btn-success navbar-btn" href="https://github.com/jessewebb/csgo-buynds" target="_blank">
+                    View on GitHub <img id="githubIconImg" src="images/GitHub-Mark-Light-64px.png" alt="GitHub Octocat mark" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="page-header">
+        <h1>Help</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <p>
+                <em>Counter-Strike: Global Offensive</em> is simple enough for everyone to enjoy but also complex enough to satisfy even the most expert players.
+                The default settings in the game are good enough for beginners to have fun with minimal fuss.
+                Once new players have played a few matches and gained some experience, most will wish to customize and streamline their CS:GO configuration.
+                Thankfully Valve has given us many methods of tweaking our game's settings!
+            </p>
+            <p>
+                If you are a new player, I suggest first reading <a id="valveCsgoFaqLink" href="http://blog.counter-strike.net/index.php/facts/" target="_blank">Valve's FAQ for CS:GO</a> to learn some of the basics. And then go play some games!
+            </p>
+            <p>
+                Experienced players should continue reading this page to learn how to use buy binds as well as other advanced features of the game…
+            </p>
+
+            <div class="panel-group">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a data-toggle="collapse" href="#howToUseBuyBinds">
+                                <em>How do I use the generated buy binds?</em>
+                            </a>
+                        </h3>
+                    </div>
+                    <div id="howToUseBuyBinds" class="panel-collapse collapse in">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <h4 id="skgBinds">Single Key Binds <small>(from the <a id="helpSkgLink" href="buy-binds-generator.html#!/skg">Single Key Generator</a>)</small></h4>
+                                <p>Single line buy binds for a single key can be inputted using the CS:GO developer console while in game.</p>
+                                <p>Learn how to use the CS:GO developer console <a data-toggle="collapse" href="#whatIsDevConsole">below</a>.</p>
+                                <p>Or you may save the generated buy binds in your <code>autoexec.cfg</code> file as used for "multi-line key binds".</p>
+                            </li>
+                            <li class="list-group-item">
+                                <h4 id="mkgBinds">Multi-line Key Binds <small>(from the <a id="helpMkgLink" href="buy-binds-generator.html#!/mkg">Multi-Key Generator</a>)</small></h4>
+                                <p>Multiple lines of buy binds for multiple keys should be saved in your <code>autoexec.cfg</code> file along with other custom settings.</p>
+                                <div class="alert alert-warning"><span class="glyphicon glyphicon-alert"></span>
+                                    <strong>Warning:</strong> Do not attempt to enter multiple lines of binds into the CS:GO developer console.
+                                </div>
+                                <p>Learn how to setup an <code>autoexec.cfg</code> file <a data-toggle="collapse" href="#whatIsAutoexecCfg">below</a>.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" href="#whatIsDevConsole">
+                                <em>What is the CS:GO developer console?</em>
+                            </a>
+                        </h3>
+                    </div>
+                    <div id="whatIsDevConsole" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                The CS:GO developer console is an in-game utility that allows players to execute commands and monitor the game's text output.
+                                One of the most common uses of the console is opening it after a round has ended to check how much damage was given and received by the player.
+                                It can also be used to set custom values for client variables (aka "cvar") and to run commands to perform functions such as binding keys to buy weapons and equipment.
+                            </p>
+                            <p>
+                                To open the CS:GO developer console while in game, press the <kbd>~</kbd> key (to the left of <kbd>1</kbd> and above <kbd>TAB</kbd>).
+                            </p>
+                            <div class="alert alert-info"><span class="glyphicon glyphicon-exclamation-sign"></span>
+                                <strong>Tip:</strong> If the console won't open, open the "Game Settings" options menu and set "Enable Developer Console" to "Yes".
+                            </div>
+                            <p>
+                                With the console open, you can enter the names of cvars like <code>fps_max</code> or <code>rate</code> to check their current value.
+                                Or you can change any cvar's value by inputting its name along with a new value separated by a space.
+                                The console can also be used to enter more advanced commands such as <code>bind</code> and <code>alias</code>.
+                                You may type multiple commands at once by separating them with a semi-colon: <code>;</code>.
+                                If you would like to see a description of a command's function, enter the <code>help</code> keyword before the command in the console.
+                            </p>
+                            <p>
+                                Here is a <a id="valveCsgoCvarsLink" href="https://developer.valvesoftware.com/wiki/List_of_CS:GO_Cvars">List of all CS:GO Cvars</a> on a wiki maintained by Valve.
+                            </p>
+                            <p>
+                                Need more help? <a id="lmgtfyCsgoConsoleCommandsLink" href="http://lmgtfy.com/?q=csgo+console+commands" target="_blank">LMGTFY</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a class="collapsed" data-toggle="collapse" href="#whatIsAutoexecCfg">
+                                <em>What is an "autoexec.cfg" file?</em>
+                            </a>
+                        </h3>
+                    </div>
+                    <div id="whatIsAutoexecCfg" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <p>
+                                The <code>autoexec.cfg</code> file is an automatically executing configuration file.
+                                In other words, it allows players to save custom settings which will get automatically loaded every time the game starts.
+                                The file uses the developer console command format and each command must be written on a separate line.
+                                Comments can be added to the file by starting a line with two slashes: <code>//</code>.
+                                It can also contain commands for more advanced functions such as aliases, binds, toggles, and incrementing variables.
+                            </p>
+                            <p>
+                                If the <code>autoexec.cfg</code> file doesn't already exist, create one at:<br />
+                                <code>C:\Program Files (x86)\Steam\userdata\{SteamID}\730\local\cfg\autoexec.cfg</code><br />
+                                Where <code>{SteamID}</code> is replaced with your numeric Steam account ID.
+                            </p>
+                            <p>
+                                Save all of your buy binds and other custom settings into the file. For example:
+<pre>
+// buy binds generated by csgobuynds.com
+bind "kp_home" "buy deagle;"
+bind "kp_uparrow" "buy ak47; buy m4a1;"
+bind "kp_pgup" "buy vest; buy vesthelm;"
+
+// custom rate settings
+cl_cmdrate 128
+cl_updaterate 128
+rate 786432
+cl_interp 0
+cl_interp_ratio 1
+
+// make sure file ends with the line 'host_writeconfig'
+host_writeconfig
+</pre>
+                            </p>
+                            <p>
+                                After creating the <code>autoexec.cfg</code> file, enter the command <code>exec autoexec</code> into the CS:GO developer console so that the game executes and registers the new configuration file.
+                                You should only have to do this once; CS:GO will automatically run this file every time the game launches.
+                            </p>
+                            <div class="alert alert-info"><span class="glyphicon glyphicon-exclamation-sign"></span>
+                                <strong>Tip:</strong> Make sure to add <code>host_writeconfig</code> as the last line of your <code>autoexec.cfg</code> file.
+                            </div>
+                            <p>
+                                Need more help? <a id="lmgtfyCsgoAutoexecLink" href="http://lmgtfy.com/?q=csgo+autoexec" target="_blank">LMGTFY</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <span><small>Copyright &copy; 2014-2018 <a id="footerCopyrightGweebzTwitterLink" href="https://twitter.com/gweebz">Jesse 'Gweebz' Webb</a></small></span>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="vendor/jquery-3.2.1/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="vendor/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+
+</body>
+</html>

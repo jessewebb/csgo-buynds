@@ -146,7 +146,7 @@
                     <button type="button" class="btn btn-info" copy-to-clipboard-button data-copy-text="getBuyBindsForCopy()">Copy to Clipboard <span class="glyphicon glyphicon-copy"></span></button>
                     <button type="button" class="btn btn-success" ng-click="openSaveBindsModal(getBuyBindsForSave())">Save Binds <span class="glyphicon glyphicon-floppy-disk"></span></button>
                 </div>
-                <h4>Generated Buy Binds:</h4>
+                <h4>Generated Buy Binds <a id="mkgBindsHelpLink" href="help.html#mkgBinds" title="How to use these buy binds" target="_blank"><span class="glyphicon glyphicon-question-sign"></span></a></h4>
                 <pre class="buy-binds">
                     <span>{{ generatedBuyBindsComment }}<br /></span>
                     <span ng-repeat="buyBind in buyBinds track by $index">{{ buyBind }}<br /></span>

@@ -110,12 +110,20 @@ pre.buy-binds {
 /* Fix for Bootstrap bug: "Navbar hides initial content when jumping to in-page anchor" */
 /* https://github.com/twbs/bootstrap/issues/1768#issuecomment-46519033 */
 h1[id]:before,
-h2[id]:before {
+h2[id]:before,
+h3[id]:before,
+h4[id]:before,
+h5[id]:before,
+h6[id]:before {
     display: block;
-    content: " ";
+    content: "";
     margin-top: -60px;
     height: 60px;
-    visibility: hidden;
+    visibility: hidden;;
+}
+div.panel-heading a {
+    position: relative;
+    z-index: 10;
 }
 
 /* Fix inline labels alignment issue */
@@ -158,4 +166,3 @@ h2[id]:before {
         font-size: large;
     }
 }
-
