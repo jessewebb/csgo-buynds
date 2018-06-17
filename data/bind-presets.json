@@ -2,6 +2,6 @@
   {
     "id": "preset1",
     "name": "Gweebz (creator of CSGO-Buynds)",
-    "bindString":"bind \"kp_slash\" \"buy defuser;\"\nbind \"kp_multiply\" \"buy p250;\"\nbind \"kp_minus\" \"buy smokegrenade;\"\nbind \"kp_plus\" \"buy flashbang;\"\nbind \"kp_enter\" \"buy hegrenade;\"\nbind \"kp_del\" \"buy decoy;\"\nbind \"kp_ins\" \"buy deagle;\"\nbind \"kp_home\" \"buy galilar; buy famas;\"\nbind \"kp_uparrow\" \"buy ak47; buy m4a1;\"\nbind \"kp_pgup\" \"buy sg556; buy aug;\"\nbind \"kp_leftarrow\" \"buy mac10; buy mp9;\"\nbind \"kp_end\" \"buy ump45;\"\nbind \"kp_downarrow\" \"buy tec9; buy fiveseven;\"\nbind \"kp_rightarrow\" \"buy ssg08;\"\nbind \"kp_pgdn\" \"buy awp;\"\nbind \"kp_5\" \"buy vest; buy vesthelm;\""
+    "bindString": "bind \"kp_slash\" \"buy molotov; buy incgrenade;\"\nbind \"kp_multiply\" \"buy p250;\"\nbind \"kp_minus\" \"buy smokegrenade;\"\nbind \"kp_plus\" \"buy flashbang;\"\nbind \"kp_enter\" \"buy hegrenade;\"\nbind \"kp_del\" \"buy decoy;\"\nbind \"kp_ins\" \"buy deagle;\"\nbind \"kp_home\" \"buy galilar; buy famas;\"\nbind \"kp_uparrow\" \"buy ak47; buy m4a1;\"\nbind \"kp_pgup\" \"buy sg556; buy aug;\"\nbind \"kp_leftarrow\" \"buy mac10; buy mp9;\"\nbind \"kp_end\" \"buy ump45;\"\nbind \"kp_downarrow\" \"buy tec9; buy fiveseven;\"\nbind \"kp_rightarrow\" \"buy ssg08;\"\nbind \"kp_pgdn\" \"buy awp;\"\nbind \"kp_5\" \"buy vest; buy vesthelm;\"\nbind \"home\" \"buy taser 34;\"\nbind \"end\" \"buy defuser;\"\nbind \"pgup\" \"buy sawedoff; buy mag7;\"\nbind \"pgdn\" \"buy negev;\""
   }
 ]
