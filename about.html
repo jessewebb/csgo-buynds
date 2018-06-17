@@ -12,8 +12,8 @@
     <link href="images/buynds-favicon_64x64.png" rel="shortcut icon" />
 
     <!-- Styles -->
-    <link href="vendor/bootstrap-3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="vendor/bootstrap-3.3.2/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/bootstrap-3.3.7/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
     <link href="css/app.css" rel="stylesheet" type="text/css">
 
     <!-- Google Analytics -->
@@ -30,10 +30,10 @@
     </script>
 
     <!-- csgobuynds.com Redirection -->
-    <script>
-        var oldUrlBase = 'jessewebb.github.io/csgo-buynds';
-        var newUrlBase = 'csgobuynds.com';
-        var currentUrl = window.location.href;
+    <script type="application/javascript">
+        const oldUrlBase = 'jessewebb.github.io/csgo-buynds';
+        const newUrlBase = 'csgobuynds.com';
+        const currentUrl = window.location.href;
         if (currentUrl.indexOf(oldUrlBase) >= 0) {
             ga('send', 'event', 'redirect', 'csgobuynds.com', {'page': '/about.html', 'nonInteraction': true, 'useBeacon': true});
             window.location = currentUrl.replace(oldUrlBase, newUrlBase);
@@ -56,6 +56,7 @@
             <ul class="nav navbar-nav">
                 <li><a id="navHomeLink" href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                 <li><a id="navGeneratorLink" href="buy-binds-generator.html"><span class="glyphicon glyphicon-cog"></span> Generator</a></li>
+                <li><a id="navHelpLink" href="help.html"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
                 <li class="active"><a id="navAboutLink" href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
             </ul>
             <div class="navbar-right">
@@ -78,13 +79,13 @@
             <h3><em>What?</em></h3>
 
             <p><strong><em>CSGO-Buynds</em></strong> is an open-source web-app for generating buy binds for <em>
-                <a id="aboutCsgoWikipediaLink" href="http://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive">Counter-Strike: Global Offensive
+                <a id="aboutCsgoWikipediaLink" href="http://en.wikipedia.org/wiki/Counter-Strike:_Global_Offensive" target="_blank">Counter-Strike: Global Offensive
                 </a></em> (CS:GO).</p>
 
             <p>Buy binds, also known as buy scripts, are commands for the <em>Counter-Strike</em> PC games that allow
                 quick, 1-button purchasing of weapons and equipment.</p>
 
-            <p>Check out the <a id="aboutCsgoBuyndsGitHubLink" href="https://github.com/jessewebb/csgo-buynds">csgo-buynds repo on GitHub</a>
+            <p>Check out the <a id="aboutCsgoBuyndsGitHubLink" href="https://github.com/jessewebb/csgo-buynds" target="_blank">csgo-buynds repo on GitHub</a>
                 to see the code!</p>
 
             <h3><em>Why?</em></h3>
@@ -118,68 +119,84 @@
                 <em>Counter-Strike</em> series.</p>
 
             <ul>
-                <li><a id="aboutJesseWebbGitHubLink" href="https://github.com/jessewebb">Jesse Webb on GitHub</a></li>
-                <li><a id="aboutGweebzTwitterLink" href="https://twitter.com/gweebz">Jesse Webb on Twitter</a></li>
-                <li><a id="aboutGweebzSteamLink" href="http://steamcommunity.com/id/gweebz">Gweebz on Steam</a></li>
-                <li><a id="aboutGweebzTvTwitchTvLink" href="http://www.twitch.tv/GweebzTV">GweebzTV on Twitch.TV</a></li>
+                <li><a id="aboutGweebzTwitterLink" href="https://twitter.com/gweebz" target="_blank">Jesse Webb on Twitter</a></li>
+                <li><a id="aboutJesseWebbGitHubLink" href="https://github.com/jessewebb" target="_blank">Jesse Webb on GitHub</a></li>
+                <li><a id="aboutJesseWebbStackOverflowLink" href="https://stackoverflow.com/users/346561/jesse-webb" target="_blank">Jesse Webb on Stack Overflow</a></li>
+                <li><a id="aboutGweebzSteamLink" href="http://steamcommunity.com/id/gweebz" target="_blank">Gweebz on Steam</a></li>
+                <li><a id="aboutGweebzTvTwitchTvLink" href="http://www.twitch.tv/GweebzTV" target="_blank">GweebzTV on Twitch.TV</a></li>
             </ul>
 
             <h2 id="development-info">Development Information</h2>
 
-            <p>The <strong>csgo-buynds</strong> project uses <a id="aboutGitLink" href="https://git-scm.com/">Git</a> for version control.
-                The repository is hosted by <a id="aboutGitHubLink" href="https://github.com/">GitHub</a>.</p>
+            <p>The <strong>csgo-buynds</strong> project uses <a id="aboutGitLink" href="https://git-scm.com/" target="_blank">Git</a> for version control.
+                The repository is hosted by <a id="aboutGitHubLink" href="https://github.com/" target="_blank">GitHub</a>.</p>
 
-            <p>The website is hosted on <a id="aboutGitHubPagesLink" href="http://pages.github.com/">GitHub Pages</a>.
-                It <a id="aboutNoJekyllGitHubPagesLink" href="https://github.com/blog/572-bypassing-jekyll-on-github-pages">does not use Jekyll</a>.</p>
+            <p>The website is hosted on <a id="aboutGitHubPagesLink" href="http://pages.github.com/" target="_blank">GitHub Pages</a>.
+                It <a id="aboutNoJekyllGitHubPagesLink" href="https://github.com/blog/572-bypassing-jekyll-on-github-pages" target="_blank">does not use Jekyll</a>.</p>
 
-            <p>The main branch, <a id="aboutCsgoBuyndsGitHubPagesBranchLink" href="https://github.com/jessewebb/csgo-buynds/tree/gh-pages">
+            <p>The main branch, <a id="aboutCsgoBuyndsGitHubPagesBranchLink" href="https://github.com/jessewebb/csgo-buynds/tree/gh-pages" target="_blank">
                 <code>gh-pages</code></a>, is where stable releases are deployed to.</p>
 
-            <p>Development should be done on the <a id="aboutCsgoBuyndsGitHubDevBranchLink" href="https://github.com/jessewebb/csgo-buynds/tree/dev">
-                <code>dev</code></a> branch.</p>
-
-            <p><a id="aboutCsgoBuyndsGitHubPullRequestsLink" href="https://github.com/jessewebb/csgo-buynds/pulls">Pull requests</a> are welcomed!</p>
+            <p>
+                Development should be done on the <a id="aboutCsgoBuyndsGitHubDevBranchLink" href="https://github.com/jessewebb/csgo-buynds/tree/dev" target="_blank"><code>dev</code></a> branch.
+                <a id="aboutCsgoBuyndsGitHubPullRequestsLink" href="https://github.com/jessewebb/csgo-buynds/pulls" target="_blank">Pull requests</a> are welcomed!
+            </p>
 
             <p>The code is pure HTML5, CSS3, and JavaScript. There is nothing to compile.</p>
 
             <p>Here is a list of which 3rd party libraries are being used:</p>
             <ul>
-                <li><a id="aboutJqueryLink" href="http://jquery.com/">jQuery</a> (version: 2.1.3)</li>
-                <li><a id="aboutAngularJsLink" href="http://angularjs.org/">AngularJS</a> (version: 1.3.12)</li>
-                <li><a id="aboutBootstrapLink" href="http://getbootstrap.com/">Bootstrap</a> (version: 3.3.2)</li>
+                <li><a id="aboutJqueryLink" href="http://jquery.com/" target="_blank">jQuery</a> (version: 3.2.1)</li>
+                <li><a id="aboutAngularJsLink" href="http://angularjs.org/" target="_blank">AngularJS</a> (version: 1.6.6)</li>
+                <li><a id="aboutBootstrapLink" href="http://getbootstrap.com/" target="_blank">Bootstrap</a> (version: 3.3.7)</li>
                 <li>
-                    <a id="aboutAngularUiLink" href="http://angular-ui.github.io/">AngularUI</a>
+                    <a id="aboutAngularUiLink" href="http://angular-ui.github.io/" target="_blank">AngularUI</a>
                     <ul>
-                        <li><a id="aboutAngularUiBootstrapLink" href="http://angular-ui.github.io/bootstrap/">UI Bootstrap</a> (version 0.12.0)</li>
-                        <li><a id="aboutAngularUiSelectLink" href="http://angular-ui.github.io/ui-select/">UI Select</a> (version 0.19.6)</li>
+                        <li><a id="aboutAngularUiBootstrapLink" href="http://angular-ui.github.io/bootstrap/" target="_blank">UI Bootstrap</a> (version 2.5.0)</li>
+                        <li><a id="aboutAngularUiSelectLink" href="http://angular-ui.github.io/ui-select/" target="_blank">UI Select</a> (version 0.19.8)</li>
                     </ul>
                 </li>
-                <li><a id="aboutNgClipLink" href="https://github.com/asafdav/ng-clip">ngClip</a> (version: 0.2.6)</li>
-                <li><a id="aboutZeroClipboardLink" href="http://zeroclipboard.org/">ZeroClipboard</a> (version: 2.2.0)</li>
+                <li><a id="aboutClipboardJsLink" href="https://clipboardjs.com/" target="_blank">clipboard.js</a> (version: 1.7.1)</li>
             </ul>
 
-            <p>Tests are written with <a id="aboutJasmineLink" href="http://jasmine.github.io/">Jasmine</a> (version: 2.5.2).</p>
+            <p>Tests are written with <a id="aboutJasmineLink" href="http://jasmine.github.io/" target="_blank">Jasmine</a> (version: 2.5.2).</p>
             <ul>
-                <li>You can <a id="aboutRunTestsLink" href="tests/SpecRunner.html">run the tests in your browser.</a></li>
+                <li>You can <a id="aboutRunTestsLink" href="tests/SpecRunner.html" target="_blank">run the tests in your browser</a>.</li>
                 <li>
-                    Or you can run them from the command line with <a id="aboutNodeJsLink" href="https://nodejs.org/">Node.js</a>
-                    and <a id="aboutNpmLink" href="https://www.npmjs.com/">npm</a>.
+                    Or you can run them from the command line with <a id="aboutNodeJsLink" href="https://nodejs.org/" target="_blank">Node.js</a>
+                    and <a id="aboutNpmLink" href="https://www.npmjs.com/" target="_blank">npm</a>.
                     <pre>npm install&NewLine;npm test</pre>
-                    (The project is configured to use <a id="aboutKarmaLink" href="http://karma-runner.github.io/">Karma</a> (version: 1.3.0) to run the tests.)
+                    (The project is configured to use <a id="aboutKarmaLink" href="http://karma-runner.github.io/" target="_blank">Karma</a> (version: 1.3.0) to run the tests.)
                 </li>
             </ul>
 
-            <p>Continuous integration is performed with <a id="aboutTravisCiLink" href="https://travis-ci.org/">Travis CI.</a>
-                <a href="https://travis-ci.org/jessewebb/csgo-buynds">
+            <p>Continuous integration is performed with <a id="aboutTravisCiLink" href="https://travis-ci.org/" target="_blank">Travis CI.</a>
+                <a href="https://travis-ci.org/jessewebb/csgo-buynds" target="_blank">
                     <img src="https://travis-ci.org/jessewebb/csgo-buynds.svg?branch=gh-pages" title="Travis CI Build Status">
                 </a>
             </p>
 
-            <p>Jesse's preferred JavaScript IDE is <a id="aboutJetbrainsWebStormLink" href="http://www.jetbrains.com/webstorm/">JetBrain's WebStorm</a>.
+            <p>Jesse's preferred JavaScript IDE is <a id="aboutJetbrainsWebStormLink" href="http://www.jetbrains.com/webstorm/" target="_blank">JetBrain's WebStorm</a>.
             </p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 release-notes">
             <h2 id="release-notes">Release Notes</h2>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">v1.0.0 <em class="pull-right"><small><a href="https://github.com/jessewebb/csgo-buynds/pull/27" target="_blank" title="Release version 1.0.0">Released: 2018-06-17</a></small></em></h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        <li>Show prices of equipment and total prices of buy binds</li>
+                        <li>Show team-colored labels on team-specific equipment</li>
+                        <li>Add hover-over pop-ups that show equipment images and icons</li>
+                        <li>Add help page with instructions on how to use buy binds</li>
+                        <li>Upgrade 3rd-party libraries</li>
+                        <li>Replace ZeroClipboard with clipboard.js (fixes <a href="https://github.com/jessewebb/csgo-buynds/issues/25" target="_blank" title="Copy to Clipboard button doesn't work.">bug #25</a>)</li>
+                        <li>Lots of code clean-up!</li>
+                    </ul>
+                </div>
+            </div>
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">v0.9.0 (BETA) <em class="pull-right"><small><a href="https://github.com/jessewebb/csgo-buynds/pull/18" target="_blank" title="Release version 0.9.0">Released: 2017-03-26</a></small></em></h3>
@@ -201,7 +218,7 @@
                 <div class="panel-body">
                     <ul>
                         <li>Added R8 Revolver</li>
-                        <li>Removed Google AdSense (for now...)</li>
+                        <li>Removed Google AdSense (for now …)</li>
                         <li>Added sitemap.xml file</li>
                     </ul>
                 </div>
@@ -266,13 +283,15 @@
     </div>
 
     <div class="footer">
-        <span><small>Copyright &copy; 2014-2017 <a id="footerCopyrightGweebzTwitterLink" href="https://twitter.com/gweebz">Jesse 'Gweebz' Webb</a></small></span>
+        <span>Copyright &copy; 2014-2018 <a id="footerCopyrightGweebzTwitterLink" href="https://twitter.com/gweebz" target="_blank">Jesse Webb</a></span><br />
+        <span><small>Counter-Strike™ is a trademark of <a id="footerDisclaimerValveLink" href="https://www.valvesoftware.com" target="_blank">the Valve Corporation</a>.</small></span><br />
+        <span><small>CSGO-Buynds is not associated with Valve in any way.</small></span>
     </div>
 </div>
 
 <!-- Scripts -->
-<script src="vendor/jquery-2.1.3/jquery.min.js" type="text/javascript"></script>
-<script src="vendor/bootstrap-3.3.2/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="vendor/jquery-3.2.1/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="vendor/bootstrap-3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 
 </body>
 </html>

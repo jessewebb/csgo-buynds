@@ -4,24 +4,56 @@
       "name": "Pistols",
       "weapons": [
         {
-          "name": "Glock-18 / P2000 / USP-S",
-          "bind": "glock,hkp2000"
+          "name": "P2000 / USP-S",
+          "bind": "hkp2000",
+          "slot": 1,
+          "price": 200,
+          "team": "ct"
+        },
+        {
+          "name": "Glock-18",
+          "bind": "glock",
+          "slot": 1,
+          "price": 200,
+          "team": "t"
         },
         {
           "name": "Dual Berettas",
-          "bind": "elite"
+          "bind": "elite",
+          "slot": 2,
+          "price": 400
         },
         {
           "name": "P250",
-          "bind": "p250"
+          "bind": "p250",
+          "slot": 3,
+          "price": 300
         },
         {
-          "name": "Tec-9 / Five-SeveN / CZ75-Auto",
-          "bind": "tec9,fiveseven"
+          "name": "Five-SeveN / CZ75-Auto",
+          "bind": "fiveseven",
+          "slot": 4,
+          "price": 500,
+          "team": "ct"
         },
         {
-          "name": "Desert Eagle / R8 Revolver",
-          "bind": "deagle"
+          "name": "Tec-9 / CZ75-Auto",
+          "bind": "tec9",
+          "slot": 4,
+          "price": 500,
+          "team": "t"
+        },
+        {
+          "name": "Desert Eagle",
+          "bind": "deagle",
+          "slot": 5,
+          "price": 700
+        },
+        {
+          "name": "R8 Revolver",
+          "bind": "revolver",
+          "slot": 5,
+          "price": 600
         }
       ]
     }

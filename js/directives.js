@@ -15,7 +15,7 @@ buyndsDirectives.directive('activeTabClass', ['$location', function($location) {
         var clazz = attrs.activeTabClass;
         var linkElement = element.children().eq(0); // assume 'a' element is first child
         var linkHref = linkElement.attr('href');
-        linkHref = linkHref.substring(1); // remove leading hash character
+        linkHref = linkHref.substring(2); // remove leading hash and bang prefix characters
         scope.location = $location;
         scope.$watch('location.path()', function(newPath) {
             if (linkHref === newPath) {
@@ -24,6 +24,45 @@ buyndsDirectives.directive('activeTabClass', ['$location', function($location) {
                 element.removeClass(clazz);
             }
         });
+    };
+}]);
+
+buyndsDirectives.directive('copyToClipboardButton', ['$window', function($window) {
+    return {
+        scope: {
+            copyText: '&',
+            copySuccess: '&',
+            copyError: '&'
+        },
+        restrict: 'A',
+        link: function(scope, element) {
+            var clipboard = new $window.Clipboard(element[0], {
+
+                text: function() {
+                    return scope.copyText();
+                }
+            });
+
+            clipboard.on('success', function(e) {
+                scope.$apply(function () {
+                    scope.copySuccess({
+                        e: e
+                    });
+                });
+            });
+
+            clipboard.on('error', function(e) {
+                scope.$apply(function () {
+                    scope.copyError({
+                        e: e
+                    });
+                });
+            });
+
+            element.on('$destroy', function() {
+                clipboard.destroy();
+            });
+        }
     };
 }]);
 

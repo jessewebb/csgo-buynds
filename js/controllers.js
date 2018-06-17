@@ -4,7 +4,17 @@
 
 var buyndsControllers = angular.module('buyndsControllers', []);
 
-buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window', 'bindBuilder', 'dataService', function ($scope, $route, $window, bindBuilder, dataService) {
+buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window', 'bindBuilder', 'dataService', 'itemImageServiceAsync', 'totalPriceCalculatorAsync', function ($scope, $route, $window, bindBuilder, dataService, itemImageServiceAsync, totalPriceCalculatorAsync) {
+
+    var itemImageService = null;
+    itemImageServiceAsync.then(function(resolvedItemImageService) {
+        itemImageService = resolvedItemImageService;
+    });
+
+    var totalPriceCalculator = null;
+    totalPriceCalculatorAsync.then(function(resolvedTotalPriceCalculator) {
+        totalPriceCalculator = resolvedTotalPriceCalculator;
+    });
 
     $scope.bindableKeys = [];
     dataService.getBindableKeysAsync().then(function(data) {
@@ -13,8 +23,10 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
             var keyGroup = data.keyGroups[i];
             for (var j = 0; j < keyGroup.keys.length; j++) {
                 var key = keyGroup.keys[j];
-                key.keyGroup = keyGroup.name;
-                bindableKeys.push(key);
+                if (!key.spacer && !key.disabled) {
+                    key.keyGroup = keyGroup.name;
+                    bindableKeys.push(key);
+                }
             }
         }
         $scope.bindableKeys = bindableKeys;
@@ -77,6 +89,11 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
         }
     };
 
+    $scope.getItemTooltipImage = function (item, itemType) {
+        if (!itemImageService) return null;
+        return itemImageService.getItemImage(item.bind, itemType, itemImageService.IMG_TYPE_COLOR_3D);
+    };
+
     $scope.toggleGearSelection = function (gearBind) {
         var idx = $scope.bindOptions.gear.indexOf(gearBind);
         if (idx > -1) {
@@ -116,6 +133,13 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
         }
     };
 
+    $scope.totalPrice = function () {
+        if (!totalPriceCalculator) {
+            return new buynds.BindOptionsTotalPrice(0, 0);
+        }
+        return totalPriceCalculator.calculateTotalPrice($scope.bindOptions);
+    };
+
     $scope.generateBind = function () {
         $window.ga('send', 'event', 'button', 'click', 'generate', { page: $route.current.page });
         $scope.submitted = true;
@@ -138,7 +162,7 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
     };
 }]);
 
-buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '$window', 'bindBuilder', 'bindLoaderAsync', 'dataService', function ($scope, $modal, $route, $window, bindBuilder, bindLoaderAsync, dataService) {
+buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route', '$window', 'bindBuilder', 'bindLoaderAsync', 'dataService', 'itemImageServiceAsync', function ($scope, $uibModal, $route, $window, bindBuilder, bindLoaderAsync, dataService, itemImageServiceAsync) {
 
     var bindLoader;
     bindLoaderAsync.then(function(resolvedBindLoader) {
@@ -148,6 +172,11 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
     $scope.bindableKeys = {keyGroups: []};
     dataService.getBindableKeysAsync().then(function(data) {
         $scope.bindableKeys = data;
+    });
+
+    var itemImageService = null;
+    itemImageServiceAsync.then(function(resolvedItemImageService) {
+        itemImageService = resolvedItemImageService;
     });
 
     $scope.bindOptionsMap = {};
@@ -170,16 +199,38 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         return keyBind in $scope.bindOptionsMap;
     };
 
-    var hasKeyGroupKeypadKeyBindOptions = function (keyGroupName) {
+    var getKeyGroupKeysByName = function (keyGroupName) {
         for (var i = 0; i < $scope.bindableKeys.keyGroups.length; i++) {
             var keyGroup = $scope.bindableKeys.keyGroups[i];
             if (keyGroup.name === keyGroupName) {
-                for (var j = 0; j < keyGroup.keys.length; j++) {
-                    var key = keyGroup.keys[j];
-                    if (key.bind in $scope.bindOptionsMap) {
-                        return true;
-                    }
-                }
+                return keyGroup.keys;
+            }
+        }
+        return [];
+    };
+
+    $scope.getNumericKeypadKeys = function () {
+        return getKeyGroupKeysByName('Numeric Keypad');
+    };
+
+    $scope.getNavigationKeys = function () {
+        return getKeyGroupKeysByName('Navigation Keys');
+    };
+
+    $scope.getFunctionKeys = function () {
+        return getKeyGroupKeysByName('Function Keys');
+    };
+
+    $scope.getMouseButtonKeys = function () {
+        return getKeyGroupKeysByName('Mouse Buttons');
+    };
+
+    var hasKeyGroupKeypadKeyBindOptions = function (keyGroupName) {
+        var keys = getKeyGroupKeysByName(keyGroupName);
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            if (key.bind in $scope.bindOptionsMap) {
+                return true;
             }
         }
         return false;
@@ -205,6 +256,20 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         return $scope.buyBinds.length > 0;
     };
 
+    $scope.getBindOptionsItemImagesForKey = function(key) {
+        if (!itemImageService) return [];
+        if (!(key.bind in $scope.bindOptionsMap)) return [];
+        var bindOptions = $scope.bindOptionsMap[key.bind];
+        return itemImageService.getItemImages(bindOptions, itemImageService.IMG_TYPE_WHITE_ICON);
+    };
+
+    $scope.isItemImageForSpecificTeam = function(image, team) {
+        if (!image.itemBind) {
+            return false;
+        }
+        return image.itemTeam === team;
+    };
+
     var generateBinds = function () {
         var numBindsGenerated = 0;
         $scope.buyBinds = [];
@@ -220,7 +285,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
     };
 
     $scope.openKeyBindOptionsModal = function (keyBind) {
-        var modalInstance = $modal.open({
+        var modalInstance = $uibModal.open({
             templateUrl: 'partials/mkg-key-bind-options.phtml',
             controller: 'MultiKeyGenKeyBindOptionsCtrl',
             resolve: {
@@ -238,6 +303,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         });
 
         modalInstance.result.then(function (result) {
+            // Success
             if (result instanceof buynds.BindOptions) {
                 $scope.bindOptionsMap[result.keyToBind] = result.clone();
             } else if (result.hasOwnProperty('clear')) {
@@ -246,6 +312,8 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
             if ($scope.autoGenerateBinds) {
                 generateBinds();
             }
+        }, function () {
+            // Cancel
         });
     };
 
@@ -258,6 +326,10 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
         $window.ga('send', 'event', 'button', 'click', 'reset', { page: $route.current.page });
         $scope.bindOptionsMap = {};
         $scope.buyBinds = [];
+        $scope.showNumpadKeypad = true;
+        $scope.showNavKeysKeypad = false;
+        $scope.showFuncKeysKeypad = false;
+        $scope.showMouseButtons = false;
         $scope.loadedBindsId = null;
         $scope.loadedBindsName = null;
     };
@@ -270,12 +342,13 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
     };
 
     $scope.openLoadBindsModal = function () {
-        var modalInstance = $modal.open({
+        var modalInstance = $uibModal.open({
             templateUrl: 'partials/mkg-load-binds.phtml',
             controller: 'MultiKeyGenLoadBindsCtrl'
         });
 
         modalInstance.result.then(function (bindRecord) {
+            // Success
             if (bindRecord) {
                 if (!bindRecord.id.startsWith("preset")) {
                     $scope.loadedBindsId = bindRecord.id;
@@ -302,9 +375,10 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
                 $scope.showFuncKeysKeypad = $scope.hasFuncKeysKeypadKeyBindOptions();
                 $scope.showMouseButtons = $scope.hasMouseButtonsKeyBindOptions();
             }
+        }, function () {
+            // Cancel
         });
     };
-
 
     $scope.openSaveBindsModal = function (buyBinds) {
         var args = {
@@ -318,16 +392,19 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
                 return $scope.loadedBindsName;
             }
         };
-        var modalInstance = $modal.open({
+        var modalInstance = $uibModal.open({
             templateUrl: 'partials/mkg-save-binds.phtml',
             controller: 'MultiKeyGenSaveBindsCtrl',
             resolve: args
         });
         modalInstance.result.then(function (bindRecord) {
+            // Success
             if (bindRecord) {
                 $scope.loadedBindsId = bindRecord.id;
                 $scope.loadedBindsName = bindRecord.name;
             }
+        }, function () {
+            // Cancel
         });
     };
 
@@ -351,7 +428,17 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$modal', '$route', '
     };
 }]);
 
-buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$modalInstance', 'bindOptions', 'dataService', function ($scope, $modalInstance, bindOptions, dataService) {
+buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$uibModalInstance', 'bindOptions', 'dataService', 'itemImageServiceAsync', 'totalPriceCalculatorAsync', function ($scope, $uibModalInstance, bindOptions, dataService, itemImageServiceAsync, totalPriceCalculatorAsync) {
+
+    var itemImageService = null;
+    itemImageServiceAsync.then(function(resolvedItemImageService) {
+        itemImageService = resolvedItemImageService;
+    });
+
+    var totalPriceCalculator = null;
+    totalPriceCalculatorAsync.then(function(resolvedTotalPriceCalculator) {
+        totalPriceCalculator = resolvedTotalPriceCalculator;
+    });
 
     $scope.primaryWeapons = [];
     dataService.getPrimaryWeaponsAsync().then(function(data) {
@@ -390,6 +477,11 @@ buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$modal
 
     $scope.bindOptions = bindOptions;
 
+    $scope.getItemTooltipImage = function (item, itemType) {
+        if (!itemImageService) return null;
+        return itemImageService.getItemImage(item.bind, itemType, itemImageService.IMG_TYPE_COLOR_3D);
+    };
+
     $scope.toggleGearSelection = function (gearBind) {
         var idx = $scope.bindOptions.gear.indexOf(gearBind);
         if (idx > -1) {
@@ -429,20 +521,27 @@ buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$modal
         }
     };
 
+    $scope.totalPrice = function () {
+        if (!totalPriceCalculator) {
+            return new buynds.BindOptionsTotalPrice(0, 0);
+        }
+        return totalPriceCalculator.calculateTotalPrice($scope.bindOptions);
+    };
+
     $scope.save = function () {
-        $modalInstance.close($scope.bindOptions);
+        $uibModalInstance.close($scope.bindOptions);
     };
 
     $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
+        $uibModalInstance.dismiss('cancel');
     };
 
     $scope.clear = function () {
-        $modalInstance.close({ 'clear': $scope.bindOptions.keyToBind });
+        $uibModalInstance.close({ 'clear': $scope.bindOptions.keyToBind });
     };
 }]);
 
-buyndsControllers.controller('MultiKeyGenLoadBindsCtrl', ['$scope', '$modalInstance', '$route', '$window', 'bindRepository', 'dataService', function ($scope, $modalInstance, $route, $window, bindRepository, dataService) {
+buyndsControllers.controller('MultiKeyGenLoadBindsCtrl', ['$scope', '$uibModalInstance', '$route', '$window', 'bindRepository', 'dataService', function ($scope, $uibModalInstance, $route, $window, bindRepository, dataService) {
 
     $scope.buyBindsBindPresets = [];
     dataService.getBindPresetsAsync().then(function(data) {
@@ -486,7 +585,7 @@ buyndsControllers.controller('MultiKeyGenLoadBindsCtrl', ['$scope', '$modalInsta
                 bindRecord = bindRepository.get(bindId);
                 $window.ga('send', 'event', 'bind repo', 'get by id', bindId, { page: $route.current.page });
             }
-            $modalInstance.close(bindRecord);
+            $uibModalInstance.close(bindRecord);
         }
     };
 
@@ -499,13 +598,13 @@ buyndsControllers.controller('MultiKeyGenLoadBindsCtrl', ['$scope', '$modalInsta
     };
 
     $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
+        $uibModalInstance.dismiss('cancel');
     };
 
     init();
 }]);
 
-buyndsControllers.controller('MultiKeyGenSaveBindsCtrl', ['$scope', '$modalInstance', '$route', '$window', 'buyBinds', 'bindRepository', 'loadedBindsId', 'loadedBindsName', function ($scope, $modalInstance, $route, $window, buyBinds, bindRepository, loadedBindsId, loadedBindsName) {
+buyndsControllers.controller('MultiKeyGenSaveBindsCtrl', ['$scope', '$uibModalInstance', '$route', '$window', 'buyBinds', 'bindRepository', 'loadedBindsId', 'loadedBindsName', function ($scope, $uibModalInstance, $route, $window, buyBinds, bindRepository, loadedBindsId, loadedBindsName) {
 
     // slots are used as IDs and limit the number of saved binds
     $scope.buyBindsSaveSlots = ['1', '2', '3', '4', '5'];
@@ -542,12 +641,12 @@ buyndsControllers.controller('MultiKeyGenSaveBindsCtrl', ['$scope', '$modalInsta
             var bindRecord = new buynds.BindRecord(bindId, bindName, buyBinds);
             bindRepository.save(bindId, bindRecord);
             $window.ga('send', 'event', 'bind repo', 'save', bindId, { page: $route.current.page });
-            $modalInstance.close(bindRecord);
+            $uibModalInstance.close(bindRecord);
         }
     };
 
     $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
+        $uibModalInstance.dismiss('cancel');
     };
 
     init();

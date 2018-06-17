@@ -1,0 +1,721 @@
+{
+  "primaryWeapons": {
+    "famas": {
+      "silhouetteGrey": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/166.png"
+      },
+      "silhouetteWhite": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/167.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/276.jpg"
+      }
+    },
+    "galilar": {
+      "silhouetteGrey": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/157.png"
+      },
+      "silhouetteWhite": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/156.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/199.jpg"
+      }
+    },
+    "m4a1": {
+      "silhouetteGrey": {
+        "width": 117,
+        "height": 32,
+        "url": "images/csgo-icons/99.png"
+      },
+      "silhouetteWhite": {
+        "width": 117,
+        "height": 32,
+        "url": "images/csgo-icons/100.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/473.jpg"
+      }
+    },
+    "m4a4": {
+      "silhouetteGrey": {
+        "width": 94,
+        "height": 32,
+        "url": "images/csgo-icons/101.png"
+      },
+      "silhouetteWhite": {
+        "width": 94,
+        "height": 32,
+        "url": "images/csgo-icons/102.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/22.jpg"
+      }
+    },
+    "ak47": {
+      "silhouetteGrey": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/190.png"
+      },
+      "silhouetteWhite": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/191.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/294.jpg"
+      }
+    },
+    "ssg08": {
+      "silhouetteGrey": {
+        "width": 114,
+        "height": 32,
+        "url": "images/csgo-icons/44.png"
+      },
+      "silhouetteWhite": {
+        "width": 114,
+        "height": 32,
+        "url": "images/csgo-icons/45.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/6.jpg"
+      }
+    },
+    "aug": {
+      "silhouetteGrey": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/186.png"
+      },
+      "silhouetteWhite": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/187.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/290.jpg"
+      }
+    },
+    "sg556": {
+      "silhouetteGrey": {
+        "width": 87,
+        "height": 32,
+        "url": "images/csgo-icons/50.png"
+      },
+      "silhouetteWhite": {
+        "width": 87,
+        "height": 32,
+        "url": "images/csgo-icons/51.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/8.jpg"
+      }
+    },
+    "awp": {
+      "silhouetteGrey": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/184.png"
+      },
+      "silhouetteWhite": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/185.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/289.jpg"
+      }
+    },
+    "scar20": {
+      "silhouetteGrey": {
+        "width": 109,
+        "height": 32,
+        "url": "images/csgo-icons/56.png"
+      },
+      "silhouetteWhite": {
+        "width": 109,
+        "height": 32,
+        "url": "images/csgo-icons/57.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/10.jpg"
+      }
+    },
+    "g3sg1": {
+      "silhouetteGrey": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/158.png"
+      },
+      "silhouetteWhite": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/159.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/200.jpg"
+      }
+    },
+    "mp9": {
+      "silhouetteGrey": {
+        "width": 75,
+        "height": 32,
+        "url": "images/csgo-icons/78.png"
+      },
+      "silhouetteWhite": {
+        "width": 75,
+        "height": 32,
+        "url": "images/csgo-icons/79.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/17.jpg"
+      }
+    },
+    "mac10": {
+      "silhouetteGrey": {
+        "width": 44,
+        "height": 32,
+        "url": "images/csgo-icons/95.png"
+      },
+      "silhouetteWhite": {
+        "width": 44,
+        "height": 32,
+        "url": "images/csgo-icons/96.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/21.jpg"
+      }
+    },
+    "mp7": {
+      "silhouetteGrey": {
+        "width": 51,
+        "height": 32,
+        "url": "images/csgo-icons/80.png"
+      },
+      "silhouetteWhite": {
+        "width": 51,
+        "height": 32,
+        "url": "images/csgo-icons/81.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/18.jpg"
+      }
+    },
+    "ump45": {
+      "silhouetteGrey": {
+        "width": 75,
+        "height": 32,
+        "url": "images/csgo-icons/35.png"
+      },
+      "silhouetteWhite": {
+        "width": 75,
+        "height": 32,
+        "url": "images/csgo-icons/36.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/2.jpg"
+      }
+    },
+    "p90": {
+      "silhouetteGrey": {
+        "width": 86,
+        "height": 32,
+        "url": "images/csgo-icons/69.png"
+      },
+      "silhouetteWhite": {
+        "width": 86,
+        "height": 32,
+        "url": "images/csgo-icons/70.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/12.jpg"
+      }
+    },
+    "bizon": {
+      "silhouetteGrey": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/182.png"
+      },
+      "silhouetteWhite": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/183.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/288.jpg"
+      }
+    },
+    "nova": {
+      "silhouetteGrey": {
+        "width": 117,
+        "height": 32,
+        "url": "images/csgo-icons/74.png"
+      },
+      "silhouetteWhite": {
+        "width": 117,
+        "height": 32,
+        "url": "images/csgo-icons/75.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/14.jpg"
+      }
+    },
+    "xm1014": {
+      "silhouetteGrey": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/28.png"
+      },
+      "silhouetteWhite": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/29.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/1.jpg"
+      }
+    },
+    "mag7": {
+      "silhouetteGrey": {
+        "width": 82,
+        "height": 32,
+        "url": "images/csgo-icons/93.png"
+      },
+      "silhouetteWhite": {
+        "width": 82,
+        "height": 32,
+        "url": "images/csgo-icons/94.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/20.jpg"
+      }
+    },
+    "sawedoff": {
+      "silhouetteGrey": {
+        "width": 117,
+        "height": 32,
+        "url": "images/csgo-icons/59.png"
+      },
+      "silhouetteWhite": {
+        "width": 117,
+        "height": 32,
+        "url": "images/csgo-icons/60.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/11.jpg"
+      }
+    },
+    "m249": {
+      "silhouetteGrey": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/104.png"
+      },
+      "silhouetteWhite": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/105.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/23.jpg"
+      }
+    },
+    "negev": {
+      "silhouetteGrey": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/76.png"
+      },
+      "silhouetteWhite": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/77.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/16.jpg"
+      }
+    }
+  },
+  "secondaryWeapons": {
+    "hkp2000": {
+      "silhouetteGrey": {
+        "width": 44,
+        "height": 32,
+        "url": "images/csgo-icons/144.png"
+      },
+      "silhouetteWhite": {
+        "width": 44,
+        "height": 32,
+        "url": "images/csgo-icons/145.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/195.jpg"
+      }
+    },
+    "glock": {
+      "silhouetteGrey": {
+        "width": 64,
+        "height": 32,
+        "url": "images/csgo-icons/154.png"
+      },
+      "silhouetteWhite": {
+        "width": 64,
+        "height": 32,
+        "url": "images/csgo-icons/155.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/198.jpg"
+      }
+    },
+    "usp": {
+      "silhouetteGrey": {
+        "width": 74,
+        "height": 32,
+        "url": "images/csgo-icons/32.png"
+      },
+      "silhouetteWhite": {
+        "width": 74,
+        "height": 32,
+        "url": "images/csgo-icons/33.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/470.jpg"
+      }
+    },
+    "elite": {
+      "silhouetteGrey": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/168.png"
+      },
+      "silhouetteWhite": {
+        "width": 96,
+        "height": 32,
+        "url": "images/csgo-icons/169.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/279.jpg"
+      }
+    },
+    "p250": {
+      "silhouetteGrey": {
+        "width": 43,
+        "height": 32,
+        "url": "images/csgo-icons/71.png"
+      },
+      "silhouetteWhite": {
+        "width": 43,
+        "height": 32,
+        "url": "images/csgo-icons/72.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/13.jpg"
+      }
+    },
+    "fiveseven": {
+      "silhouetteGrey": {
+        "width": 59,
+        "height": 32,
+        "url": "images/csgo-icons/164.png"
+      },
+      "silhouetteWhite": {
+        "width": 59,
+        "height": 32,
+        "url": "images/csgo-icons/165.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/274.jpg"
+      }
+    },
+    "tec9": {
+      "silhouetteGrey": {
+        "width": 55,
+        "height": 32,
+        "url": "images/csgo-icons/38.png"
+      },
+      "silhouetteWhite": {
+        "width": 55,
+        "height": 32,
+        "url": "images/csgo-icons/39.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/3.jpg"
+      }
+    },
+    "cz75": {
+      "silhouetteGrey": {
+        "width": 55,
+        "height": 32,
+        "url": "images/csgo-icons/179.png"
+      },
+      "silhouetteWhite": {
+        "width": 55,
+        "height": 32,
+        "url": "images/csgo-icons/180.png"
+      },
+      "renderedFullColor": null
+    },
+    "deagle": {
+      "silhouetteGrey": {
+        "width": 65,
+        "height": 32,
+        "url": "images/csgo-icons/177.png"
+      },
+      "silhouetteWhite": {
+        "width": 65,
+        "height": 32,
+        "url": "images/csgo-icons/178.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/282.jpg"
+      }
+    },
+    "revolver": {
+      "silhouetteGrey": {
+        "width": 57,
+        "height": 32,
+        "url": "images/csgo-icons/61.png"
+      },
+      "silhouetteWhite": {
+        "width": 57,
+        "height": 32,
+        "url": "images/csgo-icons/62.png"
+      },
+      "renderedFullColor": null
+    }
+  },
+  "gear": {
+    "vest": {
+      "silhouetteGrey": null,
+      "silhouetteWhite": {
+        "width": 32,
+        "height": 32,
+        "url": "images/csgo-icons/189.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/26.jpg"
+      }
+    },
+    "vesthelm": {
+      "silhouetteGrey": null,
+      "silhouetteWhite": {
+        "width": 32,
+        "height": 32,
+        "url": "images/csgo-icons/188.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/25.jpg"
+      }
+    },
+    "taser 34": {
+      "silhouetteGrey": {
+        "width": 46,
+        "height": 32,
+        "url": "images/csgo-icons/40.png"
+      },
+      "silhouetteWhite": {
+        "width": 46,
+        "height": 32,
+        "url": "images/csgo-icons/41.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/4.jpg"
+      }
+    },
+    "defuser": {
+      "silhouetteGrey": null,
+      "silhouetteWhite": {
+        "width": 32,
+        "height": 32,
+        "url": "images/csgo-icons/172.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/423.jpg"
+      }
+    }
+  },
+  "grenades": {
+    "incgrenade": {
+      "silhouetteGrey": {
+        "width": 20,
+        "height": 32,
+        "url": "images/csgo-icons/142.png"
+      },
+      "silhouetteWhite": {
+        "width": 20,
+        "height": 32,
+        "url": "images/csgo-icons/143.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/27.jpg"
+      }
+    },
+    "molotov": {
+      "silhouetteGrey": {
+        "width": 26,
+        "height": 32,
+        "url": "images/csgo-icons/87.png"
+      },
+      "silhouetteWhite": {
+        "width": 26,
+        "height": 32,
+        "url": "images/csgo-icons/88.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/19.jpg"
+      }
+    },
+    "decoy": {
+      "silhouetteGrey": {
+        "width": 29,
+        "height": 32,
+        "url": "images/csgo-icons/175.png"
+      },
+      "silhouetteWhite": {
+        "width": 29,
+        "height": 32,
+        "url": "images/csgo-icons/176.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/281.jpg"
+      }
+    },
+    "flashbang": {
+      "silhouetteGrey": {
+        "width": 28,
+        "height": 32,
+        "url": "images/csgo-icons/162.png"
+      },
+      "silhouetteWhite": {
+        "width": 28,
+        "height": 32,
+        "url": "images/csgo-icons/163.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/201.jpg"
+      }
+    },
+    "hegrenade": {
+      "silhouetteGrey": {
+        "width": 27,
+        "height": 32,
+        "url": "images/csgo-icons/148.png"
+      },
+      "silhouetteWhite": {
+        "width": 27,
+        "height": 32,
+        "url": "images/csgo-icons/149.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/197.jpg"
+      }
+    },
+    "smokegrenade": {
+      "silhouetteGrey": {
+        "width": 22,
+        "height": 32,
+        "url": "images/csgo-icons/48.png"
+      },
+      "silhouetteWhite": {
+        "width": 22,
+        "height": 32,
+        "url": "images/csgo-icons/49.png"
+      },
+      "renderedFullColor": {
+        "width": 388,
+        "height": 194,
+        "url": "images/csgo-icons/7.jpg"
+      }
+    }
+  }
+}
