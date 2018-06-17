@@ -44,8 +44,9 @@ Don't get caught fumbling in the CS:GO buy menu. Never be the last player out of
 
 The creator of **csgo-buynds** is Jesse Webb (a.k.a. Gweebz), a long time player of the _Counter-Strike_ series.
 
-- [Jesse Webb on GitHub](https://github.com/jessewebb)
 - [Jesse Webb on Twitter](https://twitter.com/gweebz)
+- [Jesse Webb on GitHub](https://github.com/jessewebb)
+- [Jesse Webb on Stack Overflow](https://stackoverflow.com/users/346561/jesse-webb)
 - [Gweebz on Steam](https://steamcommunity.com/id/gweebz)
 - [GweebzTV on Twitch.TV](https://www.twitch.tv/GweebzTV)
 
