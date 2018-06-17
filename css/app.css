@@ -26,6 +26,11 @@ pre.buy-binds {
     margin-left: 10px;
 }
 
+div.release-notes ul {
+    padding-left: 10px;
+    list-style-type: square;
+}
+
 .footer {
     border-top: 1px solid lightgrey;
     font-size: small;

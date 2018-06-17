@@ -1,6 +1,6 @@
 {
   "name": "csgo-buynds",
-  "version": "1.0.0-dev",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/jessewebb/csgo-buynds.git"
