@@ -18,12 +18,12 @@ buyndsApp.config(['$locationProvider', '$routeProvider', function ($locationProv
 
     $routeProvider.when('/', {
         controller: 'MultiKeyGenCtrl',
-        templateUrl: 'partials/multi-key-generator.phtml',
+        templateUrl: 'partials/multi-key-generator.html',
         title: 'Multi-Key Generator'
     });
     $routeProvider.when('/skg', {
         controller: 'SingleKeyGenCtrl',
-        templateUrl: 'partials/single-key-generator.phtml',
+        templateUrl: 'partials/single-key-generator.html',
         title: 'Single Key Generator'
     });
     $routeProvider.otherwise('/');

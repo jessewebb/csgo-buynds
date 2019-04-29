@@ -286,7 +286,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
 
     $scope.openKeyBindOptionsModal = function (keyBind) {
         var modalInstance = $uibModal.open({
-            templateUrl: 'partials/mkg-key-bind-options.phtml',
+            templateUrl: 'partials/mkg-key-bind-options.html',
             controller: 'MultiKeyGenKeyBindOptionsCtrl',
             resolve: {
                 bindOptions: function () {
@@ -343,7 +343,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
 
     $scope.openLoadBindsModal = function () {
         var modalInstance = $uibModal.open({
-            templateUrl: 'partials/mkg-load-binds.phtml',
+            templateUrl: 'partials/mkg-load-binds.html',
             controller: 'MultiKeyGenLoadBindsCtrl'
         });
 
@@ -393,7 +393,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
             }
         };
         var modalInstance = $uibModal.open({
-            templateUrl: 'partials/mkg-save-binds.phtml',
+            templateUrl: 'partials/mkg-save-binds.html',
             controller: 'MultiKeyGenSaveBindsCtrl',
             resolve: args
         });
