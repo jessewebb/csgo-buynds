@@ -153,6 +153,11 @@ div.panel-heading a {
     bottom: 1px;
 }
 
+/* Google AdSense */
+.banner-ad {
+    margin-bottom: 20px;
+}
+
 /* Media Queries */
 @media (min-width: 992px) {
 
