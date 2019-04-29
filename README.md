@@ -1,6 +1,6 @@
 # csgo-buynds
 
-Copyright © 2014-2018 Jesse Webb
+Copyright © 2014-2019 Jesse Webb
 
 This code is available under [the MIT License](https://github.com/jessewebb/csgo-buynds/blob/gh-pages/LICENSE).
 
