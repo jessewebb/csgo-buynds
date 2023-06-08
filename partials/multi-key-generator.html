@@ -30,7 +30,7 @@
                                                 class="btn"
                                                 ng-disabled="key.disabled"
                                                 ng-class="{ 'btn-default': !hasKeyBindOptions(key.bind), 'btn-info': hasKeyBindOptions(key.bind) }"
-                                                ng-click="openKeyBindOptionsModal(key.bind)"
+                                                ng-click="openKeyBindOptionsModal(key)"
                                                 ng-bind-html="key.html"
                                                 uib-tooltip-template="'keyButtonTooltipTemplate'" data-tooltip-class="key-button-tooltip"
                                                 data-tooltip-placement="auto bottom" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500"></button>
@@ -54,7 +54,7 @@
                                                 class="btn"
                                                 ng-if="!key.spacer"
                                                 ng-class="{ 'btn-default': !hasKeyBindOptions(key.bind), 'btn-info': hasKeyBindOptions(key.bind) }"
-                                                ng-click="openKeyBindOptionsModal(key.bind)"
+                                                ng-click="openKeyBindOptionsModal(key)"
                                                 ng-bind-html="key.html"
                                                 uib-tooltip-template="'keyButtonTooltipTemplate'" data-tooltip-class="key-button-tooltip"
                                                 data-tooltip-placement="auto bottom" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500"></button>
@@ -67,7 +67,7 @@
                                                 class="btn"
                                                 ng-if="!key.spacer"
                                                 ng-class="{ 'btn-default': !hasKeyBindOptions(key.bind), 'btn-info': hasKeyBindOptions(key.bind) }"
-                                                ng-click="openKeyBindOptionsModal(key.bind)"
+                                                ng-click="openKeyBindOptionsModal(key)"
                                                 ng-bind-html="key.html"
                                                 uib-tooltip-template="'keyButtonTooltipTemplate'" data-tooltip-class="key-button-tooltip"
                                                 data-tooltip-placement="auto bottom" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500"></button>
@@ -90,7 +90,7 @@
                                         <button type="button"
                                                 class="btn"
                                                 ng-class="{ 'btn-default': !hasKeyBindOptions(key.bind), 'btn-info': hasKeyBindOptions(key.bind) }"
-                                                ng-click="openKeyBindOptionsModal(key.bind)"
+                                                ng-click="openKeyBindOptionsModal(key)"
                                                 ng-bind-html="key.html"
                                                 uib-tooltip-template="'keyButtonTooltipTemplate'" data-tooltip-class="key-button-tooltip"
                                                 data-tooltip-placement="auto bottom" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500"></button>
@@ -114,7 +114,7 @@
                                                 class="btn"
                                                 ng-if="!key.spacer"
                                                 ng-class="{ 'btn-default': !hasKeyBindOptions(key.bind), 'btn-info': hasKeyBindOptions(key.bind) }"
-                                                ng-click="openKeyBindOptionsModal(key.bind)"
+                                                ng-click="openKeyBindOptionsModal(key)"
                                                 ng-bind-html="key.html"
                                                 uib-tooltip-template="'keyButtonTooltipTemplate'" data-tooltip-class="key-button-tooltip"
                                                 data-tooltip-placement="auto bottom" data-tooltip-trigger="'mouseenter'" data-tooltip-popup-delay="500"></button>
@@ -126,6 +126,11 @@
                     <hr />
                     <div class="form-group">
                         <div class="col-lg-offset-4 col-lg-8 col-sm-offset-3 col-sm-9">
+                            <label for="mgGameSelect">Game:</label>
+                            <select name="mgGameSelect" id="mkgGameSelect" ng-init ="game = 'csgo'" ng-model="game">
+                                <option value="csgo">CS:GO</option>
+                                <option value="cs2">CS2</option>
+                            </select>
                             <input id="mkgSubmitBtn" name="mkgSubmitBtn" type="submit" class="btn btn-primary" ng-click="generateBinds()" value="Generate Binds" ng-disabled="!hasAnyBindOptions() || autoGenerateBinds" />
                             <input id="mkgResetBtn" name="mkgResetBtn" type="reset" class="btn btn-default" ng-click="resetBinds()" value="Reset" />
                         </div>

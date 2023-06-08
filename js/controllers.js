@@ -284,7 +284,8 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
         $window.ga('send', 'event', 'bind builder', 'build', 'key bind', numBindsGenerated, { page: $route.current.page });
     };
 
-    $scope.openKeyBindOptionsModal = function (keyBind) {
+    $scope.openKeyBindOptionsModal = function (key) {
+        var keyBind = $scope.game == 'csgo' ? key.bind : key.cs2bind;
         var modalInstance = $uibModal.open({
             templateUrl: 'partials/mkg-key-bind-options.html',
             controller: 'MultiKeyGenKeyBindOptionsCtrl',
