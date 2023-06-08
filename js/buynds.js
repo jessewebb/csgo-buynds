@@ -27,6 +27,7 @@
         var self = this;
 
         self.keyToBind = '';
+        self.keyCodeToBind = 0;
         self.primaryWeapons = [];
         self.secondaryWeapons = [];
         self.gear = [];
@@ -35,6 +36,7 @@
         self.clone = function() {
             var clone = new buynds.BindOptions();
             clone.keyToBind = self.keyToBind;
+            clone.keyCodeToBind = self.keyCodeToBind;
             clone.primaryWeapons = self.primaryWeapons.slice();
             clone.secondaryWeapons = self.secondaryWeapons.slice();
             clone.gear = self.gear.slice();
@@ -430,5 +432,4 @@
             return itemImages;
         };
     };
-
 }(window.buynds = window.buynds || {}));

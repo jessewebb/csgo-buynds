@@ -86,6 +86,7 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
             $window.alert('Unrecognized Key! (keyCode = ' + keyCode + ')');
         } else {
             $scope.bindOptions.keyToBind = bindableKey.bind;
+            $scope.bindOptions.keyCodeToBind = keyCode;
         }
     };
 
@@ -195,8 +196,8 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
         return !jQuery.isEmptyObject($scope.bindOptionsMap);
     };
 
-    $scope.hasKeyBindOptions = function (keyBind) {
-        return keyBind in $scope.bindOptionsMap;
+    $scope.hasKeyBindOptions = function (keyCode) {
+        return keyCode in $scope.bindOptionsMap;
     };
 
     var getKeyGroupKeysByName = function (keyGroupName) {
@@ -229,7 +230,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
         var keys = getKeyGroupKeysByName(keyGroupName);
         for (var i = 0; i < keys.length; i++) {
             var key = keys[i];
-            if (key.bind in $scope.bindOptionsMap) {
+            if (key.code in $scope.bindOptionsMap) {
                 return true;
             }
         }
@@ -258,8 +259,8 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
 
     $scope.getBindOptionsItemImagesForKey = function(key) {
         if (!itemImageService) return [];
-        if (!(key.bind in $scope.bindOptionsMap)) return [];
-        var bindOptions = $scope.bindOptionsMap[key.bind];
+        if (!(key.code in $scope.bindOptionsMap)) return [];
+        var bindOptions = $scope.bindOptionsMap[key.code];
         return itemImageService.getItemImages(bindOptions, itemImageService.IMG_TYPE_WHITE_ICON);
     };
 
@@ -273,9 +274,9 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
     var generateBinds = function () {
         var numBindsGenerated = 0;
         $scope.buyBinds = [];
-        for (var keyBind in $scope.bindOptionsMap) {
-            if ($scope.bindOptionsMap.hasOwnProperty(keyBind)) {
-                var bindOptions = $scope.bindOptionsMap[keyBind];
+        for (var keyCode in $scope.bindOptionsMap) {
+            if ($scope.bindOptionsMap.hasOwnProperty(keyCode)) {
+                var bindOptions = $scope.bindOptionsMap[keyCode];
                 var buyBind = bindBuilder.build(bindOptions);
                 $scope.buyBinds.push(buyBind);
                 numBindsGenerated++;
@@ -292,11 +293,12 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
             resolve: {
                 bindOptions: function () {
                     var bindOptions;
-                    if (keyBind in $scope.bindOptionsMap) {
-                        bindOptions = $scope.bindOptionsMap[keyBind].clone();
+                    if (key.code in $scope.bindOptionsMap) {
+                        bindOptions = $scope.bindOptionsMap[key.code].clone();
                     } else {
                         bindOptions = new buynds.BindOptions();
                         bindOptions.keyToBind = keyBind;
+                        bindOptions.keyCodeToBind = key.code;
                     }
                     return bindOptions;
                 }
@@ -306,7 +308,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
         modalInstance.result.then(function (result) {
             // Success
             if (result instanceof buynds.BindOptions) {
-                $scope.bindOptionsMap[result.keyToBind] = result.clone();
+                $scope.bindOptionsMap[result.keyCodeToBind] = result.clone();
             } else if (result.hasOwnProperty('clear')) {
                 delete $scope.bindOptionsMap[result.clear]
             }
@@ -365,7 +367,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
                 var bindStrings = bindRecord.bindString.split('\n');
                 for (var i = 0; i < bindStrings.length; i++) {
                     var bindOptions = bindLoader.load(bindStrings[i]);
-                    $scope.bindOptionsMap[bindOptions.keyToBind] = bindOptions;
+                    $scope.bindOptionsMap[bindOptions.keyCodeToBind] = bindOptions;
                     numBindsLoaded++;
                 }
                 $scope.buyBinds = bindStrings;
@@ -538,7 +540,7 @@ buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$uibMo
     };
 
     $scope.clear = function () {
-        $uibModalInstance.close({ 'clear': $scope.bindOptions.keyToBind });
+        $uibModalInstance.close({ 'clear': $scope.bindOptions.keyCodeToBind});
     };
 }]);
 
