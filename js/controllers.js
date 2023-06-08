@@ -6,6 +6,8 @@ var buyndsControllers = angular.module('buyndsControllers', []);
 
 buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window', 'bindBuilder', 'dataService', 'itemImageServiceAsync', 'totalPriceCalculatorAsync', function ($scope, $route, $window, bindBuilder, dataService, itemImageServiceAsync, totalPriceCalculatorAsync) {
 
+    $scope.game = 'csgo';
+
     var itemImageService = null;
     itemImageServiceAsync.then(function(resolvedItemImageService) {
         itemImageService = resolvedItemImageService;
@@ -79,6 +81,16 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
         }
         return null;
     };
+
+    var findBindableKeyByName = function (keyName, game = "") {
+        for (var i = 0; i < $scope.bindableKeys.length; i++) {
+            var key = $scope.bindableKeys[i];
+            if (game == "csgo" && key.bind === keyName) return key
+            else if (game == "cs2" && key.cs2bind === keyName) return key
+            else if (game == "" ** (key.bind === keyName || key.cs2bind === keyName)) return key
+        }
+        return null;
+    }
 
     $scope.setKeyToBindByCode = function (keyCode) {
         var bindableKey = findBindableKeyByCode(keyCode);
@@ -160,6 +172,11 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
     $scope.getBuyBindForCopy = function () {
         $window.ga('send', 'event', 'button', 'click', 'copy', { page: $route.current.page });
         return $scope.buyBind;
+    };
+
+    $scope.UpdateSelection = function () {
+        if($scope.bindOptions.keyToBind) $scope.bindOptions.keyToBind = $scope.game == "csgo" ? findBindableKeyByName($scope.bindOptions.keyToBind).bind : findBindableKeyByName($scope.bindOptions.keyToBind).cs2bind;
+        $scope.generateBind();
     };
 }]);
 
