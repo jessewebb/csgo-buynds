@@ -79,7 +79,6 @@ buyndsServices.factory('dataService', ['$http', 'version', function ($http, vers
     var gearDataPromise;
     var grenadesDataPromise;
     var itemImagesDataPromise;
-    var correspondingKeysPromise;
 
     var versionUrlParam = 'v=' + version;
 
@@ -152,16 +151,6 @@ buyndsServices.factory('dataService', ['$http', 'version', function ($http, vers
                 });
             }
             return itemImagesDataPromise;
-        },
-
-        getCorrespondingKeysAsync: function() {
-            if(!correspondingKeysPromise) {
-                var url = 'data/corresponding-keys.json?' + versionUrlParam;
-                correspondingKeysPromise = $http.get(url).then(function (response) {
-                    return response.data;
-                });
-            }
-            return correspondingKeysPromise;
         }
     };
 }]);
