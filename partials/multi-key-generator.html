@@ -127,7 +127,7 @@
                     <div class="form-group">
                         <div class="col-lg-offset-4 col-lg-8 col-sm-offset-3 col-sm-9">
                             <label for="mgGameSelect">Game:</label>
-                            <select name="mgGameSelect" id="mkgGameSelect" ng-init ="game = 'csgo'" ng-model="game">
+                            <select name="mkgGameSelect" id="mkgGameSelect" ng-init ="game = 'csgo'" ng-model="game" ng-change="UpdateGame()">
                                 <option value="csgo">CS:GO</option>
                                 <option value="cs2">CS2</option>
                             </select>

@@ -429,6 +429,25 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
     $scope.getBuyBindsForSave = function () {
         return getBuyBindsWithNewlines();
     };
+
+    $scope.UpdateGame = function() {
+        for(var keyCode in $scope.bindOptionsMap) {
+            var key = findBindableKeyByCode(keyCode)
+            $scope.bindOptionsMap[keyCode].keyToBind = $scope.game == "csgo" ? key.bind : key.cs2bind;
+        }
+        if($scope.autoGenerateBinds) $scope.generateBinds();
+    };
+
+    var findBindableKeyByCode = function (keyCode) {
+        for(var keyGroup of $scope.bindableKeys.keyGroups) {
+            for(var key of keyGroup.keys) {
+                if(key.code == keyCode) {
+                    return key;
+                }
+            }
+        }
+        return null;
+    };
 }]);
 
 buyndsControllers.controller('MultiKeyGenKeyBindOptionsCtrl', ['$scope', '$uibModalInstance', 'bindOptions', 'dataService', 'itemImageServiceAsync', 'totalPriceCalculatorAsync', function ($scope, $uibModalInstance, bindOptions, dataService, itemImageServiceAsync, totalPriceCalculatorAsync) {
