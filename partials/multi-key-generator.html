@@ -185,7 +185,7 @@
 
 <script type="text/ng-template" id="keyButtonTooltipTemplate">
     <div>
-        <div>{{key.bind}}</div>
+        <div>{{game == 'csgo' ? key.bind : key.cs2bind}}</div>
         <span ng-repeat="img in getBindOptionsItemImagesForKey(key) track by $index" class="item-icon"
              ng-style="{ 'width': img.width,
                          'height': img.height,
