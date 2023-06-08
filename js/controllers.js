@@ -167,6 +167,7 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
         $scope.bindOptions = new buynds.BindOptions();
         $scope.buyBind = '';
         $scope.submitted = false;
+        $scope.game = "csgo";
     };
 
     $scope.getBuyBindForCopy = function () {
@@ -352,6 +353,7 @@ buyndsControllers.controller('MultiKeyGenCtrl', ['$scope', '$uibModal', '$route'
         $scope.showMouseButtons = false;
         $scope.loadedBindsId = null;
         $scope.loadedBindsName = null;
+        $scope.game = 'csgo';
     };
 
     $scope.toggleAutoGenerateBinds = function () {
