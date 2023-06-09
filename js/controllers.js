@@ -177,7 +177,6 @@ buyndsControllers.controller('SingleKeyGenCtrl', ['$scope', '$route', '$window',
 
     $scope.UpdateSelection = function () {
         if($scope.bindOptions.keyToBind) $scope.bindOptions.keyToBind = $scope.game == "csgo" ? findBindableKeyByName($scope.bindOptions.keyToBind).bind : findBindableKeyByName($scope.bindOptions.keyToBind).cs2bind;
-        $scope.generateBind();
     };
 }]);
 
