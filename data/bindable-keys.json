@@ -95,7 +95,7 @@
         {
           "name": "/ (Slash)",
           "bind": "kp_slash",
-					"cs2bind": "kp_slash",
+					"cs2bind": "kp_divide",
           "code": 111,
           "html": "/",
           "order": 2
