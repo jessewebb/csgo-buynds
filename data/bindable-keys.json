@@ -6,6 +6,7 @@
         {
           "name": "1 / End",
           "bind": "kp_end",
+          "cs2bind": "kp_1",
           "code": 97,
           "html": "1<br/><span class=\"key-alt-fn\">End</span>",
           "order": 12
@@ -13,6 +14,7 @@
         {
           "name": "2 / Down Arrow",
           "bind": "kp_downarrow",
+          "cs2bind": "kp_2",
           "code": 98,
           "html": "2<br/><span class=\"key-alt-fn arrow\">↓</span>",
           "order": 13
@@ -20,6 +22,7 @@
         {
           "name": "3 / Page Down",
           "bind": "kp_pgdn",
+          "cs2bind": "kp_3",
           "code": 99,
           "html": "3<br/><span class=\"key-alt-fn\">Pg Dn</span>",
           "order": 14
@@ -27,6 +30,7 @@
         {
           "name": "4 / Left Arrow",
           "bind": "kp_leftarrow",
+          "cs2bind": "kp_4",
           "code": 100,
           "html": "4<br/><span class=\"key-alt-fn arrow\">←</span>",
           "order": 9
@@ -34,6 +38,7 @@
         {
           "name": "5",
           "bind": "kp_5",
+          "cs2bind": "kp_5",
           "code": 101,
           "html": "5",
           "order": 10
@@ -41,6 +46,7 @@
         {
           "name": "6 / Right Arrow",
           "bind": "kp_rightarrow",
+          "cs2bind": "kp_6",
           "code": 102,
           "html": "6<br/><span class=\"key-alt-fn arrow\">→</span>",
           "order": 11
@@ -48,6 +54,7 @@
         {
           "name": "7 / Home",
           "bind": "kp_home",
+          "cs2bind": "kp_7",
           "code": 103,
           "html": "7<br/><span class=\"key-alt-fn\">Home</span>",
           "order": 5
@@ -55,6 +62,7 @@
         {
           "name": "8 / Up Arrow",
           "bind": "kp_uparrow",
+          "cs2bind": "kp_8",
           "code": 104,
           "html": "8<br/><span class=\"key-alt-fn arrow\">↑</span>",
           "order": 6
@@ -62,6 +70,7 @@
         {
           "name": "9 / Page Up",
           "bind": "kp_pgup",
+          "cs2bind": "kp_9",
           "code": 105,
           "html": "9<br/><span class=\"key-alt-fn\">Pg Up</span>",
           "order": 7
@@ -69,6 +78,7 @@
         {
           "name": "0 / Insert",
           "bind": "kp_ins",
+          "cs2bind": "kp_0",
           "code": 96,
           "html": "0<br/><span class=\"key-alt-fn\">Insert</span>",
           "css": "wide-key",
@@ -77,6 +87,7 @@
         {
           "name": ". / Delete",
           "bind": "kp_del",
+					"cs2bind": "kp_del",
           "code": 110,
           "html": ".<br/><span class=\"key-alt-fn\">Delete</span>",
           "order": 17
@@ -84,6 +95,7 @@
         {
           "name": "/ (Slash)",
           "bind": "kp_slash",
+					"cs2bind": "kp_divide",
           "code": 111,
           "html": "/",
           "order": 2
@@ -91,6 +103,7 @@
         {
           "name": "* (Multiply)",
           "bind": "kp_multiply",
+					"cs2bind": "kp_multiply",
           "code": 106,
           "html": "*",
           "order": 3
@@ -98,6 +111,7 @@
         {
           "name": "- (Minus)",
           "bind": "kp_minus",
+					"cs2bind": "kp_minus",
           "code": 109,
           "html": "-",
           "order": 4
@@ -105,6 +119,7 @@
         {
           "name": "+ (Plus)",
           "bind": "kp_plus",
+					"cs2bind": "kp_plus",
           "code": 107,
           "html": "+",
           "css": "tall-key",
@@ -113,6 +128,7 @@
         {
           "name": "Enter",
           "bind": "kp_enter",
+					"cs2bind": "kp_enter",
           "code": null,
           "html": "Enter",
           "css": "tall-key",
@@ -121,6 +137,7 @@
         {
           "name": "Num Lock",
           "bind": null,
+					"cs2bind": null,
           "code": null,
           "html": "Num<br/>Lock",
           "disabled": true,
@@ -134,6 +151,7 @@
         {
           "name": "Insert",
           "bind": "ins",
+					"cs2bind": "ins",
           "code": 45,
           "html": "Insert",
           "order": 1
@@ -141,6 +159,7 @@
         {
           "name": "Delete",
           "bind": "del",
+					"cs2bind": "del",
           "code": 46,
           "html": "Delete",
           "order": 5
@@ -148,6 +167,7 @@
         {
           "name": "Home",
           "bind": "home",
+					"cs2bind": "home",
           "code": 36,
           "html": "Home",
           "order": 2
@@ -155,6 +175,7 @@
         {
           "name": "End",
           "bind": "end",
+					"cs2bind": "end",
           "code": 35,
           "html": "End",
           "order": 6
@@ -162,6 +183,7 @@
         {
           "name": "Page Up",
           "bind": "pgup",
+					"cs2bind": "pgup",
           "code": 33,
           "html": "Page<br/>Up",
           "order": 3
@@ -169,6 +191,7 @@
         {
           "name": "Page Down",
           "bind": "pgdn",
+					"cs2bind": "pgdn",
           "code": 34,
           "html": "Page<br/>Down",
           "order": 7
@@ -176,6 +199,7 @@
         {
           "name": "Up Arrow",
           "bind": "uparrow",
+					"cs2bind": "uparrow",
           "code": 38,
           "html": "<span class=\"glyphicon glyphicon-arrow-up\"></span>",
           "order": 10
@@ -183,6 +207,7 @@
         {
           "name": "Left Arrow",
           "bind": "leftarrow",
+					"cs2bind": "leftarrow",
           "code": 37,
           "html": "<span class=\"glyphicon glyphicon-arrow-left\"></span>",
           "order": 13
@@ -190,6 +215,7 @@
         {
           "name": "Down Arrow",
           "bind": "downarrow",
+					"cs2bind": "downarrow",
           "code": 40,
           "html": "<span class=\"glyphicon glyphicon-arrow-down\"></span>",
           "order": 14
@@ -197,6 +223,7 @@
         {
           "name": "Right Arrow",
           "bind": "rightarrow",
+					"cs2bind": "rightarrow",
           "code": 39,
           "html": "<span class=\"glyphicon glyphicon-arrow-right\"></span>",
           "order": 15
@@ -233,6 +260,7 @@
         {
           "name": "F1",
           "bind": "f1",
+					"cs2bind": "f1",
           "code": 112,
           "html": "F1",
           "order": 1
@@ -240,6 +268,7 @@
         {
           "name": "F2",
           "bind": "f2",
+					"cs2bind": "f2",
           "code": 113,
           "html": "F2",
           "order": 2
@@ -247,6 +276,7 @@
         {
           "name": "F3",
           "bind": "f3",
+					"cs2bind": "f3",
           "code": 114,
           "html": "F3",
           "order": 3
@@ -254,6 +284,7 @@
         {
           "name": "F4",
           "bind": "f4",
+					"cs2bind": "f4",
           "code": 115,
           "html": "F4",
           "order": 4
@@ -261,6 +292,7 @@
         {
           "name": "F5",
           "bind": "f5",
+					"cs2bind": "f5",
           "code": 116,
           "html": "F5",
           "order": 5
@@ -268,6 +300,7 @@
         {
           "name": "F6",
           "bind": "f6",
+					"cs2bind": "f6",
           "code": 117,
           "html": "F6",
           "order": 6
@@ -275,6 +308,7 @@
         {
           "name": "F7",
           "bind": "f7",
+					"cs2bind": "f7",
           "code": 118,
           "html": "F7",
           "order": 7
@@ -282,6 +316,7 @@
         {
           "name": "F8",
           "bind": "f8",
+					"cs2bind": "f8",
           "code": 119,
           "html": "F8",
           "order": 8
@@ -289,6 +324,7 @@
         {
           "name": "F9",
           "bind": "f9",
+					"cs2bind": "f9",
           "code": 120,
           "html": "F9",
           "order": 9
@@ -296,6 +332,7 @@
         {
           "name": "F10",
           "bind": "f10",
+					"cs2bind": "f10",
           "code": 121,
           "html": "F10",
           "order": 10
@@ -303,6 +340,7 @@
         {
           "name": "F11",
           "bind": "f11",
+					"cs2bind": "f11",
           "code": 122,
           "html": "F11",
           "order": 11
@@ -310,6 +348,7 @@
         {
           "name": "F12",
           "bind": "f12",
+					"cs2bind": "f12",
           "code": 123,
           "html": "F12",
           "order": 12
@@ -322,286 +361,343 @@
         {
           "name": "1 / ! (Exclamation Mark)",
           "bind": "1",
+					"cs2bind": "1",
           "code": 49
         },
         {
           "name": "2 / @ (At Sign)",
           "bind": "2",
+					"cs2bind": "2",
           "code": 50
         },
         {
           "name": "3 / # (Number Sign)",
           "bind": "3",
+					"cs2bind": "3",
           "code": 51
         },
         {
           "name": "4 / $ (Dollar Sign)",
           "bind": "4",
+					"cs2bind": "4",
           "code": 52
         },
         {
           "name": "5 / % (Percent Sign)",
           "bind": "5",
+					"cs2bind": "5",
           "code": 53
         },
         {
           "name": "6 / ^ (Caret)",
           "bind": "6",
+					"cs2bind": "6",
           "code": 54
         },
         {
           "name": "7 / & (Ampersand)",
           "bind": "7",
+					"cs2bind": "7",
           "code": 55
         },
         {
           "name": "8 / * (Asterisk)",
           "bind": "8",
+					"cs2bind": "8",
           "code": 56
         },
         {
           "name": "9 / ( (Parenthesis Left)",
           "bind": "9",
+					"cs2bind": "9",
           "code": 57
         },
         {
           "name": "0 / ) (Parenthesis Right)",
           "bind": "0",
+					"cs2bind": "0",
           "code": 48
         },
         {
           "name": "A",
           "bind": "a",
+					"cs2bind": "a",
           "code": 65
         },
         {
           "name": "B",
           "bind": "b",
+					"cs2bind": "b",
           "code": 66
         },
         {
           "name": "C",
           "bind": "c",
+					"cs2bind": "c",
           "code": 67
         },
         {
           "name": "D",
           "bind": "d",
+					"cs2bind": "d",
           "code": 68
         },
         {
           "name": "E",
           "bind": "e",
+					"cs2bind": "e",
           "code": 69
         },
         {
           "name": "F",
           "bind": "f",
+					"cs2bind": "f",
           "code": 70
         },
         {
           "name": "G",
           "bind": "g",
+					"cs2bind": "g",
           "code": 71
         },
         {
           "name": "H",
           "bind": "h",
+					"cs2bind": "h",
           "code": 72
         },
         {
           "name": "I",
           "bind": "i",
+					"cs2bind": "i",
           "code": 73
         },
         {
           "name": "J",
           "bind": "j",
+					"cs2bind": "j",
           "code": 74
         },
         {
           "name": "K",
           "bind": "k",
+					"cs2bind": "k",
           "code": 75
         },
         {
           "name": "L",
           "bind": "l",
+					"cs2bind": "l",
           "code": 76
         },
         {
           "name": "M",
           "bind": "m",
+					"cs2bind": "m",
           "code": 77
         },
         {
           "name": "N",
           "bind": "n",
+					"cs2bind": "n",
           "code": 78
         },
         {
           "name": "O",
           "bind": "o",
+					"cs2bind": "o",
           "code": 79
         },
         {
           "name": "P",
           "bind": "p",
+					"cs2bind": "p",
           "code": 80
         },
         {
           "name": "Q",
           "bind": "q",
+					"cs2bind": "q",
           "code": 81
         },
         {
           "name": "R",
           "bind": "r",
+					"cs2bind": "r",
           "code": 82
         },
         {
           "name": "S",
           "bind": "s",
+					"cs2bind": "s",
           "code": 83
         },
         {
           "name": "T",
           "bind": "t",
+					"cs2bind": "t",
           "code": 84
         },
         {
           "name": "U",
           "bind": "u",
+					"cs2bind": "u",
           "code": 85
         },
         {
           "name": "V",
           "bind": "v",
+					"cs2bind": "v",
           "code": 86
         },
         {
           "name": "W",
           "bind": "w",
+					"cs2bind": "w",
           "code": 87
         },
         {
           "name": "X",
           "bind": "x",
+					"cs2bind": "x",
           "code": 88
         },
         {
           "name": "Y",
           "bind": "y",
+					"cs2bind": "y",
           "code": 89
         },
         {
           "name": "Z",
           "bind": "z",
+					"cs2bind": "z",
           "code": 90
         },
         {
           "name": "Space Bar",
           "bind": "space",
+					"cs2bind": "space",
           "code": 32
         },
         {
           "name": "- (Hyphen) / _ (Underscore)",
           "bind": "-",
+					"cs2bind": "-",
           "code": 173
         },
         {
           "name": "= (Equals Sign) / + (Plus Sign)",
           "bind": "=",
+					"cs2bind": "=",
           "code": 61
         },
         {
           "name": "[ (Bracket Left) / { (Brace Left)",
           "bind": "[",
+					"cs2bind": "[",
           "code": 219
         },
         {
           "name": "] (Bracket Right) / } (Brace Right)",
           "bind": "]",
+					"cs2bind": "]",
           "code": 221
         },
         {
           "name": "\\ (Backslash) / | (Pipe)",
           "bind": "\\",
+					"cs2bind": "\\",
           "code": 220
         },
         {
           "name": "; (Semicolon) / : (Colon)",
           "bind": "semicolon",
+					"cs2bind": "semicolon",
           "code": 59
         },
         {
           "name": "' (Apostraphe) / \" (Quotation Marks)",
           "bind": "'",
+					"cs2bind": "'",
           "code": 222
         },
         {
           "name": ", (Comma) / < (Pointy Bracket Left)",
           "bind": ",",
+					"cs2bind": ",",
           "code": 188
         },
         {
           "name": ". (Period) / > (Pointy Bracket Right)",
           "bind": ".",
+					"cs2bind": ".",
           "code": 190
         },
         {
           "name": "/ (Slash) / ? (Question Mark)",
           "bind": "/",
+					"cs2bind": "/",
           "code": 191
         },
         {
           "name": "Backspace",
           "bind": "backspace",
+					"cs2bind": "backspace",
           "code": 8
         },
         {
           "name": "Tab",
           "bind": "tab",
+					"cs2bind": "tab",
           "code": 9
         },
         {
           "name": "Enter",
           "bind": "enter",
+					"cs2bind": "enter",
           "code": 13
         },
         {
           "name": "Caps Lock",
           "bind": "capslock",
+					"cs2bind": "capslock",
           "code": 20
         },
         {
           "name": "Shift Left",
           "bind": "shift",
+					"cs2bind": "shift",
           "code": 16
         },
         {
           "name": "Shift Right",
           "bind": "rshift",
+					"cs2bind": "rshift",
           "code": null
         },
         {
           "name": "Control Left",
           "bind": "ctrl",
+					"cs2bind": "ctrl",
           "code": 17
         },
         {
           "name": "Control Right",
           "bind": "rctrl",
+					"cs2bind": "rctrl",
           "code": null
         },
         {
           "name": "Alt Left",
           "bind": "alt",
+					"cs2bind": "alt",
           "code": 18
         },
         {
           "name": "Alt Right",
           "bind": "ralt",
+					"cs2bind": "ralt",
           "code": null
         }
       ]
@@ -612,6 +708,7 @@
         {
           "name": "Left Mouse",
           "bind": "mouse1",
+					"cs2bind": "mouse1",
           "code": 223,
           "html": "Left<br/>Click",
           "css": "main-mouse-button",
@@ -620,6 +717,7 @@
         {
           "name": "Right Mouse",
           "bind": "mouse2",
+					"cs2bind": "mouse2",
           "code": 224,
           "html": "Right<br/>Click",
           "css": "main-mouse-button",
@@ -628,6 +726,7 @@
         {
           "name": "Middle Mouse",
           "bind": "mouse3",
+					"cs2bind": "mouse3",
           "code": 225,
           "html": "Middle<br/>Click",
           "order": 6
@@ -635,6 +734,7 @@
         {
           "name": "Side Mouse 1",
           "bind": "mouse4",
+					"cs2bind": "mouse4",
           "code": 226,
           "html": "Side 1",
           "order": 7
@@ -642,6 +742,7 @@
         {
           "name": "Side Mouse 2",
           "bind": "mouse5",
+					"cs2bind": "mouse5",
           "code": 227,
           "html": "Side 2",
           "order": 5
@@ -649,6 +750,7 @@
         {
           "name": "Mouse Wheel Down",
           "bind": "mwheeldown",
+					"cs2bind": "mwheeldown",
           "code": 228,
           "html": "Scroll<br/>Down",
           "order": 9
@@ -656,6 +758,7 @@
         {
           "name": "Mouse Wheel Up",
           "bind": "mwheelup",
+					"cs2bind": "mwheelup",
           "code": 229,
           "html": "Scroll<br/>Up",
           "order": 3

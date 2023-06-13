@@ -13,9 +13,9 @@
                             <div class="col-sm-6">
                                 <ui-select id="skgKeySelect" name="skgKeySelect" theme="bootstrap" ng-model="bindOptions.keyToBind" ng-required="true">
                                     <ui-select-match placeholder="Select a key to bind …">{{$select.selected.name}}</ui-select-match>
-                                    <ui-select-choices repeat="key.bind as key in (bindableKeys | filter: $select.search) track by key.bind"
+                                    <ui-select-choices repeat="(game == 'csgo' ? key.bind : key.cs2bind) as key in (bindableKeys | filter: $select.search) track by key.bind"
                                                        group-by="'keyGroup'">
-                                        <pre ng-bind-html="key.bind | highlight: $select.search" class="small label label-default pull-right"></pre>
+                                        <pre ng-bind-html="(game == 'csgo' ? key.bind : key.cs2bind) | highlight: $select.search" class="small label label-default pull-right"></pre>
                                         <div ng-bind-html="key.name | highlight: $select.search"></div>
                                     </ui-select-choices>
                                 </ui-select>
@@ -153,6 +153,11 @@
                     <hr />
                     <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-6">
+                            <label for="mgGameSelect">Game:</label>
+                            <select name="skgGameSelect" id="skgGameSelect" ng-init ="game = 'csgo'" ng-model="game" ng-change="UpdateSelection()">
+                                <option value="csgo">CS:GO</option>
+                                <option value="cs2">CS2</option>
+                            </select>
                             <input id="skgSubmitBtn" name="skgSubmitBtn" type="submit" class="btn"
                                    ng-class="{ 'btn-primary': !(submitted && skgForm.$invalid), 'btn-danger': submitted && skgForm.$invalid }"
                                    ng-disabled="submitted && skgForm.$invalid"
